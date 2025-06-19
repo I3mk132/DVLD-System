@@ -65,6 +65,7 @@ namespace Presentation_Layer.UserControls
             }
             _OldEmail = txtEmail.Text;
             _OldNationalNo = txtNationalNo.Text;
+
         }
 
         private void _setErrors()
