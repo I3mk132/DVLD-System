@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{40F8C4A4-0016-4196-AC9B-487992588225}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Presentation_Layer</RootNamespace>
+    <AssemblyName>Presentation Layer</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomePage.Designer.cs">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PeopleForms\frmAddEditPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PeopleForms\frmAddEditPerson.Designer.cs">
+      <DependentUpon>frmAddEditPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PeopleForms\frmPeople.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PeopleForms\frmPeople.Designer.cs">
+      <DependentUpon>frmPeople.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PeopleForms\frmPersonDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PeopleForms\frmPersonDetails.Designer.cs">
+      <DependentUpon>frmPersonDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\ucAddEditPerson.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucAddEditPerson.Designer.cs">
+      <DependentUpon>ucAddEditPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucPersonDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucPersonDetails.Designer.cs">
+      <DependentUpon>ucPersonDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucPersonsList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucPersonsList.Designer.cs">
+      <DependentUpon>ucPersonsList.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="HomePage.resx">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PeopleForms\frmAddEditPerson.resx">
+      <DependentUpon>frmAddEditPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PeopleForms\frmPeople.resx">
+      <DependentUpon>frmPeople.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PeopleForms\frmPersonDetails.resx">
+      <DependentUpon>frmPersonDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UserControls\ucAddEditPerson.resx">
+      <DependentUpon>ucAddEditPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucPersonDetails.resx">
+      <DependentUpon>ucPersonDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucPersonsList.resx">
+      <DependentUpon>ucPersonsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business Layer\Business Layer.csproj">
+      <Project>{726c6723-7023-4019-a613-982abb058eaa}</Project>
+      <Name>Business Layer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\AddPerson.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Applications.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Account Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Drivers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\People.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\AddPerson16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\AddPerson32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Close32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\AnonymousMan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Save32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Person.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Tag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Male.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Female.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\AtSign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\HomeAddress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Phone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Country.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Clipboard32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\EditPerson32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\DeletePerson32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\SendMail32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\phone32.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
