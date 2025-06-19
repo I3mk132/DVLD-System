@@ -18,6 +18,8 @@ namespace Presentation_Layer.UserControls
         private ErrorProvider _FirstError, _SecondError,
             _ThirdError, _LastError, _NationalNoError,
             _EmailError, _AddressError, _PhoneError;
+
+
         private bool ErrorFlag = false;
         
         public ucAddEditPerson(int PersonID)
@@ -104,6 +106,10 @@ namespace Presentation_Layer.UserControls
                 else
                     errorProvider.SetError(textBox, "");
             }
+        }
+        private void llblSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // Here i will change the photo
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
