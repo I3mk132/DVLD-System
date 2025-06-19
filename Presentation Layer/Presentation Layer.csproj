@@ -215,5 +215,8 @@
   <ItemGroup>
     <None Include="Icons\phone32.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\AnonymousWoman.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

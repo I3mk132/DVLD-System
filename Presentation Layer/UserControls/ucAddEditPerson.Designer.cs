@@ -31,18 +31,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbFemale = new System.Windows.Forms.RadioButton();
             this.rbMale = new System.Windows.Forms.RadioButton();
-            this.pbCountry = new System.Windows.Forms.PictureBox();
-            this.pbPhone = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pbAddress = new System.Windows.Forms.PictureBox();
-            this.pbEmail = new System.Windows.Forms.PictureBox();
-            this.pbFemale = new System.Windows.Forms.PictureBox();
-            this.pbMale = new System.Windows.Forms.PictureBox();
-            this.pbNationalNo = new System.Windows.Forms.PictureBox();
-            this.pbName = new System.Windows.Forms.PictureBox();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.pbPerson = new System.Windows.Forms.PictureBox();
             this.cbCountry = new System.Windows.Forms.ComboBox();
             this.dtpDateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.txtAddress = new System.Windows.Forms.TextBox();
@@ -66,6 +54,18 @@
             this.lblGender = new System.Windows.Forms.Label();
             this.lblNationalNo = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
+            this.pbCountry = new System.Windows.Forms.PictureBox();
+            this.pbPhone = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbAddress = new System.Windows.Forms.PictureBox();
+            this.pbEmail = new System.Windows.Forms.PictureBox();
+            this.pbFemale = new System.Windows.Forms.PictureBox();
+            this.pbMale = new System.Windows.Forms.PictureBox();
+            this.pbNationalNo = new System.Windows.Forms.PictureBox();
+            this.pbName = new System.Windows.Forms.PictureBox();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.pbPerson = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCountry)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhone)).BeginInit();
@@ -132,8 +132,10 @@
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Size = new System.Drawing.Size(80, 24);
             this.rbFemale.TabIndex = 83;
+            this.rbFemale.Tag = "Female";
             this.rbFemale.Text = "Female";
             this.rbFemale.UseVisualStyleBackColor = true;
+            this.rbFemale.CheckedChanged += new System.EventHandler(this.rbGender_Chenged);
             // 
             // rbMale
             // 
@@ -145,134 +147,10 @@
             this.rbMale.Size = new System.Drawing.Size(61, 24);
             this.rbMale.TabIndex = 82;
             this.rbMale.TabStop = true;
+            this.rbMale.Tag = "Male";
             this.rbMale.Text = "Male";
             this.rbMale.UseVisualStyleBackColor = true;
-            // 
-            // pbCountry
-            // 
-            this.pbCountry.Image = global::Presentation_Layer.Properties.Resources.Country;
-            this.pbCountry.Location = new System.Drawing.Point(459, 145);
-            this.pbCountry.Name = "pbCountry";
-            this.pbCountry.Size = new System.Drawing.Size(25, 25);
-            this.pbCountry.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbCountry.TabIndex = 81;
-            this.pbCountry.TabStop = false;
-            // 
-            // pbPhone
-            // 
-            this.pbPhone.Image = global::Presentation_Layer.Properties.Resources.Phone;
-            this.pbPhone.Location = new System.Drawing.Point(459, 110);
-            this.pbPhone.Name = "pbPhone";
-            this.pbPhone.Size = new System.Drawing.Size(25, 25);
-            this.pbPhone.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbPhone.TabIndex = 80;
-            this.pbPhone.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Presentation_Layer.Properties.Resources.Calendar;
-            this.pictureBox1.Location = new System.Drawing.Point(459, 74);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 79;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pbAddress
-            // 
-            this.pbAddress.Image = global::Presentation_Layer.Properties.Resources.HomeAddress;
-            this.pbAddress.Location = new System.Drawing.Point(124, 179);
-            this.pbAddress.Name = "pbAddress";
-            this.pbAddress.Size = new System.Drawing.Size(25, 25);
-            this.pbAddress.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbAddress.TabIndex = 78;
-            this.pbAddress.TabStop = false;
-            // 
-            // pbEmail
-            // 
-            this.pbEmail.Image = global::Presentation_Layer.Properties.Resources.AtSign;
-            this.pbEmail.Location = new System.Drawing.Point(124, 144);
-            this.pbEmail.Name = "pbEmail";
-            this.pbEmail.Size = new System.Drawing.Size(25, 25);
-            this.pbEmail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbEmail.TabIndex = 77;
-            this.pbEmail.TabStop = false;
-            // 
-            // pbFemale
-            // 
-            this.pbFemale.Image = global::Presentation_Layer.Properties.Resources.Female;
-            this.pbFemale.Location = new System.Drawing.Point(219, 109);
-            this.pbFemale.Name = "pbFemale";
-            this.pbFemale.Size = new System.Drawing.Size(25, 25);
-            this.pbFemale.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbFemale.TabIndex = 76;
-            this.pbFemale.TabStop = false;
-            // 
-            // pbMale
-            // 
-            this.pbMale.Image = global::Presentation_Layer.Properties.Resources.Male;
-            this.pbMale.Location = new System.Drawing.Point(124, 109);
-            this.pbMale.Name = "pbMale";
-            this.pbMale.Size = new System.Drawing.Size(25, 25);
-            this.pbMale.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbMale.TabIndex = 75;
-            this.pbMale.TabStop = false;
-            // 
-            // pbNationalNo
-            // 
-            this.pbNationalNo.Image = global::Presentation_Layer.Properties.Resources.Tag;
-            this.pbNationalNo.Location = new System.Drawing.Point(124, 74);
-            this.pbNationalNo.Name = "pbNationalNo";
-            this.pbNationalNo.Size = new System.Drawing.Size(25, 25);
-            this.pbNationalNo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbNationalNo.TabIndex = 74;
-            this.pbNationalNo.TabStop = false;
-            // 
-            // pbName
-            // 
-            this.pbName.Image = global::Presentation_Layer.Properties.Resources.Person;
-            this.pbName.Location = new System.Drawing.Point(126, 40);
-            this.pbName.Name = "pbName";
-            this.pbName.Size = new System.Drawing.Size(25, 25);
-            this.pbName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbName.TabIndex = 73;
-            this.pbName.TabStop = false;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Image = global::Presentation_Layer.Properties.Resources.Close32;
-            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(369, 268);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(134, 40);
-            this.btnClose.TabIndex = 72;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Image = global::Presentation_Layer.Properties.Resources.Save32;
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(512, 268);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(134, 40);
-            this.btnSave.TabIndex = 71;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // pbPerson
-            // 
-            this.pbPerson.Image = global::Presentation_Layer.Properties.Resources.AnonymousMan;
-            this.pbPerson.Location = new System.Drawing.Point(653, 74);
-            this.pbPerson.Name = "pbPerson";
-            this.pbPerson.Size = new System.Drawing.Size(175, 175);
-            this.pbPerson.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbPerson.TabIndex = 70;
-            this.pbPerson.TabStop = false;
+            this.rbMale.CheckedChanged += new System.EventHandler(this.rbGender_Chenged);
             // 
             // cbCountry
             // 
@@ -505,6 +383,132 @@
             this.lblName.Size = new System.Drawing.Size(65, 20);
             this.lblName.TabIndex = 47;
             this.lblName.Text = "Name: ";
+            // 
+            // pbCountry
+            // 
+            this.pbCountry.Image = global::Presentation_Layer.Properties.Resources.Country;
+            this.pbCountry.Location = new System.Drawing.Point(459, 145);
+            this.pbCountry.Name = "pbCountry";
+            this.pbCountry.Size = new System.Drawing.Size(25, 25);
+            this.pbCountry.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbCountry.TabIndex = 81;
+            this.pbCountry.TabStop = false;
+            // 
+            // pbPhone
+            // 
+            this.pbPhone.Image = global::Presentation_Layer.Properties.Resources.Phone;
+            this.pbPhone.Location = new System.Drawing.Point(459, 110);
+            this.pbPhone.Name = "pbPhone";
+            this.pbPhone.Size = new System.Drawing.Size(25, 25);
+            this.pbPhone.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPhone.TabIndex = 80;
+            this.pbPhone.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Presentation_Layer.Properties.Resources.Calendar;
+            this.pictureBox1.Location = new System.Drawing.Point(459, 74);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 79;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pbAddress
+            // 
+            this.pbAddress.Image = global::Presentation_Layer.Properties.Resources.HomeAddress;
+            this.pbAddress.Location = new System.Drawing.Point(124, 179);
+            this.pbAddress.Name = "pbAddress";
+            this.pbAddress.Size = new System.Drawing.Size(25, 25);
+            this.pbAddress.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbAddress.TabIndex = 78;
+            this.pbAddress.TabStop = false;
+            // 
+            // pbEmail
+            // 
+            this.pbEmail.Image = global::Presentation_Layer.Properties.Resources.AtSign;
+            this.pbEmail.Location = new System.Drawing.Point(124, 144);
+            this.pbEmail.Name = "pbEmail";
+            this.pbEmail.Size = new System.Drawing.Size(25, 25);
+            this.pbEmail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbEmail.TabIndex = 77;
+            this.pbEmail.TabStop = false;
+            // 
+            // pbFemale
+            // 
+            this.pbFemale.Image = global::Presentation_Layer.Properties.Resources.Female;
+            this.pbFemale.Location = new System.Drawing.Point(219, 109);
+            this.pbFemale.Name = "pbFemale";
+            this.pbFemale.Size = new System.Drawing.Size(25, 25);
+            this.pbFemale.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbFemale.TabIndex = 76;
+            this.pbFemale.TabStop = false;
+            // 
+            // pbMale
+            // 
+            this.pbMale.Image = global::Presentation_Layer.Properties.Resources.Male;
+            this.pbMale.Location = new System.Drawing.Point(124, 109);
+            this.pbMale.Name = "pbMale";
+            this.pbMale.Size = new System.Drawing.Size(25, 25);
+            this.pbMale.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbMale.TabIndex = 75;
+            this.pbMale.TabStop = false;
+            // 
+            // pbNationalNo
+            // 
+            this.pbNationalNo.Image = global::Presentation_Layer.Properties.Resources.Tag;
+            this.pbNationalNo.Location = new System.Drawing.Point(124, 74);
+            this.pbNationalNo.Name = "pbNationalNo";
+            this.pbNationalNo.Size = new System.Drawing.Size(25, 25);
+            this.pbNationalNo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbNationalNo.TabIndex = 74;
+            this.pbNationalNo.TabStop = false;
+            // 
+            // pbName
+            // 
+            this.pbName.Image = global::Presentation_Layer.Properties.Resources.Person;
+            this.pbName.Location = new System.Drawing.Point(126, 40);
+            this.pbName.Name = "pbName";
+            this.pbName.Size = new System.Drawing.Size(25, 25);
+            this.pbName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbName.TabIndex = 73;
+            this.pbName.TabStop = false;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Image = global::Presentation_Layer.Properties.Resources.Close32;
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.Location = new System.Drawing.Point(369, 268);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(134, 40);
+            this.btnClose.TabIndex = 72;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Image = global::Presentation_Layer.Properties.Resources.Save32;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(512, 268);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(134, 40);
+            this.btnSave.TabIndex = 71;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // pbPerson
+            // 
+            this.pbPerson.Image = global::Presentation_Layer.Properties.Resources.AnonymousMan;
+            this.pbPerson.Location = new System.Drawing.Point(653, 74);
+            this.pbPerson.Name = "pbPerson";
+            this.pbPerson.Size = new System.Drawing.Size(175, 175);
+            this.pbPerson.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPerson.TabIndex = 70;
+            this.pbPerson.TabStop = false;
             // 
             // ucAddEditPerson
             // 

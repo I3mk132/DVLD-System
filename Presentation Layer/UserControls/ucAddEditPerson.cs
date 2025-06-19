@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Presentation_Layer.Properties;
 
 namespace Presentation_Layer.UserControls
 {
@@ -18,10 +19,7 @@ namespace Presentation_Layer.UserControls
         private ErrorProvider _FirstError, _SecondError,
             _ThirdError, _LastError, _NationalNoError,
             _EmailError, _AddressError, _PhoneError;
-
-
         private bool ErrorFlag = false;
-        
         public ucAddEditPerson(int PersonID)
         {
             InitializeComponent();
@@ -110,6 +108,27 @@ namespace Presentation_Layer.UserControls
         private void llblSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // Here i will change the photo
+        }
+        
+        private void rbGender_Chenged(object sender, EventArgs e)
+        {
+            RadioButton rb = (RadioButton)sender;
+            switch (rb.Tag.ToString())
+            {
+                case "Male":
+                    if (true) // is image picked
+                    {
+                        pbPerson.Image = Resources.AnonymousMan;
+                    }
+                    break;
+                case "Female":
+                    if (true) // is image picked
+                    {
+                        pbPerson.Image = Resources.AnonymousWoman;
+                    }
+                    break;
+            }
+
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
