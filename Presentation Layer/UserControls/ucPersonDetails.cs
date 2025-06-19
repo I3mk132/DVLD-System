@@ -16,5 +16,10 @@ namespace Presentation_Layer.UserControls
         {
             InitializeComponent();
         }
+
+        private void llblEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // open person edit
+        }
     }
 }
