@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -48,11 +49,38 @@ namespace Data_Layer
             }
         }
             
-        public static DataTable GetAllUsers()
+        public enum enMode { Default, PersonJoined, PersonJoinedSimple }
+        public static DataTable GetAllUsers(enMode Type = enMode.Default)
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
-
-            string query = @"SELECT * FROM Users";
+            string query = "";
+            switch (Type)
+            {
+                case enMode.Default:
+                    query = @"SELECT * FROM Users";
+                    break;
+                case enMode.PersonJoined:
+                    query = @"
+                        SELECT  U.UserID, P.PersonID, P.NationalNo,
+                                P.Firstname, P.Secondname, P.Thirdname, P.Lastname,
+                                P.DateOfBirth, P.Gender, P.Address,
+                                P.Phone, P.Email, C.CountryName,
+                                P.ImagePath, U.Username, U.Password, U.IsActive FROM Users U
+                        JOIN Person P ON U.PersonID = P.PersonID
+                        JOIN Countries C ON P.NationalityCountryID = C.CountryID";
+                    break;
+                case enMode.PersonJoinedSimple:
+                    query = @"
+                        SELECT  U.UserID, P.NationalNo,
+                                P.Firstname, P.Lastname,
+                                P.DateOfBirth, P.Gender,
+                                P.Phone, P.Email, C.CountryName,
+                                U.Username, U.IsActive FROM Users U
+                        JOIN Person P ON U.PersonID = P.PersonID
+                        JOIN Countries C ON P.NationalityCountryID = C.CountryID";
+                    break;
+            }
+            
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -120,14 +148,42 @@ namespace Data_Layer
             }
             return isFound;
         }
+
         public static DataTable GetUsers(
             int UserID = -1, int PersonID = -1,
-            string Username = "", string Password = "", bool? IsActive = null
+            string Username = "", string Password = "", bool? IsActive = null,
+            enMode Type = enMode.Default
         )
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
-            string query = @"SELECT * FROM Users";
+            string query = "";
+            switch (Type)
+            {
+                case enMode.Default:
+                    query = @"SELECT * FROM Users";
+                    break;
+                case enMode.PersonJoined:
+                    query = @"
+                        SELECT  U.UserID, P.PersonID, P.NationalNo,
+                                P.Firstname, P.Secondname, P.Thirdname, P.Lastname,
+                                P.DateOfBirth, P.Gender, P.Address,
+                                P.Phone, P.Email, C.CountryName,
+                                P.ImagePath, U.Username, U.Password, U.IsActive FROM Users U
+                        JOIN Person P ON U.PersonID = P.PersonID
+                        JOIN Countries C ON P.NationalityCountryID = C.CountryID";
+                    break;
+                case enMode.PersonJoinedSimple:
+                    query = @"
+                        SELECT  U.UserID, P.NationalNo,
+                                P.Firstname, P.Lastname,
+                                P.DateOfBirth, P.Gender,
+                                P.Phone, P.Email, C.CountryName,
+                                U.Username, U.IsActive FROM Users U
+                        JOIN Person P ON U.PersonID = P.PersonID
+                        JOIN Countries C ON P.NationalityCountryID = C.CountryID";
+                    break;
+            }
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -156,8 +212,7 @@ namespace Data_Layer
             }
             return dt;
         }
-
-        public static bool isUserExists(
+        public static bool IsUserExists(
             int UserID = -1, int PersonID = -1,
             string Username = "", string Password = "", bool? IsActive = null)
         {
@@ -311,6 +366,73 @@ namespace Data_Layer
             }
             return rowsAffected > 0;
         }
+        public static bool ActivateUser(int UserID)
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
+            string query = @"
+                UPDATE Users SET
+                    IsActive = 1
+                WHERE UserID = @UserID 
+                    NOT EXISTS ( SELECT 1 FROM Users WHERE IsActive = 1 )";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("UserID", UserID);
+
+            bool result = false;
+            int rowsAffected = 0;
+            try
+            {
+                connection.Open();
+
+                rowsAffected = command.ExecuteNonQuery();
+                result = (rowsAffected > 0);
+            }
+            catch (Exception ex)
+            {
+                result = false;
+                clsErrorLog.AddErrorLog (ex);
+            }
+            finally 
+            { 
+                connection.Close(); 
+            }
+            return result;
+        }
+        public static bool DeactivateUser(int UserID)
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"
+                Update Users SET
+	                IsActive = 0
+                WHERE UserID = @UserID AND IsActive = 1";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("UserID", UserID);
+
+            bool result = false;
+            int rowsAffected = 0;
+            try
+            {
+                connection.Open();
+
+                rowsAffected = command.ExecuteNonQuery();
+                result = (rowsAffected > 0);
+            }
+            catch (Exception ex)
+            {
+                result = false;
+                clsErrorLog.AddErrorLog(ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return result;
+        }
+        
     }
 }

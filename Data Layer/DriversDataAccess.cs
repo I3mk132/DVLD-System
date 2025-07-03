@@ -151,7 +151,7 @@ namespace Data_Layer
             return dt;
         }
 
-        public static bool isDriverExists(
+        public static bool IsDriverExists(
             int DriverID = -1, int PersonID = -1,
             int CreatedByUserID = -1, DateTime? CreatedDate = null)
         {
