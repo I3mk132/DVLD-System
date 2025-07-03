@@ -16,5 +16,13 @@ namespace Presentation_Layer.UserControls
         {
             InitializeComponent();
         }
+        private void UpdateDate()
+        {
+            // set data
+        }
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

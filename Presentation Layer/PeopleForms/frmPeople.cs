@@ -16,5 +16,21 @@ namespace Presentation_Layer.PeopleForms
         {
             InitializeComponent();
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void frmPeople_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbAdd_Click(object sender, EventArgs e)
+        {
+            frmAddEditPerson frmAddEditPerson = new frmAddEditPerson();
+            frmAddEditPerson.ShowDialog();
+        }
     }
 }

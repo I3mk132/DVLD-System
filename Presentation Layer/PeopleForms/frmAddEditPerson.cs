@@ -12,9 +12,24 @@ namespace Presentation_Layer.PeopleForms
 {
     public partial class frmAddEditPerson : Form
     {
-        public frmAddEditPerson()
+        public frmAddEditPerson(int PersonID = -1)
         {
             InitializeComponent();
+            ucAddEditPerson1.PersonID = PersonID;
+            if (PersonID != -1)
+            {
+                lblPersonAddEdit.Text = "Add New Person";
+            }
+            else
+            {
+                lblPersonAddEdit.Text = "Edit Person";
+            }
+
+        }
+
+        private void frmAddEditPerson_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

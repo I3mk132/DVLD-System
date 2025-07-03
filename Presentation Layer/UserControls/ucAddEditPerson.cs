@@ -15,12 +15,12 @@ namespace Presentation_Layer.UserControls
     {
         private enum enMode { eAdd, eUpdate }
         private enMode _Mode;
-        private int _PersonID;
+        public int PersonID = -1;
         private ErrorProvider _FirstError, _SecondError,
             _ThirdError, _LastError, _NationalNoError,
             _EmailError, _AddressError, _PhoneError;
         private bool ErrorFlag = false;
-        public ucAddEditPerson(int PersonID)
+        public ucAddEditPerson()
         {
             InitializeComponent();
             if (PersonID != -1)
@@ -28,22 +28,28 @@ namespace Presentation_Layer.UserControls
             else
                 _Mode = enMode.eUpdate;
 
-            _PersonID = PersonID;
-
             DateTime date = DateTime.Now;
             dtpDateOfBirth.MaxDate = date.AddYears(-18);
         }
 
-        
-        private void btnClose_Click(object sender, EventArgs e)
+        private void rbGender_CheckChanged(object sender, EventArgs e)
         {
-            
+            RadioButton rbGender = (RadioButton)sender;
+            switch (rbGender.Tag.ToString())
+            {
+                case "Male":
+                    pbPersonImage.Image = Resources.Male;
+                    break;
+                case "Female":
+                    pbPersonImage.Image = Resources.Female;
+                    break;
+            }
         }
 
         private string _OldEmail, _OldNationalNo; 
         private void ucAddEditPerson_Load(object sender, EventArgs e)
         {
-            if (_Mode == enMode.eUpdate)
+            if (_Mode == enMode.eAdd)
             {
                 // clsPerson person = clsPerson.Find(_PersonID);
                 txtFirst.Text = string.Empty;
@@ -55,13 +61,13 @@ namespace Presentation_Layer.UserControls
                 txtAddress.Text = string.Empty;
                 txtPhone.Text = string.Empty;
                 
-                dtpDateOfBirth.Value = DateTime.Now;
+                dtpDateOfBirth.Value = DateTime.Now.AddYears(-19);
                 cbCountry.SelectedIndex = 0;
-                pbPerson.Image = null;
+                pbPersonImage.Image = null;
             }
             else
             {
-
+                
             }
             _OldEmail = txtEmail.Text;
             _OldNationalNo = txtNationalNo.Text;
@@ -118,13 +124,13 @@ namespace Presentation_Layer.UserControls
                 case "Male":
                     if (true) // is image picked
                     {
-                        pbPerson.Image = Resources.AnonymousMan;
+                        pbPersonImage.Image = Resources.AnonymousMan;
                     }
                     break;
                 case "Female":
                     if (true) // is image picked
                     {
-                        pbPerson.Image = Resources.AnonymousWoman;
+                        pbPersonImage.Image = Resources.AnonymousWoman;
                     }
                     break;
             }

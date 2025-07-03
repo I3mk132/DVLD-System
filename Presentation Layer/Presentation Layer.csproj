@@ -135,12 +135,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Business Layer\Business Layer.csproj">
-      <Project>{726c6723-7023-4019-a613-982abb058eaa}</Project>
-      <Name>Business Layer</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Icons\AddPerson.png" />
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +211,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Icons\AnonymousWoman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business Layer\Business Layer.csproj">
+      <Project>{726c6723-7023-4019-a613-982abb058eaa}</Project>
+      <Name>Business Layer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

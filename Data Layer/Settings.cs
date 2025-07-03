@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Data_Layer
 {
-    internal class Program
+    public class clsSettings
     {
-        static void Main(string[] args)
-        {
-        }
+        public static string ConnectionString = "Server=.;Database=LibraryDB;User Id=sa;Password=123456;";
     }
 }

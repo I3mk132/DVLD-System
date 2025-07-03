@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             this.lblManagePeople = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
             this.pbAdd = new System.Windows.Forms.PictureBox();
+            this.btnClose = new System.Windows.Forms.Button();
             this.pbPeople = new System.Windows.Forms.PictureBox();
-            this.lblPeopleCount = new System.Windows.Forms.Label();
             this.ucPersonsList2 = new Presentation_Layer.UserControls.ucPersonsList();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPeople)).BeginInit();
@@ -49,29 +48,31 @@
             this.lblManagePeople.TabIndex = 2;
             this.lblManagePeople.Text = "Manage People";
             // 
-            // btnClose
-            // 
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Image = global::Presentation_Layer.Properties.Resources.Close32;
-            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(770, 529);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(134, 40);
-            this.btnClose.TabIndex = 7;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            // 
             // pbAdd
             // 
             this.pbAdd.BackColor = System.Drawing.SystemColors.Control;
             this.pbAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbAdd.Image = global::Presentation_Layer.Properties.Resources.AddPerson;
-            this.pbAdd.Location = new System.Drawing.Point(819, 210);
+            this.pbAdd.Location = new System.Drawing.Point(819, 208);
             this.pbAdd.Name = "pbAdd";
             this.pbAdd.Size = new System.Drawing.Size(85, 47);
             this.pbAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbAdd.TabIndex = 6;
             this.pbAdd.TabStop = false;
+            this.pbAdd.Click += new System.EventHandler(this.pbAdd_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Image = global::Presentation_Layer.Properties.Resources.Close32;
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.Location = new System.Drawing.Point(770, 520);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(134, 40);
+            this.btnClose.TabIndex = 7;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // pbPeople
             // 
@@ -83,23 +84,12 @@
             this.pbPeople.TabIndex = 1;
             this.pbPeople.TabStop = false;
             // 
-            // lblPeopleCount
-            // 
-            this.lblPeopleCount.AutoSize = true;
-            this.lblPeopleCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPeopleCount.ForeColor = System.Drawing.Color.DimGray;
-            this.lblPeopleCount.Location = new System.Drawing.Point(12, 529);
-            this.lblPeopleCount.Name = "lblPeopleCount";
-            this.lblPeopleCount.Size = new System.Drawing.Size(135, 24);
-            this.lblPeopleCount.TabIndex = 8;
-            this.lblPeopleCount.Text = "# Records: -1";
-            // 
             // ucPersonsList2
             // 
             this.ucPersonsList2.BackColor = System.Drawing.Color.Transparent;
             this.ucPersonsList2.Location = new System.Drawing.Point(16, 222);
             this.ucPersonsList2.Name = "ucPersonsList2";
-            this.ucPersonsList2.Size = new System.Drawing.Size(888, 304);
+            this.ucPersonsList2.Size = new System.Drawing.Size(889, 323);
             this.ucPersonsList2.TabIndex = 9;
             // 
             // frmPeople
@@ -107,15 +97,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(204)))), ((int)(((byte)(231)))));
-            this.ClientSize = new System.Drawing.Size(917, 574);
+            this.ClientSize = new System.Drawing.Size(917, 565);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.pbAdd);
             this.Controls.Add(this.ucPersonsList2);
-            this.Controls.Add(this.lblPeopleCount);
-            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblManagePeople);
             this.Controls.Add(this.pbPeople);
             this.Name = "frmPeople";
             this.Text = "Manage People";
+            this.Load += new System.EventHandler(this.frmPeople_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPeople)).EndInit();
             this.ResumeLayout(false);
@@ -128,7 +118,6 @@
         private System.Windows.Forms.Label lblManagePeople;
         private System.Windows.Forms.PictureBox pbAdd;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Label lblPeopleCount;
         private UserControls.ucPersonsList ucPersonsList2;
     }
 }
