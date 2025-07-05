@@ -92,6 +92,86 @@ namespace Data_Layer
                 command.CommandText += " WHERE " + string.Join(" AND ", conditions);
             }
         }
+        private static void _AddFilterConditionsUsingLike(
+            SqlCommand command, int PersonID = -1, string NationalNo = "", string Firstname = "",
+            string Secondname = "", string Thirdname = "", string Lastname = "",
+            DateTime? DateOfBirth = null, short Gender = -1, string Address = "",
+            string Phone = "", string Email = "", string Country = "", string ImagePath = "")
+        {
+            var conditions = new List<string>();
+
+            if (PersonID != -1)
+            {
+                conditions.Add("PersonID LIKE @PersonID");
+                command.Parameters.AddWithValue("@PersonID", PersonID);
+            }
+            if (!string.IsNullOrEmpty(NationalNo))
+            {
+                conditions.Add("NationalNo LIKE @NationalNo");
+                command.Parameters.AddWithValue("@NationalNo", NationalNo);
+            }
+            if (!string.IsNullOrEmpty(Firstname))
+            {
+                conditions.Add("Firstname LIKE @Firstname");
+                command.Parameters.AddWithValue("@Firstname", Firstname);
+            }
+            if (!string.IsNullOrEmpty(Secondname))
+            {
+                conditions.Add("Secondname LIKE @Secondname");
+                command.Parameters.AddWithValue("@Secondname", Secondname);
+            }
+            if (!string.IsNullOrEmpty(Thirdname))
+            {
+                conditions.Add("Thirdname LIKE @Thirdname");
+                command.Parameters.AddWithValue("@Thirdname", Thirdname);
+            }
+            if (!string.IsNullOrEmpty(Lastname))
+            {
+                conditions.Add("Lastname LIKE @Lastname");
+                command.Parameters.AddWithValue("@Lastname", Lastname);
+            }
+            if (DateOfBirth != null)
+            {
+                conditions.Add("DateOfBirth LIKE @DateOfBirth");
+                command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
+            }
+            if (Gender != -1)
+            {
+                conditions.Add("Gender LIKE @Gender");
+                command.Parameters.AddWithValue("@Gender", Gender);
+            }
+            if (!string.IsNullOrEmpty(Address))
+            {
+                conditions.Add("Address LIKE @Address");
+                command.Parameters.AddWithValue("@Address", Address);
+            }
+            if (!string.IsNullOrEmpty(Phone))
+            {
+                conditions.Add("Phone LIKE @Phone");
+                command.Parameters.AddWithValue("@Phone", Phone);
+            }
+            if (!string.IsNullOrEmpty(Email))
+            {
+                conditions.Add("Email LIKE @Email");
+                command.Parameters.AddWithValue("@Email", Email);
+            }
+            if (!string.IsNullOrEmpty(Country))
+            {
+                conditions.Add("Country LIKE @Country");
+                command.Parameters.AddWithValue("@Country", Country);
+            }
+            if (!string.IsNullOrEmpty(ImagePath))
+            {
+                conditions.Add("ImagePath LIKE @ImagePath");
+                command.Parameters.AddWithValue("@ImagePath", ImagePath);
+            }
+
+            if (conditions.Any())
+            {
+                command.CommandText += " WHERE " + string.Join(" AND ", conditions);
+            }
+
+        }
 
         public static DataTable GetAllPerson()
         {
@@ -176,6 +256,7 @@ namespace Data_Layer
             }
             return isFound;
         }
+        
         public static DataTable GetPeople(
             int PersonID = -1, string NationalNo = "", string Firstname = "", string Secondname = "", string Thirdname = "",
             string Lastname = "", DateTime? DateOfBirth = null, short Gender = -1, string Address = "", string Phone = "",
@@ -189,6 +270,44 @@ namespace Data_Layer
             SqlCommand command = new SqlCommand(query, connection);
 
             _AddFilterConditions(command, PersonID, NationalNo, Firstname, Secondname, Thirdname, Lastname,
+                DateOfBirth, Gender, Address, Phone, Email, Country, ImagePath);
+
+
+            DataTable dt = new DataTable();
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                clsErrorLog.AddErrorLog(ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+        }
+        public static DataTable GetPeopleUsingLike(
+            int PersonID = -1, string NationalNo = "", string Firstname = "", string Secondname = "", string Thirdname = "",
+            string Lastname = "", DateTime? DateOfBirth = null, short Gender = -1, string Address = "", string Phone = "",
+            string Email = "", string Country = "", string ImagePath = ""
+        )
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"SELECT * FROM Person";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            _AddFilterConditionsUsingLike(command, PersonID, NationalNo, Firstname, Secondname, Thirdname, Lastname,
                 DateOfBirth, Gender, Address, Phone, Email, Country, ImagePath);
 
 
