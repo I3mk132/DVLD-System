@@ -303,6 +303,47 @@ namespace Data_Layer
             }
             return isFound;
         }
+        public static bool GetDriverUsingLike(
+            ref int DriverID, ref int PersonID,
+            ref int CreatedByUserID, ref DateTime? CreatedDate
+        )
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"SELECT * FROM Drivers";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            _AddFilterConditionsUsingLike(command, DriverID, PersonID, CreatedByUserID, CreatedDate);
+
+            bool isFound = false;
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isFound = true;
+
+                    DriverID = (int)reader["DriverID"];
+                    PersonID = (int)reader["PersonID"];
+                    CreatedByUserID = (int)reader["CreatedByUserID"];
+                    CreatedDate = (DateTime?)reader["CreatedDate"];
+
+                }
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+                clsErrorLog.AddErrorLog(ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isFound;
+        }
 
         public static bool IsDriverExists(
             int DriverID = -1, int PersonID = -1,

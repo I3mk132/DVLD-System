@@ -115,6 +115,21 @@ namespace Business_Layer
 
             return clsDriversDataAccess.GetDrivers(DriverID, (person != null ? person.PersonID : -1), CreatedByUserID, CreatedDate);
         }
+        public static DataTable GetDriversUsingLikeWith(
+            int DriverID = -1, int PersonID = -1, string NationalNo = "", string Firstname = "",
+            string Secondname = "", string Thirdname = "", string Lastname = "",
+            DateTime? DateOfBirth = null, short Gender = -1, string Address = "",
+            string Phone = "", string Email = "", string Country = "", string ImagePath = "",
+            int CreatedByUserID = -1, DateTime? CreatedDate = null
+        )
+        {
+            clsPerson person = clsPerson.Find(
+                PersonID, NationalNo, Firstname, Secondname,
+                Thirdname, Lastname, DateOfBirth, Gender,
+                Address, Phone, Email, Country, ImagePath);
+
+            return clsDriversDataAccess.GetDrivers(DriverID, (person != null ? person.PersonID : -1), CreatedByUserID, CreatedDate);
+        }
         public static bool IsDriverExists(int ID)
         {
             return clsDriversDataAccess.IsDriverExists(ID);

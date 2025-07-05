@@ -256,7 +256,60 @@ namespace Data_Layer
             }
             return isFound;
         }
-        
+        public static bool GetPersonUsingLike(
+            ref int PersonID, ref string NationalNo, ref string Firstname, ref string Secondname, ref string Thirdname,
+            ref string Lastname, ref DateTime? DateOfBirth, ref short Gender, ref string Address, ref string Phone,
+            ref string Email, ref string Country, ref string ImagePath
+        )
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"SELECT * FROM Person";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            _AddFilterConditionsUsingLike(command, PersonID, NationalNo, Firstname, Secondname, Thirdname, Lastname,
+                DateOfBirth, Gender, Address, Phone, Email, Country, ImagePath);
+
+            bool isFound = false;
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isFound = true;
+
+                    PersonID = (int)reader["PersonID"];
+                    NationalNo = (string)reader["NationalNo"];
+                    Firstname = (string)reader["Firstname"];
+                    Secondname = (string)reader["Secondname"];
+                    Thirdname = (string)reader["Thirdname"];
+                    Lastname = (string)reader["Lastname"];
+                    DateOfBirth = (DateTime?)reader["DateOfBirth"];
+                    Gender = (short)reader["Gender"];
+                    Address = (string)reader["Address"];
+                    Phone = (string)reader["Phone"];
+                    Email = (string)reader["Email"];
+                    Country = (string)reader["Country"];
+                    if (reader["ImagePath"] != DBNull.Value)
+                        ImagePath = (string)reader["ImagePath"];
+
+                }
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+                clsErrorLog.AddErrorLog(ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isFound;
+        }
+
         public static DataTable GetPeople(
             int PersonID = -1, string NationalNo = "", string Firstname = "", string Secondname = "", string Thirdname = "",
             string Lastname = "", DateTime? DateOfBirth = null, short Gender = -1, string Address = "", string Phone = "",
