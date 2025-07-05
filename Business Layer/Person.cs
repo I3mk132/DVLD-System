@@ -105,6 +105,31 @@ namespace Business_Layer
                 return null;
             }
         }
+        public static clsPerson FindUsingLike(
+            int PersonID = -1, string NationalNo = "", string Firstname = "",
+            string Secondname = "", string Thirdname = "", string Lastname = "",
+            DateTime? DateOfBirth = null, short Gender = -1, string Address = "",
+            string Phone = "", string Email = "", string Country = "", string ImagePath = ""
+        )
+        {
+
+
+            if (clsPersonDataAccess.GetPersonUsingLike(
+                ref PersonID, ref NationalNo, ref Firstname, ref Secondname, ref Thirdname,
+                ref Lastname, ref DateOfBirth, ref Gender, ref Address, ref Phone,
+                ref Email, ref Country, ref ImagePath)
+                )
+            {
+                return new clsPerson(
+                    PersonID, NationalNo, Firstname, Secondname, Thirdname,
+                    Lastname, DateOfBirth, Gender, Address, Phone,
+                    Email, Country, ImagePath);
+            }
+            else
+            {
+                return null;
+            }
+        }
         public static DataTable GetPeopleWith(
             int PersonID = -1, string NationalNo = "", string Firstname = "",
             string Secondname = "", string Thirdname = "", string Lastname = "",
@@ -113,6 +138,18 @@ namespace Business_Layer
         )
         {
             return clsPersonDataAccess.GetPeople(
+                PersonID, NationalNo, Firstname, Secondname, Thirdname,
+                Lastname, DateOfBirth, Gender, Address, Phone,
+                Email, Country, ImagePath);
+        }
+        public static DataTable GetPeopleUsingLikeWith(
+            int PersonID = -1, string NationalNo = "", string Firstname = "",
+            string Secondname = "", string Thirdname = "", string Lastname = "",
+            DateTime? DateOfBirth = null, short Gender = -1, string Address = "",
+            string Phone = "", string Email = "", string Country = "", string ImagePath = ""
+        )
+        {
+            return clsPersonDataAccess.GetPeopleUsingLike(
                 PersonID, NationalNo, Firstname, Secondname, Thirdname,
                 Lastname, DateOfBirth, Gender, Address, Phone,
                 Email, Country, ImagePath);
