@@ -43,6 +43,38 @@ namespace Data_Layer
                 command.CommandText += " WHERE " + string.Join(" AND ", conditions);
             }
         }
+        private static void _AddFilterConditionsUsingLike(
+            SqlCommand command, int DriverID = -1, int PersonID = -1,
+            int CreatedByUserID = -1, DateTime? CreatedDate = null)
+        {
+            var conditions = new List<string>();
+
+            if (DriverID != -1)
+            {
+                conditions.Add("DriverID LIKE @DriverID");
+                command.Parameters.AddWithValue("@DriverID", DriverID);
+            }
+            if (PersonID != -1)
+            {
+                conditions.Add("PersonID LIKE @PersonID");
+                command.Parameters.AddWithValue("@PersonID", PersonID);
+            }
+            if (CreatedByUserID != -1)
+            {
+                conditions.Add("CreatedByUserID LIKE @CreatedByUserID");
+                command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
+            }
+            if (CreatedDate != null)
+            {
+                conditions.Add("CreatedDate LIKE @CreatedDate");
+                command.Parameters.AddWithValue("@CreatedDate", CreatedDate);
+            }
+
+            if (conditions.Any())
+            {
+                command.CommandText += " WHERE " + string.Join(" AND ", conditions);
+            }
+        }
 
         public enum enMode { Default, PersonJoined, PersonJoinedSimple }
         public static DataTable GetAllDrivers(enMode Type = enMode.Default)
@@ -142,6 +174,70 @@ namespace Data_Layer
             SqlCommand command = new SqlCommand(query, connection);
 
             _AddFilterConditions(command, DriverID, PersonID, CreatedByUserID, CreatedDate);
+
+
+            DataTable dt = new DataTable();
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                clsErrorLog.AddErrorLog(ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+        }
+        public static DataTable GetDriversUsingLike(
+            int DriverID = -1, int PersonID = -1,
+            int CreatedByUserID = -1, DateTime? CreatedDate = null,
+            enMode Type = enMode.Default
+        )
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+
+            string query = "";
+            switch (Type)
+            {
+                case enMode.Default:
+                    query = @"SELECT * FROM Drivers";
+                    break;
+                case enMode.PersonJoined:
+                    query = @"
+                        SELECT  D.DriverID, P.PersonID, P.NationalNo,
+                                P.Firstname, P.Secondname, P.Thirdname, P.Lastname,
+                                P.DateOfBirth, P.Gender, P.Address,
+                                P.Phone, P.Email, C.CountryName,
+                                P.ImagePath, D.CreatedByUserID, D.CreatedDate FROM Drivers D
+                        JOIN Person P ON D.PersonID = P.PersonID
+                        JOIN Countries C ON P.NationalityCountryID = C.CountryID";
+                    break;
+                case enMode.PersonJoinedSimple:
+                    query = @"
+                        SELECT  D.DriversID, P.NationalNo,
+                                P.Firstname, P.Lastname,
+                                P.DateOfBirth, P.Gender,
+                                P.Phone, P.Email, C.CountryName,
+                                D.CreatedDate FROM Drivers D
+                        JOIN Person P ON D.PersonID = P.PersonID
+                        JOIN Countries C ON P.NationalityCountryID = C.CountryID";
+                    break;
+            }
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            _AddFilterConditionsUsingLike(command, DriverID, PersonID, CreatedByUserID, CreatedDate);
 
 
             DataTable dt = new DataTable();
