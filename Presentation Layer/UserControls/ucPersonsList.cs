@@ -79,25 +79,25 @@ namespace Presentation_Layer.UserControls
                 case "None":
                     dt = clsPerson.GetAllPerson(); break;
                 case "Person ID":
-                    dt = clsPerson.GetPeopleUsingLikeWith(PersonID: Convert.ToInt32(text)); break;
+                    dt = clsPerson.GetPeopleUsingLikeSimpledWith(PersonID: Convert.ToInt32(text)); break;
                 case "National No.":
-                    dt = clsPerson.GetPeopleUsingLikeWith(NationalNo: text); break;
+                    dt = clsPerson.GetPeopleUsingLikeSimpledWith(NationalNo: text); break;
                 case "First Name":
-                    dt = clsPerson.GetPeopleUsingLikeWith(Firstname: text); break;
+                    dt = clsPerson.GetPeopleUsingLikeSimpledWith(Firstname: text); break;
                 case "Second Name":
-                    dt = clsPerson.GetPeopleUsingLikeWith(Secondname: text); break;
+                    dt = clsPerson.GetPeopleUsingLikeSimpledWith(Secondname: text); break;
                 case "Third Name":
-                    dt = clsPerson.GetPeopleUsingLikeWith(Thirdname: text); break;
+                    dt = clsPerson.GetPeopleUsingLikeSimpledWith(Thirdname: text); break;
                 case "Last Name":
-                    dt = clsPerson.GetPeopleUsingLikeWith(Lastname: text); break;
+                    dt = clsPerson.GetPeopleUsingLikeSimpledWith(Lastname: text); break;
                 case "Nationality":
-                    dt = clsPerson.GetPeopleUsingLikeWith(NationalNo: text); break;
+                    dt = clsPerson.GetPeopleUsingLikeSimpledWith(NationalNo: text); break;
                 case "Gender":
-                    dt = clsPerson.GetPeopleUsingLikeWith(Gender: Convert.ToInt16(text)); break;
+                    dt = clsPerson.GetPeopleUsingLikeSimpledWith(Gender: Convert.ToInt16(text)); break;
                 case "Phone":
-                    dt = clsPerson.GetPeopleUsingLikeWith(Phone: text); break;
+                    dt = clsPerson.GetPeopleUsingLikeSimpledWith(Phone: text); break;
                 case "Email":
-                    dt = clsPerson.GetPeopleUsingLikeWith(Email: text); break;
+                    dt = clsPerson.GetPeopleUsingLikeSimpledWith(Email: text); break;
             }
             
             _UpdateData();

@@ -183,27 +183,27 @@ namespace Data_Layer
             switch (Type)
             {
                 case enMode.Default:
-                    query = @"SELECT * FROM Person";
+                    query = @"SELECT * 
+                            FROM Person P JOIN Countries C ON P.NationalityCountryID = C.CountryID";
                     break;
 
                 case enMode.Simple:
                     query = @"
                         SELECT 
-                            PersonID AS 'Person ID', 
-                            NationalNo AS 'National No.', 
-                            Firstname AS 'First Name', 
-                            Secondname AS 'Second Name', 
-                            Thirdname AS 'Third Name', 
-                            Lastname AS 'Last Name', 
-                            Gender,
-                            DateOfBirth AS 'Date Of Birth',
-                            Nationality,
-                            Phone,
-                            Email
-                        FROM Person";
+                            P.PersonID AS 'Person ID', 
+                            P.NationalNo AS 'National No.', 
+                            P.Firstname AS 'First Name', 
+                            P.Secondname AS 'Second Name', 
+                            P.Thirdname AS 'Third Name', 
+                            P.Lastname AS 'Last Name', 
+                            P.Gender,
+                            P.DateOfBirth AS 'Date Of Birth',
+                            C.CountryName AS 'Nationality',
+                            P.Phone,
+                            P.Email
+                        FROM Person P JOIN Countries C ON P.NationalityCountryID = C.CountryID";
                     break;
             }
-
             SqlCommand command = new SqlCommand(query, connection);
 
             DataTable dt = new DataTable();
@@ -348,24 +348,25 @@ namespace Data_Layer
             switch (Type)
             {
                 case enMode.Default:
-                    query = @"SELECT * FROM Person";
+                    query = @"SELECT * 
+                            FROM Person P JOIN Countries C ON P.NationalityCountryID = C.CountryID";
                     break;
 
                 case enMode.Simple:
                     query = @"
                         SELECT 
-                            PersonID AS 'Person ID', 
-                            NationalNo AS 'National No.', 
-                            Firstname AS 'First Name', 
-                            Secondname AS 'Second Name', 
-                            Thirdname AS 'Third Name', 
-                            Lastname AS 'Last Name', 
-                            Gender,
-                            DateOfBirth AS 'Date Of Birth',
-                            Nationality,
-                            Phone,
-                            Email
-                        FROM Person";
+                            P.PersonID AS 'Person ID', 
+                            P.NationalNo AS 'National No.', 
+                            P.Firstname AS 'First Name', 
+                            P.Secondname AS 'Second Name', 
+                            P.Thirdname AS 'Third Name', 
+                            P.Lastname AS 'Last Name', 
+                            P.Gender,
+                            P.DateOfBirth AS 'Date Of Birth',
+                            C.CountryName AS 'Nationality',
+                            P.Phone,
+                            P.Email
+                        FROM Person P JOIN Countries C ON P.NationalityCountryID = C.CountryID";
                     break;
             }
 
@@ -412,24 +413,25 @@ namespace Data_Layer
             switch (Type)
             {
                 case enMode.Default:
-                    query = @"SELECT * FROM Person";
+                    query = @"SELECT * 
+                            FROM Person P JOIN Countries C ON P.NationalityCountryID = C.CountryID";
                     break;
 
                 case enMode.Simple:
                     query = @"
                         SELECT 
-                            PersonID AS 'Person ID', 
-                            NationalNo AS 'National No.', 
-                            Firstname AS 'First Name', 
-                            Secondname AS 'Second Name', 
-                            Thirdname AS 'Third Name', 
-                            Lastname AS 'Last Name', 
-                            Gender,
-                            DateOfBirth AS 'Date Of Birth',
-                            Nationality,
-                            Phone,
-                            Email
-                        FROM Person";
+                            P.PersonID AS 'Person ID', 
+                            P.NationalNo AS 'National No.', 
+                            P.Firstname AS 'First Name', 
+                            P.Secondname AS 'Second Name', 
+                            P.Thirdname AS 'Third Name', 
+                            P.Lastname AS 'Last Name', 
+                            P.Gender,
+                            P.DateOfBirth AS 'Date Of Birth',
+                            C.CountryName AS 'Nationality',
+                            P.Phone,
+                            P.Email
+                        FROM Person P JOIN Countries C ON P.NationalityCountryID = C.CountryID";
                     break;
             }
 
