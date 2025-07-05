@@ -56,27 +56,27 @@ namespace Data_Layer
 
             if (UserID != -1)
             {
-                conditions.Add("UserID LIKE @UserID");
+                conditions.Add("UserID = @UserID");
                 command.Parameters.AddWithValue("@UserID", UserID);
             }
             if (PersonID != -1)
             {
-                conditions.Add("PersonID LIKE @PersonID");
+                conditions.Add("PersonID = @PersonID");
                 command.Parameters.AddWithValue("@PersonID", PersonID);
             }
             if (Username != "")
             {
                 conditions.Add("Username LIKE @Username");
-                command.Parameters.AddWithValue("@Username", Username);
+                command.Parameters.AddWithValue("@Username", $"%{Username}%");
             }
             if (Password != "")
             {
-                conditions.Add("Password LIKE @Password");
+                conditions.Add("Password = @Password");
                 command.Parameters.AddWithValue("@Password", Password);
             }
             if (IsActive != null)
             {
-                conditions.Add("IsActive LIKE @IsActive");
+                conditions.Add("IsActive = @IsActive");
                 command.Parameters.AddWithValue("@IsActive", IsActive);
             }
 
