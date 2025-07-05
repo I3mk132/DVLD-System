@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Presentation_Layer.PeopleForms;
 
 namespace Presentation_Layer
 {
@@ -15,6 +16,12 @@ namespace Presentation_Layer
         public HomePage()
         {
             InitializeComponent();
+        }
+
+        private void msiPeople_Click(object sender, EventArgs e)
+        {
+            frmPeople people = new frmPeople();
+            people.ShowDialog();
         }
     }
 }

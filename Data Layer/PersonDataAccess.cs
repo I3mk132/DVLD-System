@@ -176,7 +176,7 @@ namespace Data_Layer
             }
             return isFound;
         }
-        public static DataTable GetPersons(
+        public static DataTable GetPeople(
             int PersonID = -1, string NationalNo = "", string Firstname = "", string Secondname = "", string Thirdname = "",
             string Lastname = "", DateTime? DateOfBirth = null, short Gender = -1, string Address = "", string Phone = "",
             string Email = "", string Country = "", string ImagePath = ""

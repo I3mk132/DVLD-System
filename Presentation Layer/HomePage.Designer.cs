@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.msMenues = new System.Windows.Forms.MenuStrip();
+            this.msiApplications = new System.Windows.Forms.ToolStripMenuItem();
             this.msiPeople = new System.Windows.Forms.ToolStripMenuItem();
             this.msiDrivers = new System.Windows.Forms.ToolStripMenuItem();
             this.msiUsers = new System.Windows.Forms.ToolStripMenuItem();
             this.msiAccountSettings = new System.Windows.Forms.ToolStripMenuItem();
-            this.msiApplications = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenues.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,12 +53,20 @@
             this.msMenues.TabIndex = 0;
             this.msMenues.Text = "Menues";
             // 
+            // msiApplications
+            // 
+            this.msiApplications.Image = global::Presentation_Layer.Properties.Resources.Applications;
+            this.msiApplications.Name = "msiApplications";
+            this.msiApplications.Size = new System.Drawing.Size(182, 52);
+            this.msiApplications.Text = "Applications";
+            // 
             // msiPeople
             // 
             this.msiPeople.Image = global::Presentation_Layer.Properties.Resources.People;
             this.msiPeople.Name = "msiPeople";
             this.msiPeople.Size = new System.Drawing.Size(132, 52);
             this.msiPeople.Text = "People";
+            this.msiPeople.Click += new System.EventHandler(this.msiPeople_Click);
             // 
             // msiDrivers
             // 
@@ -80,13 +88,6 @@
             this.msiAccountSettings.Name = "msiAccountSettings";
             this.msiAccountSettings.Size = new System.Drawing.Size(223, 52);
             this.msiAccountSettings.Text = "Account Settings";
-            // 
-            // msiApplications
-            // 
-            this.msiApplications.Image = global::Presentation_Layer.Properties.Resources.Applications;
-            this.msiApplications.Name = "msiApplications";
-            this.msiApplications.Size = new System.Drawing.Size(182, 52);
-            this.msiApplications.Text = "Applications";
             // 
             // HomePage
             // 

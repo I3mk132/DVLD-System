@@ -16,5 +16,10 @@ namespace Presentation_Layer.PeopleForms
         {
             InitializeComponent();
         }
+
+        private void frmPersonDetails_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

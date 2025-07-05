@@ -105,14 +105,14 @@ namespace Business_Layer
                 return null;
             }
         }
-        public static DataTable GetPersonsWith(
+        public static DataTable GetPeopleWith(
             int PersonID = -1, string NationalNo = "", string Firstname = "",
             string Secondname = "", string Thirdname = "", string Lastname = "",
             DateTime? DateOfBirth = null, short Gender = -1, string Address = "",
             string Phone = "", string Email = "", string Country = "", string ImagePath = ""
         )
         {
-            return clsPersonDataAccess.GetPersons(
+            return clsPersonDataAccess.GetPeople(
                 PersonID, NationalNo, Firstname, Secondname, Thirdname,
                 Lastname, DateOfBirth, Gender, Address, Phone,
                 Email, Country, ImagePath);

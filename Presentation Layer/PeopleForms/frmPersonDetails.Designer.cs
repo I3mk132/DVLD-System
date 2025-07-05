@@ -61,6 +61,7 @@
             this.Controls.Add(this.lblPersonDetails);
             this.Name = "frmPersonDetails";
             this.Text = "frmPersonDetails";
+            this.Load += new System.EventHandler(this.frmPersonDetails_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
