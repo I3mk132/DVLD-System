@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business_Layer;
 using Presentation_Layer.PeopleForms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Presentation_Layer.UserControls
 {
@@ -44,15 +45,34 @@ namespace Presentation_Layer.UserControls
             _UpdateData();
         }
 
+        private void txtFilter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void txtFilter_TextChanged(object sender, EventArgs e)
         {
             string text = txtFilter.Text;
-            switch (cbFilterBy.SelectedItem.ToString())
+            string FilterMode = cbFilterBy.SelectedItem.ToString();
+            
+            if (FilterMode == "Person ID")
+            {
+                txtFilter.KeyPress += txtFilter_KeyPress;
+            }
+            else
+            {
+                txtFilter.KeyPress -= txtFilter_KeyPress;
+            }
+
+            switch (FilterMode)
             {
                 case "None":
                     dt = clsPerson.GetAllPerson(); break;
                 case "Person ID":
-                    dt = clsPerson.GetPeopleWith(PersonID: Convert.ToInt32(text)); break;    
+                    dt = clsPerson.GetPeopleWith(PersonID: Convert.ToInt32(text)); break;
                 case "National No.":
                     dt = clsPerson.GetPeopleWith(NationalNo: text); break;
                 case "First Name":
