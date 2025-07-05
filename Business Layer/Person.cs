@@ -17,7 +17,7 @@ namespace Business_Layer
         public string Thirdname { get; set; }
         public string Lastname { get; set; }
         public DateTime? DateOfBirth { get; set; }
-        public short Gender { get; set; }
+        public string Gender { get; set; }
         public string Address { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
@@ -35,7 +35,7 @@ namespace Business_Layer
             Thirdname = "";
             Lastname = "";
             DateOfBirth = null;
-            Gender = -1;
+            Gender = "";
             Address = "";
             Phone = "";
             Email = "";
@@ -54,7 +54,7 @@ namespace Business_Layer
             string Thirdname,
             string Lastname, 
             DateTime? DateOfBirth, 
-            short Gender, 
+            string Gender, 
             string Address, 
             string Phone,
             string Email, 
@@ -83,7 +83,7 @@ namespace Business_Layer
         public static clsPerson Find(
             int PersonID = -1, string NationalNo = "", string Firstname = "", 
             string Secondname = "", string Thirdname = "", string Lastname = "", 
-            DateTime? DateOfBirth = null, short Gender = -1, string Address = "", 
+            DateTime? DateOfBirth = null, string Gender = "", string Address = "", 
             string Phone = "", string Email = "", string Country = "", string ImagePath = ""
         )
         {
@@ -108,7 +108,7 @@ namespace Business_Layer
         public static clsPerson FindUsingLike(
             int PersonID = -1, string NationalNo = "", string Firstname = "",
             string Secondname = "", string Thirdname = "", string Lastname = "",
-            DateTime? DateOfBirth = null, short Gender = -1, string Address = "",
+            DateTime? DateOfBirth = null, string Gender = "", string Address = "",
             string Phone = "", string Email = "", string Country = "", string ImagePath = ""
         )
         {
@@ -133,7 +133,7 @@ namespace Business_Layer
         public static DataTable GetPeopleWith(
             int PersonID = -1, string NationalNo = "", string Firstname = "",
             string Secondname = "", string Thirdname = "", string Lastname = "",
-            DateTime? DateOfBirth = null, short Gender = -1, string Address = "",
+            DateTime? DateOfBirth = null, string Gender = "", string Address = "",
             string Phone = "", string Email = "", string Country = "", string ImagePath = ""
         )
         {
@@ -145,7 +145,7 @@ namespace Business_Layer
         public static DataTable GetPeopleUsingLikeSimpledWith(
             int PersonID = -1, string NationalNo = "", string Firstname = "",
             string Secondname = "", string Thirdname = "", string Lastname = "",
-            DateTime? DateOfBirth = null, short Gender = -1, string Address = "",
+            DateTime? DateOfBirth = null, string Gender = "", string Address = "",
             string Phone = "", string Email = "", string Country = "", string ImagePath = ""
         )
         {

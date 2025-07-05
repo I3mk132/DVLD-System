@@ -36,7 +36,7 @@ namespace Business_Layer
             string Thirdname,
             string Lastname,
             DateTime? DateOfBirth,
-            short Gender,
+            string Gender,
             string Address,
             string Phone,
             string Email,
@@ -67,7 +67,7 @@ namespace Business_Layer
         public static clsDrivers Find(
             int DriverID = -1, int PersonID = -1, string NationalNo = "", string Firstname = "",
             string Secondname = "", string Thirdname = "", string Lastname = "",
-            DateTime? DateOfBirth = null, short Gender = -1, string Address = "",
+            DateTime? DateOfBirth = null, string Gender = "", string Address = "",
             string Phone = "", string Email = "", string Country = "", string ImagePath = "",
             int CreatedByUserID = -1, DateTime? CreatedDate = null
         )
@@ -103,7 +103,7 @@ namespace Business_Layer
         public static DataTable GetDriversWith(
             int DriverID = -1, int PersonID = -1, string NationalNo = "", string Firstname = "",
             string Secondname = "", string Thirdname = "", string Lastname = "",
-            DateTime? DateOfBirth = null, short Gender = -1, string Address = "",
+            DateTime? DateOfBirth = null, string Gender = "", string Address = "",
             string Phone = "", string Email = "", string Country = "", string ImagePath = "",
             int CreatedByUserID = -1, DateTime? CreatedDate = null
         )

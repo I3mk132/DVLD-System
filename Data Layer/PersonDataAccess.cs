@@ -16,7 +16,7 @@ namespace Data_Layer
         private static void _AddFilterConditions(
             SqlCommand command, int PersonID = -1, string NationalNo = "", string Firstname = "",
             string Secondname = "", string Thirdname = "", string Lastname = "",
-            DateTime? DateOfBirth = null, short Gender = -1, string Address = "",
+            DateTime? DateOfBirth = null, string Gender = "", string Address = "",
             string Phone = "", string Email = "", string Country = "", string ImagePath = "")
         {
             var conditions = new List<string>();
@@ -56,10 +56,10 @@ namespace Data_Layer
                 conditions.Add("DateOfBirth = @DateOfBirth");
                 command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
             }
-            if (Gender != -1)
+            if (Gender != "")
             {
                 conditions.Add("Gender = @Gender");
-                command.Parameters.AddWithValue("@Gender", Gender);
+                command.Parameters.AddWithValue("@Gender", (Gender == "Male" ? 0:1));
             }
             if (!string.IsNullOrEmpty(Address))
             {
@@ -95,7 +95,7 @@ namespace Data_Layer
         private static void _AddFilterConditionsUsingLike(
             SqlCommand command, int PersonID = -1, string NationalNo = "", string Firstname = "",
             string Secondname = "", string Thirdname = "", string Lastname = "",
-            DateTime? DateOfBirth = null, short Gender = -1, string Address = "",
+            DateTime? DateOfBirth = null, string Gender = "", string Address = "",
             string Phone = "", string Email = "", string Country = "", string ImagePath = "")
         {
             var conditions = new List<string>();
@@ -135,10 +135,10 @@ namespace Data_Layer
                 conditions.Add("DateOfBirth = @DateOfBirth");
                 command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
             }
-            if (Gender != -1)
+            if (Gender != "")
             {
                 conditions.Add("Gender = @Gender");
-                command.Parameters.AddWithValue("@Gender", Gender);
+                command.Parameters.AddWithValue("@Gender", (Gender == "Male" ? 0 : 1));
             }
             if (!string.IsNullOrEmpty(Address))
             {
@@ -196,7 +196,7 @@ namespace Data_Layer
                             P.Secondname AS 'Second Name', 
                             P.Thirdname AS 'Third Name', 
                             P.Lastname AS 'Last Name', 
-                            P.Gender,
+                            CASE WHEN P.Gender = 0 THEN 'Male' ELSE 'Female' END AS Gender,
                             P.DateOfBirth AS 'Date Of Birth',
                             C.CountryName AS 'Nationality',
                             P.Phone,
@@ -230,7 +230,7 @@ namespace Data_Layer
         }
         public static bool GetPerson(
             ref int PersonID, ref string NationalNo, ref string Firstname, ref string Secondname, ref string Thirdname,
-            ref string Lastname, ref DateTime? DateOfBirth, ref short Gender, ref string Address, ref string Phone, 
+            ref string Lastname, ref DateTime? DateOfBirth, ref string Gender, ref string Address, ref string Phone, 
             ref string Email, ref string Country, ref string ImagePath
         )
         {
@@ -260,7 +260,7 @@ namespace Data_Layer
                     Thirdname = (string)reader["Thirdname"];
                     Lastname = (string)reader["Lastname"];
                     DateOfBirth = (DateTime?)reader["DateOfBirth"];
-                    Gender = (short)reader["Gender"];
+                    Gender = (int)reader["Gender"] == 0 ? "Male" : "Female";
                     Address = (string)reader["Address"];
                     Phone = (string)reader["Phone"];
                     Email = (string)reader["Email"];
@@ -283,7 +283,7 @@ namespace Data_Layer
         }
         public static bool GetPersonUsingLike(
             ref int PersonID, ref string NationalNo, ref string Firstname, ref string Secondname, ref string Thirdname,
-            ref string Lastname, ref DateTime? DateOfBirth, ref short Gender, ref string Address, ref string Phone,
+            ref string Lastname, ref DateTime? DateOfBirth, ref string Gender, ref string Address, ref string Phone,
             ref string Email, ref string Country, ref string ImagePath
         )
         {
@@ -313,7 +313,7 @@ namespace Data_Layer
                     Thirdname = (string)reader["Thirdname"];
                     Lastname = (string)reader["Lastname"];
                     DateOfBirth = (DateTime?)reader["DateOfBirth"];
-                    Gender = (short)reader["Gender"];
+                    Gender = (int)reader["Gender"] == 0 ? "Male" : "Female";
                     Address = (string)reader["Address"];
                     Phone = (string)reader["Phone"];
                     Email = (string)reader["Email"];
@@ -337,7 +337,7 @@ namespace Data_Layer
 
         public static DataTable GetPeople(
             int PersonID = -1, string NationalNo = "", string Firstname = "", string Secondname = "", string Thirdname = "",
-            string Lastname = "", DateTime? DateOfBirth = null, short Gender = -1, string Address = "", string Phone = "",
+            string Lastname = "", DateTime? DateOfBirth = null, string Gender = "", string Address = "", string Phone = "",
             string Email = "", string Country = "", string ImagePath = "", enMode Type = enMode.Default
         )
         {
@@ -361,7 +361,7 @@ namespace Data_Layer
                             P.Secondname AS 'Second Name', 
                             P.Thirdname AS 'Third Name', 
                             P.Lastname AS 'Last Name', 
-                            P.Gender,
+                            CASE WHEN P.Gender = 0 THEN 'Male' ELSE 'Female' END AS Gender,
                             P.DateOfBirth AS 'Date Of Birth',
                             C.CountryName AS 'Nationality',
                             P.Phone,
@@ -402,7 +402,7 @@ namespace Data_Layer
         }
         public static DataTable GetPeopleUsingLike(
             int PersonID = -1, string NationalNo = "", string Firstname = "", string Secondname = "", string Thirdname = "",
-            string Lastname = "", DateTime? DateOfBirth = null, short Gender = -1, string Address = "", string Phone = "",
+            string Lastname = "", DateTime? DateOfBirth = null, string Gender = "", string Address = "", string Phone = "",
             string Email = "", string Country = "", string ImagePath = "", enMode Type = enMode.Default
         )
         {
@@ -426,7 +426,7 @@ namespace Data_Layer
                             P.Secondname AS 'Second Name', 
                             P.Thirdname AS 'Third Name', 
                             P.Lastname AS 'Last Name', 
-                            P.Gender,
+                            CASE WHEN P.Gender = 0 THEN 'Male' ELSE 'Female' END AS Gender,
                             P.DateOfBirth AS 'Date Of Birth',
                             C.CountryName AS 'Nationality',
                             P.Phone,
@@ -468,7 +468,7 @@ namespace Data_Layer
 
         public static bool IsPersonExists(
             int PersonID = -1, string NationalNo = "", string Firstname = "", string Secondname = "", string Thirdname = "",
-            string Lastname = "", DateTime? DateOfBirth = null, short Gender = -1, string Address = "", string Phone = "",
+            string Lastname = "", DateTime? DateOfBirth = null, string Gender = "", string Address = "", string Phone = "",
             string Email = "", string Country = "", string ImagePath = "")
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
@@ -503,7 +503,7 @@ namespace Data_Layer
         }
         public static int AddPerson(
             string NationalNo, string Firstname, string Secondname, string Thirdname,
-            string Lastname, DateTime? DateOfBirth, short Gender, string Address, string Phone,
+            string Lastname, DateTime? DateOfBirth, string Gender, string Address, string Phone,
             string Email, string Country, string ImagePath = ""
         )
         {
@@ -528,7 +528,7 @@ namespace Data_Layer
             command.Parameters.AddWithValue("@Thirdname", Thirdname);
             command.Parameters.AddWithValue("@Lastname", Lastname);
             command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
-            command.Parameters.AddWithValue("@Gender", Gender);
+            command.Parameters.AddWithValue("@Gender", (Gender == "Male" ? 0 : 1));
             command.Parameters.AddWithValue("@Address", Address);
             command.Parameters.AddWithValue("@Phone", Phone);
             command.Parameters.AddWithValue("@Email", Email);
@@ -560,7 +560,7 @@ namespace Data_Layer
         }
         public static bool UpdatePerson(
             int PersonID, string NationalNo, string Firstname, string Secondname, string Thirdname,
-            string Lastname, DateTime? DateOfBirth, short Gender, string Address, string Phone,
+            string Lastname, DateTime? DateOfBirth, string Gender, string Address, string Phone,
             string Email, string Country, string ImagePath = ""
         )
         {
@@ -594,7 +594,7 @@ namespace Data_Layer
             command.Parameters.AddWithValue("@Thirdname", Thirdname);
             command.Parameters.AddWithValue("@Lastname", Lastname);
             command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
-            command.Parameters.AddWithValue("@Gender", Gender);
+            command.Parameters.AddWithValue("@Gender", (Gender == "Male" ? 0 : 1));
             command.Parameters.AddWithValue("@Address", Address);
             command.Parameters.AddWithValue("@Phone", Phone);
             command.Parameters.AddWithValue("@Email", Email);

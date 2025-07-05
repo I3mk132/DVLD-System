@@ -38,7 +38,7 @@ namespace Business_Layer
             string Thirdname,
             string Lastname,
             DateTime? DateOfBirth,
-            short Gender,
+            string Gender,
             string Address,
             string Phone,
             string Email,
@@ -108,7 +108,7 @@ namespace Business_Layer
         public static clsUsers Find(
             int UserID = -1, int PersonID = -1, string NationalNo = "", string Firstname = "",
             string Secondname = "", string Thirdname = "", string Lastname = "",
-            DateTime? DateOfBirth = null, short Gender = -1, string Address = "",
+            DateTime? DateOfBirth = null, string Gender = "", string Address = "",
             string Phone = "", string Email = "", string Country = "", string ImagePath = "",
             string Username = "", bool? IsActive = null
         )
@@ -146,7 +146,7 @@ namespace Business_Layer
         public static clsUsers FindUsingLike(
             int UserID = -1, int PersonID = -1, string NationalNo = "", string Firstname = "",
             string Secondname = "", string Thirdname = "", string Lastname = "",
-            DateTime? DateOfBirth = null, short Gender = -1, string Address = "",
+            DateTime? DateOfBirth = null, string Gender = "", string Address = "",
             string Phone = "", string Email = "", string Country = "", string ImagePath = "",
             string Username = "", bool? IsActive = null
         )
@@ -184,7 +184,7 @@ namespace Business_Layer
         public static DataTable GetUsersWith(
             int UserID = -1, int PersonID = -1, string NationalNo = "", string Firstname = "",
             string Secondname = "", string Thirdname = "", string Lastname = "",
-            DateTime? DateOfBirth = null, short Gender = -1, string Address = "",
+            DateTime? DateOfBirth = null, string Gender = "", string Address = "",
             string Phone = "", string Email = "", string Country = "", string ImagePath = "",
             string Username = "", bool? IsActive = null
         )
@@ -199,7 +199,7 @@ namespace Business_Layer
         public static DataTable GetUsersUsingLikeWith(
             int UserID = -1, int PersonID = -1, string NationalNo = "", string Firstname = "",
             string Secondname = "", string Thirdname = "", string Lastname = "",
-            DateTime? DateOfBirth = null, short Gender = -1, string Address = "",
+            DateTime? DateOfBirth = null, string Gender = "", string Address = "",
             string Phone = "", string Email = "", string Country = "", string ImagePath = "",
             string Username = "", bool? IsActive = null
         )
