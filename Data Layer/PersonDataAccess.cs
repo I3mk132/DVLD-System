@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Data_Layer
 {
-    public class clsPersonDateAccess
+    public class clsPersonDataAccess
     {
         private static void _AddFilterConditions(
             SqlCommand command, int PersonID = -1, string NationalNo = "", string Firstname = "",
@@ -262,8 +262,8 @@ namespace Data_Layer
             string query = @"
 
                 INSERT INTO Person 
-                ( NationalNo, Firstname, Secondname, Thirdname, Lastname, DateOfBirth, Gender, Address, Phone, Email, Country, ImagePath) VALUES 
-                ( @NationalNo, @Firstname, @Secondname, @Thirdname, @Lastname, @DateOfBirth, @Gender, @Address, @Phone, @Email, @Country, @ImagePath);
+                ( NationalNo, Firstname, Secondname, Thirdname, Lastname, DateOfBirth, Gender, Address, Phone, Email, NationalityCountryID, ImagePath) VALUES 
+                ( @NationalNo, @Firstname, @Secondname, @Thirdname, @Lastname, @DateOfBirth, @Gender, @Address, @Phone, @Email, (SELECT TOP 1 CountryID FROM Countries WHERE CountryName = @Country), @ImagePath);
                 SELECT SCOPE_IDENTITY();
             
             ";

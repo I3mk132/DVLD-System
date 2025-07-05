@@ -106,49 +106,6 @@ namespace Data_Layer
             }
             return dt;
         }
-        public static bool GetUser(
-            ref int UserID, ref int PersonID,
-            ref string Username, ref string Password, ref bool? IsActive
-        )
-        {
-            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
-
-            string query = @"SELECT * FROM Users";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            _AddFilterConditions(command, UserID, PersonID, Username, Password, IsActive);
-
-            bool isFound = false;
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    isFound = true;
-
-                    UserID = (int)reader["UserID"];
-                    PersonID = (int)reader["PersonID"];
-                    Username = (string)reader["Username"];
-                    Password = (string)reader["Password"];
-                    IsActive = (bool?)reader["IsActive"];
-
-                }
-            }
-            catch (Exception ex)
-            {
-                isFound = false;
-                clsErrorLog.AddErrorLog(ex);
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return isFound;
-        }
-
         public static DataTable GetUsers(
             int UserID = -1, int PersonID = -1,
             string Username = "", string Password = "", bool? IsActive = null,
@@ -212,6 +169,49 @@ namespace Data_Layer
             }
             return dt;
         }
+        public static bool GetUser(
+            ref int UserID, ref int PersonID,
+            ref string Username, ref string Password, ref bool? IsActive
+        )
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"SELECT * FROM Users";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            _AddFilterConditions(command, UserID, PersonID, Username, Password, IsActive);
+
+            bool isFound = false;
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isFound = true;
+
+                    UserID = (int)reader["UserID"];
+                    PersonID = (int)reader["PersonID"];
+                    Username = (string)reader["Username"];
+                    Password = (string)reader["Password"];
+                    IsActive = (bool?)reader["IsActive"];
+
+                }
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+                clsErrorLog.AddErrorLog(ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isFound;
+        }
+
         public static bool IsUserExists(
             int UserID = -1, int PersonID = -1,
             string Username = "", string Password = "", bool? IsActive = null)

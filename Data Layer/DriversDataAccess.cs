@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Data_Layer.clsUsersDataAccess;
 
 namespace Data_Layer
 {
@@ -43,11 +44,39 @@ namespace Data_Layer
             }
         }
 
-        public static DataTable GetAllDrivers()
+        public enum enMode { Default, PersonJoined, PersonJoinedSimple }
+        public static DataTable GetAllDrivers(enMode Type = enMode.Default)
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
-            string query = @"SELECT * FROM Drivers";
+            string query = "";
+            switch (Type)
+            {
+                case enMode.Default:
+                    query = @"SELECT * FROM Drivers";
+                    break;
+                case enMode.PersonJoined:
+                    query = @"
+                        SELECT  D.DriverID, P.PersonID, P.NationalNo,
+                                P.Firstname, P.Secondname, P.Thirdname, P.Lastname,
+                                P.DateOfBirth, P.Gender, P.Address,
+                                P.Phone, P.Email, C.CountryName,
+                                P.ImagePath, D.CreatedByUserID, D.CreatedDate FROM Drivers D
+                        JOIN Person P ON D.PersonID = P.PersonID
+                        JOIN Countries C ON P.NationalityCountryID = C.CountryID";
+                    break;
+                case enMode.PersonJoinedSimple:
+                    query = @"
+                        SELECT  D.DriversID, P.NationalNo,
+                                P.Firstname, P.Lastname,
+                                P.DateOfBirth, P.Gender,
+                                P.Phone, P.Email, C.CountryName,
+                                D.CreatedDate FROM Drivers D
+                        JOIN Person P ON D.PersonID = P.PersonID
+                        JOIN Countries C ON P.NationalityCountryID = C.CountryID";
+                    break;
+            }
+
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -57,6 +86,70 @@ namespace Data_Layer
                 connection.Open();
 
                 SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                clsErrorLog.AddErrorLog(ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+        }
+        public static DataTable GetDrivers(
+            int DriverID = -1, int PersonID = -1,
+            int CreatedByUserID = -1, DateTime? CreatedDate = null,
+            enMode Type = enMode.Default
+        )
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+
+            string query = "";
+            switch (Type)
+            {
+                case enMode.Default:
+                    query = @"SELECT * FROM Drivers";
+                    break;
+                case enMode.PersonJoined:
+                    query = @"
+                        SELECT  D.DriverID, P.PersonID, P.NationalNo,
+                                P.Firstname, P.Secondname, P.Thirdname, P.Lastname,
+                                P.DateOfBirth, P.Gender, P.Address,
+                                P.Phone, P.Email, C.CountryName,
+                                P.ImagePath, D.CreatedByUserID, D.CreatedDate FROM Drivers D
+                        JOIN Person P ON D.PersonID = P.PersonID
+                        JOIN Countries C ON P.NationalityCountryID = C.CountryID";
+                    break;
+                case enMode.PersonJoinedSimple:
+                    query = @"
+                        SELECT  D.DriversID, P.NationalNo,
+                                P.Firstname, P.Lastname,
+                                P.DateOfBirth, P.Gender,
+                                P.Phone, P.Email, C.CountryName,
+                                D.CreatedDate FROM Drivers D
+                        JOIN Person P ON D.PersonID = P.PersonID
+                        JOIN Countries C ON P.NationalityCountryID = C.CountryID";
+                    break;
+            }
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            _AddFilterConditions(command, DriverID, PersonID, CreatedByUserID, CreatedDate);
+
+
+            DataTable dt = new DataTable();
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
                 if (reader.HasRows)
                 {
                     dt.Load(reader);
@@ -113,42 +206,6 @@ namespace Data_Layer
                 connection.Close();
             }
             return isFound;
-        }
-        public static DataTable GetDrivers(
-            int DriverID = -1, int PersonID = -1,
-            int CreatedByUserID = -1, DateTime? CreatedDate = null
-        )
-        {
-            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
-
-            string query = @"SELECT * FROM Drivers";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            _AddFilterConditions(command, DriverID, PersonID, CreatedByUserID, CreatedDate);
-
-
-            DataTable dt = new DataTable();
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows)
-                {
-                    dt.Load(reader);
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                clsErrorLog.AddErrorLog(ex);
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return dt;
         }
 
         public static bool IsDriverExists(
