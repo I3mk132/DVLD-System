@@ -173,11 +173,36 @@ namespace Data_Layer
 
         }
 
-        public static DataTable GetAllPerson()
+        public enum enMode { Default, Simple }
+        public static DataTable GetAllPerson(enMode Type = enMode.Default)
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
-            string query = @"SELECT * FROM Person";
+            string query = "";
+
+            switch (Type)
+            {
+                case enMode.Default:
+                    query = @"SELECT * FROM Person";
+                    break;
+
+                case enMode.Simple:
+                    query = @"
+                        SELECT 
+                            PersonID AS 'Person ID', 
+                            NationalNo AS 'National No.', 
+                            Firstname AS 'First Name', 
+                            Secondname AS 'Second Name', 
+                            Thirdname AS 'Third Name', 
+                            Lastname AS 'Last Name', 
+                            Gender,
+                            DateOfBirth AS 'Date Of Birth',
+                            Nationality,
+                            Phone,
+                            Email
+                        FROM Person";
+                    break;
+            }
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -313,12 +338,38 @@ namespace Data_Layer
         public static DataTable GetPeople(
             int PersonID = -1, string NationalNo = "", string Firstname = "", string Secondname = "", string Thirdname = "",
             string Lastname = "", DateTime? DateOfBirth = null, short Gender = -1, string Address = "", string Phone = "",
-            string Email = "", string Country = "", string ImagePath = ""
+            string Email = "", string Country = "", string ImagePath = "", enMode Type = enMode.Default
         )
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
-            string query = @"SELECT * FROM Person";
+            string query = "";
+
+            switch (Type)
+            {
+                case enMode.Default:
+                    query = @"SELECT * FROM Person";
+                    break;
+
+                case enMode.Simple:
+                    query = @"
+                        SELECT 
+                            PersonID AS 'Person ID', 
+                            NationalNo AS 'National No.', 
+                            Firstname AS 'First Name', 
+                            Secondname AS 'Second Name', 
+                            Thirdname AS 'Third Name', 
+                            Lastname AS 'Last Name', 
+                            Gender,
+                            DateOfBirth AS 'Date Of Birth',
+                            Nationality,
+                            Phone,
+                            Email
+                        FROM Person";
+                    break;
+            }
+
+
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -351,12 +402,38 @@ namespace Data_Layer
         public static DataTable GetPeopleUsingLike(
             int PersonID = -1, string NationalNo = "", string Firstname = "", string Secondname = "", string Thirdname = "",
             string Lastname = "", DateTime? DateOfBirth = null, short Gender = -1, string Address = "", string Phone = "",
-            string Email = "", string Country = "", string ImagePath = ""
+            string Email = "", string Country = "", string ImagePath = "", enMode Type = enMode.Default
         )
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
-            string query = @"SELECT * FROM Person";
+            string query = "";
+
+            switch (Type)
+            {
+                case enMode.Default:
+                    query = @"SELECT * FROM Person";
+                    break;
+
+                case enMode.Simple:
+                    query = @"
+                        SELECT 
+                            PersonID AS 'Person ID', 
+                            NationalNo AS 'National No.', 
+                            Firstname AS 'First Name', 
+                            Secondname AS 'Second Name', 
+                            Thirdname AS 'Third Name', 
+                            Lastname AS 'Last Name', 
+                            Gender,
+                            DateOfBirth AS 'Date Of Birth',
+                            Nationality,
+                            Phone,
+                            Email
+                        FROM Person";
+                    break;
+            }
+
+
 
             SqlCommand command = new SqlCommand(query, connection);
 

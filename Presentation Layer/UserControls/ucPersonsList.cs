@@ -68,6 +68,12 @@ namespace Presentation_Layer.UserControls
                 txtFilter.KeyPress -= txtFilter_KeyPress;
             }
 
+            if (text == "")
+            {
+                dt = clsPerson.GetAllPerson();
+                _UpdateData();
+                return;
+            }
             switch (FilterMode)
             {
                 case "None":
