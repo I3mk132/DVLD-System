@@ -48,7 +48,44 @@ namespace Data_Layer
                 command.CommandText += " WHERE " + string.Join(" AND ", conditions);
             }
         }
-            
+        private static void _AddFilterConditionsUsingLike(
+            SqlCommand command, int UserID = -1, int PersonID = -1,
+            string Username = "", string Password = "", bool? IsActive = null)
+        {
+            var conditions = new List<string>();
+
+            if (UserID != -1)
+            {
+                conditions.Add("UserID LIKE @UserID");
+                command.Parameters.AddWithValue("@UserID", UserID);
+            }
+            if (PersonID != -1)
+            {
+                conditions.Add("PersonID LIKE @PersonID");
+                command.Parameters.AddWithValue("@PersonID", PersonID);
+            }
+            if (Username != "")
+            {
+                conditions.Add("Username LIKE @Username");
+                command.Parameters.AddWithValue("@Username", Username);
+            }
+            if (Password != "")
+            {
+                conditions.Add("Password LIKE @Password");
+                command.Parameters.AddWithValue("@Password", Password);
+            }
+            if (IsActive != null)
+            {
+                conditions.Add("IsActive LIKE @IsActive");
+                command.Parameters.AddWithValue("@IsActive", IsActive);
+            }
+
+            if (conditions.Any())
+            {
+                command.CommandText += " WHERE " + string.Join(" AND ", conditions);
+            }
+        }
+
         public enum enMode { Default, PersonJoined, PersonJoinedSimple }
         public static DataTable GetAllUsers(enMode Type = enMode.Default)
         {
@@ -145,6 +182,69 @@ namespace Data_Layer
             SqlCommand command = new SqlCommand(query, connection);
 
             _AddFilterConditions(command, UserID, PersonID, Username, Password, IsActive);
+
+
+            DataTable dt = new DataTable();
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                clsErrorLog.AddErrorLog(ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+        }
+        public static DataTable GetUsersUsingLike(
+            int UserID = -1, int PersonID = -1,
+            string Username = "", string Password = "", bool? IsActive = null,
+            enMode Type = enMode.Default
+        )
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = "";
+            switch (Type)
+            {
+                case enMode.Default:
+                    query = @"SELECT * FROM Users";
+                    break;
+                case enMode.PersonJoined:
+                    query = @"
+                        SELECT  U.UserID, P.PersonID, P.NationalNo,
+                                P.Firstname, P.Secondname, P.Thirdname, P.Lastname,
+                                P.DateOfBirth, P.Gender, P.Address,
+                                P.Phone, P.Email, C.CountryName,
+                                P.ImagePath, U.Username, U.Password, U.IsActive FROM Users U
+                        JOIN Person P ON U.PersonID = P.PersonID
+                        JOIN Countries C ON P.NationalityCountryID = C.CountryID";
+                    break;
+                case enMode.PersonJoinedSimple:
+                    query = @"
+                        SELECT  U.UserID, P.NationalNo,
+                                P.Firstname, P.Lastname,
+                                P.DateOfBirth, P.Gender,
+                                P.Phone, P.Email, C.CountryName,
+                                U.Username, U.IsActive FROM Users U
+                        JOIN Person P ON U.PersonID = P.PersonID
+                        JOIN Countries C ON P.NationalityCountryID = C.CountryID";
+                    break;
+            }
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            _AddFilterConditionsUsingLike(command, UserID, PersonID, Username, Password, IsActive);
 
 
             DataTable dt = new DataTable();
