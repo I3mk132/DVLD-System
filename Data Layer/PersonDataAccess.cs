@@ -102,68 +102,68 @@ namespace Data_Layer
 
             if (PersonID != -1)
             {
-                conditions.Add("PersonID LIKE @PersonID");
+                conditions.Add("PersonID = @PersonID");
                 command.Parameters.AddWithValue("@PersonID", PersonID);
             }
             if (!string.IsNullOrEmpty(NationalNo))
             {
                 conditions.Add("NationalNo LIKE @NationalNo");
-                command.Parameters.AddWithValue("@NationalNo", NationalNo);
+                command.Parameters.AddWithValue("@NationalNo", $"%{NationalNo}%");
             }
             if (!string.IsNullOrEmpty(Firstname))
             {
                 conditions.Add("Firstname LIKE @Firstname");
-                command.Parameters.AddWithValue("@Firstname", Firstname);
+                command.Parameters.AddWithValue("@Firstname", $"%{Firstname}%");
             }
             if (!string.IsNullOrEmpty(Secondname))
             {
                 conditions.Add("Secondname LIKE @Secondname");
-                command.Parameters.AddWithValue("@Secondname", Secondname);
+                command.Parameters.AddWithValue("@Secondname", $"%{Secondname}%");
             }
             if (!string.IsNullOrEmpty(Thirdname))
             {
                 conditions.Add("Thirdname LIKE @Thirdname");
-                command.Parameters.AddWithValue("@Thirdname", Thirdname);
+                command.Parameters.AddWithValue("@Thirdname", $"%{Thirdname}%");
             }
             if (!string.IsNullOrEmpty(Lastname))
             {
                 conditions.Add("Lastname LIKE @Lastname");
-                command.Parameters.AddWithValue("@Lastname", Lastname);
+                command.Parameters.AddWithValue("@Lastname", $"%{Lastname}%");
             }
             if (DateOfBirth != null)
             {
-                conditions.Add("DateOfBirth LIKE @DateOfBirth");
+                conditions.Add("DateOfBirth = @DateOfBirth");
                 command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
             }
             if (Gender != -1)
             {
-                conditions.Add("Gender LIKE @Gender");
+                conditions.Add("Gender = @Gender");
                 command.Parameters.AddWithValue("@Gender", Gender);
             }
             if (!string.IsNullOrEmpty(Address))
             {
                 conditions.Add("Address LIKE @Address");
-                command.Parameters.AddWithValue("@Address", Address);
+                command.Parameters.AddWithValue("@Address", $"%{Address}%");
             }
             if (!string.IsNullOrEmpty(Phone))
             {
                 conditions.Add("Phone LIKE @Phone");
-                command.Parameters.AddWithValue("@Phone", Phone);
+                command.Parameters.AddWithValue("@Phone", $"%{Phone}%");
             }
             if (!string.IsNullOrEmpty(Email))
             {
                 conditions.Add("Email LIKE @Email");
-                command.Parameters.AddWithValue("@Email", Email);
+                command.Parameters.AddWithValue("@Email", $"%{Email}%");
             }
             if (!string.IsNullOrEmpty(Country))
             {
                 conditions.Add("Country LIKE @Country");
-                command.Parameters.AddWithValue("@Country", Country);
+                command.Parameters.AddWithValue("@Country", $"%{Country}%");
             }
             if (!string.IsNullOrEmpty(ImagePath))
             {
                 conditions.Add("ImagePath LIKE @ImagePath");
-                command.Parameters.AddWithValue("@ImagePath", ImagePath);
+                command.Parameters.AddWithValue("@ImagePath", $"%{ImagePath}%");
             }
 
             if (conditions.Any())
