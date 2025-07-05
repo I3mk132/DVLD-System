@@ -111,6 +111,7 @@
             this.Controls.Add(this.ucAddEditPerson1);
             this.Controls.Add(this.lblPersonAddEdit);
             this.Name = "frmAddEditPerson";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add / Edit person";
             this.Load += new System.EventHandler(this.frmAddEditPerson_Load);
             this.panel1.ResumeLayout(false);

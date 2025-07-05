@@ -104,6 +104,7 @@
             this.Controls.Add(this.lblManagePeople);
             this.Controls.Add(this.pbPeople);
             this.Name = "frmPeople";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage People";
             this.Load += new System.EventHandler(this.frmPeople_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
