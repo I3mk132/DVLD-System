@@ -100,42 +100,6 @@ namespace Business_Layer
 
             return null;
         }
-        public static clsDrivers FindUsingLike(
-            int DriverID = -1, int PersonID = -1, string NationalNo = "", string Firstname = "",
-            string Secondname = "", string Thirdname = "", string Lastname = "",
-            DateTime? DateOfBirth = null, short Gender = -1, string Address = "",
-            string Phone = "", string Email = "", string Country = "", string ImagePath = "",
-            int CreatedByUserID = -1, DateTime? CreatedDate = null
-        )
-        {
-
-            if (DriverID != -1 || CreatedByUserID != -1 || CreatedDate != null)
-            {
-                int tempDriverID = DriverID, tempPersonID = PersonID;
-                int tempCreatedByUserID = CreatedByUserID;
-                DateTime? tempCreatedDate = CreatedDate;
-
-                if (clsDriversDataAccess.GetDriverUsingLike(ref tempDriverID, ref tempPersonID, ref tempCreatedByUserID, ref tempCreatedDate))
-                {
-                    PersonID = tempPersonID;
-                }
-            }
-
-            if (clsPersonDataAccess.GetPersonUsingLike(ref PersonID, ref NationalNo, ref Firstname, ref Secondname,
-                ref Thirdname, ref Lastname, ref DateOfBirth, ref Gender, ref Address, ref Phone,
-                ref Email, ref Country, ref ImagePath))
-            {
-
-                if (clsDriversDataAccess.GetDriverUsingLike(ref DriverID, ref PersonID, ref CreatedByUserID, ref CreatedDate))
-                {
-                    return new clsDrivers(DriverID, PersonID, NationalNo, Firstname, Secondname, Thirdname,
-                        Lastname, DateOfBirth, Gender, Address, Phone, Email, Country, ImagePath,
-                        CreatedByUserID, CreatedDate);
-                }
-            }
-
-            return null;
-        }
         public static DataTable GetDriversWith(
             int DriverID = -1, int PersonID = -1, string NationalNo = "", string Firstname = "",
             string Secondname = "", string Thirdname = "", string Lastname = "",
@@ -150,21 +114,6 @@ namespace Business_Layer
                 Address, Phone, Email, Country, ImagePath);
 
             return clsDriversDataAccess.GetDrivers(DriverID, (person != null ? person.PersonID : -1), CreatedByUserID, CreatedDate);
-        }
-        public static DataTable GetDriversUsingLikeWith(
-            int DriverID = -1, int PersonID = -1, string NationalNo = "", string Firstname = "",
-            string Secondname = "", string Thirdname = "", string Lastname = "",
-            DateTime? DateOfBirth = null, short Gender = -1, string Address = "",
-            string Phone = "", string Email = "", string Country = "", string ImagePath = "",
-            int CreatedByUserID = -1, DateTime? CreatedDate = null
-        )
-        {
-            clsPerson person = clsPerson.FindUsingLike(
-                PersonID, NationalNo, Firstname, Secondname,
-                Thirdname, Lastname, DateOfBirth, Gender,
-                Address, Phone, Email, Country, ImagePath);
-
-            return clsDriversDataAccess.GetDriversUsingLike(DriverID, (person != null ? person.PersonID : -1), CreatedByUserID, CreatedDate);
         }
         public static bool IsDriverExists(int ID)
         {
