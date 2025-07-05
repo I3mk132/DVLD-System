@@ -22,7 +22,7 @@ namespace Presentation_Layer.UserControls
             _UpdateData();
             cbFilterBy.SelectedIndex = 0;
         }
-        private DataTable dt = clsPerson.GetAllPerson();
+        private DataTable dt = clsPerson.GetAllPersonSimpled();
         private void _UpdateData()
         {
             dgvPersonsList.DataSource = dt;
@@ -70,14 +70,14 @@ namespace Presentation_Layer.UserControls
 
             if (text == "")
             {
-                dt = clsPerson.GetAllPerson();
+                dt = clsPerson.GetAllPersonSimpled();
                 _UpdateData();
                 return;
             }
             switch (FilterMode)
             {
                 case "None":
-                    dt = clsPerson.GetAllPerson(); break;
+                    dt = clsPerson.GetAllPersonSimpled(); break;
                 case "Person ID":
                     dt = clsPerson.GetPeopleUsingLikeSimpledWith(PersonID: Convert.ToInt32(text)); break;
                 case "National No.":

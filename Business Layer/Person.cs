@@ -167,6 +167,10 @@ namespace Business_Layer
         {
             return clsPersonDataAccess.GetAllPerson();
         }
+        public static DataTable GetAllPersonSimpled()
+        {
+            return clsPersonDataAccess.GetAllPerson(clsPersonDataAccess.enMode.Simple);
+        }
 
 
         public static string GetPersonFullName(int ID)
