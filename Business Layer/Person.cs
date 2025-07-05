@@ -142,7 +142,7 @@ namespace Business_Layer
                 Lastname, DateOfBirth, Gender, Address, Phone,
                 Email, Country, ImagePath);
         }
-        public static DataTable GetPeopleUsingLikeWith(
+        public static DataTable GetPeopleUsingLikeSimpledWith(
             int PersonID = -1, string NationalNo = "", string Firstname = "",
             string Secondname = "", string Thirdname = "", string Lastname = "",
             DateTime? DateOfBirth = null, short Gender = -1, string Address = "",
@@ -152,8 +152,9 @@ namespace Business_Layer
             return clsPersonDataAccess.GetPeopleUsingLike(
                 PersonID, NationalNo, Firstname, Secondname, Thirdname,
                 Lastname, DateOfBirth, Gender, Address, Phone,
-                Email, Country, ImagePath);
+                Email, Country, ImagePath, clsPersonDataAccess.enMode.Simple);
         }
+
         public static bool isPersonExists(int ID)
         {
             return clsPersonDataAccess.IsPersonExists(ID);
