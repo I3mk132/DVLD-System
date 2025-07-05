@@ -143,6 +143,44 @@ namespace Business_Layer
 
             return null;
         }
+        public static clsUsers FindUsingLike(
+            int UserID = -1, int PersonID = -1, string NationalNo = "", string Firstname = "",
+            string Secondname = "", string Thirdname = "", string Lastname = "",
+            DateTime? DateOfBirth = null, short Gender = -1, string Address = "",
+            string Phone = "", string Email = "", string Country = "", string ImagePath = "",
+            string Username = "", bool? IsActive = null
+        )
+        {
+
+            if (UserID != -1 || !string.IsNullOrEmpty(Username) || IsActive != null)
+            {
+                int tempUserID = UserID, tempPersonID = PersonID;
+                string tempUsername = Username, tempPassword = "";
+                bool? tempIsActive = IsActive;
+
+                if (clsUsersDataAccess.GetUserUsingLike(ref tempUserID, ref tempPersonID, ref tempUsername, ref tempPassword, ref tempIsActive))
+                {
+                    PersonID = tempPersonID;
+                }
+            }
+
+
+            string password = "";
+            if (clsPersonDataAccess.GetPersonUsingLike(ref PersonID, ref NationalNo, ref Firstname, ref Secondname,
+                ref Thirdname, ref Lastname, ref DateOfBirth, ref Gender, ref Address, ref Phone,
+                ref Email, ref Country, ref ImagePath))
+            {
+
+                if (clsUsersDataAccess.GetUserUsingLike(ref UserID, ref PersonID, ref Username, ref password, ref IsActive))
+                {
+                    return new clsUsers(UserID, PersonID, NationalNo, Firstname, Secondname, Thirdname,
+                        Lastname, DateOfBirth, Gender, Address, Phone, Email, Country, ImagePath,
+                        Username, password, IsActive);
+                }
+            }
+
+            return null;
+        }
         public static DataTable GetUsersWith(
             int UserID = -1, int PersonID = -1, string NationalNo = "", string Firstname = "",
             string Secondname = "", string Thirdname = "", string Lastname = "",
@@ -157,6 +195,21 @@ namespace Business_Layer
                 Address, Phone, Email, Country, ImagePath);
 
             return clsUsersDataAccess.GetUsers(UserID, (person != null ? person.PersonID : -1), Username, "", IsActive);
+        }
+        public static DataTable GetUsersUsingLikeWith(
+            int UserID = -1, int PersonID = -1, string NationalNo = "", string Firstname = "",
+            string Secondname = "", string Thirdname = "", string Lastname = "",
+            DateTime? DateOfBirth = null, short Gender = -1, string Address = "",
+            string Phone = "", string Email = "", string Country = "", string ImagePath = "",
+            string Username = "", bool? IsActive = null
+        )
+        {
+            clsPerson person = clsPerson.FindUsingLike(
+                PersonID, NationalNo, Firstname, Secondname,
+                Thirdname, Lastname, DateOfBirth, Gender,
+                Address, Phone, Email, Country, ImagePath);
+
+            return clsUsersDataAccess.GetUsersUsingLike(UserID, (person != null ? person.PersonID : -1), Username, "", IsActive);
         }
         public static bool IsUserExists(int ID)
         {
