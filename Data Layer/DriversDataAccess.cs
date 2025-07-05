@@ -59,7 +59,7 @@ namespace Data_Layer
                     query = @"
                         SELECT  D.DriverID, P.PersonID, P.NationalNo,
                                 P.Firstname, P.Secondname, P.Thirdname, P.Lastname,
-                                P.DateOfBirth, P.Gender, P.Address,
+                                P.DateOfBirth, CASE WHEN P.Gender = 0 THEN 'Male' ELSE 'Female' END AS Gender, P.Address,
                                 P.Phone, P.Email, C.CountryName,
                                 P.ImagePath, D.CreatedByUserID, D.CreatedDate FROM Drivers D
                         JOIN Person P ON D.PersonID = P.PersonID
@@ -69,7 +69,7 @@ namespace Data_Layer
                     query = @"
                         SELECT  D.DriversID, P.NationalNo,
                                 P.Firstname, P.Lastname,
-                                P.DateOfBirth, P.Gender,
+                                P.DateOfBirth, CASE WHEN P.Gender = 0 THEN 'Male' ELSE 'Female' END AS Gender,
                                 P.Phone, P.Email, C.CountryName,
                                 D.CreatedDate FROM Drivers D
                         JOIN Person P ON D.PersonID = P.PersonID
@@ -121,7 +121,7 @@ namespace Data_Layer
                     query = @"
                         SELECT  D.DriverID, P.PersonID, P.NationalNo,
                                 P.Firstname, P.Secondname, P.Thirdname, P.Lastname,
-                                P.DateOfBirth, P.Gender, P.Address,
+                                P.DateOfBirth, CASE WHEN P.Gender = 0 THEN 'Male' ELSE 'Female' END AS Gender, P.Address,
                                 P.Phone, P.Email, C.CountryName,
                                 P.ImagePath, D.CreatedByUserID, D.CreatedDate FROM Drivers D
                         JOIN Person P ON D.PersonID = P.PersonID
@@ -131,7 +131,7 @@ namespace Data_Layer
                     query = @"
                         SELECT  D.DriversID, P.NationalNo,
                                 P.Firstname, P.Lastname,
-                                P.DateOfBirth, P.Gender,
+                                P.DateOfBirth, CASE WHEN P.Gender = 0 THEN 'Male' ELSE 'Female' END AS Gender,
                                 P.Phone, P.Email, C.CountryName,
                                 D.CreatedDate FROM Drivers D
                         JOIN Person P ON D.PersonID = P.PersonID

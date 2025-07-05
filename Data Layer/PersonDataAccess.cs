@@ -59,7 +59,7 @@ namespace Data_Layer
             if (Gender != "")
             {
                 conditions.Add("Gender = @Gender");
-                command.Parameters.AddWithValue("@Gender", (Gender == "Male" ? 0:1));
+                command.Parameters.AddWithValue("@Gender", Gender);
             }
             if (!string.IsNullOrEmpty(Address))
             {
@@ -138,7 +138,7 @@ namespace Data_Layer
             if (Gender != "")
             {
                 conditions.Add("Gender = @Gender");
-                command.Parameters.AddWithValue("@Gender", (Gender == "Male" ? 0 : 1));
+                command.Parameters.AddWithValue("@Gender", Gender);
             }
             if (!string.IsNullOrEmpty(Address))
             {
@@ -196,7 +196,7 @@ namespace Data_Layer
                             P.Secondname AS 'Second Name', 
                             P.Thirdname AS 'Third Name', 
                             P.Lastname AS 'Last Name', 
-                            CASE WHEN P.Gender = 0 THEN 'Male' ELSE 'Female' END AS Gender,
+                            P.Gender,
                             P.DateOfBirth AS 'Date Of Birth',
                             C.CountryName AS 'Nationality',
                             P.Phone,
@@ -236,7 +236,7 @@ namespace Data_Layer
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
-            string query = @"SELECT * FROM Person";
+            string query = @"SELECT * FROM Person P JOIN Countries C ON P.NationalityCountryID = C.CountryID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -260,11 +260,11 @@ namespace Data_Layer
                     Thirdname = (string)reader["Thirdname"];
                     Lastname = (string)reader["Lastname"];
                     DateOfBirth = (DateTime?)reader["DateOfBirth"];
-                    Gender = (int)reader["Gender"] == 0 ? "Male" : "Female";
+                    Gender = (string)reader["Gender"];
                     Address = (string)reader["Address"];
                     Phone = (string)reader["Phone"];
                     Email = (string)reader["Email"];
-                    Country = (string)reader["Country"];
+                    Country = (string)reader["CountryName"];
                     if (reader["ImagePath"] != DBNull.Value)
                         ImagePath = (string)reader["ImagePath"];
 
@@ -289,7 +289,7 @@ namespace Data_Layer
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
-            string query = @"SELECT * FROM Person";
+            string query = @"SELECT * FROM Person P JOIN Countries C ON P.NationalityCountryID = C.CountryID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -313,11 +313,11 @@ namespace Data_Layer
                     Thirdname = (string)reader["Thirdname"];
                     Lastname = (string)reader["Lastname"];
                     DateOfBirth = (DateTime?)reader["DateOfBirth"];
-                    Gender = (int)reader["Gender"] == 0 ? "Male" : "Female";
+                    Gender = (string)reader["Gender"];
                     Address = (string)reader["Address"];
                     Phone = (string)reader["Phone"];
                     Email = (string)reader["Email"];
-                    Country = (string)reader["Country"];
+                    Country = (string)reader["CountryName"];
                     if (reader["ImagePath"] != DBNull.Value)
                         ImagePath = (string)reader["ImagePath"];
 
@@ -361,7 +361,7 @@ namespace Data_Layer
                             P.Secondname AS 'Second Name', 
                             P.Thirdname AS 'Third Name', 
                             P.Lastname AS 'Last Name', 
-                            CASE WHEN P.Gender = 0 THEN 'Male' ELSE 'Female' END AS Gender,
+                            P.Gender,
                             P.DateOfBirth AS 'Date Of Birth',
                             C.CountryName AS 'Nationality',
                             P.Phone,
@@ -426,7 +426,7 @@ namespace Data_Layer
                             P.Secondname AS 'Second Name', 
                             P.Thirdname AS 'Third Name', 
                             P.Lastname AS 'Last Name', 
-                            CASE WHEN P.Gender = 0 THEN 'Male' ELSE 'Female' END AS Gender,
+                            P.Gender,
                             P.DateOfBirth AS 'Date Of Birth',
                             C.CountryName AS 'Nationality',
                             P.Phone,
@@ -528,7 +528,7 @@ namespace Data_Layer
             command.Parameters.AddWithValue("@Thirdname", Thirdname);
             command.Parameters.AddWithValue("@Lastname", Lastname);
             command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
-            command.Parameters.AddWithValue("@Gender", (Gender == "Male" ? 0 : 1));
+            command.Parameters.AddWithValue("@Gender", Gender);
             command.Parameters.AddWithValue("@Address", Address);
             command.Parameters.AddWithValue("@Phone", Phone);
             command.Parameters.AddWithValue("@Email", Email);
@@ -579,7 +579,7 @@ namespace Data_Layer
                 Address = @Address,
                 Phone = @Phone,
                 Email = @Email,
-                Country = @Country,
+                NationalityCountryID = (SELECT TOP 1 CountryID FROM Countries WHERE CountryName = @Country),
                 ImagePath = @ImagePath
                 WHERE PersonID = @PersonID
 
@@ -594,7 +594,7 @@ namespace Data_Layer
             command.Parameters.AddWithValue("@Thirdname", Thirdname);
             command.Parameters.AddWithValue("@Lastname", Lastname);
             command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
-            command.Parameters.AddWithValue("@Gender", (Gender == "Male" ? 0 : 1));
+            command.Parameters.AddWithValue("@Gender", Gender);
             command.Parameters.AddWithValue("@Address", Address);
             command.Parameters.AddWithValue("@Phone", Phone);
             command.Parameters.AddWithValue("@Email", Email);
