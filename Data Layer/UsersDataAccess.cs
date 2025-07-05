@@ -94,7 +94,7 @@ namespace Data_Layer
             switch (Type)
             {
                 case enMode.Default:
-                    query = @"SELECT * FROM Users";
+                    query = @"SELECT * FROM Users U";
                     break;
                 case enMode.PersonJoined:
                     query = @"
