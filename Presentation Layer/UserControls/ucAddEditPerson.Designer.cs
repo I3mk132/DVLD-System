@@ -514,7 +514,7 @@
             this.llblSetImage.AutoSize = true;
             this.llblSetImage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.llblSetImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llblSetImage.Location = new System.Drawing.Point(710, 251);
+            this.llblSetImage.Location = new System.Drawing.Point(710, 252);
             this.llblSetImage.Name = "llblSetImage";
             this.llblSetImage.Size = new System.Drawing.Size(94, 24);
             this.llblSetImage.TabIndex = 96;
