@@ -31,6 +31,8 @@ namespace Presentation_Layer.PeopleForms
         {
             frmAddEditPerson frmAddEditPerson = new frmAddEditPerson();
             frmAddEditPerson.ShowDialog();
+            ucPersonsList2.FilterToNone();
+            
         }
     }
 }

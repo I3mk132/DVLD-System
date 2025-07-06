@@ -177,7 +177,9 @@
             // cbFilterBy
             // 
             this.cbFilterBy.BackColor = System.Drawing.SystemColors.Control;
+            this.cbFilterBy.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbFilterBy.DropDownHeight = 220;
+            this.cbFilterBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFilterBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFilterBy.FormattingEnabled = true;
             this.cbFilterBy.IntegralHeight = false;
@@ -231,7 +233,9 @@
             this.dgvPersonsList.ContextMenuStrip = this.cms;
             this.dgvPersonsList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPersonsList.Location = new System.Drawing.Point(3, 43);
+            this.dgvPersonsList.MultiSelect = false;
             this.dgvPersonsList.Name = "dgvPersonsList";
+            this.dgvPersonsList.ReadOnly = true;
             this.dgvPersonsList.Size = new System.Drawing.Size(805, 261);
             this.dgvPersonsList.TabIndex = 15;
             // 

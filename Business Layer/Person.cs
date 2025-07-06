@@ -180,7 +180,10 @@ namespace Business_Layer
             return person.Firstname + " " + person.Secondname + " " + person.Thirdname + " " + person.Lastname;
 
         }
-
+        public string GetPersonFullName()
+        {
+            return Firstname + ' ' + Secondname + ' ' + Thirdname + " " + Lastname;
+        }
 
         private bool _AddNewPerson()
         {

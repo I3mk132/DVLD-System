@@ -30,10 +30,10 @@
         {
             this.lblPersonAddEdit = new System.Windows.Forms.Label();
             this.lbPersonID = new System.Windows.Forms.Label();
-            this.ucAddEditPerson1 = new Presentation_Layer.UserControls.ucAddEditPerson();
             this.lblPersonIDValue = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pbNationalNo = new System.Windows.Forms.PictureBox();
+            this.ucAddEditPerson1 = new Presentation_Layer.UserControls.ucAddEditPerson();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbNationalNo)).BeginInit();
             this.SuspendLayout();
@@ -60,14 +60,6 @@
             this.lbPersonID.Size = new System.Drawing.Size(99, 20);
             this.lbPersonID.TabIndex = 48;
             this.lbPersonID.Text = "Person ID: ";
-            // 
-            // ucAddEditPerson1
-            // 
-            this.ucAddEditPerson1.BackColor = System.Drawing.SystemColors.Control;
-            this.ucAddEditPerson1.Location = new System.Drawing.Point(61, 122);
-            this.ucAddEditPerson1.Name = "ucAddEditPerson1";
-            this.ucAddEditPerson1.Size = new System.Drawing.Size(860, 327);
-            this.ucAddEditPerson1.TabIndex = 6;
             // 
             // lblPersonIDValue
             // 
@@ -100,6 +92,14 @@
             this.pbNationalNo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbNationalNo.TabIndex = 112;
             this.pbNationalNo.TabStop = false;
+            // 
+            // ucAddEditPerson1
+            // 
+            this.ucAddEditPerson1.BackColor = System.Drawing.SystemColors.Control;
+            this.ucAddEditPerson1.Location = new System.Drawing.Point(61, 122);
+            this.ucAddEditPerson1.Name = "ucAddEditPerson1";
+            this.ucAddEditPerson1.Size = new System.Drawing.Size(860, 327);
+            this.ucAddEditPerson1.TabIndex = 6;
             // 
             // frmAddEditPerson
             // 

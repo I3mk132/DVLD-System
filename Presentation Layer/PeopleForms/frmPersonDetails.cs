@@ -12,12 +12,18 @@ namespace Presentation_Layer.PeopleForms
 {
     public partial class frmPersonDetails : Form
     {
-        public frmPersonDetails()
+        public frmPersonDetails(int PersonID)
         {
             InitializeComponent();
+            ucPersonDetails1.PersonID = PersonID;
+        }
+        
+        private void frmPersonDetails_Load(object sender, EventArgs e)
+        {
+
         }
 
-        private void frmPersonDetails_Load(object sender, EventArgs e)
+        private void ucPersonDetails1_Load(object sender, EventArgs e)
         {
 
         }

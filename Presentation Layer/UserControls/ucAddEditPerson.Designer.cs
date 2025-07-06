@@ -39,7 +39,6 @@
             this.pbMale = new System.Windows.Forms.PictureBox();
             this.pbNationalNo = new System.Windows.Forms.PictureBox();
             this.pbName = new System.Windows.Forms.PictureBox();
-            this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.pbPersonImage = new System.Windows.Forms.PictureBox();
             this.cbCountry = new System.Windows.Forms.ComboBox();
@@ -65,6 +64,7 @@
             this.lblGender = new System.Windows.Forms.Label();
             this.lblNationalNo = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbCountry)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -80,6 +80,7 @@
             // rbFemale
             // 
             this.rbFemale.AutoSize = true;
+            this.rbFemale.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbFemale.Location = new System.Drawing.Point(262, 109);
             this.rbFemale.Name = "rbFemale";
@@ -94,6 +95,7 @@
             // 
             this.rbMale.AutoSize = true;
             this.rbMale.Checked = true;
+            this.rbMale.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbMale.Location = new System.Drawing.Point(167, 109);
             this.rbMale.Name = "rbMale";
@@ -195,20 +197,9 @@
             this.pbName.TabIndex = 110;
             this.pbName.TabStop = false;
             // 
-            // btnClose
-            // 
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Image = global::Presentation_Layer.Properties.Resources.Close32;
-            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(383, 267);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(134, 40);
-            this.btnClose.TabIndex = 109;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            // 
             // btnSave
             // 
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Image = global::Presentation_Layer.Properties.Resources.Save32;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -218,6 +209,7 @@
             this.btnSave.TabIndex = 108;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // pbPersonImage
             // 
@@ -232,7 +224,9 @@
             // cbCountry
             // 
             this.cbCountry.BackColor = System.Drawing.SystemColors.Control;
+            this.cbCountry.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbCountry.DropDownHeight = 220;
+            this.cbCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCountry.FormattingEnabled = true;
             this.cbCountry.IntegralHeight = false;
@@ -441,6 +435,7 @@
             // 
             // dtpDateOfBirth
             // 
+            this.dtpDateOfBirth.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtpDateOfBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDateOfBirth.Location = new System.Drawing.Point(505, 73);
@@ -517,6 +512,7 @@
             // llblSetImage
             // 
             this.llblSetImage.AutoSize = true;
+            this.llblSetImage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.llblSetImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.llblSetImage.Location = new System.Drawing.Point(710, 251);
             this.llblSetImage.Name = "llblSetImage";
@@ -524,6 +520,7 @@
             this.llblSetImage.TabIndex = 96;
             this.llblSetImage.TabStop = true;
             this.llblSetImage.Text = "Set image";
+            this.llblSetImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblSetImage_LinkClicked_1);
             // 
             // lblThird
             // 
@@ -657,10 +654,26 @@
             this.lblName.TabIndex = 84;
             this.lblName.Text = "Name: ";
             // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.White;
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Image = global::Presentation_Layer.Properties.Resources.Close32;
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.Location = new System.Drawing.Point(386, 267);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(134, 40);
+            this.btnClose.TabIndex = 121;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // ucAddEditPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.rbFemale);
             this.Controls.Add(this.rbMale);
             this.Controls.Add(this.pbCountry);
@@ -672,7 +685,6 @@
             this.Controls.Add(this.pbMale);
             this.Controls.Add(this.pbNationalNo);
             this.Controls.Add(this.pbName);
-            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.pbPersonImage);
             this.Controls.Add(this.cbCountry);
@@ -729,7 +741,6 @@
         private System.Windows.Forms.PictureBox pbMale;
         private System.Windows.Forms.PictureBox pbNationalNo;
         private System.Windows.Forms.PictureBox pbName;
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.PictureBox pbPersonImage;
         private System.Windows.Forms.ComboBox cbCountry;
@@ -755,5 +766,6 @@
         private System.Windows.Forms.Label lblGender;
         private System.Windows.Forms.Label lblNationalNo;
         private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Button btnClose;
     }
 }

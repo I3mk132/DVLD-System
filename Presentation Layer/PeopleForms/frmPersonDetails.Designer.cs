@@ -48,8 +48,10 @@
             this.ucPersonDetails1.BackColor = System.Drawing.SystemColors.Control;
             this.ucPersonDetails1.Location = new System.Drawing.Point(59, 99);
             this.ucPersonDetails1.Name = "ucPersonDetails1";
+            this.ucPersonDetails1.PersonID = -1;
             this.ucPersonDetails1.Size = new System.Drawing.Size(870, 291);
             this.ucPersonDetails1.TabIndex = 5;
+            this.ucPersonDetails1.Load += new System.EventHandler(this.ucPersonDetails1_Load);
             // 
             // frmPersonDetails
             // 

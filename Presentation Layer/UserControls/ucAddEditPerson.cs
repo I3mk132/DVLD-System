@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Presentation_Layer.Properties;
+using Business_Layer;
 
 namespace Presentation_Layer.UserControls
 {
@@ -16,42 +17,68 @@ namespace Presentation_Layer.UserControls
         private enum enMode { eAdd, eUpdate }
         private enMode _Mode;
         public int PersonID = -1;
-        private ErrorProvider _FirstError, _SecondError,
-            _ThirdError, _LastError, _NationalNoError,
-            _EmailError, _AddressError, _PhoneError;
         private bool ErrorFlag = false;
+
         public ucAddEditPerson()
         {
             InitializeComponent();
-            if (PersonID != -1)
-                _Mode = enMode.eAdd;
-            else
-                _Mode = enMode.eUpdate;
 
             DateTime date = DateTime.Now;
             dtpDateOfBirth.MaxDate = date.AddYears(-18);
+            dtpDateOfBirth.MinDate = date.AddYears(-100);
+        }
+
+        private void llblSetImage_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
 
         private void rbGender_CheckChanged(object sender, EventArgs e)
         {
             RadioButton rbGender = (RadioButton)sender;
-            switch (rbGender.Tag.ToString())
-            {
-                case "Male":
-                    pbPersonImage.Image = Resources.Male;
-                    break;
-                case "Female":
-                    pbPersonImage.Image = Resources.Female;
-                    break;
-            }
+            pbPersonImage.Image =
+                (rbGender.Tag.ToString() == "Male" ? Resources.AnonymousMan : Resources.AnonymousWoman);
+
         }
 
-        private string _OldEmail, _OldNationalNo; 
+        private string _OldEmail, _OldNationalNo;
         private void ucAddEditPerson_Load(object sender, EventArgs e)
         {
-            if (_Mode == enMode.eAdd)
+            // Determine mode based on PersonID
+            if (PersonID == -1)
+                _Mode = enMode.eAdd;
+            else
+                _Mode = enMode.eUpdate;
+
+            if (_Mode == enMode.eUpdate)
             {
-                // clsPerson person = clsPerson.Find(_PersonID);
+                clsPerson person = clsPerson.Find(PersonID);
+
+                txtFirst.Text = person.Firstname.ToString();
+                txtSecond.Text = person.Secondname.ToString();
+                txtThird.Text = person.Thirdname.ToString();
+                txtLast.Text = person.Lastname.ToString();
+                txtNationalNo.Text = person.NationalNo.ToString();
+                txtEmail.Text = person.Email.ToString();
+                txtAddress.Text = person.Address.ToString();
+                txtPhone.Text = person.Phone.ToString();
+
+                dtpDateOfBirth.Value = person.DateOfBirth.Value;
+                cbCountry.SelectedItem = person.Country;
+
+                if (person.ImagePath == "")
+                    pbPersonImage.Image = (person.Gender == "Male" ? Resources.AnonymousMan : Resources.AnonymousWoman);
+                else
+                    pbPersonImage.Image = null; // LoadImage
+                pbPersonImage.Tag = person.ImagePath.ToString();
+
+                if (person.Gender == "Male")
+                    rbMale.Checked = true;
+                else
+                    rbFemale.Checked = true;
+            }
+            else
+            {
                 txtFirst.Text = string.Empty;
                 txtSecond.Text = string.Empty;
                 txtThird.Text = string.Empty;
@@ -60,23 +87,28 @@ namespace Presentation_Layer.UserControls
                 txtEmail.Text = string.Empty;
                 txtAddress.Text = string.Empty;
                 txtPhone.Text = string.Empty;
-                
+
                 dtpDateOfBirth.Value = DateTime.Now.AddYears(-19);
-                cbCountry.SelectedIndex = 0;
-                pbPersonImage.Image = null;
-            }
-            else
-            {
-                
+                cbCountry.SelectedItem = "Turkey";
+
+                pbPersonImage.Image = Resources.AnonymousMan;
+                rbMale.Checked = true;
+
             }
             _OldEmail = txtEmail.Text;
             _OldNationalNo = txtNationalNo.Text;
 
         }
 
+        private ErrorProvider _FirstError = new ErrorProvider(), _SecondError = new ErrorProvider(),
+            _ThirdError = new ErrorProvider(), _LastError = new ErrorProvider(), _NationalNoError = new ErrorProvider(),
+            _EmailError = new ErrorProvider(), _AddressError = new ErrorProvider(), _PhoneError = new ErrorProvider();
+
+
         private void _setErrors()
         {
-            if (txtEmail.Text != _OldEmail  && txtEmail.Text == "") // is  exists
+            
+            if (txtEmail.Text != _OldEmail && txtEmail.Text == "") // is  exists
             {
                 _EmailError.SetError(txtEmail, "Email is already exists");
                 ErrorFlag = true;
@@ -85,7 +117,7 @@ namespace Presentation_Layer.UserControls
             {
                 _NationalNoError.SetError(txtNationalNo, "NationalNo is already exist");
                 ErrorFlag = true;
-            } 
+            }
 
             // Check for Empty
             var ErrorSetter = new (TextBox TextBox, ErrorProvider ErrorProvider)[]
@@ -115,27 +147,17 @@ namespace Presentation_Layer.UserControls
         {
             // Here i will change the photo
         }
-        
+
         private void rbGender_Chenged(object sender, EventArgs e)
         {
             RadioButton rb = (RadioButton)sender;
-            switch (rb.Tag.ToString())
-            {
-                case "Male":
-                    if (true) // is image picked
-                    {
-                        pbPersonImage.Image = Resources.AnonymousMan;
-                    }
-                    break;
-                case "Female":
-                    if (true) // is image picked
-                    {
-                        pbPersonImage.Image = Resources.AnonymousWoman;
-                    }
-                    break;
-            }
+            if (string.IsNullOrEmpty(pbPersonImage.Tag.ToString()))
+                pbPersonImage.Image = (rb.Tag.ToString() == "Male" ? Resources.AnonymousMan : Resources.AnonymousWoman);
 
         }
+
+        public delegate void DataBackEventHandler(object sender);
+        public event DataBackEventHandler DataBack;
         private void btnSave_Click(object sender, EventArgs e)
         {
 
@@ -143,15 +165,42 @@ namespace Presentation_Layer.UserControls
             _setErrors();
             if (!ErrorFlag)
             {
-                if (true) // save
+                clsPerson person;
+                if (_Mode == enMode.eAdd)
+                    person = new clsPerson();
+                else
+                    person = clsPerson.Find(PersonID: PersonID);
+
+                person.Firstname = txtFirst.Text;
+                person.Secondname = txtSecond.Text;
+                person.Thirdname = txtThird.Text;
+                person.Lastname = txtLast.Text;
+                person.NationalNo = txtNationalNo.Text;
+                person.Email = txtEmail.Text;
+                person.Address = txtAddress.Text;
+                person.Phone = txtPhone.Text;
+
+                person.DateOfBirth = dtpDateOfBirth.Value;
+                person.Country = cbCountry.SelectedItem.ToString();
+
+                person.ImagePath = ""; //pbPersonImage.Tag.ToString();
+
+                person.Gender = (rbMale.Checked == true ? "Male" : "Female");
+
+                if (person.Save()) // save
                 {
                     MessageBox.Show("Saved successfully. ");
+                    DataBack?.Invoke(this);
                 }
                 else
                 {
                     MessageBox.Show("Something went wrong while saving");
                 }
-            } 
+            }
+        }
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            DataBack?.Invoke(this);
         }
     }
 }

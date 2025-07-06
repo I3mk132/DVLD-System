@@ -19,7 +19,7 @@ namespace Presentation_Layer.UserControls
         public ucPersonsList()
         {
             InitializeComponent();
-            _UpdateData();
+            RefreshData();
             cbFilterBy.SelectedIndex = 0;
         }
         private DataTable dt = clsPerson.GetAllPersonSimpled();
@@ -27,6 +27,11 @@ namespace Presentation_Layer.UserControls
         {
             dgvPersonsList.DataSource = dt;
             lblRecordCount.Text = "# Records: " + dt.Rows.Count.ToString();
+        }
+        public void RefreshData()
+        {
+            dt = clsPerson.GetAllPersonSimpled();
+            _UpdateData();
         }
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -38,12 +43,14 @@ namespace Presentation_Layer.UserControls
             if (cbFilterBy.SelectedIndex == 0)
             {
                 txtFilter.Visible = false;
+                txtFilter.Text = string.Empty;
             }
             else
             {
                 txtFilter.Visible = true;
+                txtFilter.Focus();
             }
-            _UpdateData();
+            _AddFilter();
         }
 
         private void txtFilter_KeyPress(object sender, KeyPressEventArgs e)
@@ -54,11 +61,12 @@ namespace Presentation_Layer.UserControls
             }
         }
 
-        private void txtFilter_TextChanged(object sender, EventArgs e)
+
+        private void _AddFilter()
         {
             string text = txtFilter.Text;
             string FilterMode = cbFilterBy.SelectedItem.ToString();
-            
+
             if (FilterMode == "Person ID")
             {
                 txtFilter.KeyPress += txtFilter_KeyPress;
@@ -91,7 +99,7 @@ namespace Presentation_Layer.UserControls
                 case "Last Name":
                     dt = clsPerson.GetPeopleUsingLikeSimpledWith(Lastname: text); break;
                 case "Nationality":
-                    dt = clsPerson.GetPeopleUsingLikeSimpledWith(NationalNo: text); break;
+                    dt = clsPerson.GetPeopleUsingLikeSimpledWith(Country: text); break;
                 case "Gender":
                     dt = clsPerson.GetPeopleUsingLikeSimpledWith(Gender: text); break;
                 case "Phone":
@@ -99,31 +107,77 @@ namespace Presentation_Layer.UserControls
                 case "Email":
                     dt = clsPerson.GetPeopleUsingLikeSimpledWith(Email: text); break;
             }
-            
+
             _UpdateData();
+
+        }
+        private void txtFilter_TextChanged(object sender, EventArgs e)
+        {
+            _AddFilter();
         }
 
         private void cmsiShowDetails_Click(object sender, EventArgs e)
         {
-            frmPersonDetails frm = new frmPersonDetails();
-            frm.ShowDialog();
+            if (dgvPersonsList.SelectedCells.Count > 0)
+            {
+                DataGridViewCell selectedCell = dgvPersonsList.SelectedCells[0];
+                DataGridViewRow row = selectedCell.OwningRow;
+
+                int personId = Convert.ToInt32(row.Cells[0].Value);
+                frmPersonDetails frm = new frmPersonDetails(personId);
+                frm.ShowDialog();
+            }
+
+            RefreshData();
         }
 
         private void cmsiAddNewPerson_Click(object sender, EventArgs e)
         {
             frmAddEditPerson frm = new frmAddEditPerson();
             frm.ShowDialog();
+
+            RefreshData();
         }
 
         private void cmsiEdit_Click(object sender, EventArgs e)
         {
-            frmAddEditPerson frm = new frmAddEditPerson();
-            frm.ShowDialog();
+            if (dgvPersonsList.SelectedCells.Count > 0)
+            {
+                DataGridViewCell selectedCell = dgvPersonsList.SelectedCells[0];
+                DataGridViewRow row = selectedCell.OwningRow;
+
+                int personId = Convert.ToInt32(row.Cells[0].Value);
+                frmAddEditPerson frm = new frmAddEditPerson(personId);
+                frm.ShowDialog();
+            }
+            RefreshData();
         }
 
         private void cmsiDelete_Click(object sender, EventArgs e)
         {
-            // delete item
+            if (dgvPersonsList.SelectedRows.Count > 0)
+            {
+                if (MessageBox.Show(
+                    "Are you sure you want to delete person ? ",
+                    "Person delete",
+                    MessageBoxButtons.YesNo, 
+                    MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    MessageBox.Show("Still not wokring");
+                }
+            }
+
+            RefreshData();
+
+        }
+
+
+        public void FilterToNone()
+        {
+            txtFilter.Text = string.Empty;
+            txtFilter.Visible = false;
+            cbFilterBy.SelectedIndex = 0;
+            RefreshData();
         }
     }
 }
