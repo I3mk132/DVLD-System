@@ -37,7 +37,7 @@
             this.lblPersonDetails.AutoSize = true;
             this.lblPersonDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPersonDetails.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblPersonDetails.Location = new System.Drawing.Point(313, 21);
+            this.lblPersonDetails.Location = new System.Drawing.Point(360, 42);
             this.lblPersonDetails.Name = "lblPersonDetails";
             this.lblPersonDetails.Size = new System.Drawing.Size(233, 37);
             this.lblPersonDetails.TabIndex = 4;
@@ -46,7 +46,7 @@
             // ucPersonDetails1
             // 
             this.ucPersonDetails1.BackColor = System.Drawing.SystemColors.Control;
-            this.ucPersonDetails1.Location = new System.Drawing.Point(12, 78);
+            this.ucPersonDetails1.Location = new System.Drawing.Point(59, 99);
             this.ucPersonDetails1.Name = "ucPersonDetails1";
             this.ucPersonDetails1.Size = new System.Drawing.Size(870, 291);
             this.ucPersonDetails1.TabIndex = 5;
@@ -56,7 +56,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(204)))), ((int)(((byte)(231)))));
-            this.ClientSize = new System.Drawing.Size(898, 382);
+            this.ClientSize = new System.Drawing.Size(983, 437);
             this.Controls.Add(this.ucPersonDetails1);
             this.Controls.Add(this.lblPersonDetails);
             this.Name = "frmPersonDetails";

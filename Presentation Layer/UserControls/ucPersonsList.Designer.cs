@@ -63,14 +63,14 @@
             this.cmsiSendEmail,
             this.cmsiPhoneCall});
             this.cms.Name = "cms";
-            this.cms.Size = new System.Drawing.Size(197, 266);
+            this.cms.Size = new System.Drawing.Size(177, 244);
             // 
             // cmsiShowDetails
             // 
             this.cmsiShowDetails.Image = global::Presentation_Layer.Properties.Resources.Clipboard32;
             this.cmsiShowDetails.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.cmsiShowDetails.Name = "cmsiShowDetails";
-            this.cmsiShowDetails.Size = new System.Drawing.Size(196, 38);
+            this.cmsiShowDetails.Size = new System.Drawing.Size(176, 38);
             this.cmsiShowDetails.Text = "Show details";
             this.cmsiShowDetails.Click += new System.EventHandler(this.cmsiShowDetails_Click);
             // 
@@ -84,7 +84,7 @@
             this.cmsiAddNewPerson.Image = global::Presentation_Layer.Properties.Resources.AddPerson32;
             this.cmsiAddNewPerson.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.cmsiAddNewPerson.Name = "cmsiAddNewPerson";
-            this.cmsiAddNewPerson.Size = new System.Drawing.Size(196, 38);
+            this.cmsiAddNewPerson.Size = new System.Drawing.Size(176, 38);
             this.cmsiAddNewPerson.Text = "Add new person";
             this.cmsiAddNewPerson.Click += new System.EventHandler(this.cmsiAddNewPerson_Click);
             // 
@@ -93,7 +93,7 @@
             this.cmsiEdit.Image = global::Presentation_Layer.Properties.Resources.EditPerson32;
             this.cmsiEdit.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.cmsiEdit.Name = "cmsiEdit";
-            this.cmsiEdit.Size = new System.Drawing.Size(196, 38);
+            this.cmsiEdit.Size = new System.Drawing.Size(176, 38);
             this.cmsiEdit.Text = "Edit";
             this.cmsiEdit.Click += new System.EventHandler(this.cmsiEdit_Click);
             // 
@@ -102,7 +102,7 @@
             this.cmsiDelete.Image = global::Presentation_Layer.Properties.Resources.DeletePerson32;
             this.cmsiDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.cmsiDelete.Name = "cmsiDelete";
-            this.cmsiDelete.Size = new System.Drawing.Size(196, 38);
+            this.cmsiDelete.Size = new System.Drawing.Size(176, 38);
             this.cmsiDelete.Text = "Delete";
             this.cmsiDelete.Click += new System.EventHandler(this.cmsiDelete_Click);
             // 
@@ -223,9 +223,12 @@
             // 
             // dgvPersonsList
             // 
+            this.dgvPersonsList.AllowUserToAddRows = false;
+            this.dgvPersonsList.AllowUserToDeleteRows = false;
             this.dgvPersonsList.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvPersonsList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvPersonsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPersonsList.ContextMenuStrip = this.cms;
             this.dgvPersonsList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPersonsList.Location = new System.Drawing.Point(3, 43);
             this.dgvPersonsList.Name = "dgvPersonsList";

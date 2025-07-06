@@ -137,8 +137,8 @@ namespace Data_Layer
             }
             if (Gender != "")
             {
-                conditions.Add("Gender = @Gender");
-                command.Parameters.AddWithValue("@Gender", Gender);
+                conditions.Add("Gender Like @Gender");
+                command.Parameters.AddWithValue("@Gender", $"{Gender}%");
             }
             if (!string.IsNullOrEmpty(Address))
             {

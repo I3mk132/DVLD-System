@@ -93,7 +93,7 @@ namespace Presentation_Layer.UserControls
                 case "Nationality":
                     dt = clsPerson.GetPeopleUsingLikeSimpledWith(NationalNo: text); break;
                 case "Gender":
-                    dt = clsPerson.GetPeopleUsingLikeSimpledWith(Gender: Convert.ToInt16(text)); break;
+                    dt = clsPerson.GetPeopleUsingLikeSimpledWith(Gender: text); break;
                 case "Phone":
                     dt = clsPerson.GetPeopleUsingLikeSimpledWith(Phone: text); break;
                 case "Email":
