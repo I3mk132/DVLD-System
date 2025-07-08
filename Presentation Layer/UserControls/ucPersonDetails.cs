@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,7 +62,11 @@ namespace Presentation_Layer.UserControls
                 if (person.ImagePath == "")
                     pbPicture.Image = (person.Gender == "Male" ? Resources.AnonymousMan : Resources.AnonymousWoman);
                 else
-                    pbPicture.Image = null; // LoadImage
+                    pbPicture.Image =
+                        Image.FromFile(
+                            Path.Combine(
+                                AppDomain.CurrentDomain.BaseDirectory, "Pictures", person.ImagePath
+                                )); // LoadImage
 
                 pbGender.Image = (person.Gender == "Male" ? Resources.Male : Resources.Female);
             }

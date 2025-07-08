@@ -24,7 +24,7 @@ namespace Presentation_Layer.PeopleForms
 
         private void frmPeople_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void pbAdd_Click(object sender, EventArgs e)

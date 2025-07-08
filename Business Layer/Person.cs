@@ -4,7 +4,10 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
+
 using Data_Layer;
+using System.IO;
 
 namespace Business_Layer
 {
@@ -184,6 +187,7 @@ namespace Business_Layer
         {
             return Firstname + ' ' + Secondname + ' ' + Thirdname + " " + Lastname;
         }
+        
 
         private bool _AddNewPerson()
         {

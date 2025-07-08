@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Presentation_Layer.Properties;
 using Business_Layer;
+using Presentation_Layer.Properties;
 
 namespace Presentation_Layer.UserControls
 {
@@ -28,16 +29,12 @@ namespace Presentation_Layer.UserControls
             dtpDateOfBirth.MinDate = date.AddYears(-100);
         }
 
-        private void llblSetImage_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
-
         private void rbGender_CheckChanged(object sender, EventArgs e)
         {
             RadioButton rbGender = (RadioButton)sender;
-            pbPersonImage.Image =
-                (rbGender.Tag.ToString() == "Male" ? Resources.AnonymousMan : Resources.AnonymousWoman);
+            if (pbPersonImage.Image == null)
+                pbPersonImage.Image =
+                    (rbGender.Tag.ToString() == "Male" ? Resources.AnonymousMan : Resources.AnonymousWoman);
 
         }
 
@@ -69,7 +66,11 @@ namespace Presentation_Layer.UserControls
                 if (person.ImagePath == "")
                     pbPersonImage.Image = (person.Gender == "Male" ? Resources.AnonymousMan : Resources.AnonymousWoman);
                 else
-                    pbPersonImage.Image = null; // LoadImage
+                    pbPersonImage.Image = 
+                        Image.FromFile(
+                            Path.Combine(
+                                AppDomain.CurrentDomain.BaseDirectory, "Pictures", person.ImagePath
+                                )); // LoadImage
                 pbPersonImage.Tag = person.ImagePath.ToString();
 
                 if (person.Gender == "Male")
@@ -145,7 +146,32 @@ namespace Presentation_Layer.UserControls
         }
         private void llblSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // Here i will change the photo
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Title = "Select a photo: ";
+            dialog.Filter = "Image Files (*.jpg;*.jpeg;*.png;*.bmp)|*.jpg;*.jpeg;*.png;*.bmp";
+            dialog.Multiselect = false;
+
+            string ImagePath = "";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                ImagePath = dialog.FileName;
+
+                Image image = Image.FromFile(ImagePath);
+
+                string folderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Pictures");
+                if (!Directory.Exists("Pictures"))
+                    Directory.CreateDirectory("Pictures");
+
+                string Filename = Guid.NewGuid().ToString() + ".png";
+                string FullPath = Path.Combine(folderPath, Filename);
+
+                image.Save(FullPath);
+                pbPersonImage.Tag = Filename;
+
+                pbPersonImage.Image = image;
+                pbPersonImage.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            }
         }
 
         private void rbGender_Chenged(object sender, EventArgs e)
@@ -183,9 +209,12 @@ namespace Presentation_Layer.UserControls
                 person.DateOfBirth = dtpDateOfBirth.Value;
                 person.Country = cbCountry.SelectedItem.ToString();
 
-                person.ImagePath = ""; //pbPersonImage.Tag.ToString();
+                if (pbPersonImage.Image != null)
+                    person.ImagePath = pbPersonImage.Tag.ToString();
+                else
+                    person.ImagePath = "";
 
-                person.Gender = (rbMale.Checked == true ? "Male" : "Female");
+                    person.Gender = (rbMale.Checked == true ? "Male" : "Female");
 
                 if (person.Save()) // save
                 {

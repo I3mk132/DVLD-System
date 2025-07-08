@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics.Eventing.Reader;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace Data_Layer
 {
@@ -267,7 +269,8 @@ namespace Data_Layer
                     Country = (string)reader["CountryName"];
                     if (reader["ImagePath"] != DBNull.Value)
                         ImagePath = (string)reader["ImagePath"];
-
+                    else
+                        ImagePath = "";
                 }
             }
             catch (Exception ex)
@@ -320,6 +323,8 @@ namespace Data_Layer
                     Country = (string)reader["CountryName"];
                     if (reader["ImagePath"] != DBNull.Value)
                         ImagePath = (string)reader["ImagePath"];
+                    else
+                        ImagePath = "";
 
                 }
             }
@@ -656,7 +661,6 @@ namespace Data_Layer
             }
             return rowsAffected > 0;
         }
-
 
     }
 }

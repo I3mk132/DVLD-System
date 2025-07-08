@@ -520,7 +520,7 @@
             this.llblSetImage.TabIndex = 96;
             this.llblSetImage.TabStop = true;
             this.llblSetImage.Text = "Set image";
-            this.llblSetImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblSetImage_LinkClicked_1);
+            this.llblSetImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblSetImage_LinkClicked);
             // 
             // lblThird
             // 
