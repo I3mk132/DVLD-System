@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -155,7 +156,7 @@ namespace Presentation_Layer.UserControls
 
         private void cmsiDelete_Click(object sender, EventArgs e)
         {
-            if (dgvPersonsList.SelectedRows.Count > 0)
+            if (dgvPersonsList.SelectedCells.Count > 0)
             {
                 if (MessageBox.Show(
                     "Are you sure you want to delete person ? ",
@@ -163,7 +164,25 @@ namespace Presentation_Layer.UserControls
                     MessageBoxButtons.YesNo, 
                     MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    MessageBox.Show("Still not wokring");
+
+                    DataGridViewCell selectedCell = dgvPersonsList.SelectedCells[0];
+                    DataGridViewRow row = selectedCell.OwningRow;
+
+                    int personId = Convert.ToInt32(row.Cells[0].Value);
+                    clsPerson person = clsPerson.Find(personId);
+
+                    string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Pictures", person.ImagePath);
+                    if (File.Exists(imagePath))
+                    {
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+                        File.Delete(imagePath);
+                    }
+
+                    if (clsPerson.DeletePerson(personId))
+                        MessageBox.Show("Person Deleted Successfully");
+                    else
+                        MessageBox.Show("Person Couldnt be deleted because there are some data linked to it");
                 }
             }
 

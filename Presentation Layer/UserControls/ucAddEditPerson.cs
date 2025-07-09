@@ -38,7 +38,7 @@ namespace Presentation_Layer.UserControls
 
         }
 
-        private string _OldEmail, _OldNationalNo;
+        private string _OldEmail, _OldNationalNo, _OldImageName;
         private void ucAddEditPerson_Load(object sender, EventArgs e)
         {
             // Determine mode based on PersonID
@@ -71,6 +71,7 @@ namespace Presentation_Layer.UserControls
                             Path.Combine(
                                 AppDomain.CurrentDomain.BaseDirectory, "Pictures", person.ImagePath
                                 )); // LoadImage
+                _OldImageName = person.ImagePath;
                 pbPersonImage.Tag = person.ImagePath.ToString();
 
                 if (person.Gender == "Male")
@@ -98,6 +99,7 @@ namespace Presentation_Layer.UserControls
             }
             _OldEmail = txtEmail.Text;
             _OldNationalNo = txtNationalNo.Text;
+            
 
         }
 
@@ -165,6 +167,7 @@ namespace Presentation_Layer.UserControls
                 string Filename = Guid.NewGuid().ToString() + ".png";
                 string FullPath = Path.Combine(folderPath, Filename);
 
+
                 image.Save(FullPath);
                 pbPersonImage.Tag = Filename;
 
@@ -214,7 +217,21 @@ namespace Presentation_Layer.UserControls
                 else
                     person.ImagePath = "";
 
-                    person.Gender = (rbMale.Checked == true ? "Male" : "Female");
+                if (_Mode == enMode.eUpdate)
+                {
+                    string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Pictures", _OldImageName);
+
+                    if (File.Exists(imagePath))
+                    {
+                        pbPersonImage.Image = null;
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+                        File.Delete(imagePath);
+                    }
+
+                }
+
+                person.Gender = (rbMale.Checked == true ? "Male" : "Female");
 
                 if (person.Save()) // save
                 {
