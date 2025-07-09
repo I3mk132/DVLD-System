@@ -78,52 +78,52 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserControls\ucAddEditPerson.cs">
+    <Compile Include="UserControls\PersonUserControls\ucAddEditPerson.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\ucAddEditPerson.Designer.cs">
+    <Compile Include="UserControls\PersonUserControls\ucAddEditPerson.Designer.cs">
       <DependentUpon>ucAddEditPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ucLoginInfo.cs">
+    <Compile Include="UserControls\UsersUserContorls\ucLoginInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\ucLoginInfo.Designer.cs">
+    <Compile Include="UserControls\UsersUserContorls\ucLoginInfo.Designer.cs">
       <DependentUpon>ucLoginInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ucPersonDetails.cs">
+    <Compile Include="UserControls\PersonUserControls\ucPersonDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\ucPersonDetails.Designer.cs">
+    <Compile Include="UserControls\PersonUserControls\ucPersonDetails.Designer.cs">
       <DependentUpon>ucPersonDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ucPersonSearch.cs">
+    <Compile Include="UserControls\PersonUserControls\ucPersonSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\ucPersonSearch.Designer.cs">
+    <Compile Include="UserControls\PersonUserControls\ucPersonSearch.Designer.cs">
       <DependentUpon>ucPersonSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ucPersonsList.cs">
+    <Compile Include="UserControls\PersonUserControls\ucPersonsList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\ucPersonsList.Designer.cs">
+    <Compile Include="UserControls\PersonUserControls\ucPersonsList.Designer.cs">
       <DependentUpon>ucPersonsList.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ucUserDetails.cs">
+    <Compile Include="UserControls\UsersUserContorls\ucUserDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\ucUserDetails.Designer.cs">
+    <Compile Include="UserControls\UsersUserContorls\ucUserDetails.Designer.cs">
       <DependentUpon>ucUserDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ucUserFilter.cs">
+    <Compile Include="UserControls\UsersUserContorls\ucUserFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\ucUserFilter.Designer.cs">
+    <Compile Include="UserControls\UsersUserContorls\ucUserFilter.Designer.cs">
       <DependentUpon>ucUserFilter.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ucUsersList.cs">
+    <Compile Include="UserControls\UsersUserContorls\ucUsersList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\ucUsersList.Designer.cs">
+    <Compile Include="UserControls\UsersUserContorls\ucUsersList.Designer.cs">
       <DependentUpon>ucUsersList.cs</DependentUpon>
     </Compile>
     <Compile Include="UserForms\frmAddEditUser.cs">
@@ -175,28 +175,28 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UserControls\ucAddEditPerson.resx">
+    <EmbeddedResource Include="UserControls\PersonUserControls\ucAddEditPerson.resx">
       <DependentUpon>ucAddEditPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\ucLoginInfo.resx">
+    <EmbeddedResource Include="UserControls\UsersUserContorls\ucLoginInfo.resx">
       <DependentUpon>ucLoginInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\ucPersonDetails.resx">
+    <EmbeddedResource Include="UserControls\PersonUserControls\ucPersonDetails.resx">
       <DependentUpon>ucPersonDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\ucPersonSearch.resx">
+    <EmbeddedResource Include="UserControls\PersonUserControls\ucPersonSearch.resx">
       <DependentUpon>ucPersonSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\ucPersonsList.resx">
+    <EmbeddedResource Include="UserControls\PersonUserControls\ucPersonsList.resx">
       <DependentUpon>ucPersonsList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\ucUserDetails.resx">
+    <EmbeddedResource Include="UserControls\UsersUserContorls\ucUserDetails.resx">
       <DependentUpon>ucUserDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\ucUserFilter.resx">
+    <EmbeddedResource Include="UserControls\UsersUserContorls\ucUserFilter.resx">
       <DependentUpon>ucUserFilter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\ucUsersList.resx">
+    <EmbeddedResource Include="UserControls\UsersUserContorls\ucUsersList.resx">
       <DependentUpon>ucUsersList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForms\frmAddEditUser.resx">
@@ -340,6 +340,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Icons\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RememberedUser.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

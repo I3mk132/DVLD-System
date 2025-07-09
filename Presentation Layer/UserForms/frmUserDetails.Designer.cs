@@ -73,7 +73,7 @@
             this.Controls.Add(this.ucPersonDetails1);
             this.Controls.Add(this.btnClose);
             this.Name = "frmUserDetails";
-            this.Text = "frmUserDetails";
+            this.Text = "User Details";
             this.ResumeLayout(false);
 
         }
