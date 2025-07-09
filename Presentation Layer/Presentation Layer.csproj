@@ -84,6 +84,12 @@
     <Compile Include="UserControls\ucAddEditPerson.Designer.cs">
       <DependentUpon>ucAddEditPerson.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ucLoginInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucLoginInfo.Designer.cs">
+      <DependentUpon>ucLoginInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ucPersonDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -95,6 +101,18 @@
     </Compile>
     <Compile Include="UserControls\ucPersonsList.Designer.cs">
       <DependentUpon>ucPersonsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucUserDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucUserDetails.Designer.cs">
+      <DependentUpon>ucUserDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucUsersList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucUsersList.Designer.cs">
+      <DependentUpon>ucUsersList.cs</DependentUpon>
     </Compile>
     <Compile Include="UserForms\frmAddEditUser.cs">
       <SubType>Form</SubType>
@@ -148,11 +166,20 @@
     <EmbeddedResource Include="UserControls\ucAddEditPerson.resx">
       <DependentUpon>ucAddEditPerson.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucLoginInfo.resx">
+      <DependentUpon>ucLoginInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucPersonDetails.resx">
       <DependentUpon>ucPersonDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucPersonsList.resx">
       <DependentUpon>ucPersonsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucUserDetails.resx">
+      <DependentUpon>ucUserDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucUsersList.resx">
+      <DependentUpon>ucUsersList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForms\frmAddEditUser.resx">
       <DependentUpon>frmAddEditUser.cs</DependentUpon>
