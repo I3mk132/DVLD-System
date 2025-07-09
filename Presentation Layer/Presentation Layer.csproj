@@ -237,5 +237,20 @@
   <ItemGroup>
     <None Include="Icons\License.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\password32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Logout32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Password.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

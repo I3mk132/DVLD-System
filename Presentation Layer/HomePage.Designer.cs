@@ -34,6 +34,10 @@
             this.msiDrivers = new System.Windows.Forms.ToolStripMenuItem();
             this.msiUsers = new System.Windows.Forms.ToolStripMenuItem();
             this.msiAccountSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.msiInformation = new System.Windows.Forms.ToolStripMenuItem();
+            this.msiChangePassword = new System.Windows.Forms.ToolStripMenuItem();
+            this.msiSignout = new System.Windows.Forms.ToolStripMenuItem();
+            this.msiSeperator = new System.Windows.Forms.ToolStripSeparator();
             this.msMenues.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,10 +88,41 @@
             // 
             // msiAccountSettings
             // 
+            this.msiAccountSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.msiInformation,
+            this.msiChangePassword,
+            this.msiSeperator,
+            this.msiSignout});
             this.msiAccountSettings.Image = global::Presentation_Layer.Properties.Resources.Account_Settings;
             this.msiAccountSettings.Name = "msiAccountSettings";
             this.msiAccountSettings.Size = new System.Drawing.Size(223, 52);
             this.msiAccountSettings.Text = "Account Settings";
+            // 
+            // msiInformation
+            // 
+            this.msiInformation.Image = global::Presentation_Layer.Properties.Resources.User;
+            this.msiInformation.Name = "msiInformation";
+            this.msiInformation.Size = new System.Drawing.Size(273, 54);
+            this.msiInformation.Text = "Current User Info";
+            // 
+            // msiChangePassword
+            // 
+            this.msiChangePassword.Image = global::Presentation_Layer.Properties.Resources.Password;
+            this.msiChangePassword.Name = "msiChangePassword";
+            this.msiChangePassword.Size = new System.Drawing.Size(273, 54);
+            this.msiChangePassword.Text = "Change password";
+            // 
+            // msiSignout
+            // 
+            this.msiSignout.Image = global::Presentation_Layer.Properties.Resources.Logout;
+            this.msiSignout.Name = "msiSignout";
+            this.msiSignout.Size = new System.Drawing.Size(273, 54);
+            this.msiSignout.Text = "Sign out";
+            // 
+            // msiSeperator
+            // 
+            this.msiSeperator.Name = "msiSeperator";
+            this.msiSeperator.Size = new System.Drawing.Size(270, 6);
             // 
             // HomePage
             // 
@@ -115,6 +150,10 @@
         private System.Windows.Forms.ToolStripMenuItem msiDrivers;
         private System.Windows.Forms.ToolStripMenuItem msiUsers;
         private System.Windows.Forms.ToolStripMenuItem msiAccountSettings;
+        private System.Windows.Forms.ToolStripMenuItem msiInformation;
+        private System.Windows.Forms.ToolStripMenuItem msiChangePassword;
+        private System.Windows.Forms.ToolStripMenuItem msiSignout;
+        private System.Windows.Forms.ToolStripSeparator msiSeperator;
     }
 }
 
