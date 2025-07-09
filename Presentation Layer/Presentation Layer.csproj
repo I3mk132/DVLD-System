@@ -96,6 +96,12 @@
     <Compile Include="UserControls\ucPersonDetails.Designer.cs">
       <DependentUpon>ucPersonDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ucPersonSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucPersonSearch.Designer.cs">
+      <DependentUpon>ucPersonSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ucPersonsList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -107,6 +113,12 @@
     </Compile>
     <Compile Include="UserControls\ucUserDetails.Designer.cs">
       <DependentUpon>ucUserDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucUserFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucUserFilter.Designer.cs">
+      <DependentUpon>ucUserFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ucUsersList.cs">
       <SubType>UserControl</SubType>
@@ -172,11 +184,17 @@
     <EmbeddedResource Include="UserControls\ucPersonDetails.resx">
       <DependentUpon>ucPersonDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucPersonSearch.resx">
+      <DependentUpon>ucPersonSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucPersonsList.resx">
       <DependentUpon>ucPersonsList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucUserDetails.resx">
       <DependentUpon>ucUserDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucUserFilter.resx">
+      <DependentUpon>ucUserFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucUsersList.resx">
       <DependentUpon>ucUsersList.cs</DependentUpon>
@@ -319,6 +337,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Icons\Key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Search.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
