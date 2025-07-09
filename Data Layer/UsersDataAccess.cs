@@ -515,8 +515,8 @@ namespace Data_Layer
             string query = @"
                 UPDATE Users SET
                     IsActive = 1
-                WHERE UserID = @UserID 
-                    NOT EXISTS ( SELECT 1 FROM Users WHERE IsActive = 1 )";
+                WHERE UserID = @UserID";
+                    
 
             SqlCommand command = new SqlCommand(query, connection);
 
