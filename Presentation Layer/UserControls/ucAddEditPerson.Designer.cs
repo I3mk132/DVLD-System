@@ -671,8 +671,7 @@
             // 
             // ucAddEditPerson
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.rbFemale);
             this.Controls.Add(this.rbMale);
