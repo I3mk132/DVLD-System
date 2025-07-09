@@ -36,8 +36,8 @@
             this.msiAccountSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.msiInformation = new System.Windows.Forms.ToolStripMenuItem();
             this.msiChangePassword = new System.Windows.Forms.ToolStripMenuItem();
-            this.msiSignout = new System.Windows.Forms.ToolStripMenuItem();
             this.msiSeperator = new System.Windows.Forms.ToolStripSeparator();
+            this.msiSignout = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenues.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,17 +112,18 @@
             this.msiChangePassword.Size = new System.Drawing.Size(273, 54);
             this.msiChangePassword.Text = "Change password";
             // 
+            // msiSeperator
+            // 
+            this.msiSeperator.Name = "msiSeperator";
+            this.msiSeperator.Size = new System.Drawing.Size(270, 6);
+            // 
             // msiSignout
             // 
             this.msiSignout.Image = global::Presentation_Layer.Properties.Resources.Logout;
             this.msiSignout.Name = "msiSignout";
             this.msiSignout.Size = new System.Drawing.Size(273, 54);
             this.msiSignout.Text = "Sign out";
-            // 
-            // msiSeperator
-            // 
-            this.msiSeperator.Name = "msiSeperator";
-            this.msiSeperator.Size = new System.Drawing.Size(270, 6);
+            this.msiSignout.Click += new System.EventHandler(this.msiSignout_Click);
             // 
             // HomePage
             // 

@@ -23,5 +23,13 @@ namespace Presentation_Layer
             frmPeople people = new frmPeople();
             people.ShowDialog();
         }
+
+
+        public bool QuitFlag = true;
+        private void msiSignout_Click(object sender, EventArgs e)
+        {
+            QuitFlag = false;
+            this.Close();
+        }
     }
 }
