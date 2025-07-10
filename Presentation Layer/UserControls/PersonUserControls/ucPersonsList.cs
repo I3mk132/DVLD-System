@@ -205,5 +205,10 @@ namespace Presentation_Layer.UserControls
         {
 
         }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

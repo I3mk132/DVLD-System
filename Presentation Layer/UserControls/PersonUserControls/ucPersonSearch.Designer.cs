@@ -59,6 +59,7 @@
             this.btnAdd.Size = new System.Drawing.Size(54, 41);
             this.btnAdd.TabIndex = 18;
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnFind
             // 
@@ -68,6 +69,7 @@
             this.btnFind.Size = new System.Drawing.Size(54, 41);
             this.btnFind.TabIndex = 17;
             this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // cbFilterBy
             // 
@@ -79,7 +81,6 @@
             this.cbFilterBy.FormattingEnabled = true;
             this.cbFilterBy.IntegralHeight = false;
             this.cbFilterBy.Items.AddRange(new object[] {
-            "None",
             "Person ID",
             "National No.",
             "First Name",
@@ -95,6 +96,7 @@
             this.cbFilterBy.Name = "cbFilterBy";
             this.cbFilterBy.Size = new System.Drawing.Size(135, 28);
             this.cbFilterBy.TabIndex = 15;
+            this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.cbFilterBy_SelectedIndexChanged);
             // 
             // lblFilter
             // 
@@ -114,6 +116,7 @@
             this.txtFilter.Name = "txtFilter";
             this.txtFilter.Size = new System.Drawing.Size(227, 26);
             this.txtFilter.TabIndex = 16;
+            this.txtFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilter_KeyPress);
             // 
             // ucPersonSearch
             // 
@@ -121,6 +124,7 @@
             this.Controls.Add(this.gbFilter);
             this.Name = "ucPersonSearch";
             this.Size = new System.Drawing.Size(870, 86);
+            this.Load += new System.EventHandler(this.ucPersonSearch_Load);
             this.gbFilter.ResumeLayout(false);
             this.gbFilter.PerformLayout();
             this.ResumeLayout(false);

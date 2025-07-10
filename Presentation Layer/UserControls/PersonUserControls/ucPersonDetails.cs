@@ -75,5 +75,9 @@ namespace Presentation_Layer.UserControls
         {
             _LoadPersonData();
         }
+        public void LoadPersonData()
+        {
+            _LoadPersonData();
+        }
     }
 }

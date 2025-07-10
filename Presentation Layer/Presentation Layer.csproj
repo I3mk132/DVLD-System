@@ -333,6 +333,7 @@
     <None Include="Icons\Search.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Icons\Back32.png" />
     <Content Include="RememberedUser.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
