@@ -18,27 +18,26 @@ namespace Presentation_Layer
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new frmHomePage());
-            //while (true)
-            //{
-            //    // show the login form
-            //    frmLogin loginForm = new frmLogin();
-            //    Application.Run(loginForm);
+            while (true)
+            {
+                // show the login form
+                frmLogin loginForm = new frmLogin();
+                Application.Run(loginForm);
 
-            //    if (clsGlobal.CurrentUser != null)
-            //    {
-            //        frmHomePage homePage = new frmHomePage();
-            //        Application.Run(homePage);
+                if (clsGlobal.CurrentUser != null)
+                {
+                    frmHomePage homePage = new frmHomePage();
+                    Application.Run(homePage);
 
-            //        if (homePage.logoutFlag)
-            //        {
-            //            clsGlobal.CurrentUser = null;
-            //            continue;
-            //        }
-            //    }
+                    if (homePage.logoutFlag)
+                    {
+                        clsGlobal.CurrentUser = null;
+                        continue;
+                    }
+                }
 
-            //    break;
-            //}
+                break;
+            }
 
 
         }

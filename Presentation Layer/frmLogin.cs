@@ -23,7 +23,13 @@ namespace Presentation_Layer
         string FileName = "RememberedUser.txt";
         private (string Username, string Password) _ReadRememberedUser()
         {
+            if (!File.Exists(FileName))
+            {
+                File.WriteAllText(FileName, ""); 
+            }
+
             string UserDataLine = File.ReadAllText(FileName);
+
 
             string[] data = { "", "" };
 

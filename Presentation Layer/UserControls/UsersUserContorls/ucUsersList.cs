@@ -106,7 +106,7 @@ namespace Presentation_Layer.UserControls
             RefreshData();
         }
 
-        private void cmsiAddNewPerson_Click(object sender, EventArgs e)
+        private void cmsiAddNewUser_Click(object sender, EventArgs e)
         {
             frmAddEditUser frm = new frmAddEditUser();
             frm.ShowDialog();
@@ -155,6 +155,10 @@ namespace Presentation_Layer.UserControls
 
             RefreshData();
 
+        }
+        public void cmsiStillNotWorking_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Still not working");
         }
 
         public void FilterToNone()
