@@ -9,6 +9,6 @@ namespace Business_Layer
     public class clsGlobal
     {
         public static clsUsers CurrentUser {  get; set; }
-
+        
     }
 }

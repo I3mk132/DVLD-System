@@ -28,82 +28,86 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtPhone = new System.Windows.Forms.TextBox();
-            this.lblCountry = new System.Windows.Forms.Label();
-            this.lblPhone = new System.Windows.Forms.Label();
+            this.txtConfirmPassword = new System.Windows.Forms.TextBox();
+            this.txtCurrentPassword = new System.Windows.Forms.TextBox();
+            this.lblConfirmPasswordTitle = new System.Windows.Forms.Label();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lblPasswordTitle = new System.Windows.Forms.Label();
+            this.lblCurrentPasswordTitle = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pbCountry = new System.Windows.Forms.PictureBox();
-            this.pbPhone = new System.Windows.Forms.PictureBox();
+            this.pbKey3 = new System.Windows.Forms.PictureBox();
+            this.pbKey2 = new System.Windows.Forms.PictureBox();
+            this.pbKey1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ucLoginInfo1 = new Presentation_Layer.UserControls.ucLoginInfo();
             this.ucPersonDetails1 = new Presentation_Layer.UserControls.ucPersonDetails();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCountry)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPhone)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbKey3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbKey2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbKey1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox2
+            // txtConfirmPassword
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(230, 93);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(155, 26);
-            this.textBox2.TabIndex = 143;
+            this.txtConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmPassword.Location = new System.Drawing.Point(230, 93);
+            this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.Size = new System.Drawing.Size(220, 26);
+            this.txtConfirmPassword.TabIndex = 143;
+            this.txtConfirmPassword.TextChanged += new System.EventHandler(this.txtConfirmPassword_TextChanged);
+            this.txtConfirmPassword.Leave += new System.EventHandler(this.txtConfirmPassword_Leave);
             // 
-            // textBox1
+            // txtCurrentPassword
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(230, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(155, 26);
-            this.textBox1.TabIndex = 142;
+            this.txtCurrentPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCurrentPassword.Location = new System.Drawing.Point(230, 13);
+            this.txtCurrentPassword.Name = "txtCurrentPassword";
+            this.txtCurrentPassword.Size = new System.Drawing.Size(220, 26);
+            this.txtCurrentPassword.TabIndex = 142;
+            this.txtCurrentPassword.Leave += new System.EventHandler(this.txtCurrentPassword_Leave);
             // 
-            // label1
+            // lblConfirmPasswordTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(16, 96);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 20);
-            this.label1.TabIndex = 141;
-            this.label1.Text = "Confirm Password:";
+            this.lblConfirmPasswordTitle.AutoSize = true;
+            this.lblConfirmPasswordTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConfirmPasswordTitle.ForeColor = System.Drawing.Color.Black;
+            this.lblConfirmPasswordTitle.Location = new System.Drawing.Point(16, 96);
+            this.lblConfirmPasswordTitle.Name = "lblConfirmPasswordTitle";
+            this.lblConfirmPasswordTitle.Size = new System.Drawing.Size(158, 20);
+            this.lblConfirmPasswordTitle.TabIndex = 141;
+            this.lblConfirmPasswordTitle.Text = "Confirm Password:";
             // 
-            // txtPhone
+            // txtPassword
             // 
-            this.txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhone.Location = new System.Drawing.Point(230, 53);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(155, 26);
-            this.txtPhone.TabIndex = 137;
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(230, 53);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(220, 26);
+            this.txtPassword.TabIndex = 137;
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
-            // lblCountry
+            // lblPasswordTitle
             // 
-            this.lblCountry.AutoSize = true;
-            this.lblCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCountry.ForeColor = System.Drawing.Color.Black;
-            this.lblCountry.Location = new System.Drawing.Point(78, 56);
-            this.lblCountry.Name = "lblCountry";
-            this.lblCountry.Size = new System.Drawing.Size(96, 20);
-            this.lblCountry.TabIndex = 136;
-            this.lblCountry.Text = "Password: ";
+            this.lblPasswordTitle.AutoSize = true;
+            this.lblPasswordTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPasswordTitle.ForeColor = System.Drawing.Color.Black;
+            this.lblPasswordTitle.Location = new System.Drawing.Point(78, 56);
+            this.lblPasswordTitle.Name = "lblPasswordTitle";
+            this.lblPasswordTitle.Size = new System.Drawing.Size(96, 20);
+            this.lblPasswordTitle.TabIndex = 136;
+            this.lblPasswordTitle.Text = "Password: ";
             // 
-            // lblPhone
+            // lblCurrentPasswordTitle
             // 
-            this.lblPhone.AutoSize = true;
-            this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.ForeColor = System.Drawing.Color.Black;
-            this.lblPhone.Location = new System.Drawing.Point(18, 16);
-            this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(156, 20);
-            this.lblPhone.TabIndex = 135;
-            this.lblPhone.Text = "Current Password:";
+            this.lblCurrentPasswordTitle.AutoSize = true;
+            this.lblCurrentPasswordTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentPasswordTitle.ForeColor = System.Drawing.Color.Black;
+            this.lblCurrentPasswordTitle.Location = new System.Drawing.Point(18, 16);
+            this.lblCurrentPasswordTitle.Name = "lblCurrentPasswordTitle";
+            this.lblCurrentPasswordTitle.Size = new System.Drawing.Size(156, 20);
+            this.lblCurrentPasswordTitle.TabIndex = 135;
+            this.lblCurrentPasswordTitle.Text = "Current Password:";
             // 
             // btnClose
             // 
@@ -130,49 +134,50 @@
             this.btnSave.TabIndex = 145;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // pictureBox2
+            // pbKey3
             // 
-            this.pictureBox2.Image = global::Presentation_Layer.Properties.Resources.Key;
-            this.pictureBox2.Location = new System.Drawing.Point(187, 93);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 144;
-            this.pictureBox2.TabStop = false;
+            this.pbKey3.Image = global::Presentation_Layer.Properties.Resources.Key;
+            this.pbKey3.Location = new System.Drawing.Point(187, 93);
+            this.pbKey3.Name = "pbKey3";
+            this.pbKey3.Size = new System.Drawing.Size(25, 25);
+            this.pbKey3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbKey3.TabIndex = 144;
+            this.pbKey3.TabStop = false;
             // 
-            // pbCountry
+            // pbKey2
             // 
-            this.pbCountry.Image = global::Presentation_Layer.Properties.Resources.Key;
-            this.pbCountry.Location = new System.Drawing.Point(187, 53);
-            this.pbCountry.Name = "pbCountry";
-            this.pbCountry.Size = new System.Drawing.Size(25, 25);
-            this.pbCountry.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbCountry.TabIndex = 140;
-            this.pbCountry.TabStop = false;
+            this.pbKey2.Image = global::Presentation_Layer.Properties.Resources.Key;
+            this.pbKey2.Location = new System.Drawing.Point(187, 53);
+            this.pbKey2.Name = "pbKey2";
+            this.pbKey2.Size = new System.Drawing.Size(25, 25);
+            this.pbKey2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbKey2.TabIndex = 140;
+            this.pbKey2.TabStop = false;
             // 
-            // pbPhone
+            // pbKey1
             // 
-            this.pbPhone.Image = global::Presentation_Layer.Properties.Resources.Person;
-            this.pbPhone.Location = new System.Drawing.Point(187, 13);
-            this.pbPhone.Name = "pbPhone";
-            this.pbPhone.Size = new System.Drawing.Size(25, 25);
-            this.pbPhone.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbPhone.TabIndex = 139;
-            this.pbPhone.TabStop = false;
+            this.pbKey1.Image = global::Presentation_Layer.Properties.Resources.Key;
+            this.pbKey1.Location = new System.Drawing.Point(187, 13);
+            this.pbKey1.Name = "pbKey1";
+            this.pbKey1.Size = new System.Drawing.Size(25, 25);
+            this.pbKey1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbKey1.TabIndex = 139;
+            this.pbKey1.TabStop = false;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.pbCountry);
-            this.panel1.Controls.Add(this.pbPhone);
-            this.panel1.Controls.Add(this.txtPhone);
-            this.panel1.Controls.Add(this.lblCountry);
-            this.panel1.Controls.Add(this.lblPhone);
+            this.panel1.Controls.Add(this.pbKey3);
+            this.panel1.Controls.Add(this.txtConfirmPassword);
+            this.panel1.Controls.Add(this.txtCurrentPassword);
+            this.panel1.Controls.Add(this.lblConfirmPasswordTitle);
+            this.panel1.Controls.Add(this.pbKey2);
+            this.panel1.Controls.Add(this.pbKey1);
+            this.panel1.Controls.Add(this.txtPassword);
+            this.panel1.Controls.Add(this.lblPasswordTitle);
+            this.panel1.Controls.Add(this.lblCurrentPasswordTitle);
             this.panel1.Location = new System.Drawing.Point(12, 429);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(870, 132);
@@ -208,9 +213,10 @@
             this.Controls.Add(this.btnSave);
             this.Name = "frmChangePassword";
             this.Text = "Change Password";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCountry)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPhone)).EndInit();
+            this.Load += new System.EventHandler(this.frmChangePassword_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbKey3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbKey2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbKey1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -218,15 +224,15 @@
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pbCountry;
-        private System.Windows.Forms.PictureBox pbPhone;
-        private System.Windows.Forms.TextBox txtPhone;
-        private System.Windows.Forms.Label lblCountry;
-        private System.Windows.Forms.Label lblPhone;
+        private System.Windows.Forms.PictureBox pbKey3;
+        private System.Windows.Forms.TextBox txtConfirmPassword;
+        private System.Windows.Forms.TextBox txtCurrentPassword;
+        private System.Windows.Forms.Label lblConfirmPasswordTitle;
+        private System.Windows.Forms.PictureBox pbKey2;
+        private System.Windows.Forms.PictureBox pbKey1;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label lblPasswordTitle;
+        private System.Windows.Forms.Label lblCurrentPasswordTitle;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
         private UserControls.ucPersonDetails ucPersonDetails1;

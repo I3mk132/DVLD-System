@@ -12,9 +12,21 @@ namespace Presentation_Layer.UserForms
 {
     public partial class frmUserDetails : Form
     {
-        public frmUserDetails()
+        public frmUserDetails(int UserID, int PersonID)
         {
             InitializeComponent();
+            ucPersonDetails1.PersonID = PersonID;
+            uc.UserID = UserID;
+        }
+
+        private void frmUserDetails_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

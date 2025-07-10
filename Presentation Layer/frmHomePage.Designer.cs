@@ -1,6 +1,6 @@
 ﻿namespace Presentation_Layer
 {
-    partial class HomePage
+    partial class frmHomePage
     {
         /// <summary>
         /// Required designer variable.
@@ -104,6 +104,7 @@
             this.msiInformation.Name = "msiInformation";
             this.msiInformation.Size = new System.Drawing.Size(273, 54);
             this.msiInformation.Text = "Current User Info";
+            this.msiInformation.Click += new System.EventHandler(this.msiInformation_Click);
             // 
             // msiChangePassword
             // 
@@ -111,6 +112,7 @@
             this.msiChangePassword.Name = "msiChangePassword";
             this.msiChangePassword.Size = new System.Drawing.Size(273, 54);
             this.msiChangePassword.Text = "Change password";
+            this.msiChangePassword.Click += new System.EventHandler(this.msiChangePassword_Click);
             // 
             // msiSeperator
             // 
@@ -125,7 +127,7 @@
             this.msiSignout.Text = "Sign out";
             this.msiSignout.Click += new System.EventHandler(this.msiSignout_Click);
             // 
-            // HomePage
+            // frmHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -133,7 +135,7 @@
             this.ClientSize = new System.Drawing.Size(1101, 562);
             this.Controls.Add(this.msMenues);
             this.MainMenuStrip = this.msMenues;
-            this.Name = "HomePage";
+            this.Name = "frmHomePage";
             this.Text = "Home page";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.msMenues.ResumeLayout(false);

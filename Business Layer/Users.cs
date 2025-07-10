@@ -80,7 +80,7 @@ namespace Business_Layer
 
             return Convert.ToBase64String(hashBytes);
         }
-        private static bool VerifyPassword(string Password, string HashedPassword)
+        public static bool VerifyPassword(string Password, string HashedPassword)
         {
             byte[] hashbytes = Convert.FromBase64String(HashedPassword);
 
@@ -253,7 +253,7 @@ namespace Business_Layer
         }
 
 
-        private bool _AddNewUser()
+        private bool _AddNewUser_PersonNotExists()
         {
             clsPerson person = new clsPerson();
 
@@ -273,12 +273,11 @@ namespace Business_Layer
 
             if( person.Save() )
             {
-                this.UserID = clsUsersDataAccess.AddUser(PersonID, Username, HashPassword(Password), IsActive);
-                return (this.UserID != -1);
+                return _AddNewUser();
             }
             return false;
         }
-        private bool _UpdateUser()
+        private bool _UpdateUser_PersonNotExists()
         {
             clsPerson person = clsPerson.Find(PersonID: PersonID);
             
@@ -297,10 +296,19 @@ namespace Business_Layer
 
             if (person.Save())
             {
-                return clsUsersDataAccess.UpdateUser(UserID, PersonID, Username, HashPassword(Password), IsActive);
+                return _UpdateUser();
             }
 
             return false;
+        }
+        private bool _AddNewUser()
+        {
+            this.UserID = clsUsersDataAccess.AddUser(PersonID, Username, HashPassword(Password), IsActive);
+            return (this.UserID != -1);
+        }
+        private bool _UpdateUser()
+        {
+            return clsUsersDataAccess.UpdateUser(UserID, PersonID, Username, HashPassword(Password), IsActive)
         }
         public new bool Save()
         {
@@ -322,6 +330,24 @@ namespace Business_Layer
                 return (_UpdateUser());
             }
         }
-
+        public bool Save_PersonNotExists()
+        {
+            if (_Mode == enMode.AddNew)
+            {
+                if (_AddNewUser_PersonNotExists())
+                {
+                    _Mode = enMode.Update;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return _UpdateUser_PersonNotExists();
+            }
+        }
     }
 }

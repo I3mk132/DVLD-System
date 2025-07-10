@@ -46,15 +46,15 @@ namespace Presentation_Layer
         {
             (string, string) Userdata = _ReadRememberedUser();
 
-            
+
             if (Userdata.Item1 != "")
             {
                 txtUsername.Text = Userdata.Item1;
                 txtPassword.Text = Userdata.Item2;
                 chkRememberMe.Checked = true;
             }
-                
-            
+
+
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

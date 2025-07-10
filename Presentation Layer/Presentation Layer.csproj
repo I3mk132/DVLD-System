@@ -52,11 +52,11 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="HomePage.cs">
+    <Compile Include="frmHomePage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HomePage.Designer.cs">
-      <DependentUpon>HomePage.cs</DependentUpon>
+    <Compile Include="frmHomePage.Designer.cs">
+      <DependentUpon>frmHomePage.cs</DependentUpon>
     </Compile>
     <Compile Include="PeopleForms\frmAddEditPerson.cs">
       <SubType>Form</SubType>
@@ -108,12 +108,6 @@
     <Compile Include="UserControls\PersonUserControls\ucPersonsList.Designer.cs">
       <DependentUpon>ucPersonsList.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UsersUserContorls\ucUserDetails.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UsersUserContorls\ucUserDetails.Designer.cs">
-      <DependentUpon>ucUserDetails.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\UsersUserContorls\ucUserFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -153,8 +147,8 @@
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HomePage.resx">
-      <DependentUpon>HomePage.cs</DependentUpon>
+    <EmbeddedResource Include="frmHomePage.resx">
+      <DependentUpon>frmHomePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PeopleForms\frmAddEditPerson.resx">
       <DependentUpon>frmAddEditPerson.cs</DependentUpon>
@@ -189,9 +183,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\PersonUserControls\ucPersonsList.resx">
       <DependentUpon>ucPersonsList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UsersUserContorls\ucUserDetails.resx">
-      <DependentUpon>ucUserDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UsersUserContorls\ucUserFilter.resx">
       <DependentUpon>ucUserFilter.cs</DependentUpon>

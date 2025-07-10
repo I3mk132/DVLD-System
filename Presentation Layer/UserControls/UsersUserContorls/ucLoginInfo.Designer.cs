@@ -31,7 +31,7 @@
             this.cbLoginInfo = new System.Windows.Forms.GroupBox();
             this.lblUsernameValue = new System.Windows.Forms.Label();
             this.lblIsActiveValue = new System.Windows.Forms.Label();
-            this.lblUserID = new System.Windows.Forms.Label();
+            this.lblUserIDValue = new System.Windows.Forms.Label();
             this.lblUserIDTitle = new System.Windows.Forms.Label();
             this.pbIsActive = new System.Windows.Forms.PictureBox();
             this.pbUserNo = new System.Windows.Forms.PictureBox();
@@ -48,7 +48,7 @@
             // 
             this.cbLoginInfo.Controls.Add(this.lblUsernameValue);
             this.cbLoginInfo.Controls.Add(this.lblIsActiveValue);
-            this.cbLoginInfo.Controls.Add(this.lblUserID);
+            this.cbLoginInfo.Controls.Add(this.lblUserIDValue);
             this.cbLoginInfo.Controls.Add(this.lblUserIDTitle);
             this.cbLoginInfo.Controls.Add(this.pbIsActive);
             this.cbLoginInfo.Controls.Add(this.pbUserNo);
@@ -68,7 +68,7 @@
             this.lblUsernameValue.AutoSize = true;
             this.lblUsernameValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsernameValue.ForeColor = System.Drawing.Color.Black;
-            this.lblUsernameValue.Location = new System.Drawing.Point(361, 26);
+            this.lblUsernameValue.Location = new System.Drawing.Point(393, 26);
             this.lblUsernameValue.Name = "lblUsernameValue";
             this.lblUsernameValue.Size = new System.Drawing.Size(40, 24);
             this.lblUsernameValue.TabIndex = 93;
@@ -85,16 +85,16 @@
             this.lblIsActiveValue.TabIndex = 92;
             this.lblIsActiveValue.Text = "???";
             // 
-            // lblUserID
+            // lblUserIDValue
             // 
-            this.lblUserID.AutoSize = true;
-            this.lblUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserID.ForeColor = System.Drawing.Color.Black;
-            this.lblUserID.Location = new System.Drawing.Point(145, 26);
-            this.lblUserID.Name = "lblUserID";
-            this.lblUserID.Size = new System.Drawing.Size(40, 24);
-            this.lblUserID.TabIndex = 86;
-            this.lblUserID.Text = "???";
+            this.lblUserIDValue.AutoSize = true;
+            this.lblUserIDValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserIDValue.ForeColor = System.Drawing.Color.Black;
+            this.lblUserIDValue.Location = new System.Drawing.Point(145, 26);
+            this.lblUserIDValue.Name = "lblUserIDValue";
+            this.lblUserIDValue.Size = new System.Drawing.Size(40, 24);
+            this.lblUserIDValue.TabIndex = 86;
+            this.lblUserIDValue.Text = "???";
             // 
             // lblUserIDTitle
             // 
@@ -130,7 +130,7 @@
             // pbUsername
             // 
             this.pbUsername.Image = global::Presentation_Layer.Properties.Resources.Person;
-            this.pbUsername.Location = new System.Drawing.Point(319, 24);
+            this.pbUsername.Location = new System.Drawing.Point(351, 24);
             this.pbUsername.Name = "pbUsername";
             this.pbUsername.Size = new System.Drawing.Size(25, 25);
             this.pbUsername.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -155,9 +155,9 @@
             this.lblUsernameTitle.ForeColor = System.Drawing.Color.Black;
             this.lblUsernameTitle.Location = new System.Drawing.Point(248, 26);
             this.lblUsernameTitle.Name = "lblUsernameTitle";
-            this.lblUsernameTitle.Size = new System.Drawing.Size(65, 20);
+            this.lblUsernameTitle.Size = new System.Drawing.Size(101, 20);
             this.lblUsernameTitle.TabIndex = 47;
-            this.lblUsernameTitle.Text = "Name: ";
+            this.lblUsernameTitle.Text = "Username: ";
             // 
             // ucLoginInfo
             // 
@@ -165,6 +165,7 @@
             this.Controls.Add(this.cbLoginInfo);
             this.Name = "ucLoginInfo";
             this.Size = new System.Drawing.Size(870, 97);
+            this.Load += new System.EventHandler(this.ucLoginInfo_Load);
             this.cbLoginInfo.ResumeLayout(false);
             this.cbLoginInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbIsActive)).EndInit();
@@ -178,7 +179,7 @@
 
         private System.Windows.Forms.GroupBox cbLoginInfo;
         private System.Windows.Forms.Label lblIsActiveValue;
-        private System.Windows.Forms.Label lblUserID;
+        private System.Windows.Forms.Label lblUserIDValue;
         private System.Windows.Forms.Label lblUserIDTitle;
         private System.Windows.Forms.PictureBox pbIsActive;
         private System.Windows.Forms.PictureBox pbUserNo;
