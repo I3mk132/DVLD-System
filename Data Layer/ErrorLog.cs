@@ -14,7 +14,7 @@ namespace Data_Layer
 
         static clsErrorLog()
         {
-            file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DataLayer", "Log.txt");
+            file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Log.txt");
             
         }
 
@@ -24,8 +24,9 @@ namespace Data_Layer
             string FilePath = filepath;
             int LineNumber = linenumber;
 
-            string ErrorString = $@"[{date.ToString("g")}] ERROR in {filepath}:{LineNumber} - Exception: {ex.Message}";
-            File.AppendAllText("Log.txt", ErrorString);
+            string ErrorString = $"[{date.ToString("g")}] ERROR in {filepath}:{LineNumber} - Exception: {ex.Message}\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+
+            File.AppendAllText(file, ErrorString);
         }
         
     }

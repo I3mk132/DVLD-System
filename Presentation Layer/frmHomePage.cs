@@ -45,5 +45,11 @@ namespace Presentation_Layer
             frmChangePassword frm = new frmChangePassword(clsGlobal.CurrentUser.UserID, clsGlobal.CurrentUser.PersonID);
             frm.ShowDialog();
         }
+
+        private void msiUsers_Click(object sender, EventArgs e)
+        {
+            frmUsers frm = new frmUsers();
+            frm.ShowDialog();
+        }
     }
 }

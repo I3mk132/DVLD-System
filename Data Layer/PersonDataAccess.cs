@@ -170,8 +170,13 @@ namespace Data_Layer
 
             if (conditions.Any())
             {
-                command.CommandText += " WHERE " + string.Join(" AND ", conditions);
+                command.CommandText += " WHERE " + string.Join(" OR ", conditions);
             }
+            else
+            {
+                command.CommandText += " WHERE 1 = 0";
+            }
+
 
         }
 
@@ -327,6 +332,7 @@ namespace Data_Layer
                         ImagePath = "";
 
                 }
+                reader.Close();
             }
             catch (Exception ex)
             {
@@ -335,6 +341,7 @@ namespace Data_Layer
             }
             finally
             {
+                
                 connection.Close();
             }
             return isFound;

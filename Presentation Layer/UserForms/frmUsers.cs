@@ -16,5 +16,23 @@ namespace Presentation_Layer.UserForms
         {
             InitializeComponent();
         }
+
+        private void pbAdd_Click(object sender, EventArgs e)
+        {
+            frmAddEditUser frm = new frmAddEditUser();
+            frm.ShowDialog();
+            ucUsersList1.FilterToNone();
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void frmUsers_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

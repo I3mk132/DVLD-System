@@ -200,5 +200,10 @@ namespace Presentation_Layer.UserControls
             cbFilterBy.SelectedIndex = 0;
             RefreshData();
         }
+
+        private void dgvPersonsList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

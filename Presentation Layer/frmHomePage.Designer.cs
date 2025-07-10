@@ -85,6 +85,7 @@
             this.msiUsers.Name = "msiUsers";
             this.msiUsers.Size = new System.Drawing.Size(120, 52);
             this.msiUsers.Text = "Users";
+            this.msiUsers.Click += new System.EventHandler(this.msiUsers_Click);
             // 
             // msiAccountSettings
             // 

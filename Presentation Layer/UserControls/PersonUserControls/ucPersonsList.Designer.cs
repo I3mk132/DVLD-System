@@ -238,6 +238,7 @@
             this.dgvPersonsList.ReadOnly = true;
             this.dgvPersonsList.Size = new System.Drawing.Size(805, 261);
             this.dgvPersonsList.TabIndex = 15;
+            this.dgvPersonsList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPersonsList_CellContentClick);
             // 
             // ucPersonsList
             // 

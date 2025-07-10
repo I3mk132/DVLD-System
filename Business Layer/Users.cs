@@ -105,6 +105,10 @@ namespace Business_Layer
         {
             return clsUsersDataAccess.GetAllUsers();
         }
+        public static DataTable GetAllUsersSimpled()
+        {
+            return clsUsersDataAccess.GetAllUsers(clsUsersDataAccess.enMode.PersonJoinedSimple);
+        }
         public static clsUsers Find(
             int UserID = -1, int PersonID = -1, string NationalNo = "", string Firstname = "",
             string Secondname = "", string Thirdname = "", string Lastname = "",
@@ -196,7 +200,7 @@ namespace Business_Layer
 
             return clsUsersDataAccess.GetUsers(UserID, (person != null ? person.PersonID : -1), Username, "", IsActive);
         }
-        public static DataTable GetUsersUsingLikeWith(
+        public static DataTable GetUsersSimpledUsingLikeWith(
             int UserID = -1, int PersonID = -1, string NationalNo = "", string Firstname = "",
             string Secondname = "", string Thirdname = "", string Lastname = "",
             DateTime? DateOfBirth = null, string Gender = "", string Address = "",
@@ -209,20 +213,25 @@ namespace Business_Layer
                 Thirdname, Lastname, DateOfBirth, Gender,
                 Address, Phone, Email, Country, ImagePath);
 
-            return clsUsersDataAccess.GetUsersUsingLike(UserID, (person != null ? person.PersonID : -1), Username, "", IsActive);
+            return clsUsersDataAccess.GetUsersUsingLike(UserID, (person != null ? person.PersonID : -1), Username, "", IsActive, clsUsersDataAccess.enMode.PersonJoinedSimple);
         }
+
         public static bool IsUserExists(int ID)
         {
             return clsUsersDataAccess.IsUserExists(ID);
         }
-        public static bool DeleteUser(int ID)
+        public static bool DeleteUser_PersonEncluded(int ID)
         {
-            clsUsers user = clsUsers.Find(UserID: ID);
-            if (clsPerson.DeletePerson(user.PersonID))
+            clsUsers user = Find(UserID: ID);
+            if (DeletePerson(user.PersonID))
             {
-                return clsUsersDataAccess.DeleteUser(UserID: user.UserID);
+                return DeleteUser(user.UserID);
             }
             return false;
+        }
+        public static bool DeleteUser(int ID)
+        {
+            return clsUsersDataAccess.DeleteUser(UserID: ID);
         }
         public static DataTable GetAllUsersAllData()
         {

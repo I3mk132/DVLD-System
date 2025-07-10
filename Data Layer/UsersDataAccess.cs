@@ -19,27 +19,27 @@ namespace Data_Layer
 
             if (UserID != -1)
             {
-                conditions.Add("UserID = @UserID");
+                conditions.Add("U.UserID = @UserID");
                 command.Parameters.AddWithValue("@UserID", UserID);
             }
             if (PersonID != -1)
             {
-                conditions.Add("PersonID = @PersonID");
+                conditions.Add("U.PersonID = @PersonID");
                 command.Parameters.AddWithValue("@PersonID", PersonID);
             }
             if (Username != "")
             {
-                conditions.Add("Username = @Username");
+                conditions.Add("U.Username = @Username");
                 command.Parameters.AddWithValue("@Username", Username);
             }
             if (Password != "")
             {
-                conditions.Add("Password = @Password");
+                conditions.Add("U.Password = @Password");
                 command.Parameters.AddWithValue("@Password", Password);
             }
             if (IsActive != null)
             {
-                conditions.Add("IsActive = @IsActive");
+                conditions.Add("U.IsActive = @IsActive");
                 command.Parameters.AddWithValue("@IsActive", IsActive);
             }
 
@@ -56,33 +56,37 @@ namespace Data_Layer
 
             if (UserID != -1)
             {
-                conditions.Add("UserID = @UserID");
+                conditions.Add("U.UserID = @UserID");
                 command.Parameters.AddWithValue("@UserID", UserID);
             }
             if (PersonID != -1)
             {
-                conditions.Add("PersonID = @PersonID");
+                conditions.Add("U.PersonID = @PersonID");
                 command.Parameters.AddWithValue("@PersonID", PersonID);
             }
             if (Username != "")
             {
-                conditions.Add("Username LIKE @Username");
+                conditions.Add("U.Username LIKE @Username");
                 command.Parameters.AddWithValue("@Username", $"%{Username}%");
             }
             if (Password != "")
             {
-                conditions.Add("Password = @Password");
+                conditions.Add("U.Password = @Password");
                 command.Parameters.AddWithValue("@Password", Password);
             }
             if (IsActive != null)
             {
-                conditions.Add("IsActive = @IsActive");
+                conditions.Add("U.IsActive = @IsActive");
                 command.Parameters.AddWithValue("@IsActive", IsActive);
             }
 
             if (conditions.Any())
             {
-                command.CommandText += " WHERE " + string.Join(" AND ", conditions);
+                command.CommandText += " WHERE " + string.Join(" OR ", conditions);
+            }
+            else
+            {
+                command.CommandText += " WHERE 1 = 0";
             }
         }
 
@@ -108,13 +112,10 @@ namespace Data_Layer
                     break;
                 case enMode.PersonJoinedSimple:
                     query = @"
-                        SELECT  U.UserID, P.NationalNo,
-                                P.Firstname, P.Lastname,
-                                P.DateOfBirth, P.Gender,
-                                P.Phone, P.Email, C.CountryName,
+                        SELECT  U.UserID, P.PersonID,
+                                P.Firstname + ' ' + P.Secondname + ' ' + P.Thirdname + ' ' + P.Lastname AS Fullname,
                                 U.Username, U.IsActive FROM Users U
-                        JOIN Person P ON U.PersonID = P.PersonID
-                        JOIN Countries C ON P.NationalityCountryID = C.CountryID";
+                        JOIN Person P ON U.PersonID = P.PersonID";
                     break;
             }
             
@@ -155,7 +156,7 @@ namespace Data_Layer
             switch (Type)
             {
                 case enMode.Default:
-                    query = @"SELECT * FROM Users";
+                    query = @"SELECT * FROM Users U";
                     break;
                 case enMode.PersonJoined:
                     query = @"
@@ -169,13 +170,10 @@ namespace Data_Layer
                     break;
                 case enMode.PersonJoinedSimple:
                     query = @"
-                        SELECT  U.UserID, P.NationalNo,
-                                P.Firstname, P.Lastname,
-                                P.DateOfBirth, P.Gender,
-                                P.Phone, P.Email, C.CountryName,
+                        SELECT  U.UserID, P.PersonID,
+                                P.Firstname + ' ' + P.Secondname + ' ' + P.Thirdname + ' ' + P.Lastname AS Fullname,
                                 U.Username, U.IsActive FROM Users U
-                        JOIN Person P ON U.PersonID = P.PersonID
-                        JOIN Countries C ON P.NationalityCountryID = C.CountryID";
+                        JOIN Person P ON U.PersonID = P.PersonID";
                     break;
             }
 
@@ -218,7 +216,7 @@ namespace Data_Layer
             switch (Type)
             {
                 case enMode.Default:
-                    query = @"SELECT * FROM Users";
+                    query = @"SELECT * FROM Users U";
                     break;
                 case enMode.PersonJoined:
                     query = @"
@@ -232,13 +230,10 @@ namespace Data_Layer
                     break;
                 case enMode.PersonJoinedSimple:
                     query = @"
-                        SELECT  U.UserID, P.NationalNo,
-                                P.Firstname, P.Lastname,
-                                P.DateOfBirth, P.Gender,
-                                P.Phone, P.Email, C.CountryName,
+                        SELECT  U.UserID, U.PersonID,
+                                P.Firstname + ' ' + P.Secondname + ' ' + P.Thirdname + ' ' + P.Lastname AS Fullname,
                                 U.Username, U.IsActive FROM Users U
-                        JOIN Person P ON U.PersonID = P.PersonID
-                        JOIN Countries C ON P.NationalityCountryID = C.CountryID";
+                        JOIN Person P ON U.PersonID = P.PersonID";
                     break;
             }
 
@@ -276,7 +271,7 @@ namespace Data_Layer
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
-            string query = @"SELECT * FROM Users";
+            string query = @"SELECT * FROM Users U";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -318,7 +313,7 @@ namespace Data_Layer
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
-            string query = @"SELECT * FROM Users";
+            string query = @"SELECT * FROM Users U";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -360,7 +355,7 @@ namespace Data_Layer
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
-            string query = @"SELECT 1 FROM Users";
+            string query = @"SELECT 1 FROM Users U";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -396,7 +391,7 @@ namespace Data_Layer
 
             string query = @"
 
-                INSERT INTO Users 
+                INSERT INTO Users U
                 ( PersonID, Username, Password, IsActive) VALUES 
                 ( @PersonID, @Username, @Password, @IsActive);
                 SELECT SCOPE_IDENTITY();
@@ -439,7 +434,7 @@ namespace Data_Layer
 
             string query = @"
 
-                UPDATE Users SET
+                UPDATE Users U SET
                 PersonID = @PersonID,
                 Username = @Username,
                 Password = @Password,
@@ -483,7 +478,7 @@ namespace Data_Layer
 
             string query = @"
 
-                DELETE Users WHERE UserID = @UserID;
+                DELETE Users U WHERE UserID = @UserID;
 
             ";
 
@@ -513,7 +508,7 @@ namespace Data_Layer
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
             string query = @"
-                UPDATE Users SET
+                UPDATE Users U SET
                     IsActive = 1
                 WHERE UserID = @UserID";
                     
@@ -547,7 +542,7 @@ namespace Data_Layer
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
             string query = @"
-                Update Users SET
+                Update Users U SET
 	                IsActive = 0
                 WHERE UserID = @UserID AND IsActive = 1";
 

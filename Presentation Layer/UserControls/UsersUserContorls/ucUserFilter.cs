@@ -41,6 +41,13 @@ namespace Presentation_Layer.UserControls
 
             string filterMode = cbFilterBy.Text;
             FilterBy = filterMode;
+            txtFilter.Text = "";
+            chkIsActive.Checked = true;
+
+            if (filterMode == "User ID" || filterMode == "Person ID")
+                txtFilter.KeyPress += txtFilter_KeyPress;
+            else
+                txtFilter.KeyPress -= txtFilter_KeyPress;
 
             if (filterMode == "Is Active")
             {
@@ -52,27 +59,36 @@ namespace Presentation_Layer.UserControls
             {
                 txtFilter.Visible = false;
                 chkIsActive.Visible = false;
-                txtFilter.Text = "";
-                chkIsActive.Checked = true;
             }
             else
             {
                 txtFilter.Visible = true;
                 chkIsActive.Visible = false;
                 txtFilter.Focus();
-
-                if (filterMode == "User ID" || filterMode == "Person ID")
-                    txtFilter.KeyPress += txtFilter_KeyPress;
-                else
-                    txtFilter.KeyPress -= txtFilter_KeyPress;
+                
             }
+            DataBack?.Invoke(this);
             
+        }
+
+        public void setFilterToNone()
+        {
+            cbFilterBy.SelectedIndex = 0;
         }
 
         private void txtFilter_TextChanged(object sender, EventArgs e)
         {
             FilterValue = txtFilter.Text;
+            DataBack?.Invoke(this);
         }
 
+        private void chkIsActive_CheckedChanged(object sender, EventArgs e)
+        {
+            FilterValue = (chkIsActive.Checked ? "1" : "0");
+            DataBack?.Invoke(this);
+        }
+
+        public delegate void DataBackEventHandler(object sender);
+        public event DataBackEventHandler DataBack;
     }
 }

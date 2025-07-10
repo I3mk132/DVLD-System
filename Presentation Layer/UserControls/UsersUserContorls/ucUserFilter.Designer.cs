@@ -99,6 +99,8 @@
             // 
             this.chkIsActive.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.chkIsActive.AutoSize = true;
+            this.chkIsActive.Checked = true;
+            this.chkIsActive.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkIsActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.chkIsActive.Location = new System.Drawing.Point(358, 23);
             this.chkIsActive.Name = "chkIsActive";
@@ -107,6 +109,7 @@
             this.chkIsActive.Text = "IsActive";
             this.chkIsActive.UseVisualStyleBackColor = true;
             this.chkIsActive.Visible = false;
+            this.chkIsActive.CheckedChanged += new System.EventHandler(this.chkIsActive_CheckedChanged);
             // 
             // ucUserFilter
             // 
