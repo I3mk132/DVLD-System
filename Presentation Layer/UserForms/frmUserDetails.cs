@@ -16,7 +16,7 @@ namespace Presentation_Layer.UserForms
         {
             InitializeComponent();
             ucPersonDetails1.PersonID = PersonID;
-            uc.UserID = UserID;
+            ucLoginInfo1.UserID = UserID;
         }
 
         private void frmUserDetails_Load(object sender, EventArgs e)

@@ -308,7 +308,7 @@ namespace Business_Layer
         }
         private bool _UpdateUser()
         {
-            return clsUsersDataAccess.UpdateUser(UserID, PersonID, Username, HashPassword(Password), IsActive)
+            return clsUsersDataAccess.UpdateUser(UserID, PersonID, Username, HashPassword(Password), IsActive);
         }
         public new bool Save()
         {
