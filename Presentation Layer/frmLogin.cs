@@ -42,7 +42,7 @@ namespace Presentation_Layer
         private void _WriteRememberedUser(string Username, string Password)
         {
             string Line = Username + "#//#" + Password;
-            File.WriteAllText("", Line);
+            File.WriteAllText(FileName, Line);
         }
         private void _ClearRememberedUser()
         {

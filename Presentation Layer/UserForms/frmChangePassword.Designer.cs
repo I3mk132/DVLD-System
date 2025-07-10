@@ -121,6 +121,7 @@
             this.btnClose.TabIndex = 146;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnSave
             // 
@@ -190,6 +191,7 @@
             this.ucLoginInfo1.Name = "ucLoginInfo1";
             this.ucLoginInfo1.Size = new System.Drawing.Size(870, 94);
             this.ucLoginInfo1.TabIndex = 149;
+            this.ucLoginInfo1.UserID = -1;
             // 
             // ucPersonDetails1
             // 
@@ -212,6 +214,7 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
             this.Name = "frmChangePassword";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Change Password";
             this.Load += new System.EventHandler(this.frmChangePassword_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbKey3)).EndInit();

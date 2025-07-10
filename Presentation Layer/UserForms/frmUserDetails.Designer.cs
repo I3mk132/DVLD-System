@@ -63,6 +63,7 @@
             this.ucLoginInfo1.Name = "ucLoginInfo1";
             this.ucLoginInfo1.Size = new System.Drawing.Size(870, 97);
             this.ucLoginInfo1.TabIndex = 149;
+            this.ucLoginInfo1.UserID = -1;
             // 
             // frmUserDetails
             // 
@@ -74,6 +75,7 @@
             this.Controls.Add(this.ucPersonDetails1);
             this.Controls.Add(this.btnClose);
             this.Name = "frmUserDetails";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User Details";
             this.Load += new System.EventHandler(this.frmUserDetails_Load);
             this.ResumeLayout(false);

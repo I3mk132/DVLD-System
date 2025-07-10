@@ -111,5 +111,10 @@ namespace Presentation_Layer.UserForms
         {
             _ComparePasswords();
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

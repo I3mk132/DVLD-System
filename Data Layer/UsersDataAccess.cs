@@ -391,7 +391,7 @@ namespace Data_Layer
 
             string query = @"
 
-                INSERT INTO Users U
+                INSERT INTO Users 
                 ( PersonID, Username, Password, IsActive) VALUES 
                 ( @PersonID, @Username, @Password, @IsActive);
                 SELECT SCOPE_IDENTITY();
@@ -434,7 +434,7 @@ namespace Data_Layer
 
             string query = @"
 
-                UPDATE Users U SET
+                UPDATE Users SET
                 PersonID = @PersonID,
                 Username = @Username,
                 Password = @Password,
@@ -478,7 +478,7 @@ namespace Data_Layer
 
             string query = @"
 
-                DELETE Users U WHERE UserID = @UserID;
+                DELETE Users WHERE UserID = @UserID;
 
             ";
 
@@ -508,7 +508,7 @@ namespace Data_Layer
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
             string query = @"
-                UPDATE Users U SET
+                UPDATE Users SET
                     IsActive = 1
                 WHERE UserID = @UserID";
                     
@@ -542,7 +542,7 @@ namespace Data_Layer
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
             string query = @"
-                Update Users U SET
+                Update Users SET
 	                IsActive = 0
                 WHERE UserID = @UserID AND IsActive = 1";
 

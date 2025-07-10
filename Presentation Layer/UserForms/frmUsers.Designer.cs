@@ -105,6 +105,7 @@
             this.Controls.Add(this.lblManageUsers);
             this.Controls.Add(this.pictureBox1);
             this.Name = "frmUsers";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Users";
             this.Load += new System.EventHandler(this.frmUsers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

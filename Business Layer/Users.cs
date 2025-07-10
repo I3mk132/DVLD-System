@@ -65,40 +65,14 @@ namespace Business_Layer
         }
         private static string HashPassword(string Password)
         {
-            // Generate Salt
-            byte[] salt = new byte[16];
-            var rng = new RNGCryptoServiceProvider();
-            rng.GetBytes(salt);
-
-            // PBKDF2 hash with (sha1)
-            var pdkdf2 = new Rfc2898DeriveBytes(Password, salt, 100_000);
-            byte[] hash = pdkdf2.GetBytes(32);
-
-            byte[] hashBytes = new byte[48];
-            Buffer.BlockCopy(salt, 0, hashBytes, 0, 16);
-            Buffer.BlockCopy(hash, 0, hashBytes, 16, 32);
-
-            return Convert.ToBase64String(hashBytes);
+            SHA256 sha256 = SHA256.Create();
+            byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(Password));
+            return Convert.ToBase64String(bytes);
         }
         public static bool VerifyPassword(string Password, string HashedPassword)
         {
-            byte[] hashbytes = Convert.FromBase64String(HashedPassword);
-
-            // Extract salt
-            byte[] salt = new byte[16];
-            Buffer.BlockCopy(hashbytes, 0, salt, 0, 16);
-
-            // Hash Entered Password
-            var pdkdf2 = new Rfc2898DeriveBytes(Password, salt, 100_000);
-            byte[] hash = pdkdf2.GetBytes(32);
-
-            // Compare two
-            for (int i = 0; i < 32; i++)
-            {
-                if (hash[i] != hashbytes[i + 16])
-                    return false;
-            }
-            return true;
+            string hashOfInput = HashPassword(Password);
+            return hashOfInput == HashedPassword;
         }
 
         public static DataTable GetAllUsers()
