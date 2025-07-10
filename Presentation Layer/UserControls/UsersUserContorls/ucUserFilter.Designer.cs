@@ -47,21 +47,17 @@
             this.cbFilterBy.IntegralHeight = false;
             this.cbFilterBy.Items.AddRange(new object[] {
             "None",
+            "User ID",
+            "Username",
             "Person ID",
-            "National No.",
-            "First Name",
-            "Second Name",
-            "Third Name",
-            "Last Name",
-            "Nationality",
-            "Gender",
-            "Phone",
-            "Email"});
+            "Fullname",
+            "Is Active"});
             this.cbFilterBy.Location = new System.Drawing.Point(132, 19);
             this.cbFilterBy.MaxDropDownItems = 11;
             this.cbFilterBy.Name = "cbFilterBy";
-            this.cbFilterBy.Size = new System.Drawing.Size(135, 28);
+            this.cbFilterBy.Size = new System.Drawing.Size(207, 28);
             this.cbFilterBy.TabIndex = 15;
+            this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.cbFilterBy_SelectedIndexChanged);
             // 
             // lblFilter
             // 
@@ -77,11 +73,12 @@
             // txtFilter
             // 
             this.txtFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFilter.Location = new System.Drawing.Point(295, 21);
+            this.txtFilter.Location = new System.Drawing.Point(358, 21);
             this.txtFilter.Name = "txtFilter";
             this.txtFilter.Size = new System.Drawing.Size(227, 26);
             this.txtFilter.TabIndex = 16;
             this.txtFilter.Visible = false;
+            this.txtFilter.TextChanged += new System.EventHandler(this.txtFilter_TextChanged);
             // 
             // gbFilter
             // 
@@ -96,13 +93,14 @@
             this.gbFilter.TabIndex = 17;
             this.gbFilter.TabStop = false;
             this.gbFilter.Text = "Filter";
+            this.gbFilter.Enter += new System.EventHandler(this.gbFilter_Enter);
             // 
             // chkIsActive
             // 
             this.chkIsActive.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.chkIsActive.AutoSize = true;
             this.chkIsActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.chkIsActive.Location = new System.Drawing.Point(544, 27);
+            this.chkIsActive.Location = new System.Drawing.Point(358, 23);
             this.chkIsActive.Name = "chkIsActive";
             this.chkIsActive.Size = new System.Drawing.Size(84, 24);
             this.chkIsActive.TabIndex = 17;

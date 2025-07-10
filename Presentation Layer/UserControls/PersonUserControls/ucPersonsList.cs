@@ -23,7 +23,7 @@ namespace Presentation_Layer.UserControls
             RefreshData();
             cbFilterBy.SelectedIndex = 0;
         }
-        private DataTable dt = clsPerson.GetAllPersonSimpled();
+        private DataTable dt = null;
         private void _UpdateData()
         {
             dgvPersonsList.DataSource = dt;
