@@ -96,6 +96,21 @@ namespace Presentation_Layer.UserForms
             Error.SetError(txtConfirmPassword, errorMessage);
             Error.SetError(txtPassword, errorMessage);
         }
+        private void _CheckPasswordLength()
+        {
+            string errorMessage = "";
+            if (txtPassword.Text.Length < 8)
+            {
+                errorMessage = "Password should at least contain 8 Characters. ";
+                _errorFlag = true;
+            }
+            else
+            {
+                errorMessage = "";
+                _errorFlag = false;
+            }
+            Error.SetError(txtPassword, errorMessage);
+        }
 
         private void txtConfirmPassword_Leave(object sender, EventArgs e)
         {
@@ -110,6 +125,7 @@ namespace Presentation_Layer.UserForms
         private void txtPassword_Leave(object sender, EventArgs e)
         {
             _ComparePasswords();
+            _CheckPasswordLength();
         }
 
         private void btnClose_Click(object sender, EventArgs e)

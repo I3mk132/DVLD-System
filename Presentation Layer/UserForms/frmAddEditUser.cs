@@ -179,10 +179,26 @@ namespace Presentation_Layer.UserForms
             error.SetError(txtConfirmPassword, errorMessage);
             error.SetError(txtPassword, errorMessage);
         }
+        private void _CheckPasswordLength()
+        {
+            string errorMessage = "";
+            if (txtPassword.Text.Length < 8)
+            {
+                errorMessage = "Password should at least contain 8 Characters. ";
+                _errorFlag = true;
+            }
+            else
+            {
+                errorMessage = "";
+                _errorFlag = false;
+            }
+            error.SetError(txtPassword, errorMessage);
+        }
 
         private void txtPassword_Leave(object sender, EventArgs e)
         {
             _ComparePasswords();
+            _CheckPasswordLength();
         }
 
         private void txtConfirmPassword_Leave(object sender, EventArgs e)

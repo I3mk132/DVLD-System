@@ -314,7 +314,7 @@
             this.llblEditPersonInfo.Location = new System.Drawing.Point(657, 34);
             this.llblEditPersonInfo.Name = "llblEditPersonInfo";
             this.llblEditPersonInfo.Size = new System.Drawing.Size(141, 24);
-            this.llblEditPersonInfo.TabIndex = 59;
+            this.llblEditPersonInfo.TabIndex = 0;
             this.llblEditPersonInfo.TabStop = true;
             this.llblEditPersonInfo.Text = "Edit person info";
             this.llblEditPersonInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblEditPersonInfo_LinkClicked);

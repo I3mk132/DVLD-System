@@ -70,7 +70,7 @@
             this.btnClose.Location = new System.Drawing.Point(980, 513);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(134, 40);
-            this.btnClose.TabIndex = 7;
+            this.btnClose.TabIndex = 1;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -91,7 +91,7 @@
             this.ucPersonsList2.Location = new System.Drawing.Point(16, 222);
             this.ucPersonsList2.Name = "ucPersonsList2";
             this.ucPersonsList2.Size = new System.Drawing.Size(1100, 323);
-            this.ucPersonsList2.TabIndex = 9;
+            this.ucPersonsList2.TabIndex = 0;
             // 
             // frmPeople
             // 

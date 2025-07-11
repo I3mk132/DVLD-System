@@ -57,7 +57,7 @@
             this.btnAdd.Location = new System.Drawing.Point(573, 16);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(54, 41);
-            this.btnAdd.TabIndex = 18;
+            this.btnAdd.TabIndex = 3;
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -67,7 +67,7 @@
             this.btnFind.Location = new System.Drawing.Point(513, 16);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(54, 41);
-            this.btnFind.TabIndex = 17;
+            this.btnFind.TabIndex = 2;
             this.btnFind.UseVisualStyleBackColor = true;
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
@@ -95,7 +95,7 @@
             this.cbFilterBy.MaxDropDownItems = 11;
             this.cbFilterBy.Name = "cbFilterBy";
             this.cbFilterBy.Size = new System.Drawing.Size(135, 28);
-            this.cbFilterBy.TabIndex = 15;
+            this.cbFilterBy.TabIndex = 0;
             this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.cbFilterBy_SelectedIndexChanged);
             // 
             // lblFilter
@@ -115,7 +115,7 @@
             this.txtFilter.Location = new System.Drawing.Point(280, 21);
             this.txtFilter.Name = "txtFilter";
             this.txtFilter.Size = new System.Drawing.Size(227, 26);
-            this.txtFilter.TabIndex = 16;
+            this.txtFilter.TabIndex = 1;
             this.txtFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilter_KeyPress);
             // 
             // ucPersonSearch

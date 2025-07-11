@@ -85,7 +85,7 @@
             this.rbFemale.Location = new System.Drawing.Point(262, 109);
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Size = new System.Drawing.Size(80, 24);
-            this.rbFemale.TabIndex = 120;
+            this.rbFemale.TabIndex = 8;
             this.rbFemale.Tag = "Female";
             this.rbFemale.Text = "Female";
             this.rbFemale.UseVisualStyleBackColor = true;
@@ -100,7 +100,7 @@
             this.rbMale.Location = new System.Drawing.Point(167, 109);
             this.rbMale.Name = "rbMale";
             this.rbMale.Size = new System.Drawing.Size(61, 24);
-            this.rbMale.TabIndex = 119;
+            this.rbMale.TabIndex = 7;
             this.rbMale.TabStop = true;
             this.rbMale.Tag = "Male";
             this.rbMale.Text = "Male";
@@ -206,7 +206,7 @@
             this.btnSave.Location = new System.Drawing.Point(526, 267);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(134, 40);
-            this.btnSave.TabIndex = 108;
+            this.btnSave.TabIndex = 14;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -431,7 +431,7 @@
             this.cbCountry.MaxDropDownItems = 11;
             this.cbCountry.Name = "cbCountry";
             this.cbCountry.Size = new System.Drawing.Size(155, 28);
-            this.cbCountry.TabIndex = 106;
+            this.cbCountry.TabIndex = 11;
             // 
             // dtpDateOfBirth
             // 
@@ -442,7 +442,7 @@
             this.dtpDateOfBirth.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
             this.dtpDateOfBirth.Size = new System.Drawing.Size(155, 26);
-            this.dtpDateOfBirth.TabIndex = 105;
+            this.dtpDateOfBirth.TabIndex = 6;
             // 
             // txtAddress
             // 
@@ -451,7 +451,7 @@
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(486, 83);
-            this.txtAddress.TabIndex = 104;
+            this.txtAddress.TabIndex = 12;
             // 
             // txtEmail
             // 
@@ -459,7 +459,7 @@
             this.txtEmail.Location = new System.Drawing.Point(169, 143);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(155, 26);
-            this.txtEmail.TabIndex = 103;
+            this.txtEmail.TabIndex = 10;
             // 
             // txtPhone
             // 
@@ -467,7 +467,7 @@
             this.txtPhone.Location = new System.Drawing.Point(505, 108);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(155, 26);
-            this.txtPhone.TabIndex = 102;
+            this.txtPhone.TabIndex = 9;
             // 
             // txtNationalNo
             // 
@@ -475,7 +475,7 @@
             this.txtNationalNo.Location = new System.Drawing.Point(169, 73);
             this.txtNationalNo.Name = "txtNationalNo";
             this.txtNationalNo.Size = new System.Drawing.Size(155, 26);
-            this.txtNationalNo.TabIndex = 101;
+            this.txtNationalNo.TabIndex = 5;
             // 
             // txtLast
             // 
@@ -483,7 +483,7 @@
             this.txtLast.Location = new System.Drawing.Point(667, 38);
             this.txtLast.Name = "txtLast";
             this.txtLast.Size = new System.Drawing.Size(155, 26);
-            this.txtLast.TabIndex = 100;
+            this.txtLast.TabIndex = 3;
             // 
             // txtThird
             // 
@@ -491,7 +491,7 @@
             this.txtThird.Location = new System.Drawing.Point(500, 38);
             this.txtThird.Name = "txtThird";
             this.txtThird.Size = new System.Drawing.Size(155, 26);
-            this.txtThird.TabIndex = 99;
+            this.txtThird.TabIndex = 2;
             // 
             // txtSecond
             // 
@@ -499,7 +499,7 @@
             this.txtSecond.Location = new System.Drawing.Point(333, 38);
             this.txtSecond.Name = "txtSecond";
             this.txtSecond.Size = new System.Drawing.Size(155, 26);
-            this.txtSecond.TabIndex = 98;
+            this.txtSecond.TabIndex = 1;
             // 
             // txtFirst
             // 
@@ -507,7 +507,7 @@
             this.txtFirst.Location = new System.Drawing.Point(169, 38);
             this.txtFirst.Name = "txtFirst";
             this.txtFirst.Size = new System.Drawing.Size(155, 26);
-            this.txtFirst.TabIndex = 97;
+            this.txtFirst.TabIndex = 0;
             // 
             // llblSetImage
             // 
@@ -517,7 +517,7 @@
             this.llblSetImage.Location = new System.Drawing.Point(710, 252);
             this.llblSetImage.Name = "llblSetImage";
             this.llblSetImage.Size = new System.Drawing.Size(94, 24);
-            this.llblSetImage.TabIndex = 96;
+            this.llblSetImage.TabIndex = 13;
             this.llblSetImage.TabStop = true;
             this.llblSetImage.Text = "Set image";
             this.llblSetImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblSetImage_LinkClicked);
@@ -664,7 +664,7 @@
             this.btnClose.Location = new System.Drawing.Point(386, 267);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(134, 40);
-            this.btnClose.TabIndex = 121;
+            this.btnClose.TabIndex = 15;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);

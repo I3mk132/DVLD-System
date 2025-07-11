@@ -68,7 +68,7 @@
             this.lblUsernameValue.AutoSize = true;
             this.lblUsernameValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsernameValue.ForeColor = System.Drawing.Color.Black;
-            this.lblUsernameValue.Location = new System.Drawing.Point(393, 26);
+            this.lblUsernameValue.Location = new System.Drawing.Point(379, 22);
             this.lblUsernameValue.Name = "lblUsernameValue";
             this.lblUsernameValue.Size = new System.Drawing.Size(40, 24);
             this.lblUsernameValue.TabIndex = 93;
@@ -79,7 +79,7 @@
             this.lblIsActiveValue.AutoSize = true;
             this.lblIsActiveValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIsActiveValue.ForeColor = System.Drawing.Color.Black;
-            this.lblIsActiveValue.Location = new System.Drawing.Point(618, 26);
+            this.lblIsActiveValue.Location = new System.Drawing.Point(599, 22);
             this.lblIsActiveValue.Name = "lblIsActiveValue";
             this.lblIsActiveValue.Size = new System.Drawing.Size(40, 24);
             this.lblIsActiveValue.TabIndex = 92;
@@ -90,7 +90,7 @@
             this.lblUserIDValue.AutoSize = true;
             this.lblUserIDValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserIDValue.ForeColor = System.Drawing.Color.Black;
-            this.lblUserIDValue.Location = new System.Drawing.Point(145, 26);
+            this.lblUserIDValue.Location = new System.Drawing.Point(127, 22);
             this.lblUserIDValue.Name = "lblUserIDValue";
             this.lblUserIDValue.Size = new System.Drawing.Size(40, 24);
             this.lblUserIDValue.TabIndex = 86;
@@ -110,7 +110,7 @@
             // pbIsActive
             // 
             this.pbIsActive.Image = global::Presentation_Layer.Properties.Resources.Key;
-            this.pbIsActive.Location = new System.Drawing.Point(574, 24);
+            this.pbIsActive.Location = new System.Drawing.Point(571, 24);
             this.pbIsActive.Name = "pbIsActive";
             this.pbIsActive.Size = new System.Drawing.Size(25, 25);
             this.pbIsActive.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -120,7 +120,7 @@
             // pbUserNo
             // 
             this.pbUserNo.Image = global::Presentation_Layer.Properties.Resources.Tag;
-            this.pbUserNo.Location = new System.Drawing.Point(101, 25);
+            this.pbUserNo.Location = new System.Drawing.Point(98, 23);
             this.pbUserNo.Name = "pbUserNo";
             this.pbUserNo.Size = new System.Drawing.Size(25, 25);
             this.pbUserNo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -142,7 +142,7 @@
             this.lblIsActiveTitle.AutoSize = true;
             this.lblIsActiveTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIsActiveTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblIsActiveTitle.Location = new System.Drawing.Point(480, 25);
+            this.lblIsActiveTitle.Location = new System.Drawing.Point(480, 26);
             this.lblIsActiveTitle.Name = "lblIsActiveTitle";
             this.lblIsActiveTitle.Size = new System.Drawing.Size(88, 20);
             this.lblIsActiveTitle.TabIndex = 53;

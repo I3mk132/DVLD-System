@@ -67,7 +67,7 @@
             this.btnLogin.Location = new System.Drawing.Point(216, 238);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(124, 39);
-            this.btnLogin.TabIndex = 10;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -79,7 +79,7 @@
             this.chkRememberMe.Location = new System.Drawing.Point(139, 208);
             this.chkRememberMe.Name = "chkRememberMe";
             this.chkRememberMe.Size = new System.Drawing.Size(126, 24);
-            this.chkRememberMe.TabIndex = 9;
+            this.chkRememberMe.TabIndex = 2;
             this.chkRememberMe.Text = "Remember me";
             this.chkRememberMe.UseVisualStyleBackColor = true;
             // 
@@ -89,7 +89,8 @@
             this.txtPassword.Location = new System.Drawing.Point(139, 174);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(201, 28);
-            this.txtPassword.TabIndex = 8;
+            this.txtPassword.TabIndex = 1;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtUsername
             // 
@@ -97,7 +98,7 @@
             this.txtUsername.Location = new System.Drawing.Point(139, 136);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(201, 28);
-            this.txtUsername.TabIndex = 7;
+            this.txtUsername.TabIndex = 0;
             // 
             // lblPassword
             // 

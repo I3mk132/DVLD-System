@@ -200,7 +200,7 @@
             this.cbFilterBy.MaxDropDownItems = 11;
             this.cbFilterBy.Name = "cbFilterBy";
             this.cbFilterBy.Size = new System.Drawing.Size(135, 28);
-            this.cbFilterBy.TabIndex = 12;
+            this.cbFilterBy.TabIndex = 0;
             this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.cbFilterBy_SelectedIndexChanged);
             // 
             // lblFilter
@@ -220,7 +220,7 @@
             this.txtFilter.Location = new System.Drawing.Point(288, 3);
             this.txtFilter.Name = "txtFilter";
             this.txtFilter.Size = new System.Drawing.Size(227, 26);
-            this.txtFilter.TabIndex = 13;
+            this.txtFilter.TabIndex = 1;
             this.txtFilter.Visible = false;
             this.txtFilter.TextChanged += new System.EventHandler(this.txtFilter_TextChanged);
             // 
@@ -238,7 +238,7 @@
             this.dgvPersonsList.Name = "dgvPersonsList";
             this.dgvPersonsList.ReadOnly = true;
             this.dgvPersonsList.Size = new System.Drawing.Size(805, 261);
-            this.dgvPersonsList.TabIndex = 15;
+            this.dgvPersonsList.TabIndex = 2;
             this.dgvPersonsList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPersonsList_CellContentClick);
             // 
             // ucPersonsList

@@ -56,7 +56,7 @@
             this.cbFilterBy.MaxDropDownItems = 11;
             this.cbFilterBy.Name = "cbFilterBy";
             this.cbFilterBy.Size = new System.Drawing.Size(207, 28);
-            this.cbFilterBy.TabIndex = 15;
+            this.cbFilterBy.TabIndex = 0;
             this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.cbFilterBy_SelectedIndexChanged);
             // 
             // lblFilter
@@ -76,7 +76,7 @@
             this.txtFilter.Location = new System.Drawing.Point(358, 21);
             this.txtFilter.Name = "txtFilter";
             this.txtFilter.Size = new System.Drawing.Size(227, 26);
-            this.txtFilter.TabIndex = 16;
+            this.txtFilter.TabIndex = 1;
             this.txtFilter.Visible = false;
             this.txtFilter.TextChanged += new System.EventHandler(this.txtFilter_TextChanged);
             // 
@@ -105,7 +105,7 @@
             this.chkIsActive.Location = new System.Drawing.Point(358, 23);
             this.chkIsActive.Name = "chkIsActive";
             this.chkIsActive.Size = new System.Drawing.Size(84, 24);
-            this.chkIsActive.TabIndex = 17;
+            this.chkIsActive.TabIndex = 1;
             this.chkIsActive.Text = "IsActive";
             this.chkIsActive.UseVisualStyleBackColor = true;
             this.chkIsActive.Visible = false;

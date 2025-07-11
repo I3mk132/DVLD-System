@@ -54,7 +54,8 @@
             this.txtConfirmPassword.Location = new System.Drawing.Point(230, 93);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.Size = new System.Drawing.Size(220, 26);
-            this.txtConfirmPassword.TabIndex = 143;
+            this.txtConfirmPassword.TabIndex = 2;
+            this.txtConfirmPassword.UseSystemPasswordChar = true;
             this.txtConfirmPassword.TextChanged += new System.EventHandler(this.txtConfirmPassword_TextChanged);
             this.txtConfirmPassword.Leave += new System.EventHandler(this.txtConfirmPassword_Leave);
             // 
@@ -64,7 +65,8 @@
             this.txtCurrentPassword.Location = new System.Drawing.Point(230, 13);
             this.txtCurrentPassword.Name = "txtCurrentPassword";
             this.txtCurrentPassword.Size = new System.Drawing.Size(220, 26);
-            this.txtCurrentPassword.TabIndex = 142;
+            this.txtCurrentPassword.TabIndex = 0;
+            this.txtCurrentPassword.UseSystemPasswordChar = true;
             this.txtCurrentPassword.Leave += new System.EventHandler(this.txtCurrentPassword_Leave);
             // 
             // lblConfirmPasswordTitle
@@ -84,7 +86,8 @@
             this.txtPassword.Location = new System.Drawing.Point(230, 53);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(220, 26);
-            this.txtPassword.TabIndex = 137;
+            this.txtPassword.TabIndex = 1;
+            this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // lblPasswordTitle
@@ -118,7 +121,7 @@
             this.btnClose.Location = new System.Drawing.Point(565, 581);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(134, 40);
-            this.btnClose.TabIndex = 146;
+            this.btnClose.TabIndex = 4;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -132,7 +135,7 @@
             this.btnSave.Location = new System.Drawing.Point(705, 581);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(134, 40);
-            this.btnSave.TabIndex = 145;
+            this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);

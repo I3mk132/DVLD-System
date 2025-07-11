@@ -69,7 +69,7 @@ namespace Presentation_Layer
             string Password = txtPassword.Text;
 
             clsUsers user = clsUsers.Authenticate(Username, Password);
-            if (user != null)
+            if (user != null && user.IsActive.Value)
             {
                 clsGlobal.CurrentUser = user;
                 _ClearRememberedUser();
@@ -78,6 +78,14 @@ namespace Presentation_Layer
 
                 this.Close();
  
+            }
+            else if (!user.IsActive.Value)
+            {
+                MessageBox.Show(
+                    "this User is not Active. Please conatct you adminstrator.",
+                    "Access Denied.",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
             }
             else
             {

@@ -30,6 +30,8 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tbPersonalInfo = new System.Windows.Forms.TabPage();
+            this.ucPersonSearch1 = new Presentation_Layer.UserControls.ucPersonSearch();
+            this.ucPersonDetails1 = new Presentation_Layer.UserControls.ucPersonDetails();
             this.btnNext = new System.Windows.Forms.Button();
             this.tpLoginInfo = new System.Windows.Forms.TabPage();
             this.btnBack = new System.Windows.Forms.Button();
@@ -50,8 +52,6 @@
             this.lblAddEditTitle = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.ucPersonSearch1 = new Presentation_Layer.UserControls.ucPersonSearch();
-            this.ucPersonDetails1 = new Presentation_Layer.UserControls.ucPersonDetails();
             this.tabControl1.SuspendLayout();
             this.tbPersonalInfo.SuspendLayout();
             this.tpLoginInfo.SuspendLayout();
@@ -85,6 +85,24 @@
             this.tbPersonalInfo.Size = new System.Drawing.Size(934, 481);
             this.tbPersonalInfo.TabIndex = 0;
             this.tbPersonalInfo.Text = "Personal info";
+            // 
+            // ucPersonSearch1
+            // 
+            this.ucPersonSearch1.BackColor = System.Drawing.SystemColors.Control;
+            this.ucPersonSearch1.Location = new System.Drawing.Point(35, 24);
+            this.ucPersonSearch1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ucPersonSearch1.Name = "ucPersonSearch1";
+            this.ucPersonSearch1.Size = new System.Drawing.Size(870, 86);
+            this.ucPersonSearch1.TabIndex = 0;
+            // 
+            // ucPersonDetails1
+            // 
+            this.ucPersonDetails1.BackColor = System.Drawing.SystemColors.Control;
+            this.ucPersonDetails1.Location = new System.Drawing.Point(35, 130);
+            this.ucPersonDetails1.Name = "ucPersonDetails1";
+            this.ucPersonDetails1.PersonID = -1;
+            this.ucPersonDetails1.Size = new System.Drawing.Size(870, 291);
+            this.ucPersonDetails1.TabIndex = 9;
             // 
             // btnNext
             // 
@@ -178,6 +196,7 @@
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.Size = new System.Drawing.Size(155, 26);
             this.txtConfirmPassword.TabIndex = 2;
+            this.txtConfirmPassword.UseSystemPasswordChar = true;
             this.txtConfirmPassword.TextChanged += new System.EventHandler(this.txtConfirmPassword_TextChanged);
             this.txtConfirmPassword.Leave += new System.EventHandler(this.txtConfirmPassword_Leave);
             // 
@@ -208,6 +227,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(155, 26);
             this.txtPassword.TabIndex = 1;
+            this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // lblPasswordTitle
@@ -321,24 +341,6 @@
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // ucPersonSearch1
-            // 
-            this.ucPersonSearch1.BackColor = System.Drawing.SystemColors.Control;
-            this.ucPersonSearch1.Location = new System.Drawing.Point(35, 24);
-            this.ucPersonSearch1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ucPersonSearch1.Name = "ucPersonSearch1";
-            this.ucPersonSearch1.Size = new System.Drawing.Size(870, 86);
-            this.ucPersonSearch1.TabIndex = 0;
-            // 
-            // ucPersonDetails1
-            // 
-            this.ucPersonDetails1.BackColor = System.Drawing.SystemColors.Control;
-            this.ucPersonDetails1.Location = new System.Drawing.Point(35, 130);
-            this.ucPersonDetails1.Name = "ucPersonDetails1";
-            this.ucPersonDetails1.PersonID = -1;
-            this.ucPersonDetails1.Size = new System.Drawing.Size(870, 291);
-            this.ucPersonDetails1.TabIndex = 9;
             // 
             // frmAddEditUser
             // 
