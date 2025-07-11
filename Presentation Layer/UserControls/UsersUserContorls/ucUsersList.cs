@@ -123,7 +123,7 @@ namespace Presentation_Layer.UserControls
 
                 int UserID = Convert.ToInt32(row.Cells[0].Value);
 
-                frmAddEditUser frm = new frmAddEditUser(); // UserID
+                frmAddEditUser frm = new frmAddEditUser(UserID); 
                 frm.ShowDialog();
             }
             RefreshData();
@@ -134,7 +134,7 @@ namespace Presentation_Layer.UserControls
             if (dgvUsersList.SelectedCells.Count > 0)
             {
                 if (MessageBox.Show(
-                    "Are you sure you want to delete person ? ",
+                    "Are you sure you want to delete User ? ",
                     "Person delete",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Warning) == DialogResult.Yes)

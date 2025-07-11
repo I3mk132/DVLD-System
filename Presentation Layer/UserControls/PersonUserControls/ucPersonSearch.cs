@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -28,6 +29,26 @@ namespace Presentation_Layer.UserControls
 
         }
 
+        public bool ActivateForm
+        {
+            set
+            {
+                if (value)
+                {
+                    cbFilterBy.Enabled = true;
+                    txtFilter.Enabled = true;
+                    btnAdd.Enabled = true;
+                    btnFind.Enabled = true;
+                }
+                else
+                {
+                    cbFilterBy.Enabled = false;
+                    txtFilter.Enabled = false;
+                    btnAdd.Enabled = false;
+                    btnFind.Enabled = false;
+                }
+            }
+        }
 
         private void txtFilter_KeyPress(object sender, KeyPressEventArgs e)
         {

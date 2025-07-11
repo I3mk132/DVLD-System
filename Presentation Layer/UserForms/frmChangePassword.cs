@@ -40,9 +40,9 @@ namespace Presentation_Layer.UserForms
 
 
             user.Password = txtPassword.Text;
-            string encryptedPassword =  user.Password.Substring(0, 2)
-                                        + new string('*', user.Password.Length - 4)
-                                        + user.Password.Substring(user.Password.Length - 2, 2);
+            string encryptedPassword =  user.Password.Substring(0, 1)
+                                        + new string('*', user.Password.Length - 2)
+                                        + user.Password.Substring(user.Password.Length - 1, 1);
 
             if (MessageBox.Show(
                 $"Are you sure you want to change password To {encryptedPassword}? ", 
