@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationTypes.cs" />
     <Compile Include="CountriesDataAccess.cs" />
     <Compile Include="DriversDataAccess.cs" />
     <Compile Include="ErrorLog.cs" />

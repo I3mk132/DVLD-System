@@ -85,6 +85,7 @@
             this.tbPersonalInfo.Size = new System.Drawing.Size(934, 481);
             this.tbPersonalInfo.TabIndex = 0;
             this.tbPersonalInfo.Text = "Personal info";
+            this.tbPersonalInfo.Click += new System.EventHandler(this.tbPersonalInfo_Click);
             // 
             // ucPersonSearch1
             // 

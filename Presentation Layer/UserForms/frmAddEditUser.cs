@@ -210,5 +210,10 @@ namespace Presentation_Layer.UserForms
         {
             _ComparePasswords();
         }
+
+        private void tbPersonalInfo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

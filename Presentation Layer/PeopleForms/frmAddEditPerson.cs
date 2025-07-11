@@ -12,6 +12,7 @@ namespace Presentation_Layer.PeopleForms
 {
     public partial class frmAddEditPerson : Form
     {
+        public int personID;
         public frmAddEditPerson(int PersonID = -1)
         {
             InitializeComponent();
@@ -29,8 +30,9 @@ namespace Presentation_Layer.PeopleForms
 
         }
 
-        private void _CloseForm_DataBack(object sender)
+        private void _CloseForm_DataBack(object sender, int PersonID)
         {
+            personID = PersonID;
             this.Close();
         }
 

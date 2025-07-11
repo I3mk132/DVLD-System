@@ -78,6 +78,11 @@ namespace Presentation_Layer.UserControls
         {
             frmAddEditPerson frm = new frmAddEditPerson();
             frm.ShowDialog();
+            
+            if (frm.personID != -1)
+            {
+                DataBack?.Invoke(this, frm.personID);
+            }
         }
 
 
@@ -85,7 +90,10 @@ namespace Presentation_Layer.UserControls
         public event DataBackEventHandler DataBack;
         private void btnFind_Click(object sender, EventArgs e)
         {
-
+            if (txtFilter.Text == "")
+            {
+                return;
+            }
             switch (cbFilterBy.Text)
             {
                 case "Person ID": _person = clsPerson.Find(PersonID: Convert.ToInt32(txtFilter.Text)); break;
@@ -99,6 +107,7 @@ namespace Presentation_Layer.UserControls
                 case "Phone": _person = clsPerson.Find(Phone: txtFilter.Text); break;
                 case "Email": _person = clsPerson.Find(Email: txtFilter.Text); break;
             }
+
             if (_person == null)
             {
                 if (MessageBox.Show(

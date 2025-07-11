@@ -185,7 +185,7 @@ namespace Presentation_Layer.UserControls
 
         }
 
-        public delegate void DataBackEventHandler(object sender);
+        public delegate void DataBackEventHandler(object sender, int PersonID);
         public event DataBackEventHandler DataBack;
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -236,7 +236,7 @@ namespace Presentation_Layer.UserControls
                 if (person.Save()) // save
                 {
                     MessageBox.Show("Saved successfully. ");
-                    DataBack?.Invoke(this);
+                    DataBack?.Invoke(this, person.PersonID);
                 }
                 else
                 {
@@ -246,7 +246,7 @@ namespace Presentation_Layer.UserControls
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
-            DataBack?.Invoke(this);
+            DataBack?.Invoke(this, -1);
         }
     }
 }
