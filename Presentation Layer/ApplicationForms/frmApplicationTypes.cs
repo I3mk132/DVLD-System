@@ -27,7 +27,14 @@ namespace Presentation_Layer.ApplicationForms
         private void frmApplicationForms_Load(object sender, EventArgs e)
         {
             _RefreshDgv();
-            lblRecordCount.Text = dgvApplicationTypes.RowCount.ToString();
+
+            int totalWidth = dgvApplicationTypes.ClientSize.Width;
+
+            dgvApplicationTypes.Columns[0].Width = (int)(totalWidth * 0.2);
+            dgvApplicationTypes.Columns[1].Width = (int)(totalWidth * 0.6);
+            dgvApplicationTypes.Columns[2].Width = (int)(totalWidth * 0.2);
+
+            lblRecordCount.Text = "# Records: " + dgvApplicationTypes.RowCount.ToString();
         }
 
         private void cmsiEdit_Click(object sender, EventArgs e)

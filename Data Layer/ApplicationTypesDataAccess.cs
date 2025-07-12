@@ -18,7 +18,7 @@ namespace Data_Layer
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
-            string query = " SELECT ApplicationTypeID AS ID, ApplicationTypeTitle AS [Application Type], ApplicationsFees AS [Fees] FROM ApplicationTypes";
+            string query = "SELECT ApplicationTypeID AS ID, ApplicationTypeTitle AS [Application Type], ApplicationFees AS [Fees] FROM ApplicationTypes";
 
             SqlCommand command = new SqlCommand(query, connection);
 

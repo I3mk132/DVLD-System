@@ -33,7 +33,7 @@ namespace Presentation_Layer.ApplicationForms
         ErrorProvider error = new ErrorProvider();
         private void btnSave_Click(object sender, EventArgs e)
         {
-            int fee = (txtFees.Text == "") ? 0 : Convert.ToInt32(txtFees.Text);
+            decimal fee = (txtFees.Text == "") ? 0 : Convert.ToDecimal(txtFees.Text);
             bool flag = false;
             if (fee < 0 )
             {
