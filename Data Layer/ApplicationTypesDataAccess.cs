@@ -4,13 +4,15 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Data_Layer
 {
-    public class clsApplicationTypes
+    public class clsApplicationTypesDataAccess
     {
         public static DataTable GetAllApplicationTypes()
         {
@@ -42,7 +44,45 @@ namespace Data_Layer
             }
             return dt;
         }
-        public static bool UpdatePerson(
+        public static bool GetApplicationType(ref int ID, ref string ApplicationType, ref decimal Fees)
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"SELECT * FROM ApplicationTypes WHERE ApplicationTypeID = @ID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ID", ID);
+
+            bool isFound = false;
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isFound = true;
+
+                    ID = (int)reader["ApplicationTypeID"];
+                    ApplicationType = (string)reader["ApplicationTypeTitle"];
+                    Fees = (decimal)reader["ApplicationFees"];
+
+                }
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+                clsErrorLog.AddErrorLog(ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isFound;
+
+        }
+        public static bool UpdateApplicationType(
             int ID, string ApplicationType, decimal Fees
         )
         {
