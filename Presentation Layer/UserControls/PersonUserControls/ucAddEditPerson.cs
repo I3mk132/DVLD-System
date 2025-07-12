@@ -29,15 +29,6 @@ namespace Presentation_Layer.UserControls
             dtpDateOfBirth.MinDate = date.AddYears(-100);
         }
 
-        private void rbGender_CheckChanged(object sender, EventArgs e)
-        {
-            RadioButton rbGender = (RadioButton)sender;
-            if (pbPersonImage.Image == null)
-                pbPersonImage.Image =
-                    (rbGender.Tag.ToString() == "Male" ? Resources.AnonymousMan : Resources.AnonymousWoman);
-
-        }
-
         private string _OldEmail, _OldNationalNo, _OldImageName;
         private void ucAddEditPerson_Load(object sender, EventArgs e)
         {
@@ -107,6 +98,18 @@ namespace Presentation_Layer.UserControls
             _ThirdError = new ErrorProvider(), _LastError = new ErrorProvider(), _NationalNoError = new ErrorProvider(),
             _EmailError = new ErrorProvider(), _AddressError = new ErrorProvider(), _PhoneError = new ErrorProvider();
 
+        private void rbFemale_CheckChanged(object sender, EventArgs e)
+        {
+            if (rbFemale.Checked && string.IsNullOrEmpty(pbPersonImage.Tag?.ToString()))
+                pbPersonImage.Image = Resources.AnonymousWoman;
+
+        }
+
+        private void rbMale_CheckChanged(object sender, EventArgs e)
+        {
+            if (rbMale.Checked && string.IsNullOrEmpty(pbPersonImage.Tag?.ToString()))
+                pbPersonImage.Image = Resources.AnonymousMan;
+        }
 
         private void _setErrors()
         {
@@ -177,14 +180,6 @@ namespace Presentation_Layer.UserControls
             }
         }
 
-        private void rbGender_Chenged(object sender, EventArgs e)
-        {
-            RadioButton rb = (RadioButton)sender;
-            if (string.IsNullOrEmpty(pbPersonImage.Tag.ToString()))
-                pbPersonImage.Image = (rb.Tag.ToString() == "Male" ? Resources.AnonymousMan : Resources.AnonymousWoman);
-
-        }
-
         public delegate void DataBackEventHandler(object sender, int PersonID);
         public event DataBackEventHandler DataBack;
         private void btnSave_Click(object sender, EventArgs e)
@@ -226,7 +221,11 @@ namespace Presentation_Layer.UserControls
                         pbPersonImage.Image = null;
                         GC.Collect();
                         GC.WaitForPendingFinalizers();
-                        File.Delete(imagePath);
+                        try
+                        {
+                            File.Delete(imagePath);
+                        }
+                        catch (Exception ex){}
                     }
 
                 }

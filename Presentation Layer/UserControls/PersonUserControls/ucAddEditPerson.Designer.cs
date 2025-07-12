@@ -89,7 +89,7 @@
             this.rbFemale.Tag = "Female";
             this.rbFemale.Text = "Female";
             this.rbFemale.UseVisualStyleBackColor = true;
-            this.rbFemale.CheckedChanged += new System.EventHandler(this.rbGender_CheckChanged);
+            this.rbFemale.CheckedChanged += new System.EventHandler(this.rbFemale_CheckChanged);
             // 
             // rbMale
             // 
@@ -105,7 +105,7 @@
             this.rbMale.Tag = "Male";
             this.rbMale.Text = "Male";
             this.rbMale.UseVisualStyleBackColor = true;
-            this.rbMale.CheckedChanged += new System.EventHandler(this.rbGender_CheckChanged);
+            this.rbMale.CheckedChanged += new System.EventHandler(this.rbMale_CheckChanged);
             // 
             // pbCountry
             // 
