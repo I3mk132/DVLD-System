@@ -22,29 +22,30 @@ namespace Presentation_Layer.ApplicationForms
         {
             _RefreshDgv();
 
-            int totalWidth = dgvApplicationTypes.ClientSize.Width;
+            int totalWidth = dgvTestTypes.ClientSize.Width;
 
-            dgvApplicationTypes.Columns[0].Width = (int)(totalWidth * 0.2);
-            dgvApplicationTypes.Columns[1].Width = (int)(totalWidth * 0.6);
-            dgvApplicationTypes.Columns[2].Width = (int)(totalWidth * 0.2);
+            dgvTestTypes.Columns[0].Width = (int)(totalWidth * 0.1);
+            dgvTestTypes.Columns[1].Width = (int)(totalWidth * 0.3);
+            dgvTestTypes.Columns[2].Width = (int)(totalWidth * 0.5);
+            dgvTestTypes.Columns[3].Width = (int)(totalWidth * 0.1);
 
-            lblRecordCount.Text = "# Records: " + dgvApplicationTypes.RowCount.ToString();
+            lblRecordCount.Text = "# Records: " + dgvTestTypes.RowCount.ToString();
         }
 
         private void _RefreshDgv()
         {
-            dgvApplicationTypes.DataSource = clsApplicationTypes.GetApplicationTypesList();
+            dgvTestTypes.DataSource = clsTestTypes.GetTestTypesList();
         }
 
         private void cmsiEdit_Click(object sender, EventArgs e)
         {
-            if (dgvApplicationTypes.SelectedCells.Count > 0)
+            if (dgvTestTypes.SelectedCells.Count > 0)
             {
-                DataGridViewCell selectedCell = dgvApplicationTypes.SelectedCells[0];
+                DataGridViewCell selectedCell = dgvTestTypes.SelectedCells[0];
                 DataGridViewRow row = selectedCell.OwningRow;
 
                 int id = Convert.ToInt32(row.Cells[0].Value);
-                frmEditApplication frm = new frmEditApplication(id);
+                frmEditTestType frm = new frmEditTestType(id);
                 frm.ShowDialog();
             }
             _RefreshDgv();
@@ -57,4 +58,4 @@ namespace Presentation_Layer.ApplicationForms
     }
 
 }
-}
+

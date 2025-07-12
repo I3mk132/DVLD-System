@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtFees = new System.Windows.Forms.TextBox();
+            this.pbFees = new System.Windows.Forms.PictureBox();
+            this.lblFees = new System.Windows.Forms.Label();
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
+            this.pbDescription = new System.Windows.Forms.PictureBox();
             this.lblDescription = new System.Windows.Forms.Label();
+            this.pbTitle = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.pbTag = new System.Windows.Forms.PictureBox();
             this.lblIDTitle = new System.Windows.Forms.Label();
             this.pbIDValue = new System.Windows.Forms.Label();
             this.lblEditApplication = new System.Windows.Forms.Label();
-            this.txtFees = new System.Windows.Forms.TextBox();
-            this.lblFees = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.pbFees = new System.Windows.Forms.PictureBox();
-            this.pbDescription = new System.Windows.Forms.PictureBox();
-            this.pbTitle = new System.Windows.Forms.PictureBox();
-            this.pbTag = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDescription)).BeginInit();
@@ -71,13 +71,44 @@
             this.panel1.Size = new System.Drawing.Size(474, 198);
             this.panel1.TabIndex = 99;
             // 
+            // txtFees
+            // 
+            this.txtFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFees.Location = new System.Drawing.Point(166, 158);
+            this.txtFees.Name = "txtFees";
+            this.txtFees.Size = new System.Drawing.Size(290, 26);
+            this.txtFees.TabIndex = 2;
+            this.txtFees.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFees_KeyPress);
+            // 
+            // pbFees
+            // 
+            this.pbFees.Image = global::Presentation_Layer.Properties.Resources.Fees32;
+            this.pbFees.Location = new System.Drawing.Point(131, 159);
+            this.pbFees.Name = "pbFees";
+            this.pbFees.Size = new System.Drawing.Size(25, 25);
+            this.pbFees.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbFees.TabIndex = 122;
+            this.pbFees.TabStop = false;
+            // 
+            // lblFees
+            // 
+            this.lblFees.AutoSize = true;
+            this.lblFees.BackColor = System.Drawing.SystemColors.Control;
+            this.lblFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFees.ForeColor = System.Drawing.Color.Black;
+            this.lblFees.Location = new System.Drawing.Point(62, 160);
+            this.lblFees.Name = "lblFees";
+            this.lblFees.Size = new System.Drawing.Size(54, 20);
+            this.lblFees.TabIndex = 121;
+            this.lblFees.Text = "Fees:";
+            // 
             // txtTitle
             // 
             this.txtTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTitle.Location = new System.Drawing.Point(166, 44);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(290, 26);
-            this.txtTitle.TabIndex = 120;
+            this.txtTitle.TabIndex = 0;
             // 
             // txtDescription
             // 
@@ -86,7 +117,17 @@
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(290, 72);
-            this.txtDescription.TabIndex = 119;
+            this.txtDescription.TabIndex = 1;
+            // 
+            // pbDescription
+            // 
+            this.pbDescription.Image = global::Presentation_Layer.Properties.Resources.Description32;
+            this.pbDescription.Location = new System.Drawing.Point(131, 79);
+            this.pbDescription.Name = "pbDescription";
+            this.pbDescription.Size = new System.Drawing.Size(25, 25);
+            this.pbDescription.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbDescription.TabIndex = 118;
+            this.pbDescription.TabStop = false;
             // 
             // lblDescription
             // 
@@ -100,6 +141,16 @@
             this.lblDescription.TabIndex = 116;
             this.lblDescription.Text = "Description: ";
             // 
+            // pbTitle
+            // 
+            this.pbTitle.Image = global::Presentation_Layer.Properties.Resources.Title32;
+            this.pbTitle.Location = new System.Drawing.Point(131, 47);
+            this.pbTitle.Name = "pbTitle";
+            this.pbTitle.Size = new System.Drawing.Size(25, 25);
+            this.pbTitle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbTitle.TabIndex = 115;
+            this.pbTitle.TabStop = false;
+            // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
@@ -111,6 +162,16 @@
             this.lblTitle.Size = new System.Drawing.Size(48, 20);
             this.lblTitle.TabIndex = 113;
             this.lblTitle.Text = "Title:";
+            // 
+            // pbTag
+            // 
+            this.pbTag.Image = global::Presentation_Layer.Properties.Resources.Tag;
+            this.pbTag.Location = new System.Drawing.Point(131, 8);
+            this.pbTag.Name = "pbTag";
+            this.pbTag.Size = new System.Drawing.Size(25, 25);
+            this.pbTag.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbTag.TabIndex = 112;
+            this.pbTag.TabStop = false;
             // 
             // lblIDTitle
             // 
@@ -146,27 +207,6 @@
             this.lblEditApplication.TabIndex = 98;
             this.lblEditApplication.Text = "Edit Test Type";
             // 
-            // txtFees
-            // 
-            this.txtFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFees.Location = new System.Drawing.Point(166, 158);
-            this.txtFees.Name = "txtFees";
-            this.txtFees.Size = new System.Drawing.Size(290, 26);
-            this.txtFees.TabIndex = 123;
-            this.txtFees.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFees_KeyPress);
-            // 
-            // lblFees
-            // 
-            this.lblFees.AutoSize = true;
-            this.lblFees.BackColor = System.Drawing.SystemColors.Control;
-            this.lblFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFees.ForeColor = System.Drawing.Color.Black;
-            this.lblFees.Location = new System.Drawing.Point(62, 160);
-            this.lblFees.Name = "lblFees";
-            this.lblFees.Size = new System.Drawing.Size(54, 20);
-            this.lblFees.TabIndex = 121;
-            this.lblFees.Text = "Fees:";
-            // 
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.White;
@@ -177,7 +217,7 @@
             this.btnClose.Location = new System.Drawing.Point(212, 267);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(134, 40);
-            this.btnClose.TabIndex = 101;
+            this.btnClose.TabIndex = 4;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -191,50 +231,10 @@
             this.btnSave.Location = new System.Drawing.Point(352, 267);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(134, 40);
-            this.btnSave.TabIndex = 100;
+            this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // pbFees
-            // 
-            this.pbFees.Image = global::Presentation_Layer.Properties.Resources.Fees32;
-            this.pbFees.Location = new System.Drawing.Point(131, 159);
-            this.pbFees.Name = "pbFees";
-            this.pbFees.Size = new System.Drawing.Size(25, 25);
-            this.pbFees.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbFees.TabIndex = 122;
-            this.pbFees.TabStop = false;
-            // 
-            // pbDescription
-            // 
-            this.pbDescription.Image = global::Presentation_Layer.Properties.Resources.Description32;
-            this.pbDescription.Location = new System.Drawing.Point(131, 79);
-            this.pbDescription.Name = "pbDescription";
-            this.pbDescription.Size = new System.Drawing.Size(25, 25);
-            this.pbDescription.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbDescription.TabIndex = 118;
-            this.pbDescription.TabStop = false;
-            // 
-            // pbTitle
-            // 
-            this.pbTitle.Image = global::Presentation_Layer.Properties.Resources.Title32;
-            this.pbTitle.Location = new System.Drawing.Point(131, 47);
-            this.pbTitle.Name = "pbTitle";
-            this.pbTitle.Size = new System.Drawing.Size(25, 25);
-            this.pbTitle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbTitle.TabIndex = 115;
-            this.pbTitle.TabStop = false;
-            // 
-            // pbTag
-            // 
-            this.pbTag.Image = global::Presentation_Layer.Properties.Resources.Tag;
-            this.pbTag.Location = new System.Drawing.Point(131, 8);
-            this.pbTag.Name = "pbTag";
-            this.pbTag.Size = new System.Drawing.Size(25, 25);
-            this.pbTag.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbTag.TabIndex = 112;
-            this.pbTag.TabStop = false;
             // 
             // frmEditTestType
             // 

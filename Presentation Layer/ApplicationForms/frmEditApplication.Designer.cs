@@ -82,7 +82,7 @@
             this.txtTitle.Multiline = true;
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(290, 59);
-            this.txtTitle.TabIndex = 120;
+            this.txtTitle.TabIndex = 0;
             // 
             // txtFees
             // 
@@ -90,7 +90,7 @@
             this.txtFees.Location = new System.Drawing.Point(115, 111);
             this.txtFees.Name = "txtFees";
             this.txtFees.Size = new System.Drawing.Size(290, 26);
-            this.txtFees.TabIndex = 119;
+            this.txtFees.TabIndex = 1;
             this.txtFees.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFees_KeyPress);
             // 
             // pictureBox2
@@ -181,7 +181,7 @@
             this.btnClose.Location = new System.Drawing.Point(159, 224);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(134, 40);
-            this.btnClose.TabIndex = 97;
+            this.btnClose.TabIndex = 3;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -195,7 +195,7 @@
             this.btnSave.Location = new System.Drawing.Point(299, 224);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(134, 40);
-            this.btnSave.TabIndex = 96;
+            this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);

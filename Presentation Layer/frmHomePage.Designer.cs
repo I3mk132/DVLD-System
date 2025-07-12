@@ -110,6 +110,7 @@
             this.msiManageTestTypes.Name = "msiManageTestTypes";
             this.msiManageTestTypes.Size = new System.Drawing.Size(350, 54);
             this.msiManageTestTypes.Text = "Manage Test Types";
+            this.msiManageTestTypes.Click += new System.EventHandler(this.msiManageTestTypes_Click);
             // 
             // msiPeople
             // 

@@ -23,7 +23,12 @@ namespace Presentation_Layer.ApplicationForms
 
         private void frmEditTestType_Load(object sender, EventArgs e)
         {
+            clsTestTypes at = clsTestTypes.Find(_id);
 
+            lblIDTitle.Text = _id.ToString();
+            txtTitle.Text = at.Title;
+            txtDescription.Text = at.Description;
+            txtFees.Text = at.Fees.ToString();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -99,14 +104,5 @@ namespace Presentation_Layer.ApplicationForms
             }
         }
 
-        private void frmEditApplication_Load(object sender, EventArgs e)
-        {
-            clsTestTypes at = clsTestTypes.Find(_id);
-
-            lblIDTitle.Text = _id.ToString();
-            txtTitle.Text = at.Title;
-            txtDescription.Text = at.Description;
-            txtFees.Text = at.Fees.ToString();
-        }
     }
 }

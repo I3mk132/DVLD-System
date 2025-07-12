@@ -58,5 +58,11 @@ namespace Presentation_Layer
             frmApplicationTypes frm = new frmApplicationTypes();
             frm.ShowDialog();
         }
+
+        private void msiManageTestTypes_Click(object sender, EventArgs e)
+        {
+            frmManageTestTypes frm = new frmManageTestTypes();
+            frm.ShowDialog();
+        }
     }
 }
