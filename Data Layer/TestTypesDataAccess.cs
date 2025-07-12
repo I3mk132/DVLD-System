@@ -2,23 +2,19 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Data.SqlTypes;
 using System.Linq;
-using System.Net;
-using System.Runtime.InteropServices;
-using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Data_Layer
 {
-    public class clsApplicationTypesDataAccess
+    public class clsTestTypesDataAccess
     {
-        public static DataTable GetAllApplicationTypes()
+        public static DataTable GetAllTestTypes()
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
-            string query = "SELECT ApplicationTypeID AS ID, ApplicationTypeTitle AS [Application Type], ApplicationFees AS [Fees] FROM ApplicationTypes";
+            string query = "SELECT TestTypeID AS [ID], TestTypeTitle AS [Test], TestTypeDescription AS [Description], TestTypeFees AS [Fees] FROM TestTypes";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -44,11 +40,11 @@ namespace Data_Layer
             }
             return dt;
         }
-        public static bool GetApplicationType(ref int ID, ref string ApplicationType, ref decimal Fees)
+        public static bool GetTestType(ref int ID, ref string ApplicationType, ref string Description, ref decimal Fees)
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
-            string query = @"SELECT * FROM ApplicationTypes WHERE ApplicationTypeID = @ID";
+            string query = @"SELECT * FROM TestTypes WHERE TestTypeID = @ID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -64,9 +60,10 @@ namespace Data_Layer
                 {
                     isFound = true;
 
-                    ID = (int)reader["ApplicationTypeID"];
-                    ApplicationType = (string)reader["ApplicationTypeTitle"];
-                    Fees = (decimal)reader["ApplicationFees"];
+                    ID = (int)reader["TestTypeID"];
+                    ApplicationType = (string)reader["TestTypeTitle"];
+                    Description = (string)reader["TestTypeDescription"];
+                    Fees = (decimal)reader["TestTypeFees"];
 
                 }
                 reader.Close();
@@ -83,26 +80,28 @@ namespace Data_Layer
             return isFound;
 
         }
-        public static bool UpdateApplicationType(
-            int ID, string ApplicationType, decimal Fees
+        public static bool UpdateTestType(
+            int ID, string Title, string Description, decimal Fees
         )
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
             string query = @"
 
-                UPDATE ApplicationTypes SET
-                ApplicationTypeTitle = @ApplicationType,
-                ApplicationFees = @Fees
-                WHERE ApplicationTypeID = @ID
+                UPDATE TestTypes SET
+                TestTypeTitle = @Title,
+                TestTypeDescription = @Description,
+                TestTypeFees = @Fees
+                WHERE TestTypeID = @ID
             ";
 
             SqlCommand command = new SqlCommand(query, connection);
 
 
-            command.Parameters.AddWithValue("@ApplicationType", ApplicationType);
+            command.Parameters.AddWithValue("@Title", Title);
+            command.Parameters.AddWithValue("@Description", Description);
             command.Parameters.AddWithValue("@Fees", Fees);
-            command.Parameters.AddWithValue("@ID", ID);
+            command.Parameters.AddWithValue("ID", ID);
 
             int rowsAffected = 0;
             bool result = false;
