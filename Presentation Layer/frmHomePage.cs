@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business_Layer;
+using Presentation_Layer.ApplicationForms;
 using Presentation_Layer.PeopleForms;
 using Presentation_Layer.UserForms;
 
@@ -49,6 +50,12 @@ namespace Presentation_Layer
         private void msiUsers_Click(object sender, EventArgs e)
         {
             frmUsers frm = new frmUsers();
+            frm.ShowDialog();
+        }
+
+        private void msiManageApplicationTypes_Click(object sender, EventArgs e)
+        {
+            frmApplicationTypes frm = new frmApplicationTypes();
             frm.ShowDialog();
         }
     }

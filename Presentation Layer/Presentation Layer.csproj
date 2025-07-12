@@ -355,6 +355,9 @@
     <None Include="Icons\DocumentSettings.png" />
     <None Include="Icons\Title32.png" />
     <None Include="Icons\Fees32.png" />
+    <None Include="Icons\LockedCard.png" />
+    <None Include="Icons\DocumentSettings1.png" />
+    <None Include="Icons\DocumentSettings2.png" />
     <Content Include="RememberedUser.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

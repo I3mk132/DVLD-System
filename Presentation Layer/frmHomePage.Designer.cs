@@ -30,6 +30,11 @@
         {
             this.msMenues = new System.Windows.Forms.MenuStrip();
             this.msiApplications = new System.Windows.Forms.ToolStripMenuItem();
+            this.msiDriverLicensesServices = new System.Windows.Forms.ToolStripMenuItem();
+            this.msiManageApplications = new System.Windows.Forms.ToolStripMenuItem();
+            this.msiDetainLicenses = new System.Windows.Forms.ToolStripMenuItem();
+            this.msiManageApplicationTypes = new System.Windows.Forms.ToolStripMenuItem();
+            this.msiManageTestTypes = new System.Windows.Forms.ToolStripMenuItem();
             this.msiPeople = new System.Windows.Forms.ToolStripMenuItem();
             this.msiDrivers = new System.Windows.Forms.ToolStripMenuItem();
             this.msiUsers = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,10 +64,52 @@
             // 
             // msiApplications
             // 
+            this.msiApplications.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.msiDriverLicensesServices,
+            this.msiManageApplications,
+            this.msiDetainLicenses,
+            this.msiManageApplicationTypes,
+            this.msiManageTestTypes});
             this.msiApplications.Image = global::Presentation_Layer.Properties.Resources.Applications;
             this.msiApplications.Name = "msiApplications";
             this.msiApplications.Size = new System.Drawing.Size(182, 52);
             this.msiApplications.Text = "Applications";
+            // 
+            // msiDriverLicensesServices
+            // 
+            this.msiDriverLicensesServices.Image = global::Presentation_Layer.Properties.Resources.License1;
+            this.msiDriverLicensesServices.Name = "msiDriverLicensesServices";
+            this.msiDriverLicensesServices.Size = new System.Drawing.Size(350, 54);
+            this.msiDriverLicensesServices.Text = "Driver Licenses Services";
+            // 
+            // msiManageApplications
+            // 
+            this.msiManageApplications.Image = global::Presentation_Layer.Properties.Resources.DocumentSettings;
+            this.msiManageApplications.Name = "msiManageApplications";
+            this.msiManageApplications.Size = new System.Drawing.Size(350, 54);
+            this.msiManageApplications.Text = "Manage Applications";
+            // 
+            // msiDetainLicenses
+            // 
+            this.msiDetainLicenses.Image = global::Presentation_Layer.Properties.Resources.LockedCard;
+            this.msiDetainLicenses.Name = "msiDetainLicenses";
+            this.msiDetainLicenses.Size = new System.Drawing.Size(350, 54);
+            this.msiDetainLicenses.Text = "Detain Licenses";
+            // 
+            // msiManageApplicationTypes
+            // 
+            this.msiManageApplicationTypes.Image = global::Presentation_Layer.Properties.Resources.DocumentSettings1;
+            this.msiManageApplicationTypes.Name = "msiManageApplicationTypes";
+            this.msiManageApplicationTypes.Size = new System.Drawing.Size(350, 54);
+            this.msiManageApplicationTypes.Text = "Manage Application Types";
+            this.msiManageApplicationTypes.Click += new System.EventHandler(this.msiManageApplicationTypes_Click);
+            // 
+            // msiManageTestTypes
+            // 
+            this.msiManageTestTypes.Image = global::Presentation_Layer.Properties.Resources.DocumentSettings2;
+            this.msiManageTestTypes.Name = "msiManageTestTypes";
+            this.msiManageTestTypes.Size = new System.Drawing.Size(350, 54);
+            this.msiManageTestTypes.Text = "Manage Test Types";
             // 
             // msiPeople
             // 
@@ -158,6 +205,11 @@
         private System.Windows.Forms.ToolStripMenuItem msiChangePassword;
         private System.Windows.Forms.ToolStripMenuItem msiSignout;
         private System.Windows.Forms.ToolStripSeparator msiSeperator;
+        private System.Windows.Forms.ToolStripMenuItem msiDriverLicensesServices;
+        private System.Windows.Forms.ToolStripMenuItem msiManageApplications;
+        private System.Windows.Forms.ToolStripMenuItem msiDetainLicenses;
+        private System.Windows.Forms.ToolStripMenuItem msiManageApplicationTypes;
+        private System.Windows.Forms.ToolStripMenuItem msiManageTestTypes;
     }
 }
 

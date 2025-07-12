@@ -213,6 +213,26 @@ namespace Presentation_Layer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DocumentSettings1 {
+            get {
+                object obj = ResourceManager.GetObject("DocumentSettings1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DocumentSettings2 {
+            get {
+                object obj = ResourceManager.GetObject("DocumentSettings2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Drivers {
             get {
                 object obj = ResourceManager.GetObject("Drivers", resourceCulture);
@@ -286,6 +306,16 @@ namespace Presentation_Layer.Properties {
         internal static System.Drawing.Bitmap License1 {
             get {
                 object obj = ResourceManager.GetObject("License1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LockedCard {
+            get {
+                object obj = ResourceManager.GetObject("LockedCard", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
