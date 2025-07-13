@@ -176,5 +176,10 @@ namespace Presentation_Layer.UserControls
         {
 
         }
+
+        private void ucUsersList_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

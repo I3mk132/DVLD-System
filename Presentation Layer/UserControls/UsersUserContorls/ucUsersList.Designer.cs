@@ -126,28 +126,28 @@
             this.cmsiSendEmail,
             this.cmsiPhoneCall});
             this.cms.Name = "cms";
-            this.cms.Size = new System.Drawing.Size(197, 304);
+            this.cms.Size = new System.Drawing.Size(185, 282);
             // 
             // cmsiShowDetails
             // 
             this.cmsiShowDetails.Image = global::Presentation_Layer.Properties.Resources.Clipboard32;
             this.cmsiShowDetails.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.cmsiShowDetails.Name = "cmsiShowDetails";
-            this.cmsiShowDetails.Size = new System.Drawing.Size(196, 38);
+            this.cmsiShowDetails.Size = new System.Drawing.Size(184, 38);
             this.cmsiShowDetails.Text = "Show details";
             this.cmsiShowDetails.Click += new System.EventHandler(this.cmsiShowDetails_Click);
             // 
             // cmss2
             // 
             this.cmss2.Name = "cmss2";
-            this.cmss2.Size = new System.Drawing.Size(193, 6);
+            this.cmss2.Size = new System.Drawing.Size(181, 6);
             // 
             // cmsiAddNewPerson
             // 
             this.cmsiAddNewPerson.Image = global::Presentation_Layer.Properties.Resources.AddPerson32;
             this.cmsiAddNewPerson.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.cmsiAddNewPerson.Name = "cmsiAddNewPerson";
-            this.cmsiAddNewPerson.Size = new System.Drawing.Size(196, 38);
+            this.cmsiAddNewPerson.Size = new System.Drawing.Size(184, 38);
             this.cmsiAddNewPerson.Text = "Add new person";
             this.cmsiAddNewPerson.Click += new System.EventHandler(this.cmsiAddNewUser_Click);
             // 
@@ -156,7 +156,7 @@
             this.cmsiEdit.Image = global::Presentation_Layer.Properties.Resources.EditPerson32;
             this.cmsiEdit.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.cmsiEdit.Name = "cmsiEdit";
-            this.cmsiEdit.Size = new System.Drawing.Size(196, 38);
+            this.cmsiEdit.Size = new System.Drawing.Size(184, 38);
             this.cmsiEdit.Text = "Edit";
             this.cmsiEdit.Click += new System.EventHandler(this.cmsiEdit_Click);
             // 
@@ -165,7 +165,7 @@
             this.cmsiDelete.Image = global::Presentation_Layer.Properties.Resources.DeletePerson32;
             this.cmsiDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.cmsiDelete.Name = "cmsiDelete";
-            this.cmsiDelete.Size = new System.Drawing.Size(196, 38);
+            this.cmsiDelete.Size = new System.Drawing.Size(184, 38);
             this.cmsiDelete.Text = "Delete";
             this.cmsiDelete.Click += new System.EventHandler(this.cmsiDelete_Click);
             // 
@@ -174,21 +174,21 @@
             this.cmsiChangePassword.Image = global::Presentation_Layer.Properties.Resources.password32;
             this.cmsiChangePassword.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.cmsiChangePassword.Name = "cmsiChangePassword";
-            this.cmsiChangePassword.Size = new System.Drawing.Size(196, 38);
+            this.cmsiChangePassword.Size = new System.Drawing.Size(184, 38);
             this.cmsiChangePassword.Text = "Change Password";
             this.cmsiChangePassword.Click += new System.EventHandler(this.cmsiChangePassword_Click);
             // 
             // cmss1
             // 
             this.cmss1.Name = "cmss1";
-            this.cmss1.Size = new System.Drawing.Size(193, 6);
+            this.cmss1.Size = new System.Drawing.Size(181, 6);
             // 
             // cmsiSendEmail
             // 
             this.cmsiSendEmail.Image = global::Presentation_Layer.Properties.Resources.SendMail32;
             this.cmsiSendEmail.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.cmsiSendEmail.Name = "cmsiSendEmail";
-            this.cmsiSendEmail.Size = new System.Drawing.Size(196, 38);
+            this.cmsiSendEmail.Size = new System.Drawing.Size(184, 38);
             this.cmsiSendEmail.Text = "Send Email";
             this.cmsiSendEmail.Click += new System.EventHandler(this.cmsiStillNotWorking_Click);
             // 
@@ -197,7 +197,7 @@
             this.cmsiPhoneCall.Image = global::Presentation_Layer.Properties.Resources.phone32;
             this.cmsiPhoneCall.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.cmsiPhoneCall.Name = "cmsiPhoneCall";
-            this.cmsiPhoneCall.Size = new System.Drawing.Size(196, 38);
+            this.cmsiPhoneCall.Size = new System.Drawing.Size(184, 38);
             this.cmsiPhoneCall.Text = "Phone Call";
             this.cmsiPhoneCall.Click += new System.EventHandler(this.cmsiStillNotWorking_Click);
             // 
@@ -219,6 +219,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ucUsersList";
             this.Size = new System.Drawing.Size(870, 404);
+            this.Load += new System.EventHandler(this.ucUsersList_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsersList)).EndInit();
