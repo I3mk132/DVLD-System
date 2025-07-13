@@ -42,8 +42,7 @@ namespace Presentation_Layer.UserForms
             {
                 user = clsUsers.Find(UserID: _UserID);
 
-                ucPersonDetails1.PersonID = user.PersonID;
-                ucPersonDetails1.LoadPersonData();
+                ucPersonSearch1.LoadPersonDetails(user.PersonID);
 
                 _OldUsername = user.Username;
                 _PersonID = user.PersonID;
@@ -79,8 +78,8 @@ namespace Presentation_Layer.UserForms
                 MessageBox.Show("This person already have data linked to it. ");
                 return;
             }
-            ucPersonDetails1.PersonID = PersonID;
-            ucPersonDetails1.LoadPersonData();
+            //ucPersonDetails1.PersonID = PersonID;
+            //ucPersonDetails1.LoadPersonData();
             _PersonID = PersonID;
             
         }

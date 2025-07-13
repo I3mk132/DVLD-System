@@ -34,6 +34,7 @@
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.lblFilter = new System.Windows.Forms.Label();
             this.txtFilter = new System.Windows.Forms.TextBox();
+            this.ucPersonDetails1 = new Presentation_Layer.UserControls.ucPersonDetails();
             this.gbFilter.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +47,7 @@
             this.gbFilter.Controls.Add(this.txtFilter);
             this.gbFilter.Location = new System.Drawing.Point(13, 12);
             this.gbFilter.Name = "gbFilter";
-            this.gbFilter.Size = new System.Drawing.Size(839, 63);
+            this.gbFilter.Size = new System.Drawing.Size(846, 63);
             this.gbFilter.TabIndex = 18;
             this.gbFilter.TabStop = false;
             this.gbFilter.Text = "Filter";
@@ -118,12 +119,22 @@
             this.txtFilter.TabIndex = 1;
             this.txtFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilter_KeyPress);
             // 
+            // ucPersonDetails1
+            // 
+            this.ucPersonDetails1.Location = new System.Drawing.Point(1, 75);
+            this.ucPersonDetails1.Name = "ucPersonDetails1";
+            this.ucPersonDetails1.PersonID = -1;
+            this.ucPersonDetails1.Size = new System.Drawing.Size(870, 291);
+            this.ucPersonDetails1.TabIndex = 19;
+            this.ucPersonDetails1.Load += new System.EventHandler(this.ucPersonDetails1_Load);
+            // 
             // ucPersonSearch
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.Controls.Add(this.ucPersonDetails1);
             this.Controls.Add(this.gbFilter);
             this.Name = "ucPersonSearch";
-            this.Size = new System.Drawing.Size(870, 86);
+            this.Size = new System.Drawing.Size(870, 365);
             this.Load += new System.EventHandler(this.ucPersonSearch_Load);
             this.gbFilter.ResumeLayout(false);
             this.gbFilter.PerformLayout();
@@ -139,5 +150,6 @@
         private System.Windows.Forms.TextBox txtFilter;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnFind;
+        private ucPersonDetails ucPersonDetails1;
     }
 }

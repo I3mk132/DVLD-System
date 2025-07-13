@@ -31,7 +31,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tbPersonalInfo = new System.Windows.Forms.TabPage();
             this.ucPersonSearch1 = new Presentation_Layer.UserControls.ucPersonSearch();
-            this.ucPersonDetails1 = new Presentation_Layer.UserControls.ucPersonDetails();
             this.btnNext = new System.Windows.Forms.Button();
             this.tpLoginInfo = new System.Windows.Forms.TabPage();
             this.btnBack = new System.Windows.Forms.Button();
@@ -76,7 +75,6 @@
             // 
             this.tbPersonalInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(204)))), ((int)(((byte)(231)))));
             this.tbPersonalInfo.Controls.Add(this.ucPersonSearch1);
-            this.tbPersonalInfo.Controls.Add(this.ucPersonDetails1);
             this.tbPersonalInfo.Controls.Add(this.btnNext);
             this.tbPersonalInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPersonalInfo.Location = new System.Drawing.Point(4, 22);
@@ -90,20 +88,11 @@
             // ucPersonSearch1
             // 
             this.ucPersonSearch1.BackColor = System.Drawing.SystemColors.Control;
-            this.ucPersonSearch1.Location = new System.Drawing.Point(35, 24);
+            this.ucPersonSearch1.Location = new System.Drawing.Point(35, 31);
             this.ucPersonSearch1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucPersonSearch1.Name = "ucPersonSearch1";
-            this.ucPersonSearch1.Size = new System.Drawing.Size(870, 86);
+            this.ucPersonSearch1.Size = new System.Drawing.Size(870, 368);
             this.ucPersonSearch1.TabIndex = 0;
-            // 
-            // ucPersonDetails1
-            // 
-            this.ucPersonDetails1.BackColor = System.Drawing.SystemColors.Control;
-            this.ucPersonDetails1.Location = new System.Drawing.Point(35, 130);
-            this.ucPersonDetails1.Name = "ucPersonDetails1";
-            this.ucPersonDetails1.PersonID = -1;
-            this.ucPersonDetails1.Size = new System.Drawing.Size(870, 291);
-            this.ucPersonDetails1.TabIndex = 9;
             // 
             // btnNext
             // 
@@ -393,7 +382,6 @@
         private System.Windows.Forms.CheckBox chkIsActive;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;
-        private UserControls.ucPersonDetails ucPersonDetails1;
         private UserControls.ucPersonSearch ucPersonSearch1;
         private System.Windows.Forms.Panel pnlLoginInfo;
         private System.Windows.Forms.Button btnBack;

@@ -81,6 +81,7 @@ namespace Presentation_Layer.UserControls
             
             if (frm.personID != -1)
             {
+                LoadPersonDetails(frm.personID);
                 DataBack?.Invoke(this, frm.personID);
             }
         }
@@ -122,8 +123,20 @@ namespace Presentation_Layer.UserControls
             }
             else
             {
+
+                LoadPersonDetails(_person.PersonID);
                 DataBack?.Invoke(this, _person.PersonID);
             }
+        }
+
+        private void ucPersonDetails1_Load(object sender, EventArgs e)
+        {
+            
+        }
+        public void LoadPersonDetails(int PersonID)
+        {
+            ucPersonDetails1.PersonID = PersonID;
+            ucPersonDetails1.LoadPersonData();
         }
     }
 }
