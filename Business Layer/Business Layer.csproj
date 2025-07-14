@@ -50,7 +50,6 @@
     <Compile Include="ApplicationTypes.cs" />
     <Compile Include="Drivers.cs" />
     <Compile Include="Global.cs" />
-    <Compile Include="LicenseClasses.cs" />
     <Compile Include="LocalDrivingLicenseApplications.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

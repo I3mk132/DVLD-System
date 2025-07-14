@@ -33,6 +33,9 @@ namespace Presentation_Layer.UserControls
         private void ucAddEditPerson_Load(object sender, EventArgs e)
         {
             // Determine mode based on PersonID
+
+            cbCountry.Items.AddRange(clsPerson.GetAllCountries().ToArray());
+
             if (PersonID == -1)
                 _Mode = enMode.eAdd;
             else

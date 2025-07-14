@@ -187,7 +187,10 @@ namespace Business_Layer
         {
             return Firstname + ' ' + Secondname + ' ' + Thirdname + " " + Lastname;
         }
-        
+        public static List<string> GetAllCountries()
+        {
+            return clsCountriesDataAccess.GetAllCountries();
+        }
 
         private bool _AddNewPerson()
         {
