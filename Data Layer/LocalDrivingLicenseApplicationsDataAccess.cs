@@ -293,6 +293,34 @@ namespace Data_Layer
             return isFound;
 
         }
+        public static bool Delete(int ID)
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
+            string query = "DELETE LocalDrivingLicenseApplications WHERE LocalDrivingLicenseApplicationID = @ID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("ID", ID);
+
+
+            int rowsAffected = 0;
+            try
+            {
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                clsErrorLog.AddErrorLog(ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return rowsAffected > 0;
+
+        }
     }
 }

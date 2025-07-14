@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,12 +55,13 @@ namespace Business_Layer
         }
 
         public static clsApplications Find(
-            int ApplicationID, int PersonID,
-            DateTime? ApplicationDate, int ApplicationTypeID, string ApplicationStatus,
-            DateTime? LastStatusDate, decimal PaidFees, int CreatedByUserID
+            int ApplicationID
         )
         {
-
+            int PersonID = -1, ApplicationTypeID = -1, CreatedByUserID = -1;
+            DateTime? ApplicationDate = null, LastStatusDate = null;
+            string ApplicationStatus = "";
+            decimal PaidFees = -1;
 
             if (clsApplicationsDataAccess.Find(
                 ref ApplicationID, ref PersonID,

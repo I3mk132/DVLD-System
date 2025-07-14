@@ -191,13 +191,11 @@ namespace Data_Layer
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
-            string query = "DELETE Application WHERE ApplicationID = @ID";
+            string query = "DELETE Applications WHERE ApplicationID = @ID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.AddWithValue("ID", ID);
-
-            bool isFound = false;
 
             int rowsAffected = 0;
             try
