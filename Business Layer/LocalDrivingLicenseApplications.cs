@@ -66,11 +66,15 @@ namespace Business_Layer
                 LocalDrivingLicenseApplicationID, NationalNo, Fullname, Status);
         }
 
+        public static List<string> GetAllLicenseClasses()
+        {
+            return clsLicenseClassesDataAccess.GetAllLicenseClassNames();
+        }
+
         public static bool Delete(int ID)
         {
             return  clsLocalDrivingLicenseApplicationsDataAccess.Delete(ID);
         }
-
         private bool _AddNew()
         {
             this.ApplicationID = clsLocalDrivingLicenseApplicationsDataAccess.Add(
