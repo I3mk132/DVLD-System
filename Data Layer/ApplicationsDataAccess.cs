@@ -131,6 +131,92 @@ namespace Data_Layer
 
         }
 
+        public static bool Find(
+            ref int ID, ref int PersonID, ref DateTime? ApplicationDate, ref int ApplicationTypeID,
+            ref string ApplicationStatus, ref DateTime? LastStatusDate, 
+            ref decimal PaidFees, ref int CreatedByUserID)
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+            
+            string query = @"SELECT 
+                                PersonID, ApplicationDate, 
+                                ApplicationTypeID, 
+                                CASE ApplicationStatus 
+                                    WHEN 1 THEN 'New'
+                                    WHEN 2 THEN 'Cancelled,
+                                    WHEN 3 THEN 'Compleated'
+                                    ELSE 'Other'
+                                END AS Status,
+                                LastStatusDate, PaidFees, CreatedByUserID 
+                            FROM Applications WHERE ApplicationID = @ID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ID", ID);
+
+            bool isFound = false;
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isFound = true;
+
+                    PersonID = (int)reader["PersonID"];
+                    ApplicationDate = (DateTime?)reader["ApplicationDate"];
+                    ApplicationTypeID = (int)reader["ApplicationTypeID"];
+                    ApplicationStatus = (string)reader["Status"];
+                    LastStatusDate = (DateTime?)reader["LastStatusDate"];
+                    PaidFees = (decimal)reader["PaidFees"];
+                    CreatedByUserID = (int)reader["CreatedByUserID"];
+
+                }
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+                clsErrorLog.AddErrorLog(ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isFound;
+
+        }
+
+        public static bool Delete(int ID)
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = "DELETE Application WHERE ApplicationID = @ID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("ID", ID);
+
+            bool isFound = false;
+
+            int rowsAffected = 0;
+            try
+            {
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                clsErrorLog.AddErrorLog(ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return rowsAffected > 0;
+
+        }
 
     }
 }
