@@ -73,7 +73,8 @@ namespace Data_Layer
 	                ) AS [Passed Tests],
 	                CASE A.ApplicationStatus
 		                WHEN 1 THEN 'New' 
-		                WHEN 2 THEN 'Cancelled' 
+		                WHEN 2 THEN 'Cancelled'
+                        WHEN 3 THEN 'Compleated'
 		                ELSE 'Other'
 	                END AS Status
 
