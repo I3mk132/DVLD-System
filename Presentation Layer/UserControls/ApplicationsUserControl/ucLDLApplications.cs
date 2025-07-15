@@ -1,0 +1,284 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Business_Layer;
+using Presentation_Layer.UserForms;
+
+namespace Presentation_Layer.UserControls.ApplicationsUserControl
+{
+    public partial class ucLDLApplications : UserControl
+    {
+        public ucLDLApplications()
+        {
+            InitializeComponent();
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtFilter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private bool rbStatusVisible
+        {
+            set
+            {
+                rbNone.Visible = value;
+                rbCompleted.Visible = value;
+                rbCancelled.Visible = value;
+                rbNew.Visible = value;
+
+            }
+            get
+            {
+                return rbNone.Visible;
+            }
+        }
+
+        private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            string filterMode = cbFilterBy.Text;
+            txtFilter.Text = "";
+            rbNone.Checked = true;
+
+            if (filterMode == "User ID" || filterMode == "Person ID")
+                txtFilter.KeyPress += txtFilter_KeyPress;
+            else
+                txtFilter.KeyPress -= txtFilter_KeyPress;
+
+            if (filterMode == "Status")
+            {
+                txtFilter.Visible = false;
+                rbStatusVisible = true;
+                rbNone.Focus();
+            }
+            else if (filterMode == "None")
+            {
+                txtFilter.Visible = false;
+                rbStatusVisible = false;
+            }
+            else
+            {
+                txtFilter.Visible = true;
+                rbStatusVisible = false;
+                txtFilter.Focus();
+
+            }
+
+        }
+
+        DataTable dt = null;
+        private void _UpdateData()
+        {
+            dgvApplicationsList.DataSource = dt;
+            lblRecordCount.Text = "# Records: " + dt.Rows.Count.ToString();
+        }
+
+        private void _AddFilter()
+        {
+
+            string FilterMode = cbFilterBy.Text;
+            string text = txtFilter.Text;
+
+            if (text == "")
+            {
+                dt = clsLocalDrivingLicenseApplications.GetAll();
+                _UpdateData();
+                return;
+            }
+            switch (FilterMode)
+            {
+                case "None":
+                    dt = clsLocalDrivingLicenseApplications.GetAll(); break;
+                case "L.D.L.App ID":
+                    dt = clsLocalDrivingLicenseApplications.GetAllFiltered(LocalDrivingLicenseApplicationID: Convert.ToInt32(text)); break;
+                case "National No.":
+                    dt = clsLocalDrivingLicenseApplications.GetAllFiltered(NationalNo: text); break;
+                case "Fullname":
+                    dt = clsLocalDrivingLicenseApplications.GetAllFiltered(Fullname: text); break;
+                case "Status":
+                    dt = clsLocalDrivingLicenseApplications.GetAllFiltered(Status: _CheckedStatus); break;
+            }
+
+            _UpdateData();
+
+        }
+
+
+        //if (dgvUsersList.SelectedCells.Count > 0)
+        //    {
+        //        DataGridViewCell selectedCell = dgvUsersList.SelectedCells[0];
+        //DataGridViewRow row = selectedCell.OwningRow;
+
+        //int UserID = Convert.ToInt32(row.Cells[0].Value);
+        //int PersonID = Convert.ToInt32(row.Cells[1].Value);
+
+        //frmUserDetails frm = new frmUserDetails(UserID, PersonID);
+        //frm.ShowDialog();
+        //    }
+
+
+        
+
+        
+        //if (dgvUsersList.SelectedCells.Count > 0)
+        //    {
+        //        if (MessageBox.Show(
+        //            "Are you sure you want to delete User ? ",
+        //            "Person delete",
+        //            MessageBoxButtons.YesNo,
+        //            MessageBoxIcon.Warning) == DialogResult.Yes)
+        //        {
+
+        //            DataGridViewCell selectedCell = dgvUsersList.SelectedCells[0];
+        //            DataGridViewRow row = selectedCell.OwningRow;
+
+        //            int UserID = Convert.ToInt32(row.Cells[0].Value);
+        //            clsUsers user = clsUsers.Find(UserID);
+
+        //            if (clsUsers.DeleteUser(UserID))
+        //                MessageBox.Show("User Deleted Successfully");
+        //            else
+        //                MessageBox.Show("User Couldnt be deleted because there are some data linked to it");
+        //        }
+        //    }
+
+
+        private string _CheckedStatus = "";
+        private void rbStatus_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton status = (RadioButton)sender;
+
+            if (!status.Checked)
+                return;
+            if (status.Tag.ToString() == "None")
+            {
+                _CheckedStatus = "";
+                return;
+            }
+            
+
+            _CheckedStatus = status.Tag.ToString();
+        }
+
+        private void txtFilter_TextChanged(object sender, EventArgs e)
+        {
+            _AddFilter();
+        }
+
+        private void cmsiShowApplicationDetails_Click(object sender, EventArgs e)
+        {
+            if (dgvApplicationsList.SelectedCells.Count > 0)
+            {
+                DataGridViewCell selectedCell = dgvApplicationsList.SelectedCells[0];
+                DataGridViewRow row = selectedCell.OwningRow;
+
+                int LDLApplicationID = Convert.ToInt32(row.Cells[0].Value);
+
+                //frmApplicationCard frm = new frmApplicationCard(LDLApplicationID);
+                //frm.ShowDialog();
+            }
+        }
+
+        private void cmsiEdit_Click(object sender, EventArgs e)
+        {
+            if (dgvApplicationsList.SelectedCells.Count > 0)
+            {
+                DataGridViewCell selectedCell = dgvApplicationsList.SelectedCells[0];
+                DataGridViewRow row = selectedCell.OwningRow;
+
+                int LDLApplicationID = Convert.ToInt32(row.Cells[0].Value);
+
+                //frmAddEditLDLApplication frm = new frmAddEditLDLApplication(LDLApplicationID);
+                //frm.ShowDialog();
+            }
+        }
+
+        private void cmsiDelete_Click(object sender, EventArgs e)
+        {
+            if (dgvApplicationsList.SelectedCells.Count > 0)
+            {
+                if (MessageBox.Show(
+                    "Are you sure you want to delete User ? ",
+                    "Person delete",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+
+                    DataGridViewCell selectedCell = dgvApplicationsList.SelectedCells[0];
+                    DataGridViewRow row = selectedCell.OwningRow;
+
+                    int LDLApplicationID = Convert.ToInt32(row.Cells[0].Value);
+
+                    if (clsLocalDrivingLicenseApplications.Delete(LDLApplicationID))
+                        MessageBox.Show("Application Deleted Successfully");
+                    else
+                        MessageBox.Show("Application Couldnt be deleted because there are some data linked to it");
+                }
+            }
+        }
+
+        private void cmsiCancelApplication_Click(object sender, EventArgs e)
+        {
+            if (dgvApplicationsList.SelectedCells.Count > 0)
+            {
+                DataGridViewCell selectedCell = dgvApplicationsList.SelectedCells[0];
+                DataGridViewRow row = selectedCell.OwningRow;
+
+                int LDLApplicationID = Convert.ToInt32(row.Cells[0].Value);
+
+                clsLocalDrivingLicenseApplications app = clsLocalDrivingLicenseApplications.Find(LDLApplicationID);
+                if (app.CancelApplication())
+                {
+                    MessageBox.Show("Application Cancelled Successfully. ");
+                }
+                else
+                {
+                    MessageBox.Show("Something went wrong while trying to Change status to Cancel", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void cmsiShowPersonLicenseHistory_Click(object sender, EventArgs e)
+        {
+            if (dgvApplicationsList.SelectedCells.Count > 0)
+            {
+                if (MessageBox.Show(
+                    "Are you sure you want to delete User ? ",
+                    "Person delete",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+
+                    DataGridViewCell selectedCell = dgvApplicationsList.SelectedCells[0];
+                    DataGridViewRow row = selectedCell.OwningRow;
+
+                    int LDLApplicationID = Convert.ToInt32(row.Cells[0].Value);
+                    
+                    // frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(LDLApplicationID);
+                    // frm.ShowDialog();
+                }
+            }
+        }
+
+        private void ucLDLApplications_Load(object sender, EventArgs e)
+        {
+            dt = clsLocalDrivingLicenseApplications.GetAll();
+            _UpdateData();
+        }
+    }
+}

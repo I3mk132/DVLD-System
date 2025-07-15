@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business_Layer;
 using Presentation_Layer.ApplicationForms;
+using Presentation_Layer.ApplicationForms.LocalDrivingLicenseApplicationsForms;
 using Presentation_Layer.PeopleForms;
 using Presentation_Layer.UserForms;
 
@@ -62,6 +63,17 @@ namespace Presentation_Layer
         private void msiManageTestTypes_Click(object sender, EventArgs e)
         {
             frmManageTestTypes frm = new frmManageTestTypes();
+            frm.ShowDialog();
+        }
+
+        private void replacementForToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsmiLocalDrivingLicenses_Click(object sender, EventArgs e)
+        {
+            frmLDLApplications frm = new frmLDLApplications();
             frm.ShowDialog();
         }
     }

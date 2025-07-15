@@ -58,6 +58,18 @@
     <Compile Include="ApplicationForms\ApplicationTypesForms\frmEditApplication.Designer.cs">
       <DependentUpon>frmEditApplication.cs</DependentUpon>
     </Compile>
+    <Compile Include="ApplicationForms\LocalDrivingLicenseApplicationsForms\frmAddEditLDLApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationForms\LocalDrivingLicenseApplicationsForms\frmAddEditLDLApplication.Designer.cs">
+      <DependentUpon>frmAddEditLDLApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationForms\LocalDrivingLicenseApplicationsForms\frmLDLApplications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationForms\LocalDrivingLicenseApplicationsForms\frmLDLApplications.Designer.cs">
+      <DependentUpon>frmLDLApplications.cs</DependentUpon>
+    </Compile>
     <Compile Include="ApplicationForms\TestTypesForms\frmEditTestType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +114,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\ApplicationsUserControl\ucLDLApplications.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ApplicationsUserControl\ucLDLApplications.Designer.cs">
+      <DependentUpon>ucLDLApplications.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\PersonUserControls\ucAddEditPerson.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -174,6 +192,12 @@
     <EmbeddedResource Include="ApplicationForms\ApplicationTypesForms\frmEditApplication.resx">
       <DependentUpon>frmEditApplication.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationForms\LocalDrivingLicenseApplicationsForms\frmAddEditLDLApplication.resx">
+      <DependentUpon>frmAddEditLDLApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationForms\LocalDrivingLicenseApplicationsForms\frmLDLApplications.resx">
+      <DependentUpon>frmLDLApplications.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ApplicationForms\TestTypesForms\frmEditTestType.resx">
       <DependentUpon>frmEditTestType.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,6 +229,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControls\ApplicationsUserControl\ucLDLApplications.resx">
+      <DependentUpon>ucLDLApplications.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\PersonUserControls\ucAddEditPerson.resx">
       <DependentUpon>ucAddEditPerson.cs</DependentUpon>
     </EmbeddedResource>
@@ -377,6 +404,19 @@
     <None Include="Icons\DocumentSettings1.png" />
     <None Include="Icons\DocumentSettings2.png" />
     <None Include="Icons\Description32.png" />
+    <None Include="Icons\DocumentSettings3.png" />
+    <None Include="Icons\DocumentAdd.png" />
+    <None Include="Icons\Test32.png" />
+    <None Include="Icons\License32.png" />
+    <None Include="Icons\PersonHistory32.png" />
+    <None Include="Icons\License16.png" />
+    <None Include="Icons\License24.png" />
+    <None Include="Icons\Release24.png" />
+    <None Include="Icons\Test24.png" />
+    <None Include="Icons\House24.png" />
+    <None Include="Icons\Earth24.png" />
+    <None Include="Icons\License32_pink.png" />
+    <None Include="Icons\License_pink.png" />
     <Content Include="RememberedUser.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

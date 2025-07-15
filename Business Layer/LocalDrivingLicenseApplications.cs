@@ -56,7 +56,7 @@ namespace Business_Layer
 
         public static DataTable GetAll()
         {
-            return clsLocalDrivingLicenseApplications.GetAll();
+            return clsLocalDrivingLicenseApplicationsDataAccess.GetAll();
         }
         public static DataTable GetAllFiltered(
             int LocalDrivingLicenseApplicationID = -1, string NationalNo = "", string Fullname = "", string Status = ""
@@ -69,6 +69,15 @@ namespace Business_Layer
         public static List<string> GetAllLicenseClasses()
         {
             return clsLicenseClassesDataAccess.GetAllLicenseClassNames();
+        }
+
+        public bool CancelApplication()
+        {
+            if (Mode == enMode.eUpdate)
+            {
+                return clsApplicationsDataAccess.ChangeStatusToCancel(this.ApplicationID);
+            }
+            return false;
         }
 
         public static bool Delete(int ID)

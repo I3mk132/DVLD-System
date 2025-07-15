@@ -216,5 +216,45 @@ namespace Data_Layer
 
         }
 
+        public static bool ChangeStatusToCancel(int ID)
+        {
+
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"
+
+                UPDATE Applications SET
+                ApplicationStatus = 2
+                WHERE ApplicationID = @ID
+
+            ";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ID", ID);
+
+            int rowsAffected = 0;
+            bool result = false;
+            try
+            {
+                connection.Open();
+
+                rowsAffected = command.ExecuteNonQuery();
+                result = (rowsAffected > 0);
+            }
+            catch (Exception ex)
+            {
+                result = false;
+                clsErrorLog.AddErrorLog(ex);
+                // Log
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return result;
+
+        }
+
     }
 }

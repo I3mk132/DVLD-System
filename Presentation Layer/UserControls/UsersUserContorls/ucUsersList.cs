@@ -181,5 +181,30 @@ namespace Presentation_Layer.UserControls
         {
 
         }
+
+        private void ucUserFilter1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblRecordCount_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cms_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void cmss2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmss1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
