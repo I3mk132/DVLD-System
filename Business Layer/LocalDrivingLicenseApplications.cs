@@ -8,34 +8,53 @@ using Data_Layer;
 
 namespace Business_Layer
 {
-    public class clsLocalDrivingLicenseApplications
+    public class clsLocalDrivingLicenseApplications : clsApplications
     {
         public int LocalDrivingLicenseApplicationID { get; set; }
-        public int ApplicationID { get; set; }
         public int LicenseClassID { get; set; }
+
+        public string LicenseClassName
+        {
+            get => clsLicenseClassesDataAccess.GetLicenseClassNameByID(LicenseClassID);
+            set => LicenseClassID = clsLicenseClassesDataAccess.GetLicenseClassIDByName(value);
+        }
+        
 
         private enum enMode { eAdd, eUpdate }
         private enMode Mode;
 
-        public clsLocalDrivingLicenseApplications()
+        public clsLocalDrivingLicenseApplications() : base ()
         {
             LocalDrivingLicenseApplicationID = -1;
-            ApplicationID = -1;
             LicenseClassID = -1;
 
             Mode = enMode.eAdd;
         }
 
-        private clsLocalDrivingLicenseApplications(int LocalDrivingLicenseApplicationID, int ApplicationID, int LIcenseClassID)
+        private clsLocalDrivingLicenseApplications(
+            int LocalDrivingLicenseApplicationID,
+            int ApplicationID, 
+            int PersonID,
+            DateTime? ApplicationDate, 
+            int ApplicationTypeID, 
+            string ApplicationStatus,
+            DateTime? LastStatusDate, 
+            decimal PaidFees, 
+            int CreatedByUserID,
+            int LIcenseClassID) : base (
+                
+                ApplicationID, PersonID, ApplicationDate, ApplicationTypeID,
+                ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID
+
+                )
         {
             this.LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
-            this.ApplicationID = ApplicationID;
             this.LicenseClassID = LicenseClassID;
 
             Mode = enMode.eUpdate;
         }
 
-        public static clsLocalDrivingLicenseApplications Find(
+        public static new clsLocalDrivingLicenseApplications Find(
             int LocalDrivingLicenseApplicationID
         )
         {
@@ -45,14 +64,20 @@ namespace Business_Layer
                 ref LocalDrivingLicenseApplicationID, ref ApplicationID, ref LicenseClassID)
                 )
             {
+                clsApplications app = clsApplications.Find(ApplicationID);
+
                 return new clsLocalDrivingLicenseApplications(
-                    LocalDrivingLicenseApplicationID, ApplicationID, LicenseClassID);
+                    LocalDrivingLicenseApplicationID, ApplicationID, app.PersonID, app.ApplicationDate, 
+                    app.ApplicationTypeID, app.ApplicationStatus, app.LastStatusDate, 
+                    app.PaidFees, app.CreatedByUserID , LicenseClassID);
             }
             else
             {
                 return null;
             }
         }
+
+
 
         public static DataTable GetAll()
         {

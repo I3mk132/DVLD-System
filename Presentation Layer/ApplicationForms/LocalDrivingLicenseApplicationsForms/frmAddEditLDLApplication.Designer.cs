@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lblAddEditTitle = new System.Windows.Forms.Label();
-            this.lblUserIDValue = new System.Windows.Forms.Label();
+            this.lblDLAppIDValue = new System.Windows.Forms.Label();
             this.lblApplicationFeesTitle = new System.Windows.Forms.Label();
             this.tpLoginInfo = new System.Windows.Forms.TabPage();
             this.pnlLoginInfo = new System.Windows.Forms.Panel();
@@ -75,16 +75,16 @@
             this.lblAddEditTitle.TabIndex = 7;
             this.lblAddEditTitle.Text = "Add Local Driving License Application";
             // 
-            // lblUserIDValue
+            // lblDLAppIDValue
             // 
-            this.lblUserIDValue.AutoSize = true;
-            this.lblUserIDValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserIDValue.ForeColor = System.Drawing.Color.Black;
-            this.lblUserIDValue.Location = new System.Drawing.Point(233, 45);
-            this.lblUserIDValue.Name = "lblUserIDValue";
-            this.lblUserIDValue.Size = new System.Drawing.Size(35, 20);
-            this.lblUserIDValue.TabIndex = 132;
-            this.lblUserIDValue.Text = "N/A";
+            this.lblDLAppIDValue.AutoSize = true;
+            this.lblDLAppIDValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDLAppIDValue.ForeColor = System.Drawing.Color.Black;
+            this.lblDLAppIDValue.Location = new System.Drawing.Point(233, 45);
+            this.lblDLAppIDValue.Name = "lblDLAppIDValue";
+            this.lblDLAppIDValue.Size = new System.Drawing.Size(35, 20);
+            this.lblDLAppIDValue.TabIndex = 132;
+            this.lblDLAppIDValue.Text = "N/A";
             // 
             // lblApplicationFeesTitle
             // 
@@ -118,7 +118,7 @@
             this.pnlLoginInfo.Controls.Add(this.lblApplicationFeesValue);
             this.pnlLoginInfo.Controls.Add(this.lblApplicationDateValue);
             this.pnlLoginInfo.Controls.Add(this.lblCreatedByTitle);
-            this.pnlLoginInfo.Controls.Add(this.lblUserIDValue);
+            this.pnlLoginInfo.Controls.Add(this.lblDLAppIDValue);
             this.pnlLoginInfo.Controls.Add(this.lblApplicationFeesTitle);
             this.pnlLoginInfo.Controls.Add(this.lblLicenseClassTitle);
             this.pnlLoginInfo.Controls.Add(this.lblApplicationDateTitle);
@@ -364,6 +364,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "frmAddEditLDLApplication";
             this.Text = "frmAddEditLDLApplication";
+            this.Load += new System.EventHandler(this.frmAddEditLDLApplication_Load);
             this.tpLoginInfo.ResumeLayout(false);
             this.pnlLoginInfo.ResumeLayout(false);
             this.pnlLoginInfo.PerformLayout();
@@ -384,7 +385,7 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblAddEditTitle;
-        private System.Windows.Forms.Label lblUserIDValue;
+        private System.Windows.Forms.Label lblDLAppIDValue;
         private System.Windows.Forms.Label lblApplicationFeesTitle;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.TabPage tpLoginInfo;

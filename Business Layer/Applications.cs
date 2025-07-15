@@ -21,6 +21,11 @@ namespace Business_Layer
         public DateTime? LastStatusDate { get; set; }
         public decimal PaidFees { get; set; }
         public int CreatedByUserID { get; set; }
+
+        public int CreatedByUsername
+        {
+            get => 
+        }
         private enum enMode { eAdd, eUpdate }
         private enMode Mode;
 
@@ -38,7 +43,7 @@ namespace Business_Layer
             Mode = enMode.eAdd;
         }
         
-        private clsApplications(int ApplicationID,  int PersonID,
+        protected clsApplications(int ApplicationID,  int PersonID,
             DateTime? ApplicationDate, int ApplicationTypeID, string ApplicationStatus,
             DateTime? LastStatusDate, decimal PaidFees, int CreatedByUserID)
         {

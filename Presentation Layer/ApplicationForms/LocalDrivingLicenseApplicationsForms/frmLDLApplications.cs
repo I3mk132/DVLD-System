@@ -24,7 +24,8 @@ namespace Presentation_Layer.ApplicationForms.LocalDrivingLicenseApplicationsFor
 
         private void pbAdd_Click(object sender, EventArgs e)
         {
-
+            frmAddEditLDLApplication frm = new frmAddEditLDLApplication();
+            frm.ShowDialog();
         }
     }
 }
