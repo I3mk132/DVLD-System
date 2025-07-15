@@ -21,10 +21,10 @@ namespace Business_Layer
         public DateTime? LastStatusDate { get; set; }
         public decimal PaidFees { get; set; }
         public int CreatedByUserID { get; set; }
-
-        public int CreatedByUsername
+        public string CreatedByUsername
         {
-            get => 
+            get => clsUsersDataAccess.GetUserNameByID(CreatedByUserID);
+            set => CreatedByUserID = clsUsersDataAccess.GetUserIDByName(value);
         }
         private enum enMode { eAdd, eUpdate }
         private enMode Mode;

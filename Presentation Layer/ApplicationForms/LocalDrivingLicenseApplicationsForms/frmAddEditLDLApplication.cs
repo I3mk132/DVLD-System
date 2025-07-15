@@ -46,42 +46,34 @@ namespace Presentation_Layer.ApplicationForms.LocalDrivingLicenseApplicationsFor
 
                 lblDLAppIDValue.Text = app.ApplicationID.ToString();
                 lblApplicationDateValue.Text = app.ApplicationDate.Value.ToString("d");
-                cbLicenseClasses.SelectedText = app.ClassName;
-                lblApplicationFeesValue.Text = app.PaidFees.ToString();
-                lblCreatedByValue.Text = clsapp.CreatedByUserID;
+                cbLicenseClasses.SelectedText = app.LicenseClassName;
+                lblApplicationFeesValue.Text = clsApplicationTypes.Find(1).Fees.ToString();
+                lblCreatedByValue.Text = app.CreatedByUsername;
 
 
-                lblAddEditTitle.Text = "Edit User";
-                this.Text = "Edit User";
+                lblAddEditTitle.Text = "Edit Local Driving License Application";
+                this.Text = "Edit Local Driving License Application";
             }
             else
             {
 
-                txtUsername.Text = string.Empty;
-                txtPassword.Text = string.Empty;
-                txtConfirmPassword.Text = string.Empty;
                 lblDLAppIDValue.Text = "N/A";
-                chkIsActive.Checked = true;
+                lblApplicationDateValue.Text = DateTime.Now.ToString("d");
+                cbLicenseClasses.SelectedIndex = 0;
+                lblApplicationFeesValue.Text = clsApplicationTypes.Find(1).Fees.ToString();
+                lblCreatedByValue.Text = clsGlobal.CurrentUser.Username;
                 ucPersonSearch1.ActivateForm = true;
 
-                lblAddEditTitle.Text = "Add User";
-                this.Text = "Add User";
+                lblAddEditTitle.Text = "Add Local Driving License Application";
+                this.Text = "Add Local Driving License Application";
 
             }
+        }
 
         private void fillPersonCard(object sender, int PersonID)
         {
-            if (Mode == _enMode.eAdd && clsUsers.Find(PersonID: PersonID) != null)
-            {
-                MessageBox.Show("This person already have data linked to it. ");
-                return;
-            }
-            //ucPersonDetails1.PersonID = PersonID;
-            //ucPersonDetails1.LoadPersonData();
             _PersonID = PersonID;
-
         }
-
 
         private void btnNext_Click(object sender, EventArgs e)
         {
@@ -97,22 +89,20 @@ namespace Presentation_Layer.ApplicationForms.LocalDrivingLicenseApplicationsFor
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!_errorFlag && _PersonID != -1)
+            if (_PersonID != -1)
             {
-                clsUsers user;
+                clsLocalDrivingLicenseApplications app;
                 if (Mode == _enMode.eUpdate)
-                    user = clsUsers.Find(UserID: _UserID);
+                    app = clsLocalDrivingLicenseApplications.Find(LocalDrivingLicenseApplicationID: _LDLApplicationID);
                 else
                 {
-                    user = new clsUsers();
-                    user.PersonID = _PersonID;
+                    app = new clsLocalDrivingLicenseApplications();
+                    app.PersonID = _PersonID;
                 }
 
 
 
-                user.Username = txtUsername.Text;
-                user.Password = txtPassword.Text;
-                user.IsActive = chkIsActive.Checked;
+                app.app
 
                 if (user.Save())
                 {
@@ -132,7 +122,10 @@ namespace Presentation_Layer.ApplicationForms.LocalDrivingLicenseApplicationsFor
                 }
 
             }
-
+            else
+            {
+                MessageBox.Show("Choose Person Before Saving. ", "Save Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 

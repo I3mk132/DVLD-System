@@ -73,6 +73,12 @@ namespace Presentation_Layer
 
         private void tsmiLocalDrivingLicenses_Click(object sender, EventArgs e)
         {
+            frmAddEditLDLApplication frm = new frmAddEditLDLApplication();
+            frm.ShowDialog();
+        }
+
+        private void localDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             frmLDLApplications frm = new frmLDLApplications();
             frm.ShowDialog();
         }
