@@ -60,7 +60,7 @@
             this.dgvTestTypes.AllowUserToDeleteRows = false;
             this.dgvTestTypes.AllowUserToOrderColumns = true;
             this.dgvTestTypes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvTestTypes.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvTestTypes.BackgroundColor = System.Drawing.Color.White;
             this.dgvTestTypes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -143,7 +143,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(204)))), ((int)(((byte)(231)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(241)))));
             this.ClientSize = new System.Drawing.Size(693, 621);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblRecordCount);

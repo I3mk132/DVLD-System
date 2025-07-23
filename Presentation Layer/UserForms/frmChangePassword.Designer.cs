@@ -172,7 +172,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.pbKey3);
             this.panel1.Controls.Add(this.txtConfirmPassword);
             this.panel1.Controls.Add(this.txtCurrentPassword);
@@ -189,7 +189,7 @@
             // 
             // ucLoginInfo1
             // 
-            this.ucLoginInfo1.BackColor = System.Drawing.SystemColors.Control;
+            this.ucLoginInfo1.BackColor = System.Drawing.Color.White;
             this.ucLoginInfo1.Location = new System.Drawing.Point(12, 318);
             this.ucLoginInfo1.Name = "ucLoginInfo1";
             this.ucLoginInfo1.Size = new System.Drawing.Size(870, 94);
@@ -198,7 +198,7 @@
             // 
             // ucPersonDetails1
             // 
-            this.ucPersonDetails1.BackColor = System.Drawing.SystemColors.Control;
+            this.ucPersonDetails1.BackColor = System.Drawing.Color.White;
             this.ucPersonDetails1.Location = new System.Drawing.Point(12, 12);
             this.ucPersonDetails1.Name = "ucPersonDetails1";
             this.ucPersonDetails1.PersonID = -1;
@@ -209,7 +209,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(204)))), ((int)(((byte)(231)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(241)))));
             this.ClientSize = new System.Drawing.Size(891, 632);
             this.Controls.Add(this.ucLoginInfo1);
             this.Controls.Add(this.panel1);

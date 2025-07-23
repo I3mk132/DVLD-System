@@ -228,7 +228,7 @@
             // 
             this.dgvPersonsList.AllowUserToAddRows = false;
             this.dgvPersonsList.AllowUserToDeleteRows = false;
-            this.dgvPersonsList.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvPersonsList.BackgroundColor = System.Drawing.Color.White;
             this.dgvPersonsList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvPersonsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPersonsList.ContextMenuStrip = this.cms;

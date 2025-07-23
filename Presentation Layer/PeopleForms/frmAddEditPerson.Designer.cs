@@ -52,7 +52,7 @@
             // lbPersonID
             // 
             this.lbPersonID.AutoSize = true;
-            this.lbPersonID.BackColor = System.Drawing.SystemColors.Control;
+            this.lbPersonID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(241)))));
             this.lbPersonID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPersonID.ForeColor = System.Drawing.Color.Black;
             this.lbPersonID.Location = new System.Drawing.Point(8, 8);
@@ -74,7 +74,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(241)))));
             this.panel1.Controls.Add(this.pbNationalNo);
             this.panel1.Controls.Add(this.lbPersonID);
             this.panel1.Controls.Add(this.lblPersonIDValue);
@@ -95,7 +95,7 @@
             // 
             // ucAddEditPerson1
             // 
-            this.ucAddEditPerson1.BackColor = System.Drawing.SystemColors.Control;
+            this.ucAddEditPerson1.BackColor = System.Drawing.Color.White;
             this.ucAddEditPerson1.Location = new System.Drawing.Point(61, 122);
             this.ucAddEditPerson1.Name = "ucAddEditPerson1";
             this.ucAddEditPerson1.Size = new System.Drawing.Size(860, 327);
@@ -105,7 +105,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(204)))), ((int)(((byte)(231)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(241)))));
             this.ClientSize = new System.Drawing.Size(972, 497);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ucAddEditPerson1);

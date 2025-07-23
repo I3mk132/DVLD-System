@@ -60,7 +60,7 @@
             // 
             // pbAdd
             // 
-            this.pbAdd.BackColor = System.Drawing.SystemColors.Control;
+            this.pbAdd.BackColor = System.Drawing.Color.White;
             this.pbAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbAdd.Image = global::Presentation_Layer.Properties.Resources.AddPerson;
             this.pbAdd.Location = new System.Drawing.Point(626, 169);
@@ -97,7 +97,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(204)))), ((int)(((byte)(231)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(241)))));
             this.ClientSize = new System.Drawing.Size(723, 643);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.ucUsersList1);

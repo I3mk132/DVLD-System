@@ -60,7 +60,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.txtTitle);
             this.panel1.Controls.Add(this.txtFees);
             this.panel1.Controls.Add(this.pictureBox2);
@@ -106,7 +106,7 @@
             // lblFees
             // 
             this.lblFees.AutoSize = true;
-            this.lblFees.BackColor = System.Drawing.SystemColors.Control;
+            this.lblFees.BackColor = System.Drawing.Color.White;
             this.lblFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFees.ForeColor = System.Drawing.Color.Black;
             this.lblFees.Location = new System.Drawing.Point(18, 114);
@@ -128,7 +128,7 @@
             // lblApplicationTitle
             // 
             this.lblApplicationTitle.AutoSize = true;
-            this.lblApplicationTitle.BackColor = System.Drawing.SystemColors.Control;
+            this.lblApplicationTitle.BackColor = System.Drawing.Color.White;
             this.lblApplicationTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApplicationTitle.ForeColor = System.Drawing.Color.Black;
             this.lblApplicationTitle.Location = new System.Drawing.Point(18, 47);
@@ -150,7 +150,7 @@
             // lblIDTitle
             // 
             this.lblIDTitle.AutoSize = true;
-            this.lblIDTitle.BackColor = System.Drawing.SystemColors.Control;
+            this.lblIDTitle.BackColor = System.Drawing.Color.White;
             this.lblIDTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIDTitle.ForeColor = System.Drawing.Color.Black;
             this.lblIDTitle.Location = new System.Drawing.Point(18, 8);
@@ -204,7 +204,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(204)))), ((int)(((byte)(231)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(241)))));
             this.ClientSize = new System.Drawing.Size(445, 271);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);

@@ -35,16 +35,16 @@
             this.lblRecordCount = new System.Windows.Forms.Label();
             this.dgvUsersList = new System.Windows.Forms.DataGridView();
             this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cmss2 = new System.Windows.Forms.ToolStripSeparator();
-            this.cmss1 = new System.Windows.Forms.ToolStripSeparator();
-            this.ucUserFilter1 = new Presentation_Layer.UserControls.ucUserFilter();
             this.cmsiShowDetails = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmss2 = new System.Windows.Forms.ToolStripSeparator();
             this.cmsiAddNewPerson = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsiEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsiDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsiChangePassword = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmss1 = new System.Windows.Forms.ToolStripSeparator();
             this.cmsiSendEmail = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsiPhoneCall = new System.Windows.Forms.ToolStripMenuItem();
+            this.ucUserFilter1 = new Presentation_Layer.UserControls.ucUserFilter();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsersList)).BeginInit();
             this.cms.SuspendLayout();
@@ -85,7 +85,7 @@
             this.dgvUsersList.AllowUserToAddRows = false;
             this.dgvUsersList.AllowUserToDeleteRows = false;
             this.dgvUsersList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvUsersList.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvUsersList.BackgroundColor = System.Drawing.Color.White;
             this.dgvUsersList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -130,29 +130,6 @@
             this.cms.Size = new System.Drawing.Size(185, 282);
             this.cms.Opening += new System.ComponentModel.CancelEventHandler(this.cms_Opening);
             // 
-            // cmss2
-            // 
-            this.cmss2.Name = "cmss2";
-            this.cmss2.Size = new System.Drawing.Size(181, 6);
-            this.cmss2.Click += new System.EventHandler(this.cmss2_Click);
-            // 
-            // cmss1
-            // 
-            this.cmss1.Name = "cmss1";
-            this.cmss1.Size = new System.Drawing.Size(181, 6);
-            this.cmss1.Click += new System.EventHandler(this.cmss1_Click);
-            // 
-            // ucUserFilter1
-            // 
-            this.ucUserFilter1.BackColor = System.Drawing.SystemColors.Control;
-            this.ucUserFilter1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucUserFilter1.Location = new System.Drawing.Point(3, 3);
-            this.ucUserFilter1.Name = "ucUserFilter1";
-            this.ucUserFilter1.Padding = new System.Windows.Forms.Padding(5);
-            this.ucUserFilter1.Size = new System.Drawing.Size(864, 80);
-            this.ucUserFilter1.TabIndex = 17;
-            this.ucUserFilter1.Load += new System.EventHandler(this.ucUserFilter1_Load);
-            // 
             // cmsiShowDetails
             // 
             this.cmsiShowDetails.Image = global::Presentation_Layer.Properties.Resources.Clipboard32;
@@ -161,6 +138,12 @@
             this.cmsiShowDetails.Size = new System.Drawing.Size(184, 38);
             this.cmsiShowDetails.Text = "Show details";
             this.cmsiShowDetails.Click += new System.EventHandler(this.cmsiShowDetails_Click);
+            // 
+            // cmss2
+            // 
+            this.cmss2.Name = "cmss2";
+            this.cmss2.Size = new System.Drawing.Size(181, 6);
+            this.cmss2.Click += new System.EventHandler(this.cmss2_Click);
             // 
             // cmsiAddNewPerson
             // 
@@ -198,6 +181,12 @@
             this.cmsiChangePassword.Text = "Change Password";
             this.cmsiChangePassword.Click += new System.EventHandler(this.cmsiChangePassword_Click);
             // 
+            // cmss1
+            // 
+            this.cmss1.Name = "cmss1";
+            this.cmss1.Size = new System.Drawing.Size(181, 6);
+            this.cmss1.Click += new System.EventHandler(this.cmss1_Click);
+            // 
             // cmsiSendEmail
             // 
             this.cmsiSendEmail.Image = global::Presentation_Layer.Properties.Resources.SendMail32;
@@ -215,6 +204,17 @@
             this.cmsiPhoneCall.Size = new System.Drawing.Size(184, 38);
             this.cmsiPhoneCall.Text = "Phone Call";
             this.cmsiPhoneCall.Click += new System.EventHandler(this.cmsiStillNotWorking_Click);
+            // 
+            // ucUserFilter1
+            // 
+            this.ucUserFilter1.BackColor = System.Drawing.Color.White;
+            this.ucUserFilter1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucUserFilter1.Location = new System.Drawing.Point(3, 3);
+            this.ucUserFilter1.Name = "ucUserFilter1";
+            this.ucUserFilter1.Padding = new System.Windows.Forms.Padding(5);
+            this.ucUserFilter1.Size = new System.Drawing.Size(864, 80);
+            this.ucUserFilter1.TabIndex = 17;
+            this.ucUserFilter1.Load += new System.EventHandler(this.ucUserFilter1_Load);
             // 
             // ucUsersList
             // 

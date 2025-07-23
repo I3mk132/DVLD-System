@@ -114,6 +114,7 @@
             // ucUserFilter
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.gbFilter);
             this.Name = "ucUserFilter";
             this.Padding = new System.Windows.Forms.Padding(5);

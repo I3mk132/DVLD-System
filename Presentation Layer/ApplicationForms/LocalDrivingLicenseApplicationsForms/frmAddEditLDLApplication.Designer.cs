@@ -48,11 +48,11 @@
             this.pbCreatedBy = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tbPersonalInfo = new System.Windows.Forms.TabPage();
+            this.ucPersonSearch1 = new Presentation_Layer.UserControls.ucPersonSearch();
             this.btnNext = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.ucPersonSearch1 = new Presentation_Layer.UserControls.ucPersonSearch();
             this.tpLoginInfo.SuspendLayout();
             this.pnlLoginInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -99,7 +99,7 @@
             // 
             // tpLoginInfo
             // 
-            this.tpLoginInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(204)))), ((int)(((byte)(231)))));
+            this.tpLoginInfo.BackColor = System.Drawing.Color.White;
             this.tpLoginInfo.Controls.Add(this.btnBack);
             this.tpLoginInfo.Controls.Add(this.pnlLoginInfo);
             this.tpLoginInfo.Location = new System.Drawing.Point(4, 22);
@@ -125,7 +125,7 @@
             // 
             // pnlLoginInfo
             // 
-            this.pnlLoginInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlLoginInfo.BackColor = System.Drawing.Color.White;
             this.pnlLoginInfo.Controls.Add(this.cbLicenseClasses);
             this.pnlLoginInfo.Controls.Add(this.pictureBox3);
             this.pnlLoginInfo.Controls.Add(this.lblCreatedByValue);
@@ -285,7 +285,7 @@
             // 
             // tbPersonalInfo
             // 
-            this.tbPersonalInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(204)))), ((int)(((byte)(231)))));
+            this.tbPersonalInfo.BackColor = System.Drawing.Color.White;
             this.tbPersonalInfo.Controls.Add(this.ucPersonSearch1);
             this.tbPersonalInfo.Controls.Add(this.btnNext);
             this.tbPersonalInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -295,6 +295,15 @@
             this.tbPersonalInfo.Size = new System.Drawing.Size(934, 481);
             this.tbPersonalInfo.TabIndex = 0;
             this.tbPersonalInfo.Text = "Personal info";
+            // 
+            // ucPersonSearch1
+            // 
+            this.ucPersonSearch1.BackColor = System.Drawing.Color.White;
+            this.ucPersonSearch1.Location = new System.Drawing.Point(35, 31);
+            this.ucPersonSearch1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ucPersonSearch1.Name = "ucPersonSearch1";
+            this.ucPersonSearch1.Size = new System.Drawing.Size(870, 368);
+            this.ucPersonSearch1.TabIndex = 0;
             // 
             // btnNext
             // 
@@ -348,20 +357,11 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // ucPersonSearch1
-            // 
-            this.ucPersonSearch1.BackColor = System.Drawing.SystemColors.Control;
-            this.ucPersonSearch1.Location = new System.Drawing.Point(35, 31);
-            this.ucPersonSearch1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ucPersonSearch1.Name = "ucPersonSearch1";
-            this.ucPersonSearch1.Size = new System.Drawing.Size(870, 368);
-            this.ucPersonSearch1.TabIndex = 0;
-            // 
             // frmAddEditLDLApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(204)))), ((int)(((byte)(231)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(241)))));
             this.ClientSize = new System.Drawing.Size(963, 614);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);

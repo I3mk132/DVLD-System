@@ -410,6 +410,7 @@
             // ucPersonDetails
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.groupBox2);
             this.Name = "ucPersonDetails";
             this.Size = new System.Drawing.Size(870, 291);

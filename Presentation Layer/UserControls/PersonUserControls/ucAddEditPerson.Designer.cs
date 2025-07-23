@@ -475,6 +475,7 @@
             // ucAddEditPerson
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(241)))));
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.rbFemale);
             this.Controls.Add(this.rbMale);

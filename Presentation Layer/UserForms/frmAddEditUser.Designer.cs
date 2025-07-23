@@ -73,7 +73,7 @@
             // 
             // tbPersonalInfo
             // 
-            this.tbPersonalInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(204)))), ((int)(((byte)(231)))));
+            this.tbPersonalInfo.BackColor = System.Drawing.Color.White;
             this.tbPersonalInfo.Controls.Add(this.ucPersonSearch1);
             this.tbPersonalInfo.Controls.Add(this.btnNext);
             this.tbPersonalInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -87,7 +87,7 @@
             // 
             // ucPersonSearch1
             // 
-            this.ucPersonSearch1.BackColor = System.Drawing.SystemColors.Control;
+            this.ucPersonSearch1.BackColor = System.Drawing.Color.White;
             this.ucPersonSearch1.Location = new System.Drawing.Point(35, 31);
             this.ucPersonSearch1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucPersonSearch1.Name = "ucPersonSearch1";
@@ -110,7 +110,7 @@
             // 
             // tpLoginInfo
             // 
-            this.tpLoginInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(204)))), ((int)(((byte)(231)))));
+            this.tpLoginInfo.BackColor = System.Drawing.Color.White;
             this.tpLoginInfo.Controls.Add(this.btnBack);
             this.tpLoginInfo.Controls.Add(this.pnlLoginInfo);
             this.tpLoginInfo.Location = new System.Drawing.Point(4, 22);
@@ -136,7 +136,7 @@
             // 
             // pnlLoginInfo
             // 
-            this.pnlLoginInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlLoginInfo.BackColor = System.Drawing.Color.White;
             this.pnlLoginInfo.Controls.Add(this.chkIsActive);
             this.pnlLoginInfo.Controls.Add(this.lblUserIDValue);
             this.pnlLoginInfo.Controls.Add(this.txtConfirmPassword);
@@ -336,7 +336,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(204)))), ((int)(((byte)(231)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(241)))));
             this.ClientSize = new System.Drawing.Size(981, 653);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);

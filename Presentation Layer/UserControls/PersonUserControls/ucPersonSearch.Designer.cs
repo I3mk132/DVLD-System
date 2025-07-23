@@ -40,12 +40,13 @@
             // 
             // gbFilter
             // 
+            this.gbFilter.BackColor = System.Drawing.Color.White;
             this.gbFilter.Controls.Add(this.btnAdd);
             this.gbFilter.Controls.Add(this.btnFind);
             this.gbFilter.Controls.Add(this.cbFilterBy);
             this.gbFilter.Controls.Add(this.lblFilter);
             this.gbFilter.Controls.Add(this.txtFilter);
-            this.gbFilter.Location = new System.Drawing.Point(13, 12);
+            this.gbFilter.Location = new System.Drawing.Point(13, 10);
             this.gbFilter.Name = "gbFilter";
             this.gbFilter.Size = new System.Drawing.Size(846, 63);
             this.gbFilter.TabIndex = 18;
@@ -121,6 +122,7 @@
             // 
             // ucPersonDetails1
             // 
+            this.ucPersonDetails1.BackColor = System.Drawing.Color.White;
             this.ucPersonDetails1.Location = new System.Drawing.Point(1, 75);
             this.ucPersonDetails1.Name = "ucPersonDetails1";
             this.ucPersonDetails1.PersonID = -1;
@@ -131,8 +133,9 @@
             // ucPersonSearch
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.Controls.Add(this.ucPersonDetails1);
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.gbFilter);
+            this.Controls.Add(this.ucPersonDetails1);
             this.Name = "ucPersonSearch";
             this.Size = new System.Drawing.Size(870, 365);
             this.Load += new System.EventHandler(this.ucPersonSearch_Load);
