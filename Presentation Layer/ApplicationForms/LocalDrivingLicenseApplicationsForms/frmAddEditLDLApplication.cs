@@ -17,6 +17,7 @@ namespace Presentation_Layer.ApplicationForms.LocalDrivingLicenseApplicationsFor
         _enMode Mode;
         private int _LDLApplicationID = -1;
         private int _PersonID = -1;
+        private DateTime? _Date = null;
         public frmAddEditLDLApplication(int LDLApplicationID = -1)
         {
             InitializeComponent();
@@ -36,6 +37,7 @@ namespace Presentation_Layer.ApplicationForms.LocalDrivingLicenseApplicationsFor
         private void frmAddEditLDLApplication_Load(object sender, EventArgs e)
         {
             clsLocalDrivingLicenseApplications app;
+            cbLicenseClasses.Items.AddRange(clsLocalDrivingLicenseApplications.GetAllLicenseClasses().ToArray());
             if (Mode == _enMode.eUpdate)
             {
                 app = clsLocalDrivingLicenseApplications.Find(LocalDrivingLicenseApplicationID: _LDLApplicationID);
@@ -44,9 +46,10 @@ namespace Presentation_Layer.ApplicationForms.LocalDrivingLicenseApplicationsFor
 
                 ucPersonSearch1.ActivateForm = false;
 
-                lblDLAppIDValue.Text = app.ApplicationID.ToString();
+                lblDLAppIDValue.Text = app.LocalDrivingLicenseApplicationID.ToString();
                 lblApplicationDateValue.Text = app.ApplicationDate.Value.ToString("d");
-                cbLicenseClasses.SelectedText = app.LicenseClassName;
+                _Date = app.ApplicationDate.Value;
+                cbLicenseClasses.SelectedItem = app.LicenseClassName;
                 lblApplicationFeesValue.Text = clsApplicationTypes.Find(1).Fees.ToString();
                 lblCreatedByValue.Text = app.CreatedByUsername;
 
@@ -59,6 +62,7 @@ namespace Presentation_Layer.ApplicationForms.LocalDrivingLicenseApplicationsFor
 
                 lblDLAppIDValue.Text = "N/A";
                 lblApplicationDateValue.Text = DateTime.Now.ToString("d");
+                _Date = DateTime.Now;
                 cbLicenseClasses.SelectedIndex = 0;
                 lblApplicationFeesValue.Text = clsApplicationTypes.Find(1).Fees.ToString();
                 lblCreatedByValue.Text = clsGlobal.CurrentUser.Username;
@@ -93,32 +97,50 @@ namespace Presentation_Layer.ApplicationForms.LocalDrivingLicenseApplicationsFor
             {
                 clsLocalDrivingLicenseApplications app;
                 if (Mode == _enMode.eUpdate)
+                {
                     app = clsLocalDrivingLicenseApplications.Find(LocalDrivingLicenseApplicationID: _LDLApplicationID);
+                }
                 else
                 {
                     app = new clsLocalDrivingLicenseApplications();
                     app.PersonID = _PersonID;
+                    app.ApplicationDate = _Date;
+                    app.PaidFees = Convert.ToDecimal(lblApplicationFeesValue.Text);
+                    app.CreatedByUsername = lblCreatedByValue.Text;
                 }
 
+                app.LicenseClassName = cbLicenseClasses.Text;
+                app.ApplicationStatus = "New";
+                app.LastStatusDate = DateTime.Now;
+                app.ApplicationTypeID = 1;
 
 
-                app.app
-
-                if (user.Save())
+                if (!clsLocalDrivingLicenseApplications.IsApplicationExists(app.PersonID, app.LicenseClassID))
                 {
-                    MessageBox.Show(
-                        "User saved successfully. ",
-                        "Done",
-                        MessageBoxButtons.OK);
-                    this.Close();
 
+                    if (app.Save())
+                    {
+                        MessageBox.Show(
+                            "application saved successfully. ",
+                            "Done",
+                            MessageBoxButtons.OK);
+                        this.Close();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something went wrong while saving Application. ",
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Something went wrong while saving user. ",
+                    MessageBox.Show(
+                        "This Application is already exists, Choose another License Class",
                         "Error",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
+                        MessageBoxButtons.OK);
                 }
 
             }
@@ -129,6 +151,11 @@ namespace Presentation_Layer.ApplicationForms.LocalDrivingLicenseApplicationsFor
 
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
+        
     }
 }

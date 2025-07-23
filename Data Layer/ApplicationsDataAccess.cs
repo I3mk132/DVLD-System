@@ -143,7 +143,7 @@ namespace Data_Layer
                                 ApplicationTypeID, 
                                 CASE ApplicationStatus 
                                     WHEN 1 THEN 'New'
-                                    WHEN 2 THEN 'Cancelled,
+                                    WHEN 2 THEN 'Cancelled'
                                     WHEN 3 THEN 'Compleated'
                                     ELSE 'Other'
                                 END AS Status,
@@ -173,6 +173,8 @@ namespace Data_Layer
                     CreatedByUserID = (int)reader["CreatedByUserID"];
 
                 }
+
+                reader.Close();
             }
             catch (Exception ex)
             {

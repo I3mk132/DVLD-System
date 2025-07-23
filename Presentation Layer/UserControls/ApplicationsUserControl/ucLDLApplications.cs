@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business_Layer;
+using Presentation_Layer.ApplicationForms.LocalDrivingLicenseApplicationsForms;
 using Presentation_Layer.UserForms;
 
 namespace Presentation_Layer.UserControls.ApplicationsUserControl
@@ -55,7 +56,7 @@ namespace Presentation_Layer.UserControls.ApplicationsUserControl
             txtFilter.Text = "";
             rbNone.Checked = true;
 
-            if (filterMode == "User ID" || filterMode == "Person ID")
+            if (filterMode == "L.D.L.App ID")
                 txtFilter.KeyPress += txtFilter_KeyPress;
             else
                 txtFilter.KeyPress -= txtFilter_KeyPress;
@@ -87,6 +88,11 @@ namespace Presentation_Layer.UserControls.ApplicationsUserControl
             dgvApplicationsList.DataSource = dt;
             lblRecordCount.Text = "# Records: " + dt.Rows.Count.ToString();
         }
+        public void RefreshDGV()
+        {
+            dt = clsLocalDrivingLicenseApplications.GetAll();
+            _UpdateData();
+        }
 
         private void _AddFilter()
         {
@@ -94,7 +100,7 @@ namespace Presentation_Layer.UserControls.ApplicationsUserControl
             string FilterMode = cbFilterBy.Text;
             string text = txtFilter.Text;
 
-            if (text == "")
+            if (text == "" && FilterMode != "Status")
             {
                 dt = clsLocalDrivingLicenseApplications.GetAll();
                 _UpdateData();
@@ -118,46 +124,6 @@ namespace Presentation_Layer.UserControls.ApplicationsUserControl
 
         }
 
-
-        //if (dgvUsersList.SelectedCells.Count > 0)
-        //    {
-        //        DataGridViewCell selectedCell = dgvUsersList.SelectedCells[0];
-        //DataGridViewRow row = selectedCell.OwningRow;
-
-        //int UserID = Convert.ToInt32(row.Cells[0].Value);
-        //int PersonID = Convert.ToInt32(row.Cells[1].Value);
-
-        //frmUserDetails frm = new frmUserDetails(UserID, PersonID);
-        //frm.ShowDialog();
-        //    }
-
-
-        
-
-        
-        //if (dgvUsersList.SelectedCells.Count > 0)
-        //    {
-        //        if (MessageBox.Show(
-        //            "Are you sure you want to delete User ? ",
-        //            "Person delete",
-        //            MessageBoxButtons.YesNo,
-        //            MessageBoxIcon.Warning) == DialogResult.Yes)
-        //        {
-
-        //            DataGridViewCell selectedCell = dgvUsersList.SelectedCells[0];
-        //            DataGridViewRow row = selectedCell.OwningRow;
-
-        //            int UserID = Convert.ToInt32(row.Cells[0].Value);
-        //            clsUsers user = clsUsers.Find(UserID);
-
-        //            if (clsUsers.DeleteUser(UserID))
-        //                MessageBox.Show("User Deleted Successfully");
-        //            else
-        //                MessageBox.Show("User Couldnt be deleted because there are some data linked to it");
-        //        }
-        //    }
-
-
         private string _CheckedStatus = "";
         private void rbStatus_CheckedChanged(object sender, EventArgs e)
         {
@@ -166,13 +132,11 @@ namespace Presentation_Layer.UserControls.ApplicationsUserControl
             if (!status.Checked)
                 return;
             if (status.Tag.ToString() == "None")
-            {
                 _CheckedStatus = "";
-                return;
-            }
-            
+            else
+                _CheckedStatus = status.Tag.ToString();
 
-            _CheckedStatus = status.Tag.ToString();
+            _AddFilter();
         }
 
         private void txtFilter_TextChanged(object sender, EventArgs e)
@@ -191,6 +155,8 @@ namespace Presentation_Layer.UserControls.ApplicationsUserControl
 
                 //frmApplicationCard frm = new frmApplicationCard(LDLApplicationID);
                 //frm.ShowDialog();
+
+                RefreshDGV();
             }
         }
 
@@ -203,8 +169,9 @@ namespace Presentation_Layer.UserControls.ApplicationsUserControl
 
                 int LDLApplicationID = Convert.ToInt32(row.Cells[0].Value);
 
-                //frmAddEditLDLApplication frm = new frmAddEditLDLApplication(LDLApplicationID);
-                //frm.ShowDialog();
+                frmAddEditLDLApplication frm = new frmAddEditLDLApplication(LDLApplicationID);
+                frm.ShowDialog();
+                RefreshDGV();
             }
         }
 
@@ -213,7 +180,7 @@ namespace Presentation_Layer.UserControls.ApplicationsUserControl
             if (dgvApplicationsList.SelectedCells.Count > 0)
             {
                 if (MessageBox.Show(
-                    "Are you sure you want to delete User ? ",
+                    "Are you sure you want to delete Application ? ",
                     "Person delete",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Warning) == DialogResult.Yes)
@@ -228,6 +195,8 @@ namespace Presentation_Layer.UserControls.ApplicationsUserControl
                         MessageBox.Show("Application Deleted Successfully");
                     else
                         MessageBox.Show("Application Couldnt be deleted because there are some data linked to it");
+
+                    RefreshDGV();
                 }
             }
         }
@@ -250,6 +219,8 @@ namespace Presentation_Layer.UserControls.ApplicationsUserControl
                 {
                     MessageBox.Show("Something went wrong while trying to Change status to Cancel", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+                RefreshDGV();
             }
         }
 
@@ -257,28 +228,24 @@ namespace Presentation_Layer.UserControls.ApplicationsUserControl
         {
             if (dgvApplicationsList.SelectedCells.Count > 0)
             {
-                if (MessageBox.Show(
-                    "Are you sure you want to delete User ? ",
-                    "Person delete",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning) == DialogResult.Yes)
-                {
 
-                    DataGridViewCell selectedCell = dgvApplicationsList.SelectedCells[0];
-                    DataGridViewRow row = selectedCell.OwningRow;
 
-                    int LDLApplicationID = Convert.ToInt32(row.Cells[0].Value);
-                    
-                    // frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(LDLApplicationID);
-                    // frm.ShowDialog();
-                }
+                DataGridViewCell selectedCell = dgvApplicationsList.SelectedCells[0];
+                DataGridViewRow row = selectedCell.OwningRow;
+
+                int LDLApplicationID = Convert.ToInt32(row.Cells[0].Value);
+                
+                // frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(LDLApplicationID);
+                // frm.ShowDialog();
+                
+
+                RefreshDGV();
             }
         }
 
         private void ucLDLApplications_Load(object sender, EventArgs e)
         {
-            dt = clsLocalDrivingLicenseApplications.GetAll();
-            _UpdateData();
+            RefreshDGV();
         }
     }
 }

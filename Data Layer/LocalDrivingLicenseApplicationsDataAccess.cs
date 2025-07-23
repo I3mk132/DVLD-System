@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -74,7 +75,7 @@ namespace Data_Layer
 	                CASE A.ApplicationStatus
 		                WHEN 1 THEN 'New' 
 		                WHEN 2 THEN 'Cancelled'
-                        WHEN 3 THEN 'Compleated'
+                        WHEN 3 THEN 'Completed'
 		                ELSE 'Other'
 	                END AS Status
 
@@ -133,7 +134,7 @@ namespace Data_Layer
 	                CASE A.ApplicationStatus
 		                WHEN 1 THEN 'New' 
 		                WHEN 2 THEN 'Cancelled'
-                        WHEN 3 THEN 'Compleated'
+                        WHEN 3 THEN 'Completed'
 		                ELSE 'Other'
 	                END AS Status
                 FROM LocalDrivingLicenseApplications LD
@@ -180,7 +181,7 @@ namespace Data_Layer
                 {
                     case "New": command.Parameters.AddWithValue("@Status", 1); break;
                     case "Cancelled": command.Parameters.AddWithValue("@Status", 2); break;
-                    case "Compleated": command.Parameters.AddWithValue("@Status", 3); break;
+                    case "Completed": command.Parameters.AddWithValue("@Status", 3); break;
                     default: command.Parameters.AddWithValue("@Status", DBNull.Value); break;
                 }
                 
@@ -259,7 +260,7 @@ namespace Data_Layer
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
             string query = @"SELECT 
-                                ApplicationID, LicenseClassID, 
+                                ApplicationID, LicenseClassID
                             FROM LocalDrivingLicenseApplications WHERE LocalDrivingLicenseApplicationID = @ID";
 
             SqlCommand command = new SqlCommand(query, connection);
@@ -320,6 +321,45 @@ namespace Data_Layer
                 connection.Close();
             }
             return rowsAffected > 0;
+
+        }
+
+        public static bool IsExists(int PersonID, int LicenseClassID)
+        {
+            SqlConnection connection = new SqlConnection (clsSettings.ConnectionString);
+
+            string query = @"
+
+                SELECT 1 
+                FROM LocalDrivingLicenseApplications LD
+                    JOIN Applications A ON A.ApplicationID = LD.ApplicationID 
+                WHERE A.PersonID = @PersonID AND LD.LicenseClassID = @LicenseClassID AND (A.ApplicationStatus = 1 OR A.ApplicationStatus = 3)";
+
+            SqlCommand command = new SqlCommand (query, connection);
+
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+            command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+
+            bool IsFound = false;
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+                if (result != null)
+                {
+                    IsFound = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                IsFound = false;
+                clsErrorLog.AddErrorLog(ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
 
         }
     }

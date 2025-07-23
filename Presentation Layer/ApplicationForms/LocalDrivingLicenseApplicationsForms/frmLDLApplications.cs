@@ -26,6 +26,15 @@ namespace Presentation_Layer.ApplicationForms.LocalDrivingLicenseApplicationsFor
         {
             frmAddEditLDLApplication frm = new frmAddEditLDLApplication();
             frm.ShowDialog();
+            RefreshDGV();
+
         }
+
+        private void frmLDLApplications_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void RefreshDGV() => ucLDLApplications1.RefreshDGV();
     }
 }

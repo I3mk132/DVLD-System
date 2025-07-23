@@ -137,6 +137,7 @@ namespace Presentation_Layer.UserControls
         {
             ucPersonDetails1.PersonID = PersonID;
             ucPersonDetails1.LoadPersonData();
+            DataBack?.Invoke(this, PersonID);
         }
     }
 }

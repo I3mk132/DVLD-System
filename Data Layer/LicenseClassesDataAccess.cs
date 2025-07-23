@@ -48,7 +48,7 @@ namespace Data_Layer
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@LicenseClassName", ClassName);
+            command.Parameters.AddWithValue("@ClassName", ClassName);
 
 
             int LicenseClassID = -1;

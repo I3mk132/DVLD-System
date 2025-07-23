@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Data_Layer;
@@ -41,7 +42,7 @@ namespace Business_Layer
             DateTime? LastStatusDate, 
             decimal PaidFees, 
             int CreatedByUserID,
-            int LIcenseClassID) : base (
+            int LicenseClassID) : base (
                 
                 ApplicationID, PersonID, ApplicationDate, ApplicationTypeID,
                 ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID
@@ -105,24 +106,62 @@ namespace Business_Layer
             return false;
         }
 
-        public static bool Delete(int ID)
+        public static new bool Delete(int ID)
         {
-            return  clsLocalDrivingLicenseApplicationsDataAccess.Delete(ID);
+            clsLocalDrivingLicenseApplications app = clsLocalDrivingLicenseApplications.Find(ID);
+            if (clsLocalDrivingLicenseApplicationsDataAccess.Delete(ID))
+            {
+                return clsApplications.Delete(app.ApplicationID);
+            }
+            return false;
         }
+
+        public static bool IsApplicationExists(int PersonID, int LicenseClassID)
+        {
+            return clsLocalDrivingLicenseApplicationsDataAccess.IsExists(PersonID, LicenseClassID);
+        }
+
         private bool _AddNew()
         {
-            this.ApplicationID = clsLocalDrivingLicenseApplicationsDataAccess.Add(
-                ApplicationID, LicenseClassID);
+            clsApplications app = new clsApplications();
 
-            return (this.ApplicationID != -1);
+            app.PersonID = PersonID;
+            app.ApplicationDate = ApplicationDate;
+            app.ApplicationTypeID = ApplicationTypeID;
+            app.ApplicationStatus = ApplicationStatus;
+            app.LastStatusDate = LastStatusDate;
+            app.PaidFees = PaidFees;
+            app.CreatedByUserID = CreatedByUserID;
+
+            if (app.Save())
+            {
+                this.ApplicationID = clsLocalDrivingLicenseApplicationsDataAccess.Add(
+                app.ApplicationID, LicenseClassID);
+
+                return (this.ApplicationID != -1);
+            }
+            return false;
         }
         private bool _Update()
         {
-            return clsLocalDrivingLicenseApplicationsDataAccess.Update(
-                LocalDrivingLicenseApplicationID, ApplicationID, LicenseClassID);
+
+            clsApplications app = clsApplications.Find(ApplicationID);
+
+            app.PersonID = PersonID;
+            app.ApplicationDate = ApplicationDate;
+            app.ApplicationTypeID = ApplicationTypeID;
+            app.ApplicationStatus = ApplicationStatus;
+            app.LastStatusDate = LastStatusDate;
+            app.PaidFees = PaidFees;
+            app.CreatedByUserID = CreatedByUserID;
+            
+            if (app.Save())
+                return clsLocalDrivingLicenseApplicationsDataAccess.Update(
+                    LocalDrivingLicenseApplicationID, ApplicationID, LicenseClassID);
+            return false;
         }
 
-        public bool Save()
+        public new bool Save()
         {
 
             if (Mode == enMode.eAdd)

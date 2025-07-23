@@ -32,35 +32,35 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblRecordCount = new System.Windows.Forms.Label();
-            this.dgvApplicationsList = new System.Windows.Forms.DataGridView();
-            this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cmss2 = new System.Windows.Forms.ToolStripSeparator();
-            this.cmss1 = new System.Windows.Forms.ToolStripSeparator();
+            this.gbFilter = new System.Windows.Forms.GroupBox();
+            this.rbNone = new System.Windows.Forms.RadioButton();
+            this.rbCompleted = new System.Windows.Forms.RadioButton();
+            this.rbCancelled = new System.Windows.Forms.RadioButton();
+            this.rbNew = new System.Windows.Forms.RadioButton();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.lblFilter = new System.Windows.Forms.Label();
             this.txtFilter = new System.Windows.Forms.TextBox();
-            this.gbFilter = new System.Windows.Forms.GroupBox();
-            this.rbNew = new System.Windows.Forms.RadioButton();
-            this.rbCancelled = new System.Windows.Forms.RadioButton();
-            this.rbCompleted = new System.Windows.Forms.RadioButton();
-            this.rbNone = new System.Windows.Forms.RadioButton();
-            this.cmss3 = new System.Windows.Forms.ToolStripSeparator();
+            this.lblRecordCount = new System.Windows.Forms.Label();
+            this.dgvApplicationsList = new System.Windows.Forms.DataGridView();
+            this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsiShowApplicationDetails = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmss2 = new System.Windows.Forms.ToolStripSeparator();
             this.cmsiEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsiDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmss1 = new System.Windows.Forms.ToolStripSeparator();
             this.cmsiCancelApplication = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsiSechduleTests = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsiIssueDrivingLicense = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmss3 = new System.Windows.Forms.ToolStripSeparator();
             this.cmsiShowLicense = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsiShowPersonLicenseHistory = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
+            this.gbFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplicationsList)).BeginInit();
             this.cms.SuspendLayout();
-            this.gbFilter.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -77,80 +77,87 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 86F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(796, 424);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(787, 424);
             this.tableLayoutPanel1.TabIndex = 12;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
-            // lblRecordCount
+            // gbFilter
             // 
-            this.lblRecordCount.AutoSize = true;
-            this.lblRecordCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecordCount.ForeColor = System.Drawing.Color.DimGray;
-            this.lblRecordCount.Location = new System.Drawing.Point(3, 391);
-            this.lblRecordCount.Name = "lblRecordCount";
-            this.lblRecordCount.Size = new System.Drawing.Size(155, 26);
-            this.lblRecordCount.TabIndex = 16;
-            this.lblRecordCount.Text = "# Records: -1";
+            this.gbFilter.BackColor = System.Drawing.SystemColors.Control;
+            this.gbFilter.Controls.Add(this.rbNone);
+            this.gbFilter.Controls.Add(this.rbCompleted);
+            this.gbFilter.Controls.Add(this.rbCancelled);
+            this.gbFilter.Controls.Add(this.rbNew);
+            this.gbFilter.Controls.Add(this.cbFilterBy);
+            this.gbFilter.Controls.Add(this.lblFilter);
+            this.gbFilter.Controls.Add(this.txtFilter);
+            this.gbFilter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbFilter.Location = new System.Drawing.Point(3, 3);
+            this.gbFilter.Name = "gbFilter";
+            this.gbFilter.Size = new System.Drawing.Size(781, 80);
+            this.gbFilter.TabIndex = 18;
+            this.gbFilter.TabStop = false;
+            this.gbFilter.Text = "Filter";
             // 
-            // dgvApplicationsList
+            // rbNone
             // 
-            this.dgvApplicationsList.AllowUserToAddRows = false;
-            this.dgvApplicationsList.AllowUserToDeleteRows = false;
-            this.dgvApplicationsList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvApplicationsList.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvApplicationsList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvApplicationsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvApplicationsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvApplicationsList.ContextMenuStrip = this.cms;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvApplicationsList.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvApplicationsList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvApplicationsList.Location = new System.Drawing.Point(3, 89);
-            this.dgvApplicationsList.MultiSelect = false;
-            this.dgvApplicationsList.Name = "dgvApplicationsList";
-            this.dgvApplicationsList.ReadOnly = true;
-            this.dgvApplicationsList.Size = new System.Drawing.Size(790, 299);
-            this.dgvApplicationsList.TabIndex = 15;
+            this.rbNone.AutoSize = true;
+            this.rbNone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbNone.Location = new System.Drawing.Point(646, 35);
+            this.rbNone.Name = "rbNone";
+            this.rbNone.Size = new System.Drawing.Size(65, 24);
+            this.rbNone.TabIndex = 18;
+            this.rbNone.TabStop = true;
+            this.rbNone.Tag = "None";
+            this.rbNone.Text = "None";
+            this.rbNone.UseVisualStyleBackColor = true;
+            this.rbNone.Visible = false;
+            this.rbNone.CheckedChanged += new System.EventHandler(this.rbStatus_CheckedChanged);
             // 
-            // cms
+            // rbCompleted
             // 
-            this.cms.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmsiShowApplicationDetails,
-            this.cmss2,
-            this.cmsiEdit,
-            this.cmsiDelete,
-            this.cmss1,
-            this.cmsiCancelApplication,
-            this.cmsiSechduleTests,
-            this.cmsiIssueDrivingLicense,
-            this.cmss3,
-            this.cmsiShowLicense,
-            this.cmsiShowPersonLicenseHistory});
-            this.cms.Name = "cms";
-            this.cms.Size = new System.Drawing.Size(266, 326);
+            this.rbCompleted.AutoSize = true;
+            this.rbCompleted.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCompleted.Location = new System.Drawing.Point(536, 34);
+            this.rbCompleted.Name = "rbCompleted";
+            this.rbCompleted.Size = new System.Drawing.Size(104, 24);
+            this.rbCompleted.TabIndex = 17;
+            this.rbCompleted.TabStop = true;
+            this.rbCompleted.Tag = "Completed";
+            this.rbCompleted.Text = "Completed";
+            this.rbCompleted.UseVisualStyleBackColor = true;
+            this.rbCompleted.Visible = false;
+            this.rbCompleted.CheckedChanged += new System.EventHandler(this.rbStatus_CheckedChanged);
             // 
-            // cmss2
+            // rbCancelled
             // 
-            this.cmss2.Name = "cmss2";
-            this.cmss2.Size = new System.Drawing.Size(262, 6);
+            this.rbCancelled.AutoSize = true;
+            this.rbCancelled.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCancelled.Location = new System.Drawing.Point(433, 34);
+            this.rbCancelled.Name = "rbCancelled";
+            this.rbCancelled.Size = new System.Drawing.Size(97, 24);
+            this.rbCancelled.TabIndex = 16;
+            this.rbCancelled.TabStop = true;
+            this.rbCancelled.Tag = "Cancelled";
+            this.rbCancelled.Text = "Cancelled";
+            this.rbCancelled.UseVisualStyleBackColor = true;
+            this.rbCancelled.Visible = false;
+            this.rbCancelled.CheckedChanged += new System.EventHandler(this.rbStatus_CheckedChanged);
             // 
-            // cmss1
+            // rbNew
             // 
-            this.cmss1.Name = "cmss1";
-            this.cmss1.Size = new System.Drawing.Size(262, 6);
+            this.rbNew.AutoSize = true;
+            this.rbNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbNew.Location = new System.Drawing.Point(369, 34);
+            this.rbNew.Name = "rbNew";
+            this.rbNew.Size = new System.Drawing.Size(58, 24);
+            this.rbNew.TabIndex = 15;
+            this.rbNew.TabStop = true;
+            this.rbNew.Tag = "New";
+            this.rbNew.Text = "New";
+            this.rbNew.UseVisualStyleBackColor = true;
+            this.rbNew.Visible = false;
+            this.rbNew.CheckedChanged += new System.EventHandler(this.rbStatus_CheckedChanged);
             // 
             // cbFilterBy
             // 
@@ -163,11 +170,10 @@
             this.cbFilterBy.IntegralHeight = false;
             this.cbFilterBy.Items.AddRange(new object[] {
             "None",
-            "User ID",
-            "Username",
-            "Person ID",
+            "L.D.L.App ID",
+            "National No.",
             "Fullname",
-            "Is Active"});
+            "Status"});
             this.cbFilterBy.Location = new System.Drawing.Point(134, 33);
             this.cbFilterBy.MaxDropDownItems = 11;
             this.cbFilterBy.Name = "cbFilterBy";
@@ -196,88 +202,66 @@
             this.txtFilter.Visible = false;
             this.txtFilter.TextChanged += new System.EventHandler(this.txtFilter_TextChanged);
             // 
-            // gbFilter
+            // lblRecordCount
             // 
-            this.gbFilter.BackColor = System.Drawing.SystemColors.Control;
-            this.gbFilter.Controls.Add(this.rbNone);
-            this.gbFilter.Controls.Add(this.rbCompleted);
-            this.gbFilter.Controls.Add(this.rbCancelled);
-            this.gbFilter.Controls.Add(this.rbNew);
-            this.gbFilter.Controls.Add(this.cbFilterBy);
-            this.gbFilter.Controls.Add(this.lblFilter);
-            this.gbFilter.Controls.Add(this.txtFilter);
-            this.gbFilter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbFilter.Location = new System.Drawing.Point(3, 3);
-            this.gbFilter.Name = "gbFilter";
-            this.gbFilter.Size = new System.Drawing.Size(790, 80);
-            this.gbFilter.TabIndex = 18;
-            this.gbFilter.TabStop = false;
-            this.gbFilter.Text = "Filter";
+            this.lblRecordCount.AutoSize = true;
+            this.lblRecordCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecordCount.ForeColor = System.Drawing.Color.DimGray;
+            this.lblRecordCount.Location = new System.Drawing.Point(3, 391);
+            this.lblRecordCount.Name = "lblRecordCount";
+            this.lblRecordCount.Size = new System.Drawing.Size(155, 26);
+            this.lblRecordCount.TabIndex = 16;
+            this.lblRecordCount.Text = "# Records: -1";
             // 
-            // rbNew
+            // dgvApplicationsList
             // 
-            this.rbNew.AutoSize = true;
-            this.rbNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbNew.Location = new System.Drawing.Point(369, 34);
-            this.rbNew.Name = "rbNew";
-            this.rbNew.Size = new System.Drawing.Size(58, 24);
-            this.rbNew.TabIndex = 15;
-            this.rbNew.TabStop = true;
-            this.rbNew.Tag = "New";
-            this.rbNew.Text = "New";
-            this.rbNew.UseVisualStyleBackColor = true;
-            this.rbNew.Visible = false;
-            this.rbNew.CheckedChanged += new System.EventHandler(this.rbStatus_CheckedChanged);
+            this.dgvApplicationsList.AllowUserToAddRows = false;
+            this.dgvApplicationsList.AllowUserToDeleteRows = false;
+            this.dgvApplicationsList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvApplicationsList.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvApplicationsList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvApplicationsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvApplicationsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvApplicationsList.ContextMenuStrip = this.cms;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvApplicationsList.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvApplicationsList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvApplicationsList.Location = new System.Drawing.Point(3, 89);
+            this.dgvApplicationsList.MultiSelect = false;
+            this.dgvApplicationsList.Name = "dgvApplicationsList";
+            this.dgvApplicationsList.ReadOnly = true;
+            this.dgvApplicationsList.Size = new System.Drawing.Size(781, 299);
+            this.dgvApplicationsList.TabIndex = 15;
             // 
-            // rbCancelled
+            // cms
             // 
-            this.rbCancelled.AutoSize = true;
-            this.rbCancelled.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCancelled.Location = new System.Drawing.Point(433, 34);
-            this.rbCancelled.Name = "rbCancelled";
-            this.rbCancelled.Size = new System.Drawing.Size(97, 24);
-            this.rbCancelled.TabIndex = 16;
-            this.rbCancelled.TabStop = true;
-            this.rbCancelled.Tag = "Cancelled";
-            this.rbCancelled.Text = "Cancelled";
-            this.rbCancelled.UseVisualStyleBackColor = true;
-            this.rbCancelled.Visible = false;
-            this.rbCancelled.CheckedChanged += new System.EventHandler(this.rbStatus_CheckedChanged);
-            // 
-            // rbCompleted
-            // 
-            this.rbCompleted.AutoSize = true;
-            this.rbCompleted.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCompleted.Location = new System.Drawing.Point(536, 34);
-            this.rbCompleted.Name = "rbCompleted";
-            this.rbCompleted.Size = new System.Drawing.Size(104, 24);
-            this.rbCompleted.TabIndex = 17;
-            this.rbCompleted.TabStop = true;
-            this.rbCompleted.Tag = "Completed";
-            this.rbCompleted.Text = "Completed";
-            this.rbCompleted.UseVisualStyleBackColor = true;
-            this.rbCompleted.Visible = false;
-            this.rbCompleted.CheckedChanged += new System.EventHandler(this.rbStatus_CheckedChanged);
-            // 
-            // rbNone
-            // 
-            this.rbNone.AutoSize = true;
-            this.rbNone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbNone.Location = new System.Drawing.Point(646, 35);
-            this.rbNone.Name = "rbNone";
-            this.rbNone.Size = new System.Drawing.Size(65, 24);
-            this.rbNone.TabIndex = 18;
-            this.rbNone.TabStop = true;
-            this.rbNone.Tag = "None";
-            this.rbNone.Text = "None";
-            this.rbNone.UseVisualStyleBackColor = true;
-            this.rbNone.Visible = false;
-            this.rbNone.CheckedChanged += new System.EventHandler(this.rbStatus_CheckedChanged);
-            // 
-            // cmss3
-            // 
-            this.cmss3.Name = "cmss3";
-            this.cmss3.Size = new System.Drawing.Size(262, 6);
+            this.cms.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmsiShowApplicationDetails,
+            this.cmss2,
+            this.cmsiEdit,
+            this.cmsiDelete,
+            this.cmss1,
+            this.cmsiCancelApplication,
+            this.cmsiSechduleTests,
+            this.cmsiIssueDrivingLicense,
+            this.cmss3,
+            this.cmsiShowLicense,
+            this.cmsiShowPersonLicenseHistory});
+            this.cms.Name = "cms";
+            this.cms.Size = new System.Drawing.Size(266, 326);
             // 
             // cmsiShowApplicationDetails
             // 
@@ -287,6 +271,11 @@
             this.cmsiShowApplicationDetails.Size = new System.Drawing.Size(265, 38);
             this.cmsiShowApplicationDetails.Text = "Show Application Details";
             this.cmsiShowApplicationDetails.Click += new System.EventHandler(this.cmsiShowApplicationDetails_Click);
+            // 
+            // cmss2
+            // 
+            this.cmss2.Name = "cmss2";
+            this.cmss2.Size = new System.Drawing.Size(262, 6);
             // 
             // cmsiEdit
             // 
@@ -305,6 +294,11 @@
             this.cmsiDelete.Size = new System.Drawing.Size(265, 38);
             this.cmsiDelete.Text = "Delete";
             this.cmsiDelete.Click += new System.EventHandler(this.cmsiDelete_Click);
+            // 
+            // cmss1
+            // 
+            this.cmss1.Name = "cmss1";
+            this.cmss1.Size = new System.Drawing.Size(262, 6);
             // 
             // cmsiCancelApplication
             // 
@@ -330,19 +324,19 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(101, 22);
             this.toolStripMenuItem1.Text = "Test1";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(101, 22);
             this.toolStripMenuItem2.Text = "Test2";
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(101, 22);
             this.toolStripMenuItem3.Text = "Test3";
             // 
             // cmsiIssueDrivingLicense
@@ -353,6 +347,11 @@
             this.cmsiIssueDrivingLicense.Name = "cmsiIssueDrivingLicense";
             this.cmsiIssueDrivingLicense.Size = new System.Drawing.Size(265, 38);
             this.cmsiIssueDrivingLicense.Text = "Issue Driving License ( First time )";
+            // 
+            // cmss3
+            // 
+            this.cmss3.Name = "cmss3";
+            this.cmss3.Size = new System.Drawing.Size(262, 6);
             // 
             // cmsiShowLicense
             // 
@@ -379,14 +378,14 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ucLDLApplications";
-            this.Size = new System.Drawing.Size(796, 424);
+            this.Size = new System.Drawing.Size(787, 424);
             this.Load += new System.EventHandler(this.ucLDLApplications_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvApplicationsList)).EndInit();
-            this.cms.ResumeLayout(false);
             this.gbFilter.ResumeLayout(false);
             this.gbFilter.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvApplicationsList)).EndInit();
+            this.cms.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
