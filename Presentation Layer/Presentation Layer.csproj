@@ -58,10 +58,16 @@
     <Compile Include="ApplicationForms\ApplicationTypesForms\frmEditApplication.Designer.cs">
       <DependentUpon>frmEditApplication.cs</DependentUpon>
     </Compile>
-    <Compile Include="ApplicationForms\LicensesForms\frmLicenseInfo.cs">
+    <Compile Include="LicenseForms\frmLicenseHistory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ApplicationForms\LicensesForms\frmLicenseInfo.Designer.cs">
+    <Compile Include="LicenseForms\frmLicenseHistory.Designer.cs">
+      <DependentUpon>frmLicenseHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LicenseForms\frmLicenseInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LicenseForms\frmLicenseInfo.Designer.cs">
       <DependentUpon>frmLicenseInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="ApplicationForms\LocalDrivingLicenseApplicationsForms\frmAddEditLDLApplication.cs">
@@ -234,6 +240,12 @@
     <EmbeddedResource Include="ApplicationForms\ApplicationTypesForms\frmEditApplication.resx">
       <DependentUpon>frmEditApplication.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LicenseForms\frmLicenseHistory.resx">
+      <DependentUpon>frmLicenseHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LicenseForms\frmLicenseInfo.resx">
+      <DependentUpon>frmLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ApplicationForms\LocalDrivingLicenseApplicationsForms\frmAddEditLDLApplication.resx">
       <DependentUpon>frmAddEditLDLApplication.cs</DependentUpon>
     </EmbeddedResource>
@@ -288,6 +300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ApplicationsUserControl\ucLDLApplications.resx">
       <DependentUpon>ucLDLApplications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\LicensesUserControls\ucLicenseInfo.resx">
+      <DependentUpon>ucLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\PersonUserControls\ucAddEditPerson.resx">
       <DependentUpon>ucAddEditPerson.cs</DependentUpon>
@@ -479,6 +494,8 @@
     <None Include="Icons\eye.png" />
     <None Include="Icons\Eye32.png" />
     <None Include="Icons\Test.png" />
+    <None Include="Icons\Question.png" />
+    <None Include="Icons\History.png" />
     <Content Include="RememberedUser.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
