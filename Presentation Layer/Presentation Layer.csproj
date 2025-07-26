@@ -58,6 +58,12 @@
     <Compile Include="ApplicationForms\ApplicationTypesForms\frmEditApplication.Designer.cs">
       <DependentUpon>frmEditApplication.cs</DependentUpon>
     </Compile>
+    <Compile Include="ApplicationForms\LicensesForms\frmLicenseInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationForms\LicensesForms\frmLicenseInfo.Designer.cs">
+      <DependentUpon>frmLicenseInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="ApplicationForms\LocalDrivingLicenseApplicationsForms\frmAddEditLDLApplication.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,24 @@
     </Compile>
     <Compile Include="ApplicationForms\LocalDrivingLicenseApplicationsForms\frmLDLApplications.Designer.cs">
       <DependentUpon>frmLDLApplications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationForms\LocalDrivingLicenseApplicationsForms\frmScheduleTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationForms\LocalDrivingLicenseApplicationsForms\frmScheduleTest.Designer.cs">
+      <DependentUpon>frmScheduleTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationForms\LocalDrivingLicenseApplicationsForms\frmScheduleTestAppointments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationForms\LocalDrivingLicenseApplicationsForms\frmScheduleTestAppointments.Designer.cs">
+      <DependentUpon>frmScheduleTestAppointments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationForms\LocalDrivingLicenseApplicationsForms\frmTakeTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationForms\LocalDrivingLicenseApplicationsForms\frmTakeTest.Designer.cs">
+      <DependentUpon>frmTakeTest.cs</DependentUpon>
     </Compile>
     <Compile Include="ApplicationForms\TestTypesForms\frmEditTestType.cs">
       <SubType>Form</SubType>
@@ -114,6 +138,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\ApplicationsUserControl\ucApplicaitonBasicInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ApplicationsUserControl\ucApplicaitonBasicInfo.Designer.cs">
+      <DependentUpon>ucApplicaitonBasicInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ApplicationsUserControl\ucDLApplicationInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -125,6 +155,12 @@
     </Compile>
     <Compile Include="UserControls\ApplicationsUserControl\ucLDLApplications.Designer.cs">
       <DependentUpon>ucLDLApplications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LicensesUserControls\ucLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\LicensesUserControls\ucLicenseInfo.Designer.cs">
+      <DependentUpon>ucLicenseInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\PersonUserControls\ucAddEditPerson.cs">
       <SubType>UserControl</SubType>
@@ -204,6 +240,15 @@
     <EmbeddedResource Include="ApplicationForms\LocalDrivingLicenseApplicationsForms\frmLDLApplications.resx">
       <DependentUpon>frmLDLApplications.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationForms\LocalDrivingLicenseApplicationsForms\frmScheduleTest.resx">
+      <DependentUpon>frmScheduleTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationForms\LocalDrivingLicenseApplicationsForms\frmScheduleTestAppointments.resx">
+      <DependentUpon>frmScheduleTestAppointments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationForms\LocalDrivingLicenseApplicationsForms\frmTakeTest.resx">
+      <DependentUpon>frmTakeTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ApplicationForms\TestTypesForms\frmEditTestType.resx">
       <DependentUpon>frmEditTestType.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,6 +280,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControls\ApplicationsUserControl\ucApplicaitonBasicInfo.resx">
+      <DependentUpon>ucApplicaitonBasicInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ApplicationsUserControl\ucDLApplicationInfo.resx">
       <DependentUpon>ucDLApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -426,6 +474,11 @@
     <None Include="Icons\Earth24.png" />
     <None Include="Icons\License32_pink.png" />
     <None Include="Icons\License_pink.png" />
+    <None Include="Icons\Driver.png" />
+    <None Include="Icons\Driver32.png" />
+    <None Include="Icons\eye.png" />
+    <None Include="Icons\Eye32.png" />
+    <None Include="Icons\Test.png" />
     <Content Include="RememberedUser.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
