@@ -159,7 +159,11 @@ namespace Data_Layer
                     TestID = (int)reader["TestID"];
                     TestAppointmentID = (int)reader["TestAppointmentID"];
                     TestResult = (bool)reader["TestResult"];
-                    Notes = (string)reader["Notes"];
+                    if (reader["Notes"] != DBNull.Value)
+                        Notes = (string)reader["Notes"];
+                    else
+                        Notes = "";
+
                     CreatedByUserID = (int)reader["CreatedByUserID"];
 
                 }
