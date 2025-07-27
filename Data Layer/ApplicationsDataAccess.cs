@@ -197,7 +197,7 @@ namespace Data_Layer
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("ID", ID);
+            command.Parameters.AddWithValue("@ID", ID);
 
             int rowsAffected = 0;
             try

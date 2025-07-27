@@ -11,7 +11,7 @@ namespace Data_Layer
 {
     public class clsTestAppointmentsDataAccess
     {
-        public DataTable GetAllFor(int ID)
+        public static DataTable GetAllFor(int ID)
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
@@ -49,7 +49,7 @@ namespace Data_Layer
 
         public static int Add(
             int TestTypeID, int LDLAppID, DateTime? AppointmentDate, decimal PaidFees, int CreatedByUserID,
-            bool IsLocked
+            bool? IsLocked
             )
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
@@ -70,7 +70,7 @@ namespace Data_Layer
             command.Parameters.AddWithValue("@AppointmentDate", AppointmentDate);
             command.Parameters.AddWithValue("@PaidFees", PaidFees);
             command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
-            command.Parameters.AddWithValue("@IsLocked", IsLocked);
+            command.Parameters.AddWithValue("@IsLocked", IsLocked.Value);
 
 
             int ID = -1;
@@ -96,8 +96,8 @@ namespace Data_Layer
         }
 
         public static bool Update(
-            int TestAppointmentID, int TestTypeID, int LDLAppID, DateTime? AppointmentDate, decimal PaidFees, int CreatedByUserID,
-            bool IsLocked
+            int TestAppointmentID, int TestTypeID, int LDLAppID, DateTime? AppointmentDate, 
+            decimal PaidFees, int CreatedByUserID, bool? IsLocked
             )
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
@@ -123,7 +123,7 @@ namespace Data_Layer
             command.Parameters.AddWithValue("@AppointmentDate", AppointmentDate);
             command.Parameters.AddWithValue("@PaidFees", PaidFees);
             command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
-            command.Parameters.AddWithValue("@IsLocked", IsLocked);
+            command.Parameters.AddWithValue("@IsLocked", IsLocked.Value);
             command.Parameters.AddWithValue("@ID", TestAppointmentID);
 
             int rowsAffected = 0;
@@ -204,7 +204,7 @@ namespace Data_Layer
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("ID", ID);
+            command.Parameters.AddWithValue("@ID", ID);
 
             int rowsAffected = 0;
             try
@@ -222,6 +222,40 @@ namespace Data_Layer
                 connection.Close();
             }
             return rowsAffected > 0;
+
+        }
+
+        public static bool IsExists(int ID) 
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"SELECT 1 FROM TestAppointments WHERE TestAppointmentID = @ID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ID", ID);
+
+            bool IsFound = false;
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+                if (result != null)
+                {
+                    IsFound = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                IsFound = false;
+                clsErrorLog.AddErrorLog(ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+
 
         }
     }
