@@ -42,8 +42,8 @@ namespace Data_Layer
         }
 
         public static int Add(
-            int LicenseID, DateTime? DetainDate, decimal FineFees, int CreatedByUserID, bool IsReleased,
-            DateTime? ReleaseDate, int ReleasedByUserID, int ReleaseApplicationID
+            int ApplicationID, int DriverID, int IssuedUsingLocalLicenseID, 
+            DateTime? IssueDate, DateTime? ExpirationDate, bool IsActive, int CreatedByUserID
             )
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
@@ -51,36 +51,23 @@ namespace Data_Layer
             string query = @"
 
                 INSERT INTO Tests 
-                (LicenseID, DetainDate, FineFees, CreatedByUserID, IsReleased, ReleaseDate, 
-                ReleasedByUserID, ReleaseApplicationID) Values 
-                (@LicenseID, @DetainDate, @FineFees, @CreatedByUserID, @IsReleased, @ReleaseDate, 
-                @ReleasedByUserID, @ReleaseApplicationID);
+                (ApplicationID, DriverID, IssuedUsingLocalLicenseID, 
+                IssueDate, ExpirationDate, IsActive, CreatedByUserID) Values 
+                (@ApplicationID, @DriverID, @IssuedUsingLocalLicenseID, 
+                @IssueDate, @ExpirationDate, @IsActive, @CreatedByUserID);
                 SELECT SCOPE_IDENTITY();
 
             ";
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@LicenseID", LicenseID);
-            command.Parameters.AddWithValue("@DetainDate", DetainDate);
-            command.Parameters.AddWithValue("@FineFees", FineFees);
+            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+            command.Parameters.AddWithValue("@DriverID", DriverID);
+            command.Parameters.AddWithValue("@IssuedUsingLocalLicenseID", IssuedUsingLocalLicenseID);
+            command.Parameters.AddWithValue("@IssueDate", IssueDate);
+            command.Parameters.AddWithValue("@ExpirationDate", ExpirationDate);
+            command.Parameters.AddWithValue("@IsActive", IsActive);
             command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
-            command.Parameters.AddWithValue("@IsReleased", IsReleased);
-            if (ReleaseDate.HasValue)
-                command.Parameters.AddWithValue("@ReleaseDate", ReleaseDate);
-            else
-                command.Parameters.AddWithValue("@ReleaseDate", DBNull.Value);
-
-            if (ReleasedByUserID != -1)
-                command.Parameters.AddWithValue("@ReleasedByUserID", ReleasedByUserID);
-            else
-                command.Parameters.AddWithValue("@ReleasedByUserID", DBNull.Value);
-
-            if (ReleaseApplicationID != -1)
-                command.Parameters.AddWithValue("@ReleaseApplicationID", ReleaseApplicationID);
-            else
-                command.Parameters.AddWithValue("@ReleaseApplicationID", DBNull.Value);
-
 
             int ID = -1;
             try
@@ -105,8 +92,8 @@ namespace Data_Layer
         }
 
         public static bool Update(
-            int DetainID, int LicenseID, DateTime? DetainDate, decimal FineFees, int CreatedByUserID, bool IsReleased,
-            DateTime? ReleaseDate, int ReleasedByUserID, int ReleaseApplicationID
+            int InternationalLicenseID, int ApplicationID, int DriverID, int IssuedUsingLocalLicenseID,
+            DateTime? IssueDate, DateTime? ExpirationDate, bool IsActive, int CreatedByUserID
             )
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
@@ -114,41 +101,28 @@ namespace Data_Layer
             string query = @"
 
                 UPDATE InternationalLicenses SET
-                LicenseID = @LicenseID,
-                DetainDate = @DetainDate,
-                FineFees = @FineFees,
+                ApplicationID = @ApplicationID,
+                DriverID = @DriverID,
+                IssuedUsingLocalLicenseID = @IssuedUsingLocalLicenseID,
+                IssueDate = @IssueDate,
+                ExpirationDate = @ExpirationDate,
+                IsActive = @IsActive,
                 CreatedByUserID = @CreatedByUserID,
-                IsReleased = @IsReleased,
-                ReleaseDate = @ReleaseDate,
-                ReleasedByUserID = @ReleasedByUserID,
-                ReleaseApplicationID = @ReleaseAppliactionID
-                WHERE DetainID = @DetainID
+                WHERE InternationalLicenseID = @InternationalLicenseID
 
             ";
 
             SqlCommand command = new SqlCommand(query, connection);
 
 
-            command.Parameters.AddWithValue("@LicenseID", LicenseID);
-            command.Parameters.AddWithValue("@DetainDate", DetainDate);
-            command.Parameters.AddWithValue("@FineFees", FineFees);
+            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+            command.Parameters.AddWithValue("@DriverID", DriverID);
+            command.Parameters.AddWithValue("@IssuedUsingLocalLicenseID", IssuedUsingLocalLicenseID);
+            command.Parameters.AddWithValue("@IssueDate", IssueDate);
+            command.Parameters.AddWithValue("@ExpirationDate", ExpirationDate);
+            command.Parameters.AddWithValue("@IsActive", IsActive);
             command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
-            command.Parameters.AddWithValue("@IsReleased", IsReleased);
-            if (ReleaseDate.HasValue)
-                command.Parameters.AddWithValue("@ReleaseDate", ReleaseDate);
-            else
-                command.Parameters.AddWithValue("@ReleaseDate", DBNull.Value);
-
-            if (ReleasedByUserID != -1)
-                command.Parameters.AddWithValue("@ReleasedByUserID", ReleasedByUserID);
-            else
-                command.Parameters.AddWithValue("@ReleasedByUserID", DBNull.Value);
-
-            if (ReleaseApplicationID != -1)
-                command.Parameters.AddWithValue("@ReleaseApplicationID", ReleaseApplicationID);
-            else
-                command.Parameters.AddWithValue("@ReleaseApplicationID", DBNull.Value);
-            command.Parameters.AddWithValue("@DetainID", DetainID);
+            command.Parameters.AddWithValue("@InternationalLicenseID", InternationalLicenseID);
 
 
             int rowsAffected = 0;
@@ -175,16 +149,16 @@ namespace Data_Layer
         }
 
         public static bool Find(
-            int DetainID, int LicenseID, DateTime? DetainDate, decimal FineFees, int CreatedByUserID, bool IsReleased,
-            DateTime? ReleaseDate, int ReleasedByUserID, int ReleaseApplicationID)
+            ref int InternationalLicenseID, ref int ApplicationID, ref int DriverID, ref int IssuedUsingLocalLicenseID,
+            ref DateTime? IssueDate, ref DateTime? ExpirationDate, ref bool IsActive, ref int CreatedByUserID)
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
-            string query = @"SELECT * FROM InternationalLicenses WHERE DetianID = @ID";
+            string query = @"SELECT * FROM InternationalLicenses WHERE InternationalLicenseID = @ID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@ID", DetainID);
+            command.Parameters.AddWithValue("@ID", InternationalLicenseID);
 
             bool isFound = false;
             try
@@ -196,26 +170,14 @@ namespace Data_Layer
                 {
                     isFound = true;
 
-                    LicenseID = (int)reader["LicenseID"];
-                    DetainDate = (DateTime?)reader["DetainDate"];
-                    FineFees = (decimal)reader["FineFees"];
+                    InternationalLicenseID = (int)reader["InternationalLicenseID"];
+                    ApplicationID = (int)reader["ApplicationID"];
+                    DriverID = (int)reader["DriverID"];
+                    IssuedUsingLocalLicenseID = (int)reader["IssuedUsingLocalLicenseID"];
+                    IssueDate = (DateTime?)reader["IssueDate"];
+                    ExpirationDate = (DateTime?)reader["ExpirationDate"];
+                    IsActive = (bool)reader["IsActive"];
                     CreatedByUserID = (int)reader["CreatedByUserID"];
-                    IsReleased = (bool)reader["IsReleased"];
-                    if (reader["ReleaseDate"] != DBNull.Value)
-                        ReleaseDate = (DateTime?)reader["ReleaseDate"];
-                    else
-                        ReleaseDate = null;
-
-                    if (reader["ReleasedByUserID"] != DBNull.Value)
-                        ReleasedByUserID = (int)reader["ReleasedByUserID"];
-                    else
-                        ReleasedByUserID = -1;
-
-                    if (reader["ReleaseApplicationID"] != DBNull.Value)
-                        ReleaseApplicationID = (int)reader["ReleaseApplicationID"];
-                    else
-                        ReleaseApplicationID = -1;
-
 
                 }
 
@@ -238,7 +200,7 @@ namespace Data_Layer
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
-            string query = "DELETE InternationalLicenses WHERE DetainID = @ID";
+            string query = "DELETE InternationalLicenses WHERE InternationalLicenceID = @ID";
 
             SqlCommand command = new SqlCommand(query, connection);
 

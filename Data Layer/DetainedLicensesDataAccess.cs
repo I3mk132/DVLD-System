@@ -176,8 +176,9 @@ namespace Data_Layer
         }
 
         public static bool Find(
-            int DetainID, int LicenseID, DateTime? DetainDate, decimal FineFees, int CreatedByUserID, bool IsReleased,
-            DateTime? ReleaseDate, int ReleasedByUserID, int ReleaseApplicationID)
+            ref int DetainID, ref int LicenseID, ref DateTime? DetainDate, ref decimal FineFees, 
+            ref int CreatedByUserID, ref bool IsReleased,
+            ref DateTime? ReleaseDate, ref int ReleasedByUserID, ref int ReleaseApplicationID)
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
