@@ -46,5 +46,6 @@ namespace Business_Layer
         {
             return clsApplicationTypesDataAccess.UpdateApplicationType(ID, ApplicationType, Fees);
         }
+
     }
 }

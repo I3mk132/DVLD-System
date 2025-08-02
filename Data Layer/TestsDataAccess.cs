@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -210,6 +211,42 @@ namespace Data_Layer
             }
             return rowsAffected > 0;
 
+        }
+
+        public static int PassedTestCount(int LDLAppID)
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"
+
+                Select count(*)
+	                From Tests T
+		                JOIN TestAppointments TA ON T.TestAppointmentID = TA.TestAppointmentID
+	                WHERE 
+		                TA.LocalDrivingLicenseApplicationID = @LDLAppID AND T.TestResult = 1
+            ";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            int Count = -1;
+            try
+            {
+                connection.Open();
+
+                object result = command.ExecuteScalar();
+
+                if (result != null)
+                    Count = (int)result;
+            }
+            catch (Exception ex)
+            {
+                clsErrorLog.AddErrorLog(ex);
+            }
+            finally
+            {
+                connection.Close ();
+            }
+            return Count;
         }
 
     }

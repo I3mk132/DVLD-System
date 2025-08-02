@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using Data_Layer;
@@ -10,18 +11,18 @@ namespace Business_Layer
 {
     public class clsLicenses
     {
-        int LicenseID {  get; set; }
-        int ApplicationID { get; set; }
-        int DriverID { get; set; }
-        int LicenseClassID  { get; set; }
-        DateTime? IssueDate { get; set; }
-        DateTime? ExpirationDate { get; set; }
-        string Notes { get; set; }
-        decimal PaidFees { get; set; }
-        bool? IsActive { get; set; }
-        string IssueReason { get; set; }
-        int CreatedByUserID { get; set; }
-        int IsDetained
+        public int LicenseID {  get; set; }
+        public int ApplicationID { get; set; }
+        public int DriverID { get; set; }
+        public int LicenseClassID  { get; set; }
+        public DateTime? IssueDate { get; set; }
+        public DateTime? ExpirationDate { get; set; }
+        public string Notes { get; set; }
+        public decimal PaidFees { get; set; }
+        public bool? IsActive { get; set; }
+        public string IssueReason { get; set; }
+        public int CreatedByUserID { get; set; }
+        public bool? IsDetained
         {
             get
             {
@@ -32,6 +33,32 @@ namespace Business_Layer
                 IsDetained = value;
             }
         }
+        public string LicenseClassName
+        {
+            get => clsLicenseClassesDataAccess.GetLicenseClassNameByID(LicenseClassID);
+            set => LicenseClassID = clsLicenseClassesDataAccess.GetLicenseClassIDByName(value);
+        }
+        public string Fullname
+        {
+            get => clsDrivers.GetDriverFullName(DriverID);
+        }
+        public string NationalNo
+        {
+            get => clsDrivers.Find(DriverID).NationalNo;
+        }
+        public string Gender
+        {
+            get => clsDrivers.Find(DriverID).Gender;
+        }
+        public DateTime? DateOfBirth
+        {
+            get => clsDrivers.Find(DriverID).DateOfBirth;
+        }
+        public string ImagePath
+        {
+            get => clsDrivers.Find(DriverID).ImagePath;
+        }
+
         private enMode _Mode { get; set; }
         private enum enMode { eAdd, eUpdate }
 

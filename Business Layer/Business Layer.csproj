@@ -48,8 +48,10 @@
   <ItemGroup>
     <Compile Include="Applications.cs" />
     <Compile Include="ApplicationTypes.cs" />
+    <Compile Include="DetainedLicenses.cs" />
     <Compile Include="Drivers.cs" />
     <Compile Include="Global.cs" />
+    <Compile Include="InternationalLicenses.cs" />
     <Compile Include="Licenses.cs" />
     <Compile Include="LocalDrivingLicenseApplications.cs" />
     <Compile Include="Person.cs" />

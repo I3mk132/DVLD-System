@@ -55,7 +55,7 @@
     <Compile Include="DetainedLicensesDataAccess.cs" />
     <Compile Include="DriversDataAccess.cs" />
     <Compile Include="ErrorLog.cs" />
-    <Compile Include="InternationalLicenses.cs" />
+    <Compile Include="InternationalLicensesDataAccess.cs" />
     <Compile Include="LicenseClassesDataAccess.cs" />
     <Compile Include="LicensesDataAccess.cs" />
     <Compile Include="LocalDrivingLicenseApplicationsDataAccess.cs" />

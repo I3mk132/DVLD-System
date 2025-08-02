@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblLicenseValue = new System.Windows.Forms.Label();
-            this.lblPassedTestValue = new System.Windows.Forms.Label();
-            this.lblDLAppIDValue = new System.Windows.Forms.Label();
-            this.lblDLAppIDTitle = new System.Windows.Forms.Label();
-            this.pbIsActive = new System.Windows.Forms.PictureBox();
-            this.pbUserNo = new System.Windows.Forms.PictureBox();
-            this.pbUsername = new System.Windows.Forms.PictureBox();
-            this.lblPassedTestTitle = new System.Windows.Forms.Label();
-            this.lblAppliedLicenseTitle = new System.Windows.Forms.Label();
             this.lblShowLicense = new System.Windows.Forms.LinkLabel();
+            this.lblPassedTestValue = new System.Windows.Forms.Label();
+            this.lblLicenseValue = new System.Windows.Forms.Label();
+            this.pbIsActive = new System.Windows.Forms.PictureBox();
+            this.lblDLAppIDTitle = new System.Windows.Forms.Label();
+            this.lblPassedTestTitle = new System.Windows.Forms.Label();
+            this.pbUserNo = new System.Windows.Forms.PictureBox();
+            this.lblDLAppIDValue = new System.Windows.Forms.Label();
+            this.pbUsername = new System.Windows.Forms.PictureBox();
+            this.lblAppliedLicenseTitle = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbIsActive)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUserNo)).BeginInit();
@@ -65,16 +65,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Driving License Application Info";
             // 
-            // lblLicenseValue
+            // lblShowLicense
             // 
-            this.lblLicenseValue.AutoSize = true;
-            this.lblLicenseValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLicenseValue.ForeColor = System.Drawing.Color.Black;
-            this.lblLicenseValue.Location = new System.Drawing.Point(440, 23);
-            this.lblLicenseValue.Name = "lblLicenseValue";
-            this.lblLicenseValue.Size = new System.Drawing.Size(40, 24);
-            this.lblLicenseValue.TabIndex = 102;
-            this.lblLicenseValue.Text = "???";
+            this.lblShowLicense.AutoSize = true;
+            this.lblShowLicense.Enabled = false;
+            this.lblShowLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lblShowLicense.Location = new System.Drawing.Point(20, 68);
+            this.lblShowLicense.Name = "lblShowLicense";
+            this.lblShowLicense.Size = new System.Drawing.Size(164, 24);
+            this.lblShowLicense.TabIndex = 103;
+            this.lblShowLicense.TabStop = true;
+            this.lblShowLicense.Text = "Show License Info";
+            this.lblShowLicense.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblShowLicense_LinkClicked);
             // 
             // lblPassedTestValue
             // 
@@ -87,16 +89,26 @@
             this.lblPassedTestValue.TabIndex = 101;
             this.lblPassedTestValue.Text = "???";
             // 
-            // lblDLAppIDValue
+            // lblLicenseValue
             // 
-            this.lblDLAppIDValue.AutoSize = true;
-            this.lblDLAppIDValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDLAppIDValue.ForeColor = System.Drawing.Color.Black;
-            this.lblDLAppIDValue.Location = new System.Drawing.Point(158, 24);
-            this.lblDLAppIDValue.Name = "lblDLAppIDValue";
-            this.lblDLAppIDValue.Size = new System.Drawing.Size(40, 24);
-            this.lblDLAppIDValue.TabIndex = 100;
-            this.lblDLAppIDValue.Text = "???";
+            this.lblLicenseValue.AutoSize = true;
+            this.lblLicenseValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLicenseValue.ForeColor = System.Drawing.Color.Black;
+            this.lblLicenseValue.Location = new System.Drawing.Point(440, 23);
+            this.lblLicenseValue.Name = "lblLicenseValue";
+            this.lblLicenseValue.Size = new System.Drawing.Size(40, 24);
+            this.lblLicenseValue.TabIndex = 102;
+            this.lblLicenseValue.Text = "???";
+            // 
+            // pbIsActive
+            // 
+            this.pbIsActive.Image = global::Presentation_Layer.Properties.Resources.Key;
+            this.pbIsActive.Location = new System.Drawing.Point(411, 63);
+            this.pbIsActive.Name = "pbIsActive";
+            this.pbIsActive.Size = new System.Drawing.Size(25, 25);
+            this.pbIsActive.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbIsActive.TabIndex = 98;
+            this.pbIsActive.TabStop = false;
             // 
             // lblDLAppIDTitle
             // 
@@ -109,15 +121,16 @@
             this.lblDLAppIDTitle.TabIndex = 99;
             this.lblDLAppIDTitle.Text = "D.L.App ID:";
             // 
-            // pbIsActive
+            // lblPassedTestTitle
             // 
-            this.pbIsActive.Image = global::Presentation_Layer.Properties.Resources.Key;
-            this.pbIsActive.Location = new System.Drawing.Point(411, 63);
-            this.pbIsActive.Name = "pbIsActive";
-            this.pbIsActive.Size = new System.Drawing.Size(25, 25);
-            this.pbIsActive.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbIsActive.TabIndex = 98;
-            this.pbIsActive.TabStop = false;
+            this.lblPassedTestTitle.AutoSize = true;
+            this.lblPassedTestTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassedTestTitle.ForeColor = System.Drawing.Color.Black;
+            this.lblPassedTestTitle.Location = new System.Drawing.Point(279, 68);
+            this.lblPassedTestTitle.Name = "lblPassedTestTitle";
+            this.lblPassedTestTitle.Size = new System.Drawing.Size(122, 20);
+            this.lblPassedTestTitle.TabIndex = 95;
+            this.lblPassedTestTitle.Text = "Passed Tests:";
             // 
             // pbUserNo
             // 
@@ -129,6 +142,17 @@
             this.pbUserNo.TabIndex = 97;
             this.pbUserNo.TabStop = false;
             // 
+            // lblDLAppIDValue
+            // 
+            this.lblDLAppIDValue.AutoSize = true;
+            this.lblDLAppIDValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDLAppIDValue.ForeColor = System.Drawing.Color.Black;
+            this.lblDLAppIDValue.Location = new System.Drawing.Point(158, 24);
+            this.lblDLAppIDValue.Name = "lblDLAppIDValue";
+            this.lblDLAppIDValue.Size = new System.Drawing.Size(40, 24);
+            this.lblDLAppIDValue.TabIndex = 100;
+            this.lblDLAppIDValue.Text = "???";
+            // 
             // pbUsername
             // 
             this.pbUsername.Image = global::Presentation_Layer.Properties.Resources.License_pink;
@@ -138,17 +162,6 @@
             this.pbUsername.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbUsername.TabIndex = 96;
             this.pbUsername.TabStop = false;
-            // 
-            // lblPassedTestTitle
-            // 
-            this.lblPassedTestTitle.AutoSize = true;
-            this.lblPassedTestTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassedTestTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblPassedTestTitle.Location = new System.Drawing.Point(279, 68);
-            this.lblPassedTestTitle.Name = "lblPassedTestTitle";
-            this.lblPassedTestTitle.Size = new System.Drawing.Size(122, 20);
-            this.lblPassedTestTitle.TabIndex = 95;
-            this.lblPassedTestTitle.Text = "Passed Tests:";
             // 
             // lblAppliedLicenseTitle
             // 
@@ -161,18 +174,6 @@
             this.lblAppliedLicenseTitle.TabIndex = 94;
             this.lblAppliedLicenseTitle.Text = "Applied License: ";
             // 
-            // lblShowLicense
-            // 
-            this.lblShowLicense.AutoSize = true;
-            this.lblShowLicense.Enabled = false;
-            this.lblShowLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.lblShowLicense.Location = new System.Drawing.Point(20, 68);
-            this.lblShowLicense.Name = "lblShowLicense";
-            this.lblShowLicense.Size = new System.Drawing.Size(164, 24);
-            this.lblShowLicense.TabIndex = 103;
-            this.lblShowLicense.TabStop = true;
-            this.lblShowLicense.Text = "Show License Info";
-            // 
             // ucDLApplicationInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -182,6 +183,7 @@
             this.Name = "ucDLApplicationInfo";
             this.Padding = new System.Windows.Forms.Padding(4);
             this.Size = new System.Drawing.Size(659, 126);
+            this.Load += new System.EventHandler(this.ucDLApplicationInfo_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbIsActive)).EndInit();

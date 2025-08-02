@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Data_Layer
 {
-    public class clsInternationalLicenses
+    public class clsInternationalLicensesDataAccess
     {
         public static DataTable GetAll()
         {

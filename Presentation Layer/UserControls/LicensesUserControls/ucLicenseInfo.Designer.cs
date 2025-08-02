@@ -29,6 +29,19 @@
         private void InitializeComponent()
         {
             this.gbDriverLicense = new System.Windows.Forms.GroupBox();
+            this.lblExpirationDate = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.lblExpirationDateTitle = new System.Windows.Forms.Label();
+            this.lblNotes = new System.Windows.Forms.Label();
+            this.lblIssueReason = new System.Windows.Forms.Label();
+            this.lblIssueDate = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.lblNotesTitle = new System.Windows.Forms.Label();
+            this.lblIssueReasonTitle = new System.Windows.Forms.Label();
+            this.lblIssueDateTitle = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblIsDetained = new System.Windows.Forms.Label();
             this.lblIsActive = new System.Windows.Forms.Label();
             this.lblDateOfBirth = new System.Windows.Forms.Label();
@@ -39,27 +52,6 @@
             this.lblLicenseID = new System.Windows.Forms.Label();
             this.lblLicenseIDTitle = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
-            this.lblIsDetainedTitle = new System.Windows.Forms.Label();
-            this.lblIsActiveTitle = new System.Windows.Forms.Label();
-            this.lblDateOfBirthTitle = new System.Windows.Forms.Label();
-            this.lblDrivingIDTitle = new System.Windows.Forms.Label();
-            this.lblClassTitle = new System.Windows.Forms.Label();
-            this.lblGenderTitle = new System.Windows.Forms.Label();
-            this.lblNationalNoTitle = new System.Windows.Forms.Label();
-            this.lblNameTitle = new System.Windows.Forms.Label();
-            this.lblNotes = new System.Windows.Forms.Label();
-            this.lblIssueReason = new System.Windows.Forms.Label();
-            this.lblIssueDate = new System.Windows.Forms.Label();
-            this.lblNotesTitle = new System.Windows.Forms.Label();
-            this.lblIssueReasonTitle = new System.Windows.Forms.Label();
-            this.lblIssueDateTitle = new System.Windows.Forms.Label();
-            this.lblExpirationDate = new System.Windows.Forms.Label();
-            this.lblExpirationDateTitle = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbCountry = new System.Windows.Forms.PictureBox();
             this.pbPhone = new System.Windows.Forms.PictureBox();
             this.pbDateOfBirth = new System.Windows.Forms.PictureBox();
@@ -69,6 +61,14 @@
             this.pbNationalNo = new System.Windows.Forms.PictureBox();
             this.pbName = new System.Windows.Forms.PictureBox();
             this.pbPicture = new System.Windows.Forms.PictureBox();
+            this.lblIsDetainedTitle = new System.Windows.Forms.Label();
+            this.lblIsActiveTitle = new System.Windows.Forms.Label();
+            this.lblDateOfBirthTitle = new System.Windows.Forms.Label();
+            this.lblDrivingIDTitle = new System.Windows.Forms.Label();
+            this.lblClassTitle = new System.Windows.Forms.Label();
+            this.lblGenderTitle = new System.Windows.Forms.Label();
+            this.lblNationalNoTitle = new System.Windows.Forms.Label();
+            this.lblNameTitle = new System.Windows.Forms.Label();
             this.gbDriverLicense.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -136,6 +136,144 @@
             this.gbDriverLicense.TabIndex = 87;
             this.gbDriverLicense.TabStop = false;
             this.gbDriverLicense.Text = "Driver License Info";
+            // 
+            // lblExpirationDate
+            // 
+            this.lblExpirationDate.AutoSize = true;
+            this.lblExpirationDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExpirationDate.ForeColor = System.Drawing.Color.Black;
+            this.lblExpirationDate.Location = new System.Drawing.Point(520, 124);
+            this.lblExpirationDate.Name = "lblExpirationDate";
+            this.lblExpirationDate.Size = new System.Drawing.Size(40, 24);
+            this.lblExpirationDate.TabIndex = 106;
+            this.lblExpirationDate.Text = "???";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::Presentation_Layer.Properties.Resources.Calendar;
+            this.pictureBox5.Location = new System.Drawing.Point(483, 123);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 105;
+            this.pictureBox5.TabStop = false;
+            // 
+            // lblExpirationDateTitle
+            // 
+            this.lblExpirationDateTitle.AutoSize = true;
+            this.lblExpirationDateTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExpirationDateTitle.ForeColor = System.Drawing.Color.Black;
+            this.lblExpirationDateTitle.Location = new System.Drawing.Point(330, 124);
+            this.lblExpirationDateTitle.Name = "lblExpirationDateTitle";
+            this.lblExpirationDateTitle.Size = new System.Drawing.Size(138, 20);
+            this.lblExpirationDateTitle.TabIndex = 104;
+            this.lblExpirationDateTitle.Text = "Expiration Date:";
+            // 
+            // lblNotes
+            // 
+            this.lblNotes.AutoSize = true;
+            this.lblNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNotes.ForeColor = System.Drawing.Color.Black;
+            this.lblNotes.Location = new System.Drawing.Point(189, 253);
+            this.lblNotes.Name = "lblNotes";
+            this.lblNotes.Size = new System.Drawing.Size(40, 24);
+            this.lblNotes.TabIndex = 103;
+            this.lblNotes.Text = "???";
+            // 
+            // lblIssueReason
+            // 
+            this.lblIssueReason.AutoSize = true;
+            this.lblIssueReason.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIssueReason.ForeColor = System.Drawing.Color.Black;
+            this.lblIssueReason.Location = new System.Drawing.Point(189, 220);
+            this.lblIssueReason.Name = "lblIssueReason";
+            this.lblIssueReason.Size = new System.Drawing.Size(40, 24);
+            this.lblIssueReason.TabIndex = 102;
+            this.lblIssueReason.Text = "???";
+            // 
+            // lblIssueDate
+            // 
+            this.lblIssueDate.AutoSize = true;
+            this.lblIssueDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIssueDate.ForeColor = System.Drawing.Color.Black;
+            this.lblIssueDate.Location = new System.Drawing.Point(189, 187);
+            this.lblIssueDate.Name = "lblIssueDate";
+            this.lblIssueDate.Size = new System.Drawing.Size(40, 24);
+            this.lblIssueDate.TabIndex = 101;
+            this.lblIssueDate.Text = "???";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Presentation_Layer.Properties.Resources.Description32;
+            this.pictureBox2.Location = new System.Drawing.Point(152, 253);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 100;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Presentation_Layer.Properties.Resources.Description32;
+            this.pictureBox3.Location = new System.Drawing.Point(152, 220);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 99;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::Presentation_Layer.Properties.Resources.Calendar;
+            this.pictureBox4.Location = new System.Drawing.Point(152, 187);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 98;
+            this.pictureBox4.TabStop = false;
+            // 
+            // lblNotesTitle
+            // 
+            this.lblNotesTitle.AutoSize = true;
+            this.lblNotesTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNotesTitle.ForeColor = System.Drawing.Color.Black;
+            this.lblNotesTitle.Location = new System.Drawing.Point(26, 254);
+            this.lblNotesTitle.Name = "lblNotesTitle";
+            this.lblNotesTitle.Size = new System.Drawing.Size(66, 20);
+            this.lblNotesTitle.TabIndex = 97;
+            this.lblNotesTitle.Text = "Notes: ";
+            // 
+            // lblIssueReasonTitle
+            // 
+            this.lblIssueReasonTitle.AutoSize = true;
+            this.lblIssueReasonTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIssueReasonTitle.ForeColor = System.Drawing.Color.Black;
+            this.lblIssueReasonTitle.Location = new System.Drawing.Point(26, 222);
+            this.lblIssueReasonTitle.Name = "lblIssueReasonTitle";
+            this.lblIssueReasonTitle.Size = new System.Drawing.Size(125, 20);
+            this.lblIssueReasonTitle.TabIndex = 96;
+            this.lblIssueReasonTitle.Text = "Issue Reason:";
+            // 
+            // lblIssueDateTitle
+            // 
+            this.lblIssueDateTitle.AutoSize = true;
+            this.lblIssueDateTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIssueDateTitle.ForeColor = System.Drawing.Color.Black;
+            this.lblIssueDateTitle.Location = new System.Drawing.Point(26, 189);
+            this.lblIssueDateTitle.Name = "lblIssueDateTitle";
+            this.lblIssueDateTitle.Size = new System.Drawing.Size(107, 20);
+            this.lblIssueDateTitle.TabIndex = 95;
+            this.lblIssueDateTitle.Text = "Issue Date: ";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Presentation_Layer.Properties.Resources.Tag;
+            this.pictureBox1.Location = new System.Drawing.Point(152, 88);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 94;
+            this.pictureBox1.TabStop = false;
             // 
             // lblIsDetained
             // 
@@ -247,232 +385,6 @@
             this.lblName.TabIndex = 84;
             this.lblName.Text = "???";
             // 
-            // lblIsDetainedTitle
-            // 
-            this.lblIsDetainedTitle.AutoSize = true;
-            this.lblIsDetainedTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIsDetainedTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblIsDetainedTitle.Location = new System.Drawing.Point(330, 229);
-            this.lblIsDetainedTitle.Name = "lblIsDetainedTitle";
-            this.lblIsDetainedTitle.Size = new System.Drawing.Size(112, 20);
-            this.lblIsDetainedTitle.TabIndex = 54;
-            this.lblIsDetainedTitle.Text = "Is Detained?";
-            // 
-            // lblIsActiveTitle
-            // 
-            this.lblIsActiveTitle.AutoSize = true;
-            this.lblIsActiveTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIsActiveTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblIsActiveTitle.Location = new System.Drawing.Point(330, 194);
-            this.lblIsActiveTitle.Name = "lblIsActiveTitle";
-            this.lblIsActiveTitle.Size = new System.Drawing.Size(88, 20);
-            this.lblIsActiveTitle.TabIndex = 53;
-            this.lblIsActiveTitle.Text = "Is Active?";
-            // 
-            // lblDateOfBirthTitle
-            // 
-            this.lblDateOfBirthTitle.AutoSize = true;
-            this.lblDateOfBirthTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateOfBirthTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblDateOfBirthTitle.Location = new System.Drawing.Point(330, 159);
-            this.lblDateOfBirthTitle.Name = "lblDateOfBirthTitle";
-            this.lblDateOfBirthTitle.Size = new System.Drawing.Size(120, 20);
-            this.lblDateOfBirthTitle.TabIndex = 52;
-            this.lblDateOfBirthTitle.Text = "Date of birth: ";
-            // 
-            // lblDrivingIDTitle
-            // 
-            this.lblDrivingIDTitle.AutoSize = true;
-            this.lblDrivingIDTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDrivingIDTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblDrivingIDTitle.Location = new System.Drawing.Point(330, 92);
-            this.lblDrivingIDTitle.Name = "lblDrivingIDTitle";
-            this.lblDrivingIDTitle.Size = new System.Drawing.Size(85, 20);
-            this.lblDrivingIDTitle.TabIndex = 51;
-            this.lblDrivingIDTitle.Text = "Driver ID:";
-            // 
-            // lblClassTitle
-            // 
-            this.lblClassTitle.AutoSize = true;
-            this.lblClassTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClassTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblClassTitle.Location = new System.Drawing.Point(27, 25);
-            this.lblClassTitle.Name = "lblClassTitle";
-            this.lblClassTitle.Size = new System.Drawing.Size(58, 20);
-            this.lblClassTitle.TabIndex = 50;
-            this.lblClassTitle.Text = "Class:";
-            // 
-            // lblGenderTitle
-            // 
-            this.lblGenderTitle.AutoSize = true;
-            this.lblGenderTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGenderTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblGenderTitle.Location = new System.Drawing.Point(26, 156);
-            this.lblGenderTitle.Name = "lblGenderTitle";
-            this.lblGenderTitle.Size = new System.Drawing.Size(79, 20);
-            this.lblGenderTitle.TabIndex = 49;
-            this.lblGenderTitle.Text = "Gender: ";
-            // 
-            // lblNationalNoTitle
-            // 
-            this.lblNationalNoTitle.AutoSize = true;
-            this.lblNationalNoTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNationalNoTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblNationalNoTitle.Location = new System.Drawing.Point(25, 124);
-            this.lblNationalNoTitle.Name = "lblNationalNoTitle";
-            this.lblNationalNoTitle.Size = new System.Drawing.Size(105, 20);
-            this.lblNationalNoTitle.TabIndex = 48;
-            this.lblNationalNoTitle.Text = "National no:";
-            // 
-            // lblNameTitle
-            // 
-            this.lblNameTitle.AutoSize = true;
-            this.lblNameTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNameTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblNameTitle.Location = new System.Drawing.Point(27, 58);
-            this.lblNameTitle.Name = "lblNameTitle";
-            this.lblNameTitle.Size = new System.Drawing.Size(65, 20);
-            this.lblNameTitle.TabIndex = 47;
-            this.lblNameTitle.Text = "Name: ";
-            // 
-            // lblNotes
-            // 
-            this.lblNotes.AutoSize = true;
-            this.lblNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNotes.ForeColor = System.Drawing.Color.Black;
-            this.lblNotes.Location = new System.Drawing.Point(189, 253);
-            this.lblNotes.Name = "lblNotes";
-            this.lblNotes.Size = new System.Drawing.Size(40, 24);
-            this.lblNotes.TabIndex = 103;
-            this.lblNotes.Text = "???";
-            // 
-            // lblIssueReason
-            // 
-            this.lblIssueReason.AutoSize = true;
-            this.lblIssueReason.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIssueReason.ForeColor = System.Drawing.Color.Black;
-            this.lblIssueReason.Location = new System.Drawing.Point(189, 220);
-            this.lblIssueReason.Name = "lblIssueReason";
-            this.lblIssueReason.Size = new System.Drawing.Size(40, 24);
-            this.lblIssueReason.TabIndex = 102;
-            this.lblIssueReason.Text = "???";
-            // 
-            // lblIssueDate
-            // 
-            this.lblIssueDate.AutoSize = true;
-            this.lblIssueDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIssueDate.ForeColor = System.Drawing.Color.Black;
-            this.lblIssueDate.Location = new System.Drawing.Point(189, 187);
-            this.lblIssueDate.Name = "lblIssueDate";
-            this.lblIssueDate.Size = new System.Drawing.Size(40, 24);
-            this.lblIssueDate.TabIndex = 101;
-            this.lblIssueDate.Text = "???";
-            // 
-            // lblNotesTitle
-            // 
-            this.lblNotesTitle.AutoSize = true;
-            this.lblNotesTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNotesTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblNotesTitle.Location = new System.Drawing.Point(26, 254);
-            this.lblNotesTitle.Name = "lblNotesTitle";
-            this.lblNotesTitle.Size = new System.Drawing.Size(66, 20);
-            this.lblNotesTitle.TabIndex = 97;
-            this.lblNotesTitle.Text = "Notes: ";
-            // 
-            // lblIssueReasonTitle
-            // 
-            this.lblIssueReasonTitle.AutoSize = true;
-            this.lblIssueReasonTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIssueReasonTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblIssueReasonTitle.Location = new System.Drawing.Point(26, 222);
-            this.lblIssueReasonTitle.Name = "lblIssueReasonTitle";
-            this.lblIssueReasonTitle.Size = new System.Drawing.Size(125, 20);
-            this.lblIssueReasonTitle.TabIndex = 96;
-            this.lblIssueReasonTitle.Text = "Issue Reason:";
-            // 
-            // lblIssueDateTitle
-            // 
-            this.lblIssueDateTitle.AutoSize = true;
-            this.lblIssueDateTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIssueDateTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblIssueDateTitle.Location = new System.Drawing.Point(26, 189);
-            this.lblIssueDateTitle.Name = "lblIssueDateTitle";
-            this.lblIssueDateTitle.Size = new System.Drawing.Size(107, 20);
-            this.lblIssueDateTitle.TabIndex = 95;
-            this.lblIssueDateTitle.Text = "Issue Date: ";
-            // 
-            // lblExpirationDate
-            // 
-            this.lblExpirationDate.AutoSize = true;
-            this.lblExpirationDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExpirationDate.ForeColor = System.Drawing.Color.Black;
-            this.lblExpirationDate.Location = new System.Drawing.Point(520, 124);
-            this.lblExpirationDate.Name = "lblExpirationDate";
-            this.lblExpirationDate.Size = new System.Drawing.Size(40, 24);
-            this.lblExpirationDate.TabIndex = 106;
-            this.lblExpirationDate.Text = "???";
-            // 
-            // lblExpirationDateTitle
-            // 
-            this.lblExpirationDateTitle.AutoSize = true;
-            this.lblExpirationDateTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExpirationDateTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblExpirationDateTitle.Location = new System.Drawing.Point(330, 124);
-            this.lblExpirationDateTitle.Name = "lblExpirationDateTitle";
-            this.lblExpirationDateTitle.Size = new System.Drawing.Size(138, 20);
-            this.lblExpirationDateTitle.TabIndex = 104;
-            this.lblExpirationDateTitle.Text = "Expiration Date:";
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::Presentation_Layer.Properties.Resources.Calendar;
-            this.pictureBox5.Location = new System.Drawing.Point(483, 123);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 105;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Presentation_Layer.Properties.Resources.Description32;
-            this.pictureBox2.Location = new System.Drawing.Point(152, 253);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 100;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Presentation_Layer.Properties.Resources.Description32;
-            this.pictureBox3.Location = new System.Drawing.Point(152, 220);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 99;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::Presentation_Layer.Properties.Resources.Calendar;
-            this.pictureBox4.Location = new System.Drawing.Point(152, 187);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 98;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Presentation_Layer.Properties.Resources.Tag;
-            this.pictureBox1.Location = new System.Drawing.Point(152, 88);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 94;
-            this.pictureBox1.TabStop = false;
-            // 
             // pbCountry
             // 
             this.pbCountry.Image = global::Presentation_Layer.Properties.Resources.Question;
@@ -563,6 +475,94 @@
             this.pbPicture.TabIndex = 70;
             this.pbPicture.TabStop = false;
             // 
+            // lblIsDetainedTitle
+            // 
+            this.lblIsDetainedTitle.AutoSize = true;
+            this.lblIsDetainedTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIsDetainedTitle.ForeColor = System.Drawing.Color.Black;
+            this.lblIsDetainedTitle.Location = new System.Drawing.Point(330, 229);
+            this.lblIsDetainedTitle.Name = "lblIsDetainedTitle";
+            this.lblIsDetainedTitle.Size = new System.Drawing.Size(112, 20);
+            this.lblIsDetainedTitle.TabIndex = 54;
+            this.lblIsDetainedTitle.Text = "Is Detained?";
+            // 
+            // lblIsActiveTitle
+            // 
+            this.lblIsActiveTitle.AutoSize = true;
+            this.lblIsActiveTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIsActiveTitle.ForeColor = System.Drawing.Color.Black;
+            this.lblIsActiveTitle.Location = new System.Drawing.Point(330, 194);
+            this.lblIsActiveTitle.Name = "lblIsActiveTitle";
+            this.lblIsActiveTitle.Size = new System.Drawing.Size(88, 20);
+            this.lblIsActiveTitle.TabIndex = 53;
+            this.lblIsActiveTitle.Text = "Is Active?";
+            // 
+            // lblDateOfBirthTitle
+            // 
+            this.lblDateOfBirthTitle.AutoSize = true;
+            this.lblDateOfBirthTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateOfBirthTitle.ForeColor = System.Drawing.Color.Black;
+            this.lblDateOfBirthTitle.Location = new System.Drawing.Point(330, 159);
+            this.lblDateOfBirthTitle.Name = "lblDateOfBirthTitle";
+            this.lblDateOfBirthTitle.Size = new System.Drawing.Size(120, 20);
+            this.lblDateOfBirthTitle.TabIndex = 52;
+            this.lblDateOfBirthTitle.Text = "Date of birth: ";
+            // 
+            // lblDrivingIDTitle
+            // 
+            this.lblDrivingIDTitle.AutoSize = true;
+            this.lblDrivingIDTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDrivingIDTitle.ForeColor = System.Drawing.Color.Black;
+            this.lblDrivingIDTitle.Location = new System.Drawing.Point(330, 92);
+            this.lblDrivingIDTitle.Name = "lblDrivingIDTitle";
+            this.lblDrivingIDTitle.Size = new System.Drawing.Size(85, 20);
+            this.lblDrivingIDTitle.TabIndex = 51;
+            this.lblDrivingIDTitle.Text = "Driver ID:";
+            // 
+            // lblClassTitle
+            // 
+            this.lblClassTitle.AutoSize = true;
+            this.lblClassTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClassTitle.ForeColor = System.Drawing.Color.Black;
+            this.lblClassTitle.Location = new System.Drawing.Point(27, 25);
+            this.lblClassTitle.Name = "lblClassTitle";
+            this.lblClassTitle.Size = new System.Drawing.Size(58, 20);
+            this.lblClassTitle.TabIndex = 50;
+            this.lblClassTitle.Text = "Class:";
+            // 
+            // lblGenderTitle
+            // 
+            this.lblGenderTitle.AutoSize = true;
+            this.lblGenderTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGenderTitle.ForeColor = System.Drawing.Color.Black;
+            this.lblGenderTitle.Location = new System.Drawing.Point(26, 156);
+            this.lblGenderTitle.Name = "lblGenderTitle";
+            this.lblGenderTitle.Size = new System.Drawing.Size(79, 20);
+            this.lblGenderTitle.TabIndex = 49;
+            this.lblGenderTitle.Text = "Gender: ";
+            // 
+            // lblNationalNoTitle
+            // 
+            this.lblNationalNoTitle.AutoSize = true;
+            this.lblNationalNoTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNationalNoTitle.ForeColor = System.Drawing.Color.Black;
+            this.lblNationalNoTitle.Location = new System.Drawing.Point(25, 124);
+            this.lblNationalNoTitle.Name = "lblNationalNoTitle";
+            this.lblNationalNoTitle.Size = new System.Drawing.Size(105, 20);
+            this.lblNationalNoTitle.TabIndex = 48;
+            this.lblNationalNoTitle.Text = "National no:";
+            // 
+            // lblNameTitle
+            // 
+            this.lblNameTitle.AutoSize = true;
+            this.lblNameTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNameTitle.ForeColor = System.Drawing.Color.Black;
+            this.lblNameTitle.Location = new System.Drawing.Point(27, 58);
+            this.lblNameTitle.Name = "lblNameTitle";
+            this.lblNameTitle.Size = new System.Drawing.Size(65, 20);
+            this.lblNameTitle.TabIndex = 47;
+            this.lblNameTitle.Text = "Name: ";
+            // 
             // ucLicenseInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -571,6 +571,7 @@
             this.Name = "ucLicenseInfo";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Size = new System.Drawing.Size(843, 314);
+            this.Load += new System.EventHandler(this.ucLicenseInfo_Load);
             this.gbDriverLicense.ResumeLayout(false);
             this.gbDriverLicense.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();

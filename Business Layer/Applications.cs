@@ -26,6 +26,15 @@ namespace Business_Layer
             get => clsUsersDataAccess.GetUserNameByID(CreatedByUserID);
             set => CreatedByUserID = clsUsersDataAccess.GetUserIDByName(value);
         }
+        public string ApplicationTypeName 
+        {
+            get => clsApplicationTypes.Find(ApplicationTypeID).ApplicationType;
+        }
+        public string Fullname
+        {
+            get => clsPerson.GetPersonFullName(PersonID);
+        }
+        
         private enum enMode { eAdd, eUpdate }
         private enMode Mode;
 

@@ -19,7 +19,10 @@ namespace Business_Layer
             get => clsLicenseClassesDataAccess.GetLicenseClassNameByID(LicenseClassID);
             set => LicenseClassID = clsLicenseClassesDataAccess.GetLicenseClassIDByName(value);
         }
-        
+        public int PassedTestCount
+        {
+            get => clsTestsDataAccess.PassedTestCount(LocalDrivingLicenseApplicationID);
+        }
 
         private enum enMode { eAdd, eUpdate }
         private enMode Mode;

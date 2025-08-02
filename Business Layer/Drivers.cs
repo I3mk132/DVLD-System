@@ -132,9 +132,14 @@ namespace Business_Layer
         {
             return clsDriversDataAccess.GetAllDrivers(clsDriversDataAccess.enMode.PersonJoined);
         }
-        public static string GetDriverFullName(int ID)
+        public static string GetDriverFullName(int DriverID)
         {
-            return GetPersonFullName(ID);
+            clsDrivers driver = Find(DriverID: DriverID);
+
+            if (driver != null)
+                return GetPersonFullName(driver.PersonID);
+            else
+                return "";
         }
 
         private bool _AddNewDriver()
