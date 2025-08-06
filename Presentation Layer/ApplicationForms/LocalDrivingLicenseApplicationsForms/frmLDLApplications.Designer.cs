@@ -42,7 +42,7 @@
             this.lblManageUsers.AutoSize = true;
             this.lblManageUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblManageUsers.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblManageUsers.Location = new System.Drawing.Point(256, 183);
+            this.lblManageUsers.Location = new System.Drawing.Point(282, 183);
             this.lblManageUsers.Name = "lblManageUsers";
             this.lblManageUsers.Size = new System.Drawing.Size(460, 31);
             this.lblManageUsers.TabIndex = 11;
@@ -54,7 +54,7 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Image = global::Presentation_Layer.Properties.Resources.Close32;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(828, 625);
+            this.btnClose.Location = new System.Drawing.Point(860, 625);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(134, 40);
             this.btnClose.TabIndex = 13;
@@ -67,7 +67,7 @@
             this.pbAdd.BackColor = System.Drawing.Color.White;
             this.pbAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbAdd.Image = global::Presentation_Layer.Properties.Resources.DocumentAdd;
-            this.pbAdd.Location = new System.Drawing.Point(877, 170);
+            this.pbAdd.Location = new System.Drawing.Point(909, 170);
             this.pbAdd.Name = "pbAdd";
             this.pbAdd.Size = new System.Drawing.Size(85, 48);
             this.pbAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -78,7 +78,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Presentation_Layer.Properties.Resources.DocumentSettings3;
-            this.pictureBox1.Location = new System.Drawing.Point(392, 10);
+            this.pictureBox1.Location = new System.Drawing.Point(418, 10);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(170, 170);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -90,7 +90,7 @@
             this.ucLDLApplications1.BackColor = System.Drawing.Color.Transparent;
             this.ucLDLApplications1.Location = new System.Drawing.Point(6, 224);
             this.ucLDLApplications1.Name = "ucLDLApplications1";
-            this.ucLDLApplications1.Size = new System.Drawing.Size(960, 424);
+            this.ucLDLApplications1.Size = new System.Drawing.Size(988, 424);
             this.ucLDLApplications1.TabIndex = 14;
             // 
             // frmLDLApplications
@@ -98,7 +98,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(241)))));
-            this.ClientSize = new System.Drawing.Size(971, 677);
+            this.ClientSize = new System.Drawing.Size(1006, 677);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.ucLDLApplications1);
             this.Controls.Add(this.pbAdd);

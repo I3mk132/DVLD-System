@@ -64,6 +64,7 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Driving License Application Info";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // lblShowLicense
             // 
@@ -83,7 +84,7 @@
             this.lblPassedTestValue.AutoSize = true;
             this.lblPassedTestValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassedTestValue.ForeColor = System.Drawing.Color.Black;
-            this.lblPassedTestValue.Location = new System.Drawing.Point(440, 65);
+            this.lblPassedTestValue.Location = new System.Drawing.Point(401, 65);
             this.lblPassedTestValue.Name = "lblPassedTestValue";
             this.lblPassedTestValue.Size = new System.Drawing.Size(40, 24);
             this.lblPassedTestValue.TabIndex = 101;
@@ -94,7 +95,7 @@
             this.lblLicenseValue.AutoSize = true;
             this.lblLicenseValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLicenseValue.ForeColor = System.Drawing.Color.Black;
-            this.lblLicenseValue.Location = new System.Drawing.Point(440, 23);
+            this.lblLicenseValue.Location = new System.Drawing.Point(401, 23);
             this.lblLicenseValue.Name = "lblLicenseValue";
             this.lblLicenseValue.Size = new System.Drawing.Size(40, 24);
             this.lblLicenseValue.TabIndex = 102;
@@ -103,7 +104,7 @@
             // pbIsActive
             // 
             this.pbIsActive.Image = global::Presentation_Layer.Properties.Resources.Key;
-            this.pbIsActive.Location = new System.Drawing.Point(411, 63);
+            this.pbIsActive.Location = new System.Drawing.Point(372, 63);
             this.pbIsActive.Name = "pbIsActive";
             this.pbIsActive.Size = new System.Drawing.Size(25, 25);
             this.pbIsActive.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -126,7 +127,7 @@
             this.lblPassedTestTitle.AutoSize = true;
             this.lblPassedTestTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassedTestTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblPassedTestTitle.Location = new System.Drawing.Point(279, 68);
+            this.lblPassedTestTitle.Location = new System.Drawing.Point(240, 68);
             this.lblPassedTestTitle.Name = "lblPassedTestTitle";
             this.lblPassedTestTitle.Size = new System.Drawing.Size(122, 20);
             this.lblPassedTestTitle.TabIndex = 95;
@@ -156,7 +157,7 @@
             // pbUsername
             // 
             this.pbUsername.Image = global::Presentation_Layer.Properties.Resources.License_pink;
-            this.pbUsername.Location = new System.Drawing.Point(411, 25);
+            this.pbUsername.Location = new System.Drawing.Point(372, 25);
             this.pbUsername.Name = "pbUsername";
             this.pbUsername.Size = new System.Drawing.Size(25, 25);
             this.pbUsername.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -168,7 +169,7 @@
             this.lblAppliedLicenseTitle.AutoSize = true;
             this.lblAppliedLicenseTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAppliedLicenseTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblAppliedLicenseTitle.Location = new System.Drawing.Point(259, 28);
+            this.lblAppliedLicenseTitle.Location = new System.Drawing.Point(220, 28);
             this.lblAppliedLicenseTitle.Name = "lblAppliedLicenseTitle";
             this.lblAppliedLicenseTitle.Size = new System.Drawing.Size(146, 20);
             this.lblAppliedLicenseTitle.TabIndex = 94;

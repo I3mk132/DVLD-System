@@ -23,7 +23,7 @@ namespace Business_Layer
         {
             get => clsTestsDataAccess.PassedTestCount(LocalDrivingLicenseApplicationID);
         }
-
+        
         private enum enMode { eAdd, eUpdate }
         private enMode Mode;
 
@@ -122,6 +122,11 @@ namespace Business_Layer
         public static bool IsApplicationExists(int PersonID, int LicenseClassID)
         {
             return clsLocalDrivingLicenseApplicationsDataAccess.IsExists(PersonID, LicenseClassID);
+        }
+
+        public int TestTrialCount(int TestTypeID)
+        {
+            return clsTests.GetTrialsCount(LocalDrivingLicenseApplicationID, TestTypeID);
         }
 
         private bool _AddNew()

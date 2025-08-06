@@ -80,6 +80,47 @@ namespace Data_Layer
             return isFound;
 
         }
+        public static bool GetTestTypeByTitle(ref int ID, ref string ApplicationType, ref string Description, ref decimal Fees)
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"SELECT * FROM TestTypes WHERE TestTypeTitle = @Title";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@Title", ApplicationType);
+
+            bool isFound = false;
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isFound = true;
+
+                    ID = (int)reader["TestTypeID"];
+                    ApplicationType = (string)reader["TestTypeTitle"];
+                    Description = (string)reader["TestTypeDescription"];
+                    Fees = (decimal)reader["TestTypeFees"];
+
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+                clsErrorLog.AddErrorLog(ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isFound;
+
+
+        }
         public static bool UpdateTestType(
             int ID, string Title, string Description, decimal Fees
         )

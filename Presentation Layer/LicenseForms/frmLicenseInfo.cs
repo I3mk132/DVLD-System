@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,9 +13,20 @@ namespace Presentation_Layer.ApplicationForms.LicensesForms
 {
     public partial class frmLicenseInfo : Form
     {
-        public frmLicenseInfo()
+        public frmLicenseInfo(int LicenseID)
         {
             InitializeComponent();
+            ucLicenseInfo1.LicenseID = LicenseID;
+        }
+
+        private void frmLicenseInfo_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

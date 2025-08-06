@@ -179,7 +179,7 @@ namespace Business_Layer
         public static string GetPersonFullName(int ID)
         {
 
-            clsPerson person = clsPerson.Find(PersonID: -1);
+            clsPerson person = clsPerson.Find(PersonID: ID);
             return person.Firstname + " " + person.Secondname + " " + person.Thirdname + " " + person.Lastname;
 
         }

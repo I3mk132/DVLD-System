@@ -228,6 +228,8 @@ namespace Data_Layer
 
             SqlCommand command = new SqlCommand(query, connection);
 
+            command.Parameters.AddWithValue("@LDLAppID", LDLAppID);
+
             int Count = -1;
             try
             {
@@ -247,6 +249,45 @@ namespace Data_Layer
                 connection.Close ();
             }
             return Count;
+        }
+        public static int TrialCount(int LDLAppID, int TestType)
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"
+
+                Select count(*)
+	                From Tests T
+		                JOIN TestAppointments TA ON T.TestAppointmentID = TA.TestAppointmentID
+	                WHERE 
+		                TA.LocalDrivingLicenseApplicationID = @LDLAppID AND T.TestResult = 0 AND TA.TestTypeID = @TestType
+            ";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@LDLAppID", LDLAppID);
+            command.Parameters.AddWithValue("@TestType", TestType);
+
+            int Count = -1;
+            try
+            {
+                connection.Open();
+
+                object result = command.ExecuteScalar();
+
+                if (result != null)
+                    Count = (int)result;
+            }
+            catch (Exception ex)
+            {
+                clsErrorLog.AddErrorLog(ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Count;
+
         }
 
     }

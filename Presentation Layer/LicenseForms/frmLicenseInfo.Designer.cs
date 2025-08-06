@@ -56,6 +56,7 @@
             this.btnClose.TabIndex = 139;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // lblTestAppointments
             // 
@@ -90,6 +91,7 @@
             this.Controls.Add(this.ucLicenseInfo1);
             this.Name = "frmLicenseInfo";
             this.Text = "License Info";
+            this.Load += new System.EventHandler(this.frmLicenseInfo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

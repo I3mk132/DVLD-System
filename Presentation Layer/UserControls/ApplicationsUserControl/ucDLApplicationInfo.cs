@@ -22,7 +22,7 @@ namespace Presentation_Layer.UserControls.ApplicationsUserControl
 
         private void ucDLApplicationInfo_Load(object sender, EventArgs e)
         {
-
+            LoadDLApplicationData();
         }
         private void LoadDLApplicationData()
         {
@@ -46,6 +46,11 @@ namespace Presentation_Layer.UserControls.ApplicationsUserControl
         {
             frmLicenseInfo frm = new frmLicenseInfo(AppID);
             frm.ShowDialog();   
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

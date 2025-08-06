@@ -247,5 +247,75 @@ namespace Presentation_Layer.UserControls.ApplicationsUserControl
         {
             RefreshDGV();
         }
+
+        private void cmsiSechduleTests_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cms_Opening(object sender, CancelEventArgs e)
+        {
+            if (dgvApplicationsList.SelectedCells.Count > 0)
+            {
+                DataGridViewCell selectedCell = dgvApplicationsList.SelectedCells[0];
+                DataGridViewRow row = selectedCell.OwningRow;
+
+                int PassedTests = Convert.ToInt32(row.Cells[5].Value);
+                string Status = row.Cells[6].Value.ToString();
+
+                tsmiVision.Enabled = false;
+                tsmiWritten.Enabled = false;
+                tsmiStreet.Enabled = false;
+
+                cmsiIssueDrivingLicense.Enabled = false;
+                cmsiShowLicense.Enabled = false;
+                if (Status == "Cancelled")
+                {
+                    cmsiEdit.Enabled = false;
+                    cmsiCancelApplication.Enabled = false;
+                    cmsiSechduleTests.Enabled = false;
+                    cmsiShowPersonLicenseHistory.Enabled = false;
+
+                }
+                
+
+                switch (PassedTests)
+                {
+                    case 0:
+                        tsmiVision.Enabled = true;
+                        break;
+                    case 1:
+                        tsmiWritten.Enabled = true;
+                        break;
+                    case 2:
+                        tsmiStreet.Enabled = true;
+                        break;
+                    case 3:
+
+                        cmsiIssueDrivingLicense.Enabled = true;
+                        cmsiShowLicense.Enabled = true;
+                        break;
+                }
+
+
+            }
+        }
+
+
+        private void SechduleTest_Click(object sender, EventArgs e)
+        {
+            if (dgvApplicationsList.SelectedCells.Count > 0)
+            {
+                DataGridViewCell selectedCell = dgvApplicationsList.SelectedCells[0];
+                DataGridViewRow row = selectedCell.OwningRow;
+
+                int LDLApplicationID = Convert.ToInt32(row.Cells[0].Value);
+                int TestTypeID = Convert.ToInt32(((ToolStripMenuItem)sender).Tag);
+                frmScheduleTestAppointments frm = new frmScheduleTestAppointments(LDLApplicationID, TestTypeID);
+                frm.ShowDialog();
+
+                RefreshDGV();
+            }
+        }
     }
 }

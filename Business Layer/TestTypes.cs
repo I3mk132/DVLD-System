@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Data_Layer;
@@ -38,6 +39,16 @@ namespace Business_Layer
             {
                 return new clsTestTypes(ID, Title, Description, Fees);
             }
+            return null;
+        }
+        public static clsTestTypes Find(string Title)
+        {
+            string Description = "";
+            decimal Fees = -1;
+            int ID = -1;
+
+            if (clsTestTypesDataAccess.GetTestTypeByTitle(ref ID, ref Title, ref Description, ref Fees))
+                return new clsTestTypes(ID, Title, Description, Fees);
             return null;
         }
         public static DataTable GetTestTypesList()

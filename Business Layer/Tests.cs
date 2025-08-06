@@ -2,19 +2,21 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Data_Layer;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Business_Layer
 {
     public class clsTests
     {
-        int TestID { get; set; }
-        int TestAppointmentID { get; set; }
-        bool TestResult { get; set; }
-        string Notes { get; set; }
-        int CreatedByUserID { get; set; }
+        public int TestID { get; set; }
+        public int TestAppointmentID { get; set; }
+        public bool TestResult { get; set; }
+        public string Notes { get; set; }
+        public int CreatedByUserID { get; set; }
         private enMode _Mode { get; set; }
         private enum enMode { eAdd, eUpdate }
 
@@ -48,6 +50,10 @@ namespace Business_Layer
         {
             return clsTestsDataAccess.GetAll();
         }
+        public static int GetTrialsCount(int LDLAppID, int TestType)
+        {
+            return clsTestsDataAccess.TrialCount( LDLAppID, TestType );
+        }
         public static clsTests Find(
             int TestID
         )
@@ -74,7 +80,7 @@ namespace Business_Layer
         {
 
             this.TestID = clsTestsDataAccess.Add(TestAppointmentID, TestResult, Notes, CreatedByUserID);
-            return (this.TestID != -1);
+            return (this.TestID != -1) && clsTestAppointments.LockAppointment(TestAppointmentID); ;
 
         }
         private bool _Update()
