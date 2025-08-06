@@ -105,6 +105,7 @@
             this.Controls.Add(this.lblManageUsers);
             this.Controls.Add(this.pictureBox1);
             this.Name = "frmLDLApplications";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LDLApplications";
             this.Load += new System.EventHandler(this.frmLDLApplications_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();

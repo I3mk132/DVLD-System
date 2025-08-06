@@ -59,6 +59,8 @@ namespace Presentation_Layer.ApplicationForms.LocalDrivingLicenseApplicationsFor
             }
             dtpDate.MinDate = DateTime.Now.AddDays(-1);
 
+            
+
             clsLocalDrivingLicenseApplications app = clsLocalDrivingLicenseApplications.Find(_LDLAppID);
 
             lblIDValue.Text = app.LocalDrivingLicenseApplicationID.ToString();
@@ -102,14 +104,20 @@ namespace Presentation_Layer.ApplicationForms.LocalDrivingLicenseApplicationsFor
                     {
                         gbRetakeTest.Enabled = true;
                         lblRetakeAppFeesValue.Text = "5";
-                        lblTotalFeesValue.Text = (Convert.ToInt32(lblRetakeAppFeesValue.Text) + Convert.ToInt32(lblFeesValue.Text)).ToString();
+                        lblTotalFeesValue.Text = (Convert.ToDecimal(lblRetakeAppFeesValue.Text) + Convert.ToDecimal(lblFeesValue.Text)).ToString();
                         lblRTestAppIDValue.Text = app1.RetakeTestAppointmentID.ToString();
                     }
                     else
                     {
                         gbRetakeTest.Enabled = false;
                     }
-                    
+
+                    if (app1.IsLocked.Value)
+                    {
+                        lblAlreadyExists.Visible = true;
+                        dtpDate.Enabled = false;
+                        lblSave.Visible = false;
+                    }
 
                 }
 
@@ -140,6 +148,7 @@ namespace Presentation_Layer.ApplicationForms.LocalDrivingLicenseApplicationsFor
             else
             {
                 app.PaidFees = Convert.ToDecimal(lblFeesValue.Text);
+                
 
             }
 

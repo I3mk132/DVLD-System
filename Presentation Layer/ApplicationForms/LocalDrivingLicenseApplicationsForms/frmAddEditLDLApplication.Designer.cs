@@ -368,6 +368,7 @@
             this.Controls.Add(this.lblAddEditTitle);
             this.Controls.Add(this.tabControl1);
             this.Name = "frmAddEditLDLApplication";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddEditLDLApplication";
             this.Load += new System.EventHandler(this.frmAddEditLDLApplication_Load);
             this.tpLoginInfo.ResumeLayout(false);

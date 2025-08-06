@@ -261,7 +261,7 @@
             this.cmsiShowLicense,
             this.cmsiShowPersonLicenseHistory});
             this.cms.Name = "cms";
-            this.cms.Size = new System.Drawing.Size(266, 348);
+            this.cms.Size = new System.Drawing.Size(266, 326);
             this.cms.Opening += new System.ComponentModel.CancelEventHandler(this.cms_Opening);
             // 
             // cmsiShowApplicationDetails
@@ -329,7 +329,7 @@
             this.tsmiVision.Image = global::Presentation_Layer.Properties.Resources.Eye32;
             this.tsmiVision.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmiVision.Name = "tsmiVision";
-            this.tsmiVision.Size = new System.Drawing.Size(196, 38);
+            this.tsmiVision.Size = new System.Drawing.Size(153, 38);
             this.tsmiVision.Tag = "1";
             this.tsmiVision.Text = "Vision Test";
             this.tsmiVision.Click += new System.EventHandler(this.SechduleTest_Click);
@@ -340,7 +340,7 @@
             this.tsmiWritten.Image = global::Presentation_Layer.Properties.Resources.Test32;
             this.tsmiWritten.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmiWritten.Name = "tsmiWritten";
-            this.tsmiWritten.Size = new System.Drawing.Size(196, 38);
+            this.tsmiWritten.Size = new System.Drawing.Size(153, 38);
             this.tsmiWritten.Tag = "2";
             this.tsmiWritten.Text = "Written Test";
             this.tsmiWritten.Click += new System.EventHandler(this.SechduleTest_Click);
@@ -351,7 +351,7 @@
             this.tsmiStreet.Image = global::Presentation_Layer.Properties.Resources.Driver32;
             this.tsmiStreet.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmiStreet.Name = "tsmiStreet";
-            this.tsmiStreet.Size = new System.Drawing.Size(196, 38);
+            this.tsmiStreet.Size = new System.Drawing.Size(153, 38);
             this.tsmiStreet.Tag = "3";
             this.tsmiStreet.Text = "Street Test";
             this.tsmiStreet.Click += new System.EventHandler(this.SechduleTest_Click);
@@ -364,6 +364,7 @@
             this.cmsiIssueDrivingLicense.Name = "cmsiIssueDrivingLicense";
             this.cmsiIssueDrivingLicense.Size = new System.Drawing.Size(265, 38);
             this.cmsiIssueDrivingLicense.Text = "Issue Driving License ( First time )";
+            this.cmsiIssueDrivingLicense.Click += new System.EventHandler(this.cmsiIssueDrivingLicense_Click);
             // 
             // cmss3
             // 

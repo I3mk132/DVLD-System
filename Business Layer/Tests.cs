@@ -70,6 +70,10 @@ namespace Business_Layer
 
             return null;
         }
+        public static bool TestPassed(int LDLAppID, int TestType)
+        {
+            return clsTestsDataAccess.TestPassed( LDLAppID, TestType );
+        }
 
         public static bool Delete(int ID)
         {

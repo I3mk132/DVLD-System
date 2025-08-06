@@ -350,6 +350,7 @@
             this.pbIcon.Location = new System.Drawing.Point(133, 25);
             this.pbIcon.Name = "pbIcon";
             this.pbIcon.Size = new System.Drawing.Size(160, 160);
+            this.pbIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbIcon.TabIndex = 0;
             this.pbIcon.TabStop = false;
             // 
@@ -445,7 +446,7 @@
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Image = global::Presentation_Layer.Properties.Resources.Key;
+            this.pictureBox8.Image = global::Presentation_Layer.Properties.Resources.Title32;
             this.pictureBox8.Location = new System.Drawing.Point(115, 51);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(25, 25);
@@ -485,6 +486,7 @@
             this.Controls.Add(this.gbtakeTest);
             this.Controls.Add(this.gbTest);
             this.Name = "frmTakeTest";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmTakeTest";
             this.Load += new System.EventHandler(this.frmTakeTest_Load);
             this.gbTest.ResumeLayout(false);

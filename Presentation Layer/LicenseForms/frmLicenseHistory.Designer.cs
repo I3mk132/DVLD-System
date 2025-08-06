@@ -33,10 +33,10 @@
             this.gbDriverLicenses = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dgvLocalLicenses = new System.Windows.Forms.DataGridView();
-            this.lblLocalLicensesHistory = new System.Windows.Forms.Label();
             this.lblRecordCount = new System.Windows.Forms.Label();
+            this.lblLocalLicensesHistory = new System.Windows.Forms.Label();
+            this.dgvLocalLicenses = new System.Windows.Forms.DataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.lblInternationalLicensesHistory = new System.Windows.Forms.Label();
             this.dgvInternationalLicenses = new System.Windows.Forms.DataGridView();
@@ -45,8 +45,8 @@
             this.gbDriverLicenses.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocalLicenses)).BeginInit();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInternationalLicenses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -105,18 +105,26 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Local";
             // 
-            // tabPage2
+            // lblRecordCount
             // 
-            this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.lblInternationalLicensesHistory);
-            this.tabPage2.Controls.Add(this.dgvInternationalLicenses);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1077, 182);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "International";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.lblRecordCount.AutoSize = true;
+            this.lblRecordCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecordCount.ForeColor = System.Drawing.Color.DimGray;
+            this.lblRecordCount.Location = new System.Drawing.Point(12, 151);
+            this.lblRecordCount.Name = "lblRecordCount";
+            this.lblRecordCount.Size = new System.Drawing.Size(155, 26);
+            this.lblRecordCount.TabIndex = 18;
+            this.lblRecordCount.Text = "# Records: -1";
+            // 
+            // lblLocalLicensesHistory
+            // 
+            this.lblLocalLicensesHistory.AutoSize = true;
+            this.lblLocalLicensesHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLocalLicensesHistory.Location = new System.Drawing.Point(22, 15);
+            this.lblLocalLicensesHistory.Name = "lblLocalLicensesHistory";
+            this.lblLocalLicensesHistory.Size = new System.Drawing.Size(225, 24);
+            this.lblLocalLicensesHistory.TabIndex = 16;
+            this.lblLocalLicensesHistory.Text = "Local Licenses History:";
             // 
             // dgvLocalLicenses
             // 
@@ -132,26 +140,18 @@
             this.dgvLocalLicenses.Size = new System.Drawing.Size(1043, 106);
             this.dgvLocalLicenses.TabIndex = 15;
             // 
-            // lblLocalLicensesHistory
+            // tabPage2
             // 
-            this.lblLocalLicensesHistory.AutoSize = true;
-            this.lblLocalLicensesHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLocalLicensesHistory.Location = new System.Drawing.Point(22, 15);
-            this.lblLocalLicensesHistory.Name = "lblLocalLicensesHistory";
-            this.lblLocalLicensesHistory.Size = new System.Drawing.Size(225, 24);
-            this.lblLocalLicensesHistory.TabIndex = 16;
-            this.lblLocalLicensesHistory.Text = "Local Licenses History:";
-            // 
-            // lblRecordCount
-            // 
-            this.lblRecordCount.AutoSize = true;
-            this.lblRecordCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecordCount.ForeColor = System.Drawing.Color.DimGray;
-            this.lblRecordCount.Location = new System.Drawing.Point(12, 151);
-            this.lblRecordCount.Name = "lblRecordCount";
-            this.lblRecordCount.Size = new System.Drawing.Size(155, 26);
-            this.lblRecordCount.TabIndex = 18;
-            this.lblRecordCount.Text = "# Records: -1";
+            this.tabPage2.Controls.Add(this.label1);
+            this.tabPage2.Controls.Add(this.lblInternationalLicensesHistory);
+            this.tabPage2.Controls.Add(this.dgvInternationalLicenses);
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1077, 182);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "International";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -223,14 +223,15 @@
             this.Controls.Add(this.lblLicenseHistory);
             this.Controls.Add(this.pictureBox1);
             this.Name = "frmLicenseHistory";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLicenseHistory";
             this.gbDriverLicenses.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLocalLicenses)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLocalLicenses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInternationalLicenses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

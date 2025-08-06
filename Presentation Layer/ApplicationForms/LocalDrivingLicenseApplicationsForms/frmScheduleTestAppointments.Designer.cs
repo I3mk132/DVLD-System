@@ -33,20 +33,20 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pbIcon = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmiEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiTakeTest = new System.Windows.Forms.ToolStripMenuItem();
             this.lblAppointments = new System.Windows.Forms.Label();
             this.lblRecordCount = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.lblTestAppointments = new System.Windows.Forms.Label();
-            this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tsmiEdit = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiTakeTest = new System.Windows.Forms.ToolStripMenuItem();
             this.ucApplicaitonBasicInfo1 = new Presentation_Layer.UserControls.ApplicationsUserControl.ucApplicaitonBasicInfo();
             this.ucDLApplicationInfo1 = new Presentation_Layer.UserControls.ApplicationsUserControl.ucDLApplicationInfo();
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
             this.cms.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
             this.SuspendLayout();
             // 
             // pbIcon
@@ -88,6 +88,33 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(717, 150);
             this.dataGridView1.TabIndex = 3;
+            // 
+            // cms
+            // 
+            this.cms.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiEdit,
+            this.tsmiTakeTest});
+            this.cms.Name = "cms";
+            this.cms.Size = new System.Drawing.Size(139, 80);
+            this.cms.Opening += new System.ComponentModel.CancelEventHandler(this.cms_Opening);
+            // 
+            // tsmiEdit
+            // 
+            this.tsmiEdit.Image = global::Presentation_Layer.Properties.Resources.EditPerson32;
+            this.tsmiEdit.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmiEdit.Name = "tsmiEdit";
+            this.tsmiEdit.Size = new System.Drawing.Size(138, 38);
+            this.tsmiEdit.Text = "Edit";
+            this.tsmiEdit.Click += new System.EventHandler(this.tsmiEdit_Click);
+            // 
+            // tsmiTakeTest
+            // 
+            this.tsmiTakeTest.Image = global::Presentation_Layer.Properties.Resources.Test32;
+            this.tsmiTakeTest.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmiTakeTest.Name = "tsmiTakeTest";
+            this.tsmiTakeTest.Size = new System.Drawing.Size(138, 38);
+            this.tsmiTakeTest.Text = "Take Test";
+            this.tsmiTakeTest.Click += new System.EventHandler(this.tsmiTakeTest_Click);
             // 
             // lblAppointments
             // 
@@ -148,32 +175,6 @@
             this.lblTestAppointments.TabIndex = 20;
             this.lblTestAppointments.Text = "??? Test Appointments";
             // 
-            // cms
-            // 
-            this.cms.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiEdit,
-            this.tsmiTakeTest});
-            this.cms.Name = "cms";
-            this.cms.Size = new System.Drawing.Size(139, 80);
-            // 
-            // tsmiEdit
-            // 
-            this.tsmiEdit.Image = global::Presentation_Layer.Properties.Resources.EditPerson32;
-            this.tsmiEdit.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmiEdit.Name = "tsmiEdit";
-            this.tsmiEdit.Size = new System.Drawing.Size(138, 38);
-            this.tsmiEdit.Text = "Edit";
-            this.tsmiEdit.Click += new System.EventHandler(this.tsmiEdit_Click);
-            // 
-            // tsmiTakeTest
-            // 
-            this.tsmiTakeTest.Image = global::Presentation_Layer.Properties.Resources.Test32;
-            this.tsmiTakeTest.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmiTakeTest.Name = "tsmiTakeTest";
-            this.tsmiTakeTest.Size = new System.Drawing.Size(138, 38);
-            this.tsmiTakeTest.Text = "Take Test";
-            this.tsmiTakeTest.Click += new System.EventHandler(this.tsmiTakeTest_Click);
-            // 
             // ucApplicaitonBasicInfo1
             // 
             this.ucApplicaitonBasicInfo1.BackColor = System.Drawing.Color.White;
@@ -209,12 +210,13 @@
             this.Controls.Add(this.ucDLApplicationInfo1);
             this.Controls.Add(this.pbIcon);
             this.Name = "frmScheduleTestAppointments";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmScheduleTest";
             this.Load += new System.EventHandler(this.frmScheduleTestAppointments_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
             this.cms.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gbTest = new System.Windows.Forms.GroupBox();
+            this.lblAlreadyExists = new System.Windows.Forms.Label();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -78,6 +79,7 @@
             // gbTest
             // 
             this.gbTest.BackColor = System.Drawing.Color.White;
+            this.gbTest.Controls.Add(this.lblAlreadyExists);
             this.gbTest.Controls.Add(this.dtpDate);
             this.gbTest.Controls.Add(this.label1);
             this.gbTest.Controls.Add(this.pictureBox6);
@@ -101,10 +103,22 @@
             this.gbTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbTest.Location = new System.Drawing.Point(12, 26);
             this.gbTest.Name = "gbTest";
-            this.gbTest.Size = new System.Drawing.Size(472, 454);
+            this.gbTest.Size = new System.Drawing.Size(487, 454);
             this.gbTest.TabIndex = 0;
             this.gbTest.TabStop = false;
             this.gbTest.Text = "??? Test";
+            // 
+            // lblAlreadyExists
+            // 
+            this.lblAlreadyExists.AutoSize = true;
+            this.lblAlreadyExists.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlreadyExists.ForeColor = System.Drawing.Color.Red;
+            this.lblAlreadyExists.Location = new System.Drawing.Point(51, 216);
+            this.lblAlreadyExists.Name = "lblAlreadyExists";
+            this.lblAlreadyExists.Size = new System.Drawing.Size(394, 18);
+            this.lblAlreadyExists.TabIndex = 137;
+            this.lblAlreadyExists.Text = "Person already sat for the test, Appointment locked";
+            this.lblAlreadyExists.Visible = false;
             // 
             // dtpDate
             // 
@@ -303,7 +317,7 @@
             this.lblTestAppointments.AutoSize = true;
             this.lblTestAppointments.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTestAppointments.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblTestAppointments.Location = new System.Drawing.Point(146, 188);
+            this.lblTestAppointments.Location = new System.Drawing.Point(146, 185);
             this.lblTestAppointments.Name = "lblTestAppointments";
             this.lblTestAppointments.Size = new System.Drawing.Size(201, 31);
             this.lblTestAppointments.TabIndex = 21;
@@ -311,7 +325,7 @@
             // 
             // pbIcon
             // 
-            this.pbIcon.Location = new System.Drawing.Point(166, 25);
+            this.pbIcon.Location = new System.Drawing.Point(166, 22);
             this.pbIcon.Name = "pbIcon";
             this.pbIcon.Size = new System.Drawing.Size(160, 160);
             this.pbIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -333,7 +347,7 @@
             this.gbRetakeTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbRetakeTest.Location = new System.Drawing.Point(12, 486);
             this.gbRetakeTest.Name = "gbRetakeTest";
-            this.gbRetakeTest.Size = new System.Drawing.Size(472, 106);
+            this.gbRetakeTest.Size = new System.Drawing.Size(487, 106);
             this.gbRetakeTest.TabIndex = 137;
             this.gbRetakeTest.TabStop = false;
             this.gbRetakeTest.Text = "Retake test";
@@ -440,7 +454,7 @@
             this.lblSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSave.Image = global::Presentation_Layer.Properties.Resources.Save32;
             this.lblSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblSave.Location = new System.Drawing.Point(350, 598);
+            this.lblSave.Location = new System.Drawing.Point(362, 598);
             this.lblSave.Name = "lblSave";
             this.lblSave.Size = new System.Drawing.Size(134, 40);
             this.lblSave.TabIndex = 139;
@@ -454,7 +468,7 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Image = global::Presentation_Layer.Properties.Resources.Close32;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(204, 598);
+            this.btnClose.Location = new System.Drawing.Point(216, 598);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(134, 40);
             this.btnClose.TabIndex = 138;
@@ -467,12 +481,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(241)))));
-            this.ClientSize = new System.Drawing.Size(496, 647);
+            this.ClientSize = new System.Drawing.Size(511, 647);
             this.Controls.Add(this.lblSave);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.gbRetakeTest);
             this.Controls.Add(this.gbTest);
             this.Name = "frmScheduleTest";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmScheduleTest";
             this.Load += new System.EventHandler(this.frmScheduleTest_Load);
             this.gbTest.ResumeLayout(false);
@@ -528,5 +543,6 @@
         private System.Windows.Forms.Label lblRetakeAppFeesValue;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button lblSave;
+        private System.Windows.Forms.Label lblAlreadyExists;
     }
 }

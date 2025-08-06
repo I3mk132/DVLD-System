@@ -90,6 +90,7 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.ucLicenseInfo1);
             this.Name = "frmLicenseInfo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "License Info";
             this.Load += new System.EventHandler(this.frmLicenseInfo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -40,16 +40,18 @@ namespace Presentation_Layer.UserControls.ApplicationsUserControl
                 lblStatusDateValue.Text = app.LastStatusDate.Value.ToString("d");
                 lblCreatedByValue.Text = app.CreatedByUsername;
             }
-            else
-            {
-                MessageBox.Show("App not found.");
-            }
+
         }
 
         private void lblViewPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmPersonDetails frm = new frmPersonDetails(clsApplications.Find(AppID).PersonID);
             frm.ShowDialog();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

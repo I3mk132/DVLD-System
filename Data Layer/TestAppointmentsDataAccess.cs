@@ -112,7 +112,7 @@ namespace Data_Layer
             string query = @"
 
                 UPDATE TestAppointments SET
-                TestTypeID = @TestType,
+                TestTypeID = @TestTypeID,
                 LocalDrivingLicenseApplicationID = @LDLAppID,
                 AppointmentDate = @AppointmentDate,
                 PaidFees = @PaidFees,
@@ -267,7 +267,7 @@ namespace Data_Layer
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
-            string query = "SELECT AppointmentID FROM TestAppointments WHERE LocalDrivingLicenseApplicationID = @LDLAID AND TestTypeID = @TTID";
+            string query = "SELECT TestAppointmentID FROM TestAppointments WHERE LocalDrivingLicenseApplicationID = @LDLAID AND TestTypeID = @TTID ORDER BY TestAppointmentID Asc";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -331,7 +331,7 @@ namespace Data_Layer
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
-            string query = @" UPDATE TestAppointemnts SET IsLocked = 1 WHERE TestAppointmentID = @TestAppointmentID";
+            string query = @" UPDATE TestAppointments SET IsLocked = 1 WHERE TestAppointmentID = @TestAppointmentID";
 
             SqlCommand command = new SqlCommand(query, connection);
 

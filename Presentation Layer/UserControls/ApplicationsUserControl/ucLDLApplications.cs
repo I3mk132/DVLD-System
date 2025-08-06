@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business_Layer;
 using Presentation_Layer.ApplicationForms.LocalDrivingLicenseApplicationsForms;
+using Presentation_Layer.LicenseForms;
 using Presentation_Layer.UserForms;
 
 namespace Presentation_Layer.UserControls.ApplicationsUserControl
@@ -153,8 +154,8 @@ namespace Presentation_Layer.UserControls.ApplicationsUserControl
 
                 int LDLApplicationID = Convert.ToInt32(row.Cells[0].Value);
 
-                //frmApplicationCard frm = new frmApplicationCard(LDLApplicationID);
-                //frm.ShowDialog();
+                frmApplicationInfo frm = new frmApplicationInfo(LDLApplicationID);
+                frm.ShowDialog();
 
                 RefreshDGV();
             }
@@ -277,25 +278,32 @@ namespace Presentation_Layer.UserControls.ApplicationsUserControl
                     cmsiShowPersonLicenseHistory.Enabled = false;
 
                 }
-                
-
-                switch (PassedTests)
+                else
                 {
-                    case 0:
-                        tsmiVision.Enabled = true;
-                        break;
-                    case 1:
-                        tsmiWritten.Enabled = true;
-                        break;
-                    case 2:
-                        tsmiStreet.Enabled = true;
-                        break;
-                    case 3:
-
-                        cmsiIssueDrivingLicense.Enabled = true;
-                        cmsiShowLicense.Enabled = true;
-                        break;
+                    cmsiEdit.Enabled = true;
+                    cmsiCancelApplication.Enabled = true;
+                    cmsiSechduleTests.Enabled = true;
+                    cmsiShowPersonLicenseHistory.Enabled = true;
                 }
+
+
+                    switch (PassedTests)
+                    {
+                        case 0:
+                            tsmiVision.Enabled = true;
+                            break;
+                        case 1:
+                            tsmiWritten.Enabled = true;
+                            break;
+                        case 2:
+                            tsmiStreet.Enabled = true;
+                            break;
+                        case 3:
+
+                            cmsiIssueDrivingLicense.Enabled = true;
+                            cmsiShowLicense.Enabled = true;
+                            break;
+                    }
 
 
             }
@@ -312,6 +320,23 @@ namespace Presentation_Layer.UserControls.ApplicationsUserControl
                 int LDLApplicationID = Convert.ToInt32(row.Cells[0].Value);
                 int TestTypeID = Convert.ToInt32(((ToolStripMenuItem)sender).Tag);
                 frmScheduleTestAppointments frm = new frmScheduleTestAppointments(LDLApplicationID, TestTypeID);
+                frm.ShowDialog();
+
+                RefreshDGV();
+            }
+        }
+
+        private void cmsiIssueDrivingLicense_Click(object sender, EventArgs e)
+        {
+            if (dgvApplicationsList.SelectedCells.Count > 0)
+            {
+                DataGridViewCell selectedCell = dgvApplicationsList.SelectedCells[0];
+                DataGridViewRow row = selectedCell.OwningRow;
+
+                int LDLApplicationID = Convert.ToInt32(row.Cells[0].Value);
+
+
+                frmIssueLicenseFirstTime frm = new frmIssueLicenseFirstTime(LDLApplicationID, clsLocalDrivingLicenseApplications.Find(LDLApplicationID).ApplicationID);
                 frm.ShowDialog();
 
                 RefreshDGV();

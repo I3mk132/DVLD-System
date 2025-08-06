@@ -15,6 +15,7 @@ namespace Presentation_Layer.UserControls.ApplicationsUserControl
     public partial class ucDLApplicationInfo : UserControl
     {
         public int AppID = -1;
+        public bool HasLicense = false;
         public ucDLApplicationInfo()
         {
             InitializeComponent();
@@ -32,7 +33,10 @@ namespace Presentation_Layer.UserControls.ApplicationsUserControl
             {
                 lblDLAppIDValue.Text = app.LocalDrivingLicenseApplicationID.ToString();
                 lblLicenseValue.Text = app.LicenseClassName;
-                lblPassedTestValue.Text = app.PassedTestCount.ToString();
+                lblPassedTestValue.Text = app.PassedTestCount.ToString() + "/3";
+
+                lblShowLicense.Enabled = HasLicense;
+
             }
             else
             {

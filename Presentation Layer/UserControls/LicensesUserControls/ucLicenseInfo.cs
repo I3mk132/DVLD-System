@@ -57,10 +57,7 @@ namespace Presentation_Layer.UserControls.LicensesUserControls
                 pbGender.Image = (license.Gender == "Male" ? Resources.Male : Resources.Female);
 
             }
-            else
-            {
-                MessageBox.Show("License not found.");
-            }
+
         }
     }
 }

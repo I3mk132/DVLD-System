@@ -289,6 +289,45 @@ namespace Data_Layer
             return Count;
 
         }
+        public static bool TestPassed(int LDLAppID, int TestType)
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
+            string query = @"
+
+                Select 1
+	                From Tests T
+		                JOIN TestAppointments TA ON T.TestAppointmentID = TA.TestAppointmentID
+	                WHERE 
+		                TA.LocalDrivingLicenseApplicationID = @LDLAppID AND T.TestResult = 1 AND TA.TestTypeID = @TestType
+            ";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@LDLAppID", LDLAppID);
+            command.Parameters.AddWithValue("@TestType", TestType);
+
+            bool Passed = false;
+            try
+            {
+                connection.Open();
+
+                object result = command.ExecuteScalar();
+
+                if (result != null)
+                    Passed = true;
+            }
+            catch (Exception ex)
+            {
+                clsErrorLog.AddErrorLog(ex);
+                Passed = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Passed;
+
+        }
     }
 }
