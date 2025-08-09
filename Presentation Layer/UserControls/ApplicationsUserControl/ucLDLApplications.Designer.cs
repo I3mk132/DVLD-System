@@ -261,7 +261,7 @@
             this.cmsiShowLicense,
             this.cmsiShowPersonLicenseHistory});
             this.cms.Name = "cms";
-            this.cms.Size = new System.Drawing.Size(266, 326);
+            this.cms.Size = new System.Drawing.Size(266, 348);
             this.cms.Opening += new System.ComponentModel.CancelEventHandler(this.cms_Opening);
             // 
             // cmsiShowApplicationDetails
@@ -379,6 +379,7 @@
             this.cmsiShowLicense.Name = "cmsiShowLicense";
             this.cmsiShowLicense.Size = new System.Drawing.Size(265, 38);
             this.cmsiShowLicense.Text = "Show License";
+            this.cmsiShowLicense.Click += new System.EventHandler(this.cmsiShowLicense_Click);
             // 
             // cmsiShowPersonLicenseHistory
             // 

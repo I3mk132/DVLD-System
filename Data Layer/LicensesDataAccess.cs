@@ -41,6 +41,52 @@ namespace Data_Layer
             return dt;
         }
 
+        public static DataTable GetAllLocalFor(int PersonID)
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+
+            string query = @"SELECT 
+                                L.LicenseID AS [License ID],    
+                                L.ApplicationID AS [Application ID], 
+                                LC.ClassName AS [Class Name], 
+                                L.IssueDate AS [Issue Date],
+                                L.ExpirationDate AS [Expiration Date],
+                                L.IsActive AS [Is Active]
+                            FROM Licenses L 
+                                JOIN LicenseClasses LC ON L.LicenseClassID = LC.LicenseClassID
+                                JOIN Drivers D ON D.DriverID = L.DriverID
+                            WHERE D.PersonID = @PersonID";
+
+
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                clsErrorLog.AddErrorLog(ex);
+            }
+            finally { connection.Close(); }
+
+            return dt;
+        }
+
         public static int Add(
             int ApplicationID, int DriverID, int LicenseClassID, DateTime? IssueDate, DateTime? ExpirationDate,
             string Notes, decimal PaidFees, bool? IsActive, string IssueReason, int CreatedByUserID
@@ -50,7 +96,7 @@ namespace Data_Layer
 
             string query = @"
 
-                INSERT INTO Tests 
+                INSERT INTO Licenses 
                 (ApplicationID, DriverID, LicenseClassID, IssueDate, 
                 ExpirationDate, Notes, PaidFees, IsActive, IssueReason, CreatedByUserID) Values 
                 (@ApplicationID, @DriverID, @LicenseClassID, @IssueDate, 
@@ -175,7 +221,7 @@ namespace Data_Layer
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@ID", LicenseClassID);
+            command.Parameters.AddWithValue("@ID", LicenseID);
 
             bool isFound = false;
             try
@@ -187,6 +233,61 @@ namespace Data_Layer
                 {
                     isFound = true;
 
+                    LicenseID = (int)reader["LicenseID"];
+                    ApplicationID = (int)reader["ApplicationID"];
+                    DriverID = (int)reader["DriverID"];
+                    LicenseClassID = (int)reader["LicenseClassID"];
+                    IssueDate = (DateTime?)reader["IssueDate"];
+                    ExpirationDate = (DateTime?)reader["ExpirationDate"];
+                    if (reader["Notes"] != DBNull.Value)
+                        Notes = (string)reader["Notes"];
+                    else
+                        Notes = "";
+                    PaidFees = (decimal)reader["PaidFees"];
+                    IsActive = (bool?)reader["IsActive"];
+                    IssueReason = (string)reader["IssueReason"];
+                    CreatedByUserID = (int)reader["CreatedByUserID"];
+
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+                clsErrorLog.AddErrorLog(ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isFound;
+
+        }
+        public static bool FindByAppID(
+            ref int LicenseID, ref int ApplicationID, ref int DriverID, ref int LicenseClassID,
+            ref DateTime? IssueDate, ref DateTime? ExpirationDate, ref string Notes,
+            ref decimal PaidFees, ref bool? IsActive, ref string IssueReason, ref int CreatedByUserID)
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"SELECT * FROM Licenses WHERE ApplicationID = @ID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ID", ApplicationID);
+
+            bool isFound = false;
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isFound = true;
+
+                    LicenseID = (int)reader["LicenseID"];
                     ApplicationID = (int)reader["ApplicationID"];
                     DriverID = (int)reader["DriverID"];
                     LicenseClassID = (int)reader["LicenseClassID"];

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +27,7 @@ namespace Business_Layer
         {
             get
             {
-                return IsDetained;
+                return false; // Temp until detain system be added . 
             }
             set
             {
@@ -108,6 +109,10 @@ namespace Business_Layer
         {
             return clsLicensesDataAccess.GetAll();
         }
+        public static DataTable GetAllFor(int PersonID)
+        {
+            return clsLicensesDataAccess.GetAllLocalFor(PersonID);
+        }
         public static clsLicenses Find(
             int LicenseID
         )
@@ -118,9 +123,28 @@ namespace Business_Layer
             decimal PaidFees = -1;
             bool? IsActive = null;
 
-            if (clsLicensesDataAccess.Find(ref LicenseID, ref DriverID, ref ApplicationID, 
+            if (clsLicensesDataAccess.Find(ref LicenseID, ref ApplicationID, ref DriverID, 
                 ref LicenseClassID, ref IssueDate, ref ExpirationDate, 
                 ref Notes, ref PaidFees, ref IsActive, 
+                ref IssueReason, ref CreatedByUserID))
+            {
+                return new clsLicenses(LicenseID, ApplicationID, DriverID, LicenseClassID, IssueDate,
+                    ExpirationDate, Notes, PaidFees, IsActive, IssueReason, CreatedByUserID);
+            }
+
+            return null;
+        }
+        public static clsLicenses FindByAppID(int ApplicationID)
+        {
+            int DriverID = -1, LicenseClassID = -1, CreatedByUserID = -1, LicenseID = -1;
+            DateTime? IssueDate = null, ExpirationDate = null;
+            string Notes = "", IssueReason = "";
+            decimal PaidFees = -1;
+            bool? IsActive = null;
+
+            if (clsLicensesDataAccess.FindByAppID(ref LicenseID, ref ApplicationID, ref DriverID,
+                ref LicenseClassID, ref IssueDate, ref ExpirationDate,
+                ref Notes, ref PaidFees, ref IsActive,
                 ref IssueReason, ref CreatedByUserID))
             {
                 return new clsLicenses(LicenseID, ApplicationID, DriverID, LicenseClassID, IssueDate,

@@ -108,6 +108,14 @@ namespace Business_Layer
             }
             return false;
         }
+        public bool CompleteApplication()
+        {
+            if (Mode == enMode.eUpdate)
+            {
+                return clsApplicationsDataAccess.ChangeStatusToCompleted(this.ApplicationID);
+            }
+            return false;
+        }
 
         public static new bool Delete(int ID)
         {

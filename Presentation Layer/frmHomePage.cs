@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Business_Layer;
 using Presentation_Layer.ApplicationForms;
 using Presentation_Layer.ApplicationForms.LocalDrivingLicenseApplicationsForms;
+using Presentation_Layer.DriverForms;
 using Presentation_Layer.PeopleForms;
 using Presentation_Layer.UserForms;
 
@@ -80,6 +81,12 @@ namespace Presentation_Layer
         private void localDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmLDLApplications frm = new frmLDLApplications();
+            frm.ShowDialog();
+        }
+
+        private void msiDrivers_Click(object sender, EventArgs e)
+        {
+            frmDrivers frm = new frmDrivers();
             frm.ShowDialog();
         }
     }

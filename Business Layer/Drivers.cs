@@ -132,6 +132,15 @@ namespace Business_Layer
         {
             return clsDriversDataAccess.GetAllDrivers(clsDriversDataAccess.enMode.PersonJoined);
         }
+        public static DataTable GetAllDriversFiltered(int DriverID = -1, int PersonID = -1, 
+            string Fullname = "", string NationalNo = "")
+        {
+            return clsDriversDataAccess.GetDriversFiltered(DriverID, PersonID, NationalNo, Fullname);
+        }
+        public static DataTable GetallDriversSimpled()
+        {
+            return clsDriversDataAccess.GetAllDriversSimple();
+        }
         public static string GetDriverFullName(int DriverID)
         {
             clsDrivers driver = Find(DriverID: DriverID);
@@ -143,6 +152,17 @@ namespace Business_Layer
         }
 
         private bool _AddNewDriver()
+        {
+
+            this.DriverID = clsDriversDataAccess.AddDriver(PersonID, CreatedByUserID, CreatedDate);
+            return (this.DriverID != -1);
+  
+        }
+        private bool _UpdateDriver()
+        {
+            return clsDriversDataAccess.UpdateDriver(DriverID, PersonID, CreatedByUserID, CreatedDate);
+        }
+        private bool _AddNewDriver_PersonNotExists()
         {
             clsPerson person = new clsPerson();
 
@@ -167,7 +187,7 @@ namespace Business_Layer
             }
             return false;
         }
-        private bool _UpdateDriver()
+        private bool _UpdateDriver_PersonNotExists()
         {
             clsPerson person = clsPerson.Find(PersonID: PersonID);
 
@@ -191,6 +211,7 @@ namespace Business_Layer
 
             return false;
         }
+
         public new bool Save()
         {
 
@@ -209,6 +230,26 @@ namespace Business_Layer
             else
             {
                 return (_UpdateDriver());
+            }
+        }
+        public bool Save_PersonNotExists()
+        {
+
+            if (_Mode == enMode.AddNew)
+            {
+                if (_AddNewDriver_PersonNotExists())
+                {
+                    _Mode = enMode.Update;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return (_UpdateDriver_PersonNotExists());
             }
         }
 

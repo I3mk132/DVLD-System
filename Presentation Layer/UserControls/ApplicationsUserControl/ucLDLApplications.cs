@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business_Layer;
+using Presentation_Layer.ApplicationForms.LicensesForms;
 using Presentation_Layer.ApplicationForms.LocalDrivingLicenseApplicationsForms;
 using Presentation_Layer.LicenseForms;
 using Presentation_Layer.UserForms;
@@ -236,8 +239,8 @@ namespace Presentation_Layer.UserControls.ApplicationsUserControl
 
                 int LDLApplicationID = Convert.ToInt32(row.Cells[0].Value);
                 
-                // frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(LDLApplicationID);
-                // frm.ShowDialog();
+                frmLicenseHistory frm = new frmLicenseHistory(clsLocalDrivingLicenseApplications.Find(LDLApplicationID).PersonID);
+                frm.ShowDialog();
                 
 
                 RefreshDGV();
@@ -268,43 +271,55 @@ namespace Presentation_Layer.UserControls.ApplicationsUserControl
                 tsmiWritten.Enabled = false;
                 tsmiStreet.Enabled = false;
 
+                cmsiEdit.Enabled = false;
+                cmsiDelete.Enabled = false;
+                cmsiCancelApplication.Enabled = false;
                 cmsiIssueDrivingLicense.Enabled = false;
+                cmsiSechduleTests.Enabled = false;
                 cmsiShowLicense.Enabled = false;
-                if (Status == "Cancelled")
+
+
+                if (Status == "New")
                 {
-                    cmsiEdit.Enabled = false;
-                    cmsiCancelApplication.Enabled = false;
-                    cmsiSechduleTests.Enabled = false;
-                    cmsiShowPersonLicenseHistory.Enabled = false;
-
-                }
-                else
-                {
-                    cmsiEdit.Enabled = true;
-                    cmsiCancelApplication.Enabled = true;
-                    cmsiSechduleTests.Enabled = true;
-                    cmsiShowPersonLicenseHistory.Enabled = true;
-                }
-
-
                     switch (PassedTests)
                     {
                         case 0:
+                            cmsiEdit.Enabled = true;
+                            cmsiDelete.Enabled = true;
+                            cmsiCancelApplication.Enabled = true;
+                            cmsiSechduleTests.Enabled = true;
+
                             tsmiVision.Enabled = true;
                             break;
+
                         case 1:
-                            tsmiWritten.Enabled = true;
+                            cmsiDelete.Enabled = true;
+                            cmsiCancelApplication.Enabled = true;
+                            cmsiSechduleTests.Enabled = true;
+
+                            tsmiWritten.Enabled= true;
                             break;
+
                         case 2:
+                            cmsiDelete.Enabled = true;
+                            cmsiCancelApplication.Enabled = true;
+                            cmsiSechduleTests.Enabled = true;
+
                             tsmiStreet.Enabled = true;
                             break;
-                        case 3:
 
-                            cmsiIssueDrivingLicense.Enabled = true;
-                            cmsiShowLicense.Enabled = true;
+                        case 3:
+                            cmsiDelete.Enabled = true;
+                            cmsiCancelApplication.Enabled = true;
+                            cmsiIssueDrivingLicense.Enabled=true;
                             break;
                     }
-
+                    
+                }
+                else if (Status == "Completed")
+                {
+                    cmsiShowLicense.Enabled = true;
+                }
 
             }
         }
@@ -337,6 +352,24 @@ namespace Presentation_Layer.UserControls.ApplicationsUserControl
 
 
                 frmIssueLicenseFirstTime frm = new frmIssueLicenseFirstTime(LDLApplicationID, clsLocalDrivingLicenseApplications.Find(LDLApplicationID).ApplicationID);
+                frm.ShowDialog();
+
+                RefreshDGV();
+            }
+        }
+
+        private void cmsiShowLicense_Click(object sender, EventArgs e)
+        {
+            if (dgvApplicationsList.SelectedCells.Count > 0)
+            {
+                DataGridViewCell selectedCell = dgvApplicationsList.SelectedCells[0];
+                DataGridViewRow row = selectedCell.OwningRow;
+
+                int LDLApplicationID = Convert.ToInt32(row.Cells[0].Value);
+
+                clsLicenses license = clsLicenses.FindByAppID(clsLocalDrivingLicenseApplications.Find(LDLApplicationID).ApplicationID);
+
+                frmLicenseInfo frm = new frmLicenseInfo(license.LicenseID);
                 frm.ShowDialog();
 
                 RefreshDGV();

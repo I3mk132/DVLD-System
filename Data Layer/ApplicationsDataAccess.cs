@@ -38,7 +38,7 @@ namespace Data_Layer
             {
                 case "New": applicationStatus = 1; break;
                 case "Cancelled": applicationStatus = 2; break;
-                case "Compleated": applicationStatus = 3; break;
+                case "Completed": applicationStatus = 3; break;
                 default: applicationStatus = 0; break;
             }
 
@@ -86,7 +86,7 @@ namespace Data_Layer
                 ApplicationStatus = CASE @ApplicationStatus 
                                             WHEN 'New' THEN 1
                                             WHEN 'Cancelled' THEN 2
-                                            WHEN 'Compleated' THEN 3
+                                            WHEN 'Completed' THEN 3
                                             ELSE 0
                                     END,
                 LastStatusDate = @LastStatusDate,
@@ -144,7 +144,7 @@ namespace Data_Layer
                                 CASE ApplicationStatus 
                                     WHEN 1 THEN 'New'
                                     WHEN 2 THEN 'Cancelled'
-                                    WHEN 3 THEN 'Compleated'
+                                    WHEN 3 THEN 'Completed'
                                     ELSE 'Other'
                                 END AS Status,
                                 LastStatusDate, PaidFees, CreatedByUserID 
@@ -227,6 +227,45 @@ namespace Data_Layer
 
                 UPDATE Applications SET
                 ApplicationStatus = 2
+                WHERE ApplicationID = @ID
+
+            ";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ID", ID);
+
+            int rowsAffected = 0;
+            bool result = false;
+            try
+            {
+                connection.Open();
+
+                rowsAffected = command.ExecuteNonQuery();
+                result = (rowsAffected > 0);
+            }
+            catch (Exception ex)
+            {
+                result = false;
+                clsErrorLog.AddErrorLog(ex);
+                // Log
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return result;
+
+        }
+        public static bool ChangeStatusToCompleted(int ID)
+        {
+
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"
+
+                UPDATE Applications SET
+                ApplicationStatus = 3
                 WHERE ApplicationID = @ID
 
             ";

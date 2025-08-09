@@ -166,6 +166,138 @@ namespace Data_Layer
             }
             return dt;
         }
+
+        public static DataTable GetDriversFiltered(int DriverID = -1, int PersonID = -1, string NationalNo = "", string Fullname = "")
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+
+            string query = @"
+
+                SELECT 
+	                D.DriverID AS [Driver ID],
+	                D.PersonID AS [Person ID],
+	                P.Firstname + ' ' + P.Secondname + ' ' + P.Thirdname + ' ' + P.Lastname AS [Full Name],
+	                P.NationalNo AS [National No],
+	                D.CreatedDate AS [Created Date],
+	                ( SELECT Count(*) FROM Licenses L WHERE L.DriverID = D.DriverID AND L.IsActive = 1) AS [Active Licenses]
+
+                FROM Drivers D 
+	                JOIN Person P ON D.PersonID = P.PersonID
+
+                WHERE 
+	                (@DriverID IS NULL OR 
+	                D.DriverID = @DriverID) AND
+	
+	                (@PersonID IS NULL OR 
+	                 D.PersonID = @PersonID) AND
+	
+	                (@Fullname IS NULL OR 
+	                 P.Firstname + ' ' + P.Secondname + ' ' + P.Thirdname + ' ' + P.Lastname LIKE '%' + @Fullname + '%') AND
+	
+	                (@NationalNo IS NULL OR 
+	                 P.NationalNo LIKE '%' + @NationalNo + '%')
+
+
+            ";
+
+
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            if (DriverID != -1)
+                command.Parameters.AddWithValue("@DriverID", DriverID);
+            else
+                command.Parameters.AddWithValue("@DriverID", DBNull.Value);
+
+            if (PersonID != -1)
+                command.Parameters.AddWithValue("@PersonID", PersonID);
+            else
+                command.Parameters.AddWithValue("@PersonID", DBNull.Value);
+
+            if (!string.IsNullOrEmpty(Fullname))
+                command.Parameters.AddWithValue("@Fullname", Fullname);
+            else
+                command.Parameters.AddWithValue("@FullName", DBNull.Value);
+
+            if (!string.IsNullOrEmpty(NationalNo))
+                command.Parameters.AddWithValue("@NationalNo", NationalNo);
+            else
+                command.Parameters.AddWithValue("@NationalNo", DBNull.Value);
+
+                DataTable dt = new DataTable();
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                clsErrorLog.AddErrorLog(ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+
+        }
+        public static DataTable GetAllDriversSimple()
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+
+            string query = @"
+
+                SELECT 
+	                D.DriverID AS [Driver ID],
+	                D.PersonID AS [Person ID],
+	                P.Firstname + ' ' + P.Secondname + ' ' + P.Thirdname + ' ' + P.Lastname AS [Full Name],
+	                P.NationalNo AS [National No],
+	                D.CreatedDate AS [Created Date],
+	                ( SELECT Count(*) FROM Licenses L WHERE L.DriverID = D.DriverID AND L.IsActive = 1) AS [Active Licenses]
+
+                FROM Drivers D 
+	                JOIN Person P ON D.PersonID = P.PersonID
+
+
+            ";
+
+
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                clsErrorLog.AddErrorLog(ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+
+
+        }
+
         public static bool GetDriver(
             ref int DriverID, ref int PersonID,
             ref int CreatedByUserID, ref DateTime? CreatedDate

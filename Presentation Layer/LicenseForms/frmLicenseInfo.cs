@@ -16,7 +16,7 @@ namespace Presentation_Layer.ApplicationForms.LicensesForms
         public frmLicenseInfo(int LicenseID)
         {
             InitializeComponent();
-            ucLicenseInfo1.LicenseID = LicenseID;
+            ucLicenseCard1.LicenseID = LicenseID;
         }
 
         private void frmLicenseInfo_Load(object sender, EventArgs e)
@@ -27,6 +27,11 @@ namespace Presentation_Layer.ApplicationForms.LicensesForms
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ucLicenseInfo1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

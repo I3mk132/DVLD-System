@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.lblLicenseHistory = new System.Windows.Forms.Label();
-            this.ucPersonSearch1 = new Presentation_Layer.UserControls.ucPersonSearch();
             this.gbDriverLicenses = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.lblRecordCount = new System.Windows.Forms.Label();
+            this.lblRecordCountLocal = new System.Windows.Forms.Label();
             this.lblLocalLicensesHistory = new System.Windows.Forms.Label();
             this.dgvLocalLicenses = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblRecordCountInter = new System.Windows.Forms.Label();
             this.lblInternationalLicensesHistory = new System.Windows.Forms.Label();
             this.dgvInternationalLicenses = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.Button();
+            this.ucPersonSearch1 = new Presentation_Layer.UserControls.ucPersonSearch();
             this.gbDriverLicenses.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -62,21 +62,13 @@
             this.lblLicenseHistory.TabIndex = 12;
             this.lblLicenseHistory.Text = "License History";
             // 
-            // ucPersonSearch1
-            // 
-            this.ucPersonSearch1.BackColor = System.Drawing.Color.Transparent;
-            this.ucPersonSearch1.Location = new System.Drawing.Point(240, 62);
-            this.ucPersonSearch1.Name = "ucPersonSearch1";
-            this.ucPersonSearch1.Size = new System.Drawing.Size(870, 365);
-            this.ucPersonSearch1.TabIndex = 13;
-            // 
             // gbDriverLicenses
             // 
             this.gbDriverLicenses.BackColor = System.Drawing.Color.White;
             this.gbDriverLicenses.Controls.Add(this.tabControl1);
             this.gbDriverLicenses.Location = new System.Drawing.Point(12, 433);
             this.gbDriverLicenses.Name = "gbDriverLicenses";
-            this.gbDriverLicenses.Size = new System.Drawing.Size(1097, 254);
+            this.gbDriverLicenses.Size = new System.Drawing.Size(1097, 297);
             this.gbDriverLicenses.TabIndex = 14;
             this.gbDriverLicenses.TabStop = false;
             this.gbDriverLicenses.Text = "Driver Licenses";
@@ -89,32 +81,32 @@
             this.tabControl1.Location = new System.Drawing.Point(6, 19);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1085, 215);
+            this.tabControl1.Size = new System.Drawing.Size(1085, 272);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.White;
-            this.tabPage1.Controls.Add(this.lblRecordCount);
+            this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.lblRecordCountLocal);
             this.tabPage1.Controls.Add(this.lblLocalLicensesHistory);
             this.tabPage1.Controls.Add(this.dgvLocalLicenses);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1077, 182);
+            this.tabPage1.Size = new System.Drawing.Size(1077, 239);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Local";
             // 
-            // lblRecordCount
+            // lblRecordCountLocal
             // 
-            this.lblRecordCount.AutoSize = true;
-            this.lblRecordCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecordCount.ForeColor = System.Drawing.Color.DimGray;
-            this.lblRecordCount.Location = new System.Drawing.Point(12, 151);
-            this.lblRecordCount.Name = "lblRecordCount";
-            this.lblRecordCount.Size = new System.Drawing.Size(155, 26);
-            this.lblRecordCount.TabIndex = 18;
-            this.lblRecordCount.Text = "# Records: -1";
+            this.lblRecordCountLocal.AutoSize = true;
+            this.lblRecordCountLocal.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecordCountLocal.ForeColor = System.Drawing.Color.DimGray;
+            this.lblRecordCountLocal.Location = new System.Drawing.Point(12, 200);
+            this.lblRecordCountLocal.Name = "lblRecordCountLocal";
+            this.lblRecordCountLocal.Size = new System.Drawing.Size(147, 26);
+            this.lblRecordCountLocal.TabIndex = 18;
+            this.lblRecordCountLocal.Text = "# Records: 0";
             // 
             // lblLocalLicensesHistory
             // 
@@ -137,12 +129,12 @@
             this.dgvLocalLicenses.MultiSelect = false;
             this.dgvLocalLicenses.Name = "dgvLocalLicenses";
             this.dgvLocalLicenses.ReadOnly = true;
-            this.dgvLocalLicenses.Size = new System.Drawing.Size(1043, 106);
+            this.dgvLocalLicenses.Size = new System.Drawing.Size(1043, 155);
             this.dgvLocalLicenses.TabIndex = 15;
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.label1);
+            this.tabPage2.Controls.Add(this.lblRecordCountInter);
             this.tabPage2.Controls.Add(this.lblInternationalLicensesHistory);
             this.tabPage2.Controls.Add(this.dgvInternationalLicenses);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
@@ -153,16 +145,16 @@
             this.tabPage2.Text = "International";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // lblRecordCountInter
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(14, 149);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 26);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "# Records: -1";
+            this.lblRecordCountInter.AutoSize = true;
+            this.lblRecordCountInter.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecordCountInter.ForeColor = System.Drawing.Color.DimGray;
+            this.lblRecordCountInter.Location = new System.Drawing.Point(14, 149);
+            this.lblRecordCountInter.Name = "lblRecordCountInter";
+            this.lblRecordCountInter.Size = new System.Drawing.Size(155, 26);
+            this.lblRecordCountInter.TabIndex = 21;
+            this.lblRecordCountInter.Text = "# Records: -1";
             // 
             // lblInternationalLicensesHistory
             // 
@@ -204,19 +196,28 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Image = global::Presentation_Layer.Properties.Resources.Close32;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(976, 693);
+            this.btnClose.Location = new System.Drawing.Point(976, 736);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(134, 40);
             this.btnClose.TabIndex = 15;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // ucPersonSearch1
+            // 
+            this.ucPersonSearch1.BackColor = System.Drawing.Color.Transparent;
+            this.ucPersonSearch1.Location = new System.Drawing.Point(240, 62);
+            this.ucPersonSearch1.Name = "ucPersonSearch1";
+            this.ucPersonSearch1.Size = new System.Drawing.Size(870, 365);
+            this.ucPersonSearch1.TabIndex = 13;
             // 
             // frmLicenseHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(241)))));
-            this.ClientSize = new System.Drawing.Size(1122, 745);
+            this.ClientSize = new System.Drawing.Size(1122, 788);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.gbDriverLicenses);
             this.Controls.Add(this.ucPersonSearch1);
@@ -225,6 +226,7 @@
             this.Name = "frmLicenseHistory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLicenseHistory";
+            this.Load += new System.EventHandler(this.frmLicenseHistory_Load);
             this.gbDriverLicenses.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -250,8 +252,8 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dgvLocalLicenses;
         private System.Windows.Forms.Label lblLocalLicensesHistory;
-        private System.Windows.Forms.Label lblRecordCount;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblRecordCountLocal;
+        private System.Windows.Forms.Label lblRecordCountInter;
         private System.Windows.Forms.Label lblInternationalLicensesHistory;
         private System.Windows.Forms.DataGridView dgvInternationalLicenses;
         private System.Windows.Forms.Button btnClose;

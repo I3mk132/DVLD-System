@@ -41,6 +41,52 @@ namespace Data_Layer
             return dt;
         }
 
+        public static DataTable GetAllFor(int PersonID)
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"SELECT 
+                                IL.InternationalLicenseID,    
+                                IL.ApplicationID, 
+                                ILC.ClassName, 
+                                IL.IssueDate,
+                                IL.ExpirationDate,
+                                IL.IsActive
+                            FROM InternationalLicenses IL 
+                                JOIN Licenses L ON L.LicenseID = IL.IssuedUsingLocalLicenseID
+                                JOIN LicenseClasses LC ON L.LicenseClassID = LC.LicenseClassID
+                                JOIN Drivers D ON D.DriverID = IL.DriverID
+                            WHERE D.PersonID = @PersonID";
+
+
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                clsErrorLog.AddErrorLog(ex);
+            }
+            finally { connection.Close(); }
+
+            return dt;
+        }
+
         public static int Add(
             int ApplicationID, int DriverID, int IssuedUsingLocalLicenseID, 
             DateTime? IssueDate, DateTime? ExpirationDate, bool IsActive, int CreatedByUserID

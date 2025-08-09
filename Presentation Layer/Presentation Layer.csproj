@@ -64,6 +64,12 @@
     <Compile Include="ApplicationForms\LocalDrivingLicenseApplicationsForms\frmApplicationInfo.Designer.cs">
       <DependentUpon>frmApplicationInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="DriverForms\frmDrivers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DriverForms\frmDrivers.Designer.cs">
+      <DependentUpon>frmDrivers.cs</DependentUpon>
+    </Compile>
     <Compile Include="LicenseForms\frmIssueLicenseFirstTime.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,11 +180,17 @@
     <Compile Include="UserControls\ApplicationsUserControl\ucLDLApplications.Designer.cs">
       <DependentUpon>ucLDLApplications.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\LicensesUserControls\ucLicenseInfo.cs">
+    <Compile Include="UserControls\DriverUserControls\ucDriversList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\LicensesUserControls\ucLicenseInfo.Designer.cs">
-      <DependentUpon>ucLicenseInfo.cs</DependentUpon>
+    <Compile Include="UserControls\DriverUserControls\ucDriversList.Designer.cs">
+      <DependentUpon>ucDriversList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LicenseUserControls\ucLicenseCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\LicenseUserControls\ucLicenseCard.Designer.cs">
+      <DependentUpon>ucLicenseCard.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\PersonUserControls\ucAddEditPerson.cs">
       <SubType>UserControl</SubType>
@@ -255,6 +267,9 @@
     <EmbeddedResource Include="ApplicationForms\LocalDrivingLicenseApplicationsForms\frmApplicationInfo.resx">
       <DependentUpon>frmApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DriverForms\frmDrivers.resx">
+      <DependentUpon>frmDrivers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LicenseForms\frmIssueLicenseFirstTime.resx">
       <DependentUpon>frmIssueLicenseFirstTime.cs</DependentUpon>
     </EmbeddedResource>
@@ -319,8 +334,11 @@
     <EmbeddedResource Include="UserControls\ApplicationsUserControl\ucLDLApplications.resx">
       <DependentUpon>ucLDLApplications.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\LicensesUserControls\ucLicenseInfo.resx">
-      <DependentUpon>ucLicenseInfo.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\DriverUserControls\ucDriversList.resx">
+      <DependentUpon>ucDriversList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\LicenseUserControls\ucLicenseCard.resx">
+      <DependentUpon>ucLicenseCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\PersonUserControls\ucAddEditPerson.resx">
       <DependentUpon>ucAddEditPerson.cs</DependentUpon>
