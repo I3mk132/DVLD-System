@@ -59,7 +59,10 @@ namespace Business_Layer
         {
             get => clsDrivers.Find(DriverID).ImagePath;
         }
-
+        public int PersonID
+        {
+            get => clsDrivers.Find(DriverID).PersonID;
+        }
         private enMode _Mode { get; set; }
         private enum enMode { eAdd, eUpdate }
 

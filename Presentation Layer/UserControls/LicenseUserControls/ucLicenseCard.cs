@@ -25,7 +25,7 @@ namespace Presentation_Layer.UserControls.LicenseUserControls
         {
             LoadData();
         }
-        private void LoadData()
+        public void LoadData()
         {
             clsLicenses license = clsLicenses.Find(LicenseID);
 

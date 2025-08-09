@@ -128,6 +128,7 @@
             this.tsmiInternationalDrivingLicenses.Name = "tsmiInternationalDrivingLicenses";
             this.tsmiInternationalDrivingLicenses.Size = new System.Drawing.Size(356, 30);
             this.tsmiInternationalDrivingLicenses.Text = "International Driving Licenses";
+            this.tsmiInternationalDrivingLicenses.Click += new System.EventHandler(this.tsmiInternationalDrivingLicenses_Click);
             // 
             // tsmiRenewDrivingLicense
             // 

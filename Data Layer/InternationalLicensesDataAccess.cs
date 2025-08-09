@@ -96,7 +96,7 @@ namespace Data_Layer
 
             string query = @"
 
-                INSERT INTO Tests 
+                INSERT INTO InternationalLicenses 
                 (ApplicationID, DriverID, IssuedUsingLocalLicenseID, 
                 IssueDate, ExpirationDate, IsActive, CreatedByUserID) Values 
                 (@ApplicationID, @DriverID, @IssuedUsingLocalLicenseID, 
