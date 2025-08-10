@@ -137,6 +137,7 @@
             this.tsmiRenewDrivingLicense.Name = "tsmiRenewDrivingLicense";
             this.tsmiRenewDrivingLicense.Size = new System.Drawing.Size(469, 30);
             this.tsmiRenewDrivingLicense.Text = "Renew Driving License";
+            this.tsmiRenewDrivingLicense.Click += new System.EventHandler(this.tsmiRenewDrivingLicense_Click);
             // 
             // tss1
             // 
@@ -199,6 +200,7 @@
             this.internationalDrivingLicenseApplicationsToolStripMenuItem.Name = "internationalDrivingLicenseApplicationsToolStripMenuItem";
             this.internationalDrivingLicenseApplicationsToolStripMenuItem.Size = new System.Drawing.Size(463, 30);
             this.internationalDrivingLicenseApplicationsToolStripMenuItem.Text = "International Driving License Applications";
+            this.internationalDrivingLicenseApplicationsToolStripMenuItem.Click += new System.EventHandler(this.internationalDrivingLicenseApplicationsToolStripMenuItem_Click);
             // 
             // msiDetainLicenses
             // 

@@ -14,9 +14,84 @@ namespace Data_Layer
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
-            string query = @"SELECT * FROM InternationalLicenses";
+            string query = @"SELECT 
+                                IL.InternationalLicenseID,    
+                                IL.ApplicationID, 
+                                LC.ClassName, 
+                                IL.IssueDate,
+                                IL.ExpirationDate,
+                                IL.IsActive
+                            FROM InternationalLicenses IL 
+                                JOIN Licenses L ON L.LicenseID = IL.IssuedUsingLocalLicenseID
+                                JOIN LicenseClasses LC ON L.LicenseClassID = LC.LicenseClassID
+                                JOIN Drivers D ON D.DriverID = IL.DriverID";
 
             SqlCommand command = new SqlCommand(query, connection);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                clsErrorLog.AddErrorLog(ex);
+            }
+            finally { connection.Close(); }
+
+            return dt;
+        }
+        public static DataTable GetAllFiltered(int InternationalLicenseID = -1, string NationalNo = "", string Fullname = "")
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"SELECT 
+                                IL.InternationalLicenseID,    
+                                IL.ApplicationID, 
+                                LC.ClassName, 
+                                IL.IssueDate,
+                                IL.ExpirationDate,
+                                IL.IsActive
+                            FROM InternationalLicenses IL 
+                                JOIN Licenses L ON L.LicenseID = IL.IssuedUsingLocalLicenseID
+                                JOIN LicenseClasses LC ON L.LicenseClassID = LC.LicenseClassID
+                                JOIN Drivers D ON D.DriverID = IL.DriverID
+                                JOIN Person P ON P.PersonID = D.PersonID
+                            WHERE 
+                                (@InternationalLicenseID IS NULL OR 
+                                IL.InternationalLicenseID = @InternationalLicenseID) AND
+
+                                (@NationalNo IS NULL OR 
+                                 P.NationalNo LIKE '%' + @NationalNo + '%') AND
+
+                                (@Fullname IS NULL OR 
+                                 P.Firstname + ' ' + P.Secondname + ' ' + P.Thirdname + ' ' + P.Lastname LIKE '%' + @Fullname + '%')";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            if (InternationalLicenseID != -1)
+                command.Parameters.AddWithValue("@InternationalLicenseID", InternationalLicenseID);
+            else
+                command.Parameters.AddWithValue("@InternationalLicenseID", DBNull.Value);
+
+            if (!string.IsNullOrEmpty(NationalNo))
+                command.Parameters.AddWithValue("@NationalNo", NationalNo);
+            else
+                command.Parameters.AddWithValue("@NationalNo", DBNull.Value);
+
+            if (!string.IsNullOrEmpty(Fullname))
+                command.Parameters.AddWithValue("@Fullname", Fullname);
+            else
+                command.Parameters.AddWithValue("@Fullname", DBNull.Value);
 
             DataTable dt = new DataTable();
             try
@@ -48,7 +123,7 @@ namespace Data_Layer
             string query = @"SELECT 
                                 IL.InternationalLicenseID,    
                                 IL.ApplicationID, 
-                                ILC.ClassName, 
+                                LC.ClassName, 
                                 IL.IssueDate,
                                 IL.ExpirationDate,
                                 IL.IsActive

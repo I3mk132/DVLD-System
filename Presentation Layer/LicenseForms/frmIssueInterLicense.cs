@@ -19,6 +19,7 @@ namespace Presentation_Layer.LicenseForms
         }
         int LocalLicenseID = -1;
         DateTime ExpirationDate;
+        int InternationalLicenseID = -1;
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
@@ -73,6 +74,7 @@ namespace Presentation_Layer.LicenseForms
 
                             lblILApplicationID.Text = lic.ApplicationID.ToString();
                             lblILLicenseID.Text = lic.InternationalLicenseID.ToString();
+                            InternationalLicenseID = lic.InternationalLicenseID;
 
                             lblShowLicenseInfo.Enabled = true;
                             lblSave.Enabled = false;
@@ -130,6 +132,12 @@ namespace Presentation_Layer.LicenseForms
         private void lblShowLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmLicenseHistory frm = new frmLicenseHistory(clsLicenses.Find(LocalLicenseID).PersonID);
+            frm.ShowDialog();
+        }
+
+        private void lblShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmInterLicenseInfo frm = new frmInterLicenseInfo(InternationalLicenseID);
             frm.ShowDialog();
         }
     }

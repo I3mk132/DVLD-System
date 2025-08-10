@@ -58,6 +58,7 @@
             // 
             // txtNote
             // 
+            this.txtNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNote.Location = new System.Drawing.Point(115, 371);
             this.txtNote.Multiline = true;
             this.txtNote.Name = "txtNote";

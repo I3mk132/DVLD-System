@@ -70,6 +70,18 @@
     <Compile Include="DriverForms\frmDrivers.Designer.cs">
       <DependentUpon>frmDrivers.cs</DependentUpon>
     </Compile>
+    <Compile Include="LicenseForms\frmInterLicenseInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LicenseForms\frmInterLicenseInfo.Designer.cs">
+      <DependentUpon>frmInterLicenseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LicenseForms\frmInterLicenses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LicenseForms\frmInterLicenses.Designer.cs">
+      <DependentUpon>frmInterLicenses.cs</DependentUpon>
+    </Compile>
     <Compile Include="LicenseForms\frmIssueInterLicense.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +192,12 @@
     <Compile Include="UserControls\ApplicationsUserControl\ucDLApplicationInfo.Designer.cs">
       <DependentUpon>ucDLApplicationInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ApplicationsUserControl\ucIDLApplications.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ApplicationsUserControl\ucIDLApplications.Designer.cs">
+      <DependentUpon>ucIDLApplications.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ApplicationsUserControl\ucLDLApplications.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -191,6 +209,12 @@
     </Compile>
     <Compile Include="UserControls\DriverUserControls\ucDriversList.Designer.cs">
       <DependentUpon>ucDriversList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LicenseUserControls\ucInterLicenseCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\LicenseUserControls\ucInterLicenseCard.Designer.cs">
+      <DependentUpon>ucInterLicenseCard.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\LicenseUserControls\ucLicenseCard.cs">
       <SubType>UserControl</SubType>
@@ -276,6 +300,12 @@
     <EmbeddedResource Include="DriverForms\frmDrivers.resx">
       <DependentUpon>frmDrivers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LicenseForms\frmInterLicenseInfo.resx">
+      <DependentUpon>frmInterLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LicenseForms\frmInterLicenses.resx">
+      <DependentUpon>frmInterLicenses.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LicenseForms\frmIssueInterLicense.resx">
       <DependentUpon>frmIssueInterLicense.cs</DependentUpon>
     </EmbeddedResource>
@@ -340,11 +370,17 @@
     <EmbeddedResource Include="UserControls\ApplicationsUserControl\ucDLApplicationInfo.resx">
       <DependentUpon>ucDLApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ApplicationsUserControl\ucIDLApplications.resx">
+      <DependentUpon>ucIDLApplications.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ApplicationsUserControl\ucLDLApplications.resx">
       <DependentUpon>ucLDLApplications.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\DriverUserControls\ucDriversList.resx">
       <DependentUpon>ucDriversList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\LicenseUserControls\ucInterLicenseCard.resx">
+      <DependentUpon>ucInterLicenseCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\LicenseUserControls\ucLicenseCard.resx">
       <DependentUpon>ucLicenseCard.cs</DependentUpon>

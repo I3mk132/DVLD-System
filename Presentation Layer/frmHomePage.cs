@@ -96,5 +96,16 @@ namespace Presentation_Layer
             frmIssueInterLicense frm = new frmIssueInterLicense();
             frm.ShowDialog();
         }
+
+        private void internationalDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmInterLicenses frm = new frmInterLicenses();
+            frm.ShowDialog();
+        }
+
+        private void tsmiRenewDrivingLicense_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

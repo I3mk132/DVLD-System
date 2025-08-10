@@ -88,6 +88,7 @@ namespace Presentation_Layer.UserControls
                 cbCountry.SelectedItem = "Turkey";
 
                 pbPersonImage.Image = Resources.AnonymousMan;
+                pbPersonImage.Tag = null;
                 rbMale.Checked = true;
 
             }
@@ -210,8 +211,10 @@ namespace Presentation_Layer.UserControls
                 person.DateOfBirth = dtpDateOfBirth.Value;
                 person.Country = cbCountry.SelectedItem.ToString();
 
-                if (pbPersonImage.Image != null)
+                if (pbPersonImage.Tag != null)
+                {
                     person.ImagePath = pbPersonImage.Tag.ToString();
+                }
                 else
                     person.ImagePath = "";
 
@@ -228,7 +231,7 @@ namespace Presentation_Layer.UserControls
                         {
                             File.Delete(imagePath);
                         }
-                        catch (Exception ex){}
+                        catch (Exception ex){ Console.Write(ex.ToString()); }
                     }
 
                 }

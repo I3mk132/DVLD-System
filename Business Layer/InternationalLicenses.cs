@@ -23,6 +23,8 @@ namespace Business_Layer
         private enum enMode { eAdd, eUpdate }
         private enMode Mode { get; set; }
 
+        public clsLicenses LocalLicense { get; private set; }
+
         public clsInternationalLicenses()
         {
             InternationalLicenseID = -1;
@@ -56,6 +58,7 @@ namespace Business_Layer
             this.IsActive = IsActive;
             this.CreatedByUserID = CreatedByUserID;
 
+            LocalLicense = clsLicenses.Find(IssuedUsingLocalLicenseID);
             Mode = enMode.eUpdate;
         }
 
@@ -63,6 +66,14 @@ namespace Business_Layer
         public static DataTable GetAll()
         {
             return clsInternationalLicensesDataAccess.GetAll();
+        }
+        public static DataTable GetAllFiltered(int InternationalLicenseID = -1, string NationalNo = "", string Fullname = "")
+        {
+            return clsInternationalLicensesDataAccess.GetAllFiltered(InternationalLicenseID, NationalNo, Fullname);
+        }
+        public static DataTable GetAllFor(int PersonID)
+        {
+            return clsInternationalLicensesDataAccess.GetAllFor(PersonID);
         }
         public static clsInternationalLicenses Find(int ID)
         {

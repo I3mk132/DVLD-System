@@ -29,13 +29,13 @@ namespace Presentation_Layer.LicenseForms
             dgvLocalLicenses.DataSource = LocalDt;
             lblRecordCountLocal.Text = "# Records: " + LocalDt.Rows.Count.ToString();
 
-            //dgvInternationalLicenses.DataSource = InternationalDt;
-            //lblRecordCountInter.Text = "# Records: " + InternationalDt.Rows.Count.ToString();
+            dgvInternationalLicenses.DataSource = InternationalDt;
+            lblRecordCountInter.Text = "# Records: " + InternationalDt.Rows.Count.ToString();
         }
         public void RefreshDGV()
         {
             LocalDt = clsLicenses.GetAllFor(_PersonID);
-            //InternationalDt = clsInternationalLicenses.GetAllPersons();
+            InternationalDt = clsInternationalLicenses.GetAllFor(_PersonID);
             _UpdateData();
         }
 

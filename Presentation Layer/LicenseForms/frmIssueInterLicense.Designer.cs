@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.gbFilter = new System.Windows.Forms.GroupBox();
+            this.btnFind = new System.Windows.Forms.Button();
             this.lblFilter = new System.Windows.Forms.Label();
             this.txtFilter = new System.Windows.Forms.TextBox();
-            this.btnFind = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblCreatedByTitle = new System.Windows.Forms.Label();
@@ -55,10 +55,10 @@
             this.lblIssueDateTitle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblLocalLicenseID = new System.Windows.Forms.Label();
-            this.lblShowLicenseHistory = new System.Windows.Forms.LinkLabel();
             this.lblILAppIDTitle = new System.Windows.Forms.Label();
             this.pbUserNo = new System.Windows.Forms.PictureBox();
             this.lblILApplicationID = new System.Windows.Forms.Label();
+            this.lblShowLicenseHistory = new System.Windows.Forms.LinkLabel();
             this.lblSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblShowLicenseInfo = new System.Windows.Forms.LinkLabel();
@@ -89,6 +89,16 @@
             this.gbFilter.TabStop = false;
             this.gbFilter.Text = "Filter";
             // 
+            // btnFind
+            // 
+            this.btnFind.Image = global::Presentation_Layer.Properties.Resources.Search;
+            this.btnFind.Location = new System.Drawing.Point(350, 19);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(54, 41);
+            this.btnFind.TabIndex = 15;
+            this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            // 
             // lblFilter
             // 
             this.lblFilter.AutoSize = true;
@@ -108,16 +118,6 @@
             this.txtFilter.Size = new System.Drawing.Size(153, 26);
             this.txtFilter.TabIndex = 1;
             this.txtFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilter_KeyPress);
-            // 
-            // btnFind
-            // 
-            this.btnFind.Image = global::Presentation_Layer.Properties.Resources.Search;
-            this.btnFind.Location = new System.Drawing.Point(350, 19);
-            this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(54, 41);
-            this.btnFind.TabIndex = 15;
-            this.btnFind.UseVisualStyleBackColor = true;
-            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // panel1
             // 
@@ -386,19 +386,6 @@
             this.lblLocalLicenseID.TabIndex = 106;
             this.lblLocalLicenseID.Text = "???";
             // 
-            // lblShowLicenseHistory
-            // 
-            this.lblShowLicenseHistory.AutoSize = true;
-            this.lblShowLicenseHistory.Enabled = false;
-            this.lblShowLicenseHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.lblShowLicenseHistory.Location = new System.Drawing.Point(25, 718);
-            this.lblShowLicenseHistory.Name = "lblShowLicenseHistory";
-            this.lblShowLicenseHistory.Size = new System.Drawing.Size(196, 24);
-            this.lblShowLicenseHistory.TabIndex = 103;
-            this.lblShowLicenseHistory.TabStop = true;
-            this.lblShowLicenseHistory.Text = "Show License History.";
-            this.lblShowLicenseHistory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblShowLicenseHistory_LinkClicked);
-            // 
             // lblILAppIDTitle
             // 
             this.lblILAppIDTitle.AutoSize = true;
@@ -430,6 +417,19 @@
             this.lblILApplicationID.Size = new System.Drawing.Size(40, 24);
             this.lblILApplicationID.TabIndex = 100;
             this.lblILApplicationID.Text = "???";
+            // 
+            // lblShowLicenseHistory
+            // 
+            this.lblShowLicenseHistory.AutoSize = true;
+            this.lblShowLicenseHistory.Enabled = false;
+            this.lblShowLicenseHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lblShowLicenseHistory.Location = new System.Drawing.Point(25, 718);
+            this.lblShowLicenseHistory.Name = "lblShowLicenseHistory";
+            this.lblShowLicenseHistory.Size = new System.Drawing.Size(196, 24);
+            this.lblShowLicenseHistory.TabIndex = 103;
+            this.lblShowLicenseHistory.TabStop = true;
+            this.lblShowLicenseHistory.Text = "Show License History.";
+            this.lblShowLicenseHistory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblShowLicenseHistory_LinkClicked);
             // 
             // lblSave
             // 
@@ -471,6 +471,7 @@
             this.lblShowLicenseInfo.TabIndex = 147;
             this.lblShowLicenseInfo.TabStop = true;
             this.lblShowLicenseInfo.Text = "Show License Info.";
+            this.lblShowLicenseInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblShowLicenseInfo_LinkClicked);
             // 
             // ucLicenseCard1
             // 
