@@ -105,7 +105,8 @@ namespace Presentation_Layer
 
         private void tsmiRenewDrivingLicense_Click(object sender, EventArgs e)
         {
-
+            frmRenewLicense frm = new frmRenewLicense(); 
+            frm.ShowDialog();
         }
     }
 }

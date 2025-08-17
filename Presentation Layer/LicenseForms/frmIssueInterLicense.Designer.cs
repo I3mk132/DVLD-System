@@ -497,6 +497,7 @@
             this.Controls.Add(this.lblShowLicenseHistory);
             this.Name = "frmIssueInterLicense";
             this.Text = "frmIssueInterLicense";
+            this.Load += new System.EventHandler(this.frmIssueInterLicense_Load);
             this.gbFilter.ResumeLayout(false);
             this.gbFilter.PerformLayout();
             this.panel1.ResumeLayout(false);

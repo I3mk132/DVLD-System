@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Data_Layer
 {
@@ -345,6 +347,86 @@ namespace Data_Layer
                 connection.Close();
             }
             return rowsAffected > 0;
+
+        }
+
+        public static bool Deactivate(int ID)
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"
+
+                UPDATE Licenses SET
+                IsActive = 0
+                WHERE LicenseID = @ID
+
+            ";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ID", ID);
+
+
+            int rowsAffected = 0;
+            bool result = false;
+            try
+            {
+                connection.Open();
+
+                rowsAffected = command.ExecuteNonQuery();
+                result = (rowsAffected > 0);
+            }
+            catch (Exception ex)
+            {
+                result = false;
+                clsErrorLog.AddErrorLog(ex);
+                // Log
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return result;
+
+        }
+
+        public static bool Activate(int ID)
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"
+
+                UPDATE Licenses SET
+                IsActive = 1
+                WHERE LicenseID = @ID
+
+            ";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ID", ID);
+
+
+            int rowsAffected = 0;
+            bool result = false;
+            try
+            {
+                connection.Open();
+
+                rowsAffected = command.ExecuteNonQuery();
+                result = (rowsAffected > 0);
+            }
+            catch (Exception ex)
+            {
+                result = false;
+                clsErrorLog.AddErrorLog(ex);
+                // Log
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return result;
 
         }
     }

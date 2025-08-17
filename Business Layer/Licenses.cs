@@ -161,6 +161,19 @@ namespace Business_Layer
         {
             return clsLicensesDataAccess.Delete(ID);
         }
+        public static bool Activate(int ID)
+        {
+            return clsLicensesDataAccess.Activate(ID);
+        }
+        public static bool Deactivate(int ID)
+        {
+            return clsLicensesDataAccess.Deactivate(ID);
+        }
+        public bool Deactivate()
+        {
+            return clsLicensesDataAccess.Deactivate(LicenseID);
+        }
+
 
         private bool _AddNew()
         {

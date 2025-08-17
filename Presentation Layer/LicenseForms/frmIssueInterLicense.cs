@@ -140,5 +140,10 @@ namespace Presentation_Layer.LicenseForms
             frmInterLicenseInfo frm = new frmInterLicenseInfo(InternationalLicenseID);
             frm.ShowDialog();
         }
+
+        private void frmIssueInterLicense_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
