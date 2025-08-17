@@ -12,20 +12,22 @@ using Presentation_Layer.ApplicationForms.LicensesForms;
 
 namespace Presentation_Layer.LicenseForms
 {
-    public partial class frmRenewLicense : Form
+    public partial class frmReplaceLicense : Form
     {
-        public frmRenewLicense()
+        public frmReplaceLicense()
         {
             InitializeComponent();
         }
-        int LocalLicenseID = -1;
-        DateTime ExpirationDate;
 
-        private void frmRenewLicense_Load(object sender, EventArgs e)
+        private void frmReplaceLicense_Load(object sender, EventArgs e)
         {
-            
+            rbDameged.Checked = true;
         }
 
+        int LocalLicenseID = -1;
+        DateTime ExpirationDate;
+        private enum enReplacement { Dameged = 4, Lost = 3 };
+        private enReplacement _mode;
         private void txtFilter_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -37,7 +39,7 @@ namespace Presentation_Layer.LicenseForms
         private void lblSave_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show(
-            "Are you sure you want to Renew license? ",
+            "Are you sure you want to Replace license? ",
             "Issue License", MessageBoxButtons.YesNo, MessageBoxIcon.Question
             ) == DialogResult.Yes)
             {
@@ -47,7 +49,7 @@ namespace Presentation_Layer.LicenseForms
 
                 app.PersonID = license.PersonID;
                 app.ApplicationDate = DateTime.Now;
-                app.ApplicationTypeID = 2;
+                app.ApplicationTypeID = (int)_mode;
                 app.ApplicationStatus = "Completed";
                 app.LastStatusDate = DateTime.Now;
                 app.PaidFees = Convert.ToDecimal(lblApplicationFees.Text);
@@ -62,18 +64,18 @@ namespace Presentation_Layer.LicenseForms
                         lic.ApplicationID = app.ApplicationID;
                         lic.DriverID = license.DriverID;
                         lic.LicenseClassID = license.LicenseClassID;
-                        lic.IssueDate = DateTime.Now;
-                        lic.ExpirationDate = DateTime.Now.AddYears(10); 
-                        lic.Notes = txtNotes.Text;
-                        lic.PaidFees = Convert.ToDecimal(lblTotalFees.Text); 
+                        lic.IssueDate = license.IssueDate;
+                        lic.ExpirationDate = license.ExpirationDate;
+                        lic.Notes = license.Notes;
+                        lic.PaidFees = app.PaidFees + clsApplicationTypes.Find(1).Fees;
                         lic.IsActive = true;
-                        lic.IssueReason = "Renew";
+                        lic.IssueReason = "Replacement For " + (_mode == enReplacement.Lost ? "Lost":"Dameged");
                         lic.CreatedByUserID = clsGlobal.CurrentUser.UserID;
 
                         if (lic.Save())
                         {
                             MessageBox.Show(
-                                " Licesne Issued Successfully with ID = " + lic.LicenseID.ToString(),
+                                "Licesne Issued Successfully with ID = " + lic.LicenseID.ToString(),
                                 "License Issued",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Information
@@ -92,13 +94,7 @@ namespace Presentation_Layer.LicenseForms
                 }
 
             }
-            else
-            {
-                MessageBox.Show(
-                    "The License Couldn't be Issued. ",
-                    "Issue Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            
+
 
         }
 
@@ -116,13 +112,13 @@ namespace Presentation_Layer.LicenseForms
             clsLicenses license = clsLicenses.Find(LicenseID);
             if (license != null)
             {
-                if (DateTime.Now < license.ExpirationDate.Value)
+                if (!license.IsActive.Value)
                 {
                     MessageBox.Show(
-                        "license isnt expired yet. ",
-                        "License Expiration", 
+                        "License is not active.",
+                        "License Error",
                         MessageBoxButtons.OK,
-                        MessageBoxIcon.Error );
+                        MessageBoxIcon.Error);
                     return;
                 }
                 ucLicenseCard1.LicenseID = LicenseID;
@@ -131,19 +127,9 @@ namespace Presentation_Layer.LicenseForms
                 ExpirationDate = license.ExpirationDate.Value;
 
                 lblApplicationDate.Text = DateTime.Now.ToString("d");
-                lblIssueDate.Text = DateTime.Now.ToString("d");
-                lblApplicationFees.Text = clsApplicationTypes.Find(2).Fees.ToString();
-                lblLicenseFees.Text = clsApplicationTypes.Find(1).Fees.ToString();
+                lblApplicationFees.Text = clsApplicationTypes.Find((int)_mode).Fees.ToString();
                 lblOldLicenseID.Text = license.LicenseID.ToString();
-                lblExpirationDate.Text = DateTime.Now.AddYears(10).ToString("d");
-                lblTotalFees.Text = 
-                    (Convert.ToDecimal(
-                        lblLicenseFees.Text) + 
-                    Convert.ToDecimal(
-                        lblApplicationFees.Text)
-                    ).ToString();
                 lblCreatedBy.Text = clsGlobal.CurrentUser.Username;
-                
 
                 lblShowLicenseHistory.Enabled = true;
                 lblSave.Enabled = true;
@@ -168,6 +154,50 @@ namespace Presentation_Layer.LicenseForms
         {
             frmLicenseInfo frm = new frmLicenseInfo(LocalLicenseID);
             frm.ShowDialog();
+        }
+
+        private void rbReplace_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbDameged.Checked)
+            {
+                _mode = enReplacement.Dameged;
+
+                lblReplaceLicense.Text = "Replace Dameged Licenses";
+                this.Text = "Replace Dameged Licenses";
+
+            }
+            else
+            {
+                _mode = enReplacement.Lost;
+
+                lblReplaceLicense.Text = "Replace Dameged Licenses";
+                this.Text = "Replace Dameged Licenses";
+
+            }
+
+            lblApplicationFees.Text = clsApplicationTypes.Find((int)_mode).Fees.ToString();
+        }
+
+        private void rbDameged_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbDameged.Checked)
+            {
+                _mode = enReplacement.Dameged;
+
+                lblReplaceLicense.Text = "Replace Dameged Licenses";
+                this.Text = "Replace Dameged Licenses";
+
+            }
+            else
+            {
+                _mode = enReplacement.Lost;
+
+                lblReplaceLicense.Text = "Replace Dameged Licenses";
+                this.Text = "Replace Dameged Licenses";
+
+            }
+
+            lblApplicationFees.Text = clsApplicationTypes.Find((int)_mode).Fees.ToString();
         }
     }
 }

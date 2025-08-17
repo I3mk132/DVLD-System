@@ -38,7 +38,10 @@ namespace Presentation_Layer.UserControls.LicenseUserControls
                 lblGender.Text = license.Gender.ToString();
                 lblIssueDate.Text = license.IssueDate.Value.ToString("d");
                 lblIssueReason.Text = license.IssueReason.ToString();
-                lblNotes.Text = license.Notes.ToString();
+                if (license.Notes != "")
+                    lblNotes.Text = license.Notes.ToString();
+                else
+                    lblNotes.Text = "No Notes. ";
                 lblIsActive.Text = (license.IsActive.Value ? "Yes" : "No");
                 lblDateOfBirth.Text = license.DateOfBirth.Value.ToString("d");
                 lblDriverID.Text = license.DriverID.ToString();

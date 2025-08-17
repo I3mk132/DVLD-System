@@ -70,7 +70,8 @@ namespace Presentation_Layer
 
         private void replacementForToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmReplaceLicense frm = new frmReplaceLicense();
+            frm.ShowDialog();
         }
 
         private void tsmiLocalDrivingLicenses_Click(object sender, EventArgs e)

@@ -142,7 +142,7 @@
             // 
             this.lblIsActive.AutoSize = true;
             this.lblIsActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIsActive.Location = new System.Drawing.Point(462, 101);
+            this.lblIsActive.Location = new System.Drawing.Point(715, 52);
             this.lblIsActive.Name = "lblIsActive";
             this.lblIsActive.Size = new System.Drawing.Size(36, 20);
             this.lblIsActive.TabIndex = 100;
@@ -152,7 +152,7 @@
             // 
             this.lblDateOfBirth.AutoSize = true;
             this.lblDateOfBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateOfBirth.Location = new System.Drawing.Point(462, 138);
+            this.lblDateOfBirth.Location = new System.Drawing.Point(465, 105);
             this.lblDateOfBirth.Name = "lblDateOfBirth";
             this.lblDateOfBirth.Size = new System.Drawing.Size(36, 20);
             this.lblDateOfBirth.TabIndex = 99;
@@ -162,7 +162,7 @@
             // 
             this.lblDriverID.AutoSize = true;
             this.lblDriverID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDriverID.Location = new System.Drawing.Point(462, 175);
+            this.lblDriverID.Location = new System.Drawing.Point(465, 142);
             this.lblDriverID.Name = "lblDriverID";
             this.lblDriverID.Size = new System.Drawing.Size(36, 20);
             this.lblDriverID.TabIndex = 98;
@@ -172,7 +172,7 @@
             // 
             this.lblExpirationDate.AutoSize = true;
             this.lblExpirationDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExpirationDate.Location = new System.Drawing.Point(462, 212);
+            this.lblExpirationDate.Location = new System.Drawing.Point(465, 179);
             this.lblExpirationDate.Name = "lblExpirationDate";
             this.lblExpirationDate.Size = new System.Drawing.Size(36, 20);
             this.lblExpirationDate.TabIndex = 97;
@@ -182,7 +182,7 @@
             // 
             this.lblIsDetained.AutoSize = true;
             this.lblIsDetained.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIsDetained.Location = new System.Drawing.Point(462, 249);
+            this.lblIsDetained.Location = new System.Drawing.Point(465, 216);
             this.lblIsDetained.Name = "lblIsDetained";
             this.lblIsDetained.Size = new System.Drawing.Size(36, 20);
             this.lblIsDetained.TabIndex = 96;
@@ -272,7 +272,7 @@
             // pictureBox14
             // 
             this.pictureBox14.Image = global::Presentation_Layer.Properties.Resources.Question;
-            this.pictureBox14.Location = new System.Drawing.Point(430, 244);
+            this.pictureBox14.Location = new System.Drawing.Point(433, 211);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(25, 25);
             this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -282,7 +282,7 @@
             // pictureBox13
             // 
             this.pictureBox13.Image = global::Presentation_Layer.Properties.Resources.Tag;
-            this.pictureBox13.Location = new System.Drawing.Point(430, 170);
+            this.pictureBox13.Location = new System.Drawing.Point(433, 137);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(25, 25);
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -362,7 +362,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::Presentation_Layer.Properties.Resources.Question;
-            this.pictureBox4.Location = new System.Drawing.Point(430, 96);
+            this.pictureBox4.Location = new System.Drawing.Point(683, 47);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(25, 25);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -372,7 +372,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::Presentation_Layer.Properties.Resources.Calendar;
-            this.pictureBox3.Location = new System.Drawing.Point(430, 207);
+            this.pictureBox3.Location = new System.Drawing.Point(433, 174);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(25, 25);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -382,7 +382,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Presentation_Layer.Properties.Resources.Calendar;
-            this.pictureBox2.Location = new System.Drawing.Point(430, 133);
+            this.pictureBox2.Location = new System.Drawing.Point(433, 100);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(25, 25);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -423,7 +423,7 @@
             // 
             this.lblIsActiveTitle.AutoSize = true;
             this.lblIsActiveTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIsActiveTitle.Location = new System.Drawing.Point(286, 101);
+            this.lblIsActiveTitle.Location = new System.Drawing.Point(580, 52);
             this.lblIsActiveTitle.Name = "lblIsActiveTitle";
             this.lblIsActiveTitle.Size = new System.Drawing.Size(88, 20);
             this.lblIsActiveTitle.TabIndex = 11;
@@ -433,7 +433,7 @@
             // 
             this.lblDateOfBirthTitle.AutoSize = true;
             this.lblDateOfBirthTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateOfBirthTitle.Location = new System.Drawing.Point(286, 138);
+            this.lblDateOfBirthTitle.Location = new System.Drawing.Point(289, 105);
             this.lblDateOfBirthTitle.Name = "lblDateOfBirthTitle";
             this.lblDateOfBirthTitle.Size = new System.Drawing.Size(125, 20);
             this.lblDateOfBirthTitle.TabIndex = 10;
@@ -483,7 +483,7 @@
             // 
             this.lblDriverIDTitle.AutoSize = true;
             this.lblDriverIDTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDriverIDTitle.Location = new System.Drawing.Point(286, 175);
+            this.lblDriverIDTitle.Location = new System.Drawing.Point(289, 142);
             this.lblDriverIDTitle.Name = "lblDriverIDTitle";
             this.lblDriverIDTitle.Size = new System.Drawing.Size(85, 20);
             this.lblDriverIDTitle.TabIndex = 5;
@@ -493,7 +493,7 @@
             // 
             this.lblExpirationDateTitle.AutoSize = true;
             this.lblExpirationDateTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExpirationDateTitle.Location = new System.Drawing.Point(286, 212);
+            this.lblExpirationDateTitle.Location = new System.Drawing.Point(289, 179);
             this.lblExpirationDateTitle.Name = "lblExpirationDateTitle";
             this.lblExpirationDateTitle.Size = new System.Drawing.Size(138, 20);
             this.lblExpirationDateTitle.TabIndex = 4;
@@ -503,7 +503,7 @@
             // 
             this.lblIsDetainedTitle.AutoSize = true;
             this.lblIsDetainedTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIsDetainedTitle.Location = new System.Drawing.Point(286, 249);
+            this.lblIsDetainedTitle.Location = new System.Drawing.Point(289, 216);
             this.lblIsDetainedTitle.Name = "lblIsDetainedTitle";
             this.lblIsDetainedTitle.Size = new System.Drawing.Size(107, 20);
             this.lblIsDetainedTitle.TabIndex = 3;
