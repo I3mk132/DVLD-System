@@ -213,6 +213,16 @@ namespace Presentation_Layer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DetainLicense {
+            get {
+                object obj = ResourceManager.GetObject("DetainLicense", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DocumentAdd {
             get {
                 object obj = ResourceManager.GetObject("DocumentAdd", resourceCulture);

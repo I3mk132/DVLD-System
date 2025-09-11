@@ -44,6 +44,9 @@
             this.localDrivingLicenseApplicationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.internationalDrivingLicenseApplicationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msiDetainLicenses = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmimanageDetainedLicenses = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiDetainLicense = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiReleaseDetainedLicenses = new System.Windows.Forms.ToolStripMenuItem();
             this.msiManageApplicationTypes = new System.Windows.Forms.ToolStripMenuItem();
             this.msiManageTestTypes = new System.Windows.Forms.ToolStripMenuItem();
             this.msiPeople = new System.Windows.Forms.ToolStripMenuItem();
@@ -204,10 +207,40 @@
             // 
             // msiDetainLicenses
             // 
+            this.msiDetainLicenses.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmimanageDetainedLicenses,
+            this.tsmiDetainLicense,
+            this.tsmiReleaseDetainedLicenses});
             this.msiDetainLicenses.Image = global::Presentation_Layer.Properties.Resources.LockedCard;
             this.msiDetainLicenses.Name = "msiDetainLicenses";
             this.msiDetainLicenses.Size = new System.Drawing.Size(350, 54);
             this.msiDetainLicenses.Text = "Detain Licenses";
+            // 
+            // tsmimanageDetainedLicenses
+            // 
+            this.tsmimanageDetainedLicenses.Image = global::Presentation_Layer.Properties.Resources.DetainLicense;
+            this.tsmimanageDetainedLicenses.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmimanageDetainedLicenses.Name = "tsmimanageDetainedLicenses";
+            this.tsmimanageDetainedLicenses.Size = new System.Drawing.Size(326, 30);
+            this.tsmimanageDetainedLicenses.Text = "Manage Detained Licenses";
+            // 
+            // tsmiDetainLicense
+            // 
+            this.tsmiDetainLicense.Image = global::Presentation_Layer.Properties.Resources.DetainLicense;
+            this.tsmiDetainLicense.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmiDetainLicense.Name = "tsmiDetainLicense";
+            this.tsmiDetainLicense.Size = new System.Drawing.Size(326, 30);
+            this.tsmiDetainLicense.Text = "Detain License";
+            this.tsmiDetainLicense.Click += new System.EventHandler(this.tsmiDetainLicense_Click);
+            // 
+            // tsmiReleaseDetainedLicenses
+            // 
+            this.tsmiReleaseDetainedLicenses.Image = global::Presentation_Layer.Properties.Resources.DetainLicense;
+            this.tsmiReleaseDetainedLicenses.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmiReleaseDetainedLicenses.Name = "tsmiReleaseDetainedLicenses";
+            this.tsmiReleaseDetainedLicenses.Size = new System.Drawing.Size(326, 30);
+            this.tsmiReleaseDetainedLicenses.Text = "Release Detained License";
+            this.tsmiReleaseDetainedLicenses.Click += new System.EventHandler(this.tsmiReleaseDetainedLicenses_Click);
             // 
             // msiManageApplicationTypes
             // 
@@ -336,6 +369,9 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiRetake;
         private System.Windows.Forms.ToolStripMenuItem localDrivingLicenseApplicationsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem internationalDrivingLicenseApplicationsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmimanageDetainedLicenses;
+        private System.Windows.Forms.ToolStripMenuItem tsmiDetainLicense;
+        private System.Windows.Forms.ToolStripMenuItem tsmiReleaseDetainedLicenses;
     }
 }
 

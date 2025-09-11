@@ -12,6 +12,7 @@ using Presentation_Layer.ApplicationForms;
 using Presentation_Layer.ApplicationForms.LocalDrivingLicenseApplicationsForms;
 using Presentation_Layer.DriverForms;
 using Presentation_Layer.LicenseForms;
+using Presentation_Layer.LicenseForms.DetainLicenseForms;
 using Presentation_Layer.PeopleForms;
 using Presentation_Layer.UserForms;
 
@@ -108,6 +109,17 @@ namespace Presentation_Layer
         {
             frmRenewLicense frm = new frmRenewLicense(); 
             frm.ShowDialog();
+        }
+
+        private void tsmiDetainLicense_Click(object sender, EventArgs e)
+        {
+            frmDetainLicense frm = new frmDetainLicense();
+            frm.ShowDialog(); 
+        }
+
+        private void tsmiReleaseDetainedLicenses_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

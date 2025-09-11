@@ -604,6 +604,7 @@
     <None Include="Icons\Test.png" />
     <None Include="Icons\Question.png" />
     <None Include="Icons\History.png" />
+    <None Include="Icons\DetainLicense.png" />
     <Content Include="RememberedUser.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

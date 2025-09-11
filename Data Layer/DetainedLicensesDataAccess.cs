@@ -51,7 +51,7 @@ namespace Data_Layer
 
             string query = @"
 
-                INSERT INTO Tests 
+                INSERT INTO DetainedLicenses 
                 (LicenseID, DetainDate, FineFees, CreatedByUserID, IsReleased, ReleaseDate, 
                 ReleasedByUserID, ReleaseApplicationID) Values 
                 (@LicenseID, @DetainDate, @FineFees, @CreatedByUserID, @IsReleased, @ReleaseDate, 

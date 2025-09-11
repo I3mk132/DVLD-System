@@ -31,6 +31,7 @@
             this.lblDetainLicense = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtFineFees = new System.Windows.Forms.TextBox();
             this.lblCreatedByTitle = new System.Windows.Forms.Label();
             this.lblCreatedBy = new System.Windows.Forms.Label();
             this.lblDetainDateTitle = new System.Windows.Forms.Label();
@@ -48,13 +49,12 @@
             this.btnFind = new System.Windows.Forms.Button();
             this.lblFilter = new System.Windows.Forms.Label();
             this.txtFilter = new System.Windows.Forms.TextBox();
-            this.ucLicenseCard1 = new Presentation_Layer.UserControls.LicenseUserControls.ucLicenseCard();
             this.gbFilter = new System.Windows.Forms.GroupBox();
             this.lblShowLicenseInfo = new System.Windows.Forms.LinkLabel();
             this.lblSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblShowLicenseHistory = new System.Windows.Forms.LinkLabel();
-            this.txtFineFees = new System.Windows.Forms.TextBox();
+            this.ucLicenseCard1 = new Presentation_Layer.UserControls.LicenseUserControls.ucLicenseCard();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -108,6 +108,15 @@
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detain License Application Info";
+            // 
+            // txtFineFees
+            // 
+            this.txtFineFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFineFees.Location = new System.Drawing.Point(225, 101);
+            this.txtFineFees.Multiline = true;
+            this.txtFineFees.Name = "txtFineFees";
+            this.txtFineFees.Size = new System.Drawing.Size(156, 23);
+            this.txtFineFees.TabIndex = 125;
             // 
             // lblCreatedByTitle
             // 
@@ -288,15 +297,6 @@
             this.txtFilter.TabIndex = 1;
             this.txtFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilter_KeyPress);
             // 
-            // ucLicenseCard1
-            // 
-            this.ucLicenseCard1.BackColor = System.Drawing.Color.White;
-            this.ucLicenseCard1.Location = new System.Drawing.Point(8, 136);
-            this.ucLicenseCard1.Name = "ucLicenseCard1";
-            this.ucLicenseCard1.Padding = new System.Windows.Forms.Padding(5);
-            this.ucLicenseCard1.Size = new System.Drawing.Size(780, 333);
-            this.ucLicenseCard1.TabIndex = 157;
-            // 
             // gbFilter
             // 
             this.gbFilter.BackColor = System.Drawing.Color.White;
@@ -334,7 +334,7 @@
             this.lblSave.Name = "lblSave";
             this.lblSave.Size = new System.Drawing.Size(196, 40);
             this.lblSave.TabIndex = 161;
-            this.lblSave.Text = "Issue License";
+            this.lblSave.Text = "Detain License";
             this.lblSave.UseVisualStyleBackColor = true;
             this.lblSave.Click += new System.EventHandler(this.lblSave_Click);
             // 
@@ -365,14 +365,14 @@
             this.lblShowLicenseHistory.Text = "Show License History.";
             this.lblShowLicenseHistory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblShowLicenseHistory_LinkClicked);
             // 
-            // txtFineFees
+            // ucLicenseCard1
             // 
-            this.txtFineFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFineFees.Location = new System.Drawing.Point(225, 101);
-            this.txtFineFees.Multiline = true;
-            this.txtFineFees.Name = "txtFineFees";
-            this.txtFineFees.Size = new System.Drawing.Size(156, 23);
-            this.txtFineFees.TabIndex = 125;
+            this.ucLicenseCard1.BackColor = System.Drawing.Color.White;
+            this.ucLicenseCard1.Location = new System.Drawing.Point(8, 136);
+            this.ucLicenseCard1.Name = "ucLicenseCard1";
+            this.ucLicenseCard1.Padding = new System.Windows.Forms.Padding(5);
+            this.ucLicenseCard1.Size = new System.Drawing.Size(780, 333);
+            this.ucLicenseCard1.TabIndex = 157;
             // 
             // frmDetainLicense
             // 
@@ -389,7 +389,7 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblShowLicenseHistory);
             this.Name = "frmDetainLicense";
-            this.Text = "frmDetainLicense";
+            this.Text = "Detain License";
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
