@@ -65,8 +65,6 @@ namespace Presentation_Layer.LicenseForms.DetainLicenseForms
                 }
                 
 
-                
-
             }
             else
             {

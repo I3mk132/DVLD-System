@@ -76,6 +76,12 @@
     <Compile Include="LicenseForms\DetainLicenseForms\frmDetainLicense.Designer.cs">
       <DependentUpon>frmDetainLicense.cs</DependentUpon>
     </Compile>
+    <Compile Include="LicenseForms\DetainLicenseForms\frmReleaseLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LicenseForms\DetainLicenseForms\frmReleaseLicense.Designer.cs">
+      <DependentUpon>frmReleaseLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="LicenseForms\frmInterLicenseInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -320,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LicenseForms\DetainLicenseForms\frmDetainLicense.resx">
       <DependentUpon>frmDetainLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LicenseForms\DetainLicenseForms\frmReleaseLicense.resx">
+      <DependentUpon>frmReleaseLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LicenseForms\frmInterLicenseInfo.resx">
       <DependentUpon>frmInterLicenseInfo.cs</DependentUpon>

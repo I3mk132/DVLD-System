@@ -235,6 +235,67 @@ namespace Data_Layer
             return isFound;
 
         }
+        public static bool FindByLicenseID(
+            ref int DetainID, ref int LicenseID, ref DateTime? DetainDate, ref decimal FineFees,
+            ref int CreatedByUserID, ref bool IsReleased,
+            ref DateTime? ReleaseDate, ref int ReleasedByUserID, ref int ReleaseApplicationID)
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"SELECT top 1 * FROM DetainedLicenses WHERE LicenseID = @ID ORDER BY DetainID DESC";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ID", LicenseID);
+
+            bool isFound = false;
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isFound = true;
+
+                    DetainID = (int)reader["DetainID"];
+                    LicenseID = (int)reader["LicenseID"];
+                    DetainDate = (DateTime?)reader["DetainDate"];
+                    FineFees = (decimal)reader["FineFees"];
+                    CreatedByUserID = (int)reader["CreatedByUserID"];
+                    IsReleased = (bool)reader["IsReleased"];
+                    if (reader["ReleaseDate"] != DBNull.Value)
+                        ReleaseDate = (DateTime?)reader["ReleaseDate"];
+                    else
+                        ReleaseDate = null;
+
+                    if (reader["ReleasedByUserID"] != DBNull.Value)
+                        ReleasedByUserID = (int)reader["ReleasedByUserID"];
+                    else
+                        ReleasedByUserID = -1;
+
+                    if (reader["ReleaseApplicationID"] != DBNull.Value)
+                        ReleaseApplicationID = (int)reader["ReleaseApplicationID"];
+                    else
+                        ReleaseApplicationID = -1;
+
+
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+                clsErrorLog.AddErrorLog(ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isFound;
+
+        }
 
         public static bool Delete(int ID)
         {

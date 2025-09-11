@@ -86,6 +86,28 @@ namespace Business_Layer
 
             return null;
         }
+        public static clsDetainedLicenses FindByLicenseID(
+            int LicenseID
+        )
+        {
+            int DetainID = -1, CreatedByUserID = -1,
+                ReleasedByUserID = -1, ReleaseApplicationID = -1;
+            DateTime? DetainDate = null, ReleaseDate = null;
+            bool IsReleased = false;
+            decimal FineFees = -1;
+
+            if (clsDetainedLicensesDataAccess.FindByLicenseID(
+                ref DetainID, ref LicenseID, ref DetainDate,
+                ref FineFees, ref CreatedByUserID,
+                ref IsReleased, ref ReleaseDate,
+                ref ReleasedByUserID, ref ReleaseApplicationID))
+            {
+                return new clsDetainedLicenses(DetainID, LicenseID, DetainDate, FineFees,
+                    CreatedByUserID, IsReleased, ReleaseDate, ReleasedByUserID, ReleaseApplicationID);
+            }
+
+            return null;
+        }
 
         public static bool Delete(int ID)
         {
