@@ -27,7 +27,7 @@ namespace Business_Layer
         {
             get
             {
-                return false; // Temp until detain system be added . 
+                return clsDetainedLicensesDataAccess.IsLicenseDetained(LicenseID);
             }
             set
             {
