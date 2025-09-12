@@ -70,6 +70,12 @@
     <Compile Include="DriverForms\frmDrivers.Designer.cs">
       <DependentUpon>frmDrivers.cs</DependentUpon>
     </Compile>
+    <Compile Include="LicenseForms\DetainLicenseForms\frmDetainedLicenses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LicenseForms\DetainLicenseForms\frmDetainedLicenses.Designer.cs">
+      <DependentUpon>frmDetainedLicenses.cs</DependentUpon>
+    </Compile>
     <Compile Include="LicenseForms\DetainLicenseForms\frmDetainLicense.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +239,12 @@
     </Compile>
     <Compile Include="UserControls\DriverUserControls\ucDriversList.Designer.cs">
       <DependentUpon>ucDriversList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LicenseUserControls\ucDetainedLicenses.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\LicenseUserControls\ucDetainedLicenses.Designer.cs">
+      <DependentUpon>ucDetainedLicenses.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\LicenseUserControls\ucInterLicenseCard.cs">
       <SubType>UserControl</SubType>

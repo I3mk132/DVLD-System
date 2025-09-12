@@ -164,5 +164,16 @@ namespace Presentation_Layer.LicenseForms.DetainLicenseForms
                     "Detain Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void frmReleaseLicense_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public void setRelease(int LicenseID)
+        {
+            txtFilter.Text = LicenseID.ToString();
+            btnFind.PerformClick();
+        }
     }
 }

@@ -131,5 +131,16 @@ namespace Presentation_Layer.LicenseForms.DetainLicenseForms
             frmLicenseHistory frm = new frmLicenseHistory(license.PersonID);
             frm.ShowDialog();
         }
+
+        private void frmDetainLicense_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public void setLicense(int LicenseID)
+        {
+            txtFilter.Text = LicenseID.ToString();
+            btnFind.PerformClick();
+        }
     }
 }

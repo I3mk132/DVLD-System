@@ -30,16 +30,12 @@
         {
             this.txtFilter = new System.Windows.Forms.TextBox();
             this.gbFilter = new System.Windows.Forms.GroupBox();
+            this.btnFind = new System.Windows.Forms.Button();
             this.lblFilter = new System.Windows.Forms.Label();
             this.lblShowLicenseInfo = new System.Windows.Forms.LinkLabel();
             this.ucLicenseCard1 = new Presentation_Layer.UserControls.LicenseUserControls.ucLicenseCard();
             this.lblShowLicenseHistory = new System.Windows.Forms.LinkLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblReleaseLicense = new System.Windows.Forms.Label();
-            this.btnFind = new System.Windows.Forms.Button();
-            this.lblSave = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
             this.lblTotalFeesTitle = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.lblTotalFees = new System.Windows.Forms.Label();
@@ -64,9 +60,12 @@
             this.lblDetainIDTitle = new System.Windows.Forms.Label();
             this.pbUserNo = new System.Windows.Forms.PictureBox();
             this.lblDetainID = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblReleaseLicense = new System.Windows.Forms.Label();
+            this.lblSave = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.gbFilter.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -75,6 +74,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUserNo)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtFilter
@@ -98,6 +98,16 @@
             this.gbFilter.TabIndex = 164;
             this.gbFilter.TabStop = false;
             this.gbFilter.Text = "Filter";
+            // 
+            // btnFind
+            // 
+            this.btnFind.Image = global::Presentation_Layer.Properties.Resources.Search;
+            this.btnFind.Location = new System.Drawing.Point(350, 19);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(54, 41);
+            this.btnFind.TabIndex = 15;
+            this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // lblFilter
             // 
@@ -177,65 +187,6 @@
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Release License Application Info";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Location = new System.Drawing.Point(10, 495);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(778, 214);
-            this.panel1.TabIndex = 166;
-            // 
-            // lblReleaseLicense
-            // 
-            this.lblReleaseLicense.AutoSize = true;
-            this.lblReleaseLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReleaseLicense.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblReleaseLicense.Location = new System.Drawing.Point(290, 29);
-            this.lblReleaseLicense.Name = "lblReleaseLicense";
-            this.lblReleaseLicense.Size = new System.Drawing.Size(230, 31);
-            this.lblReleaseLicense.TabIndex = 171;
-            this.lblReleaseLicense.Text = "Release License";
-            // 
-            // btnFind
-            // 
-            this.btnFind.Image = global::Presentation_Layer.Properties.Resources.Search;
-            this.btnFind.Location = new System.Drawing.Point(350, 19);
-            this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(54, 41);
-            this.btnFind.TabIndex = 15;
-            this.btnFind.UseVisualStyleBackColor = true;
-            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
-            // 
-            // lblSave
-            // 
-            this.lblSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblSave.Enabled = false;
-            this.lblSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSave.Image = global::Presentation_Layer.Properties.Resources.Save32;
-            this.lblSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblSave.Location = new System.Drawing.Point(594, 715);
-            this.lblSave.Name = "lblSave";
-            this.lblSave.Size = new System.Drawing.Size(196, 40);
-            this.lblSave.TabIndex = 169;
-            this.lblSave.Text = "Release License";
-            this.lblSave.UseVisualStyleBackColor = true;
-            this.lblSave.Click += new System.EventHandler(this.lblSave_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Image = global::Presentation_Layer.Properties.Resources.Close32;
-            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(454, 715);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(134, 40);
-            this.btnClose.TabIndex = 168;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // lblTotalFeesTitle
             // 
@@ -493,6 +444,55 @@
             this.lblDetainID.TabIndex = 136;
             this.lblDetainID.Text = "???";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Location = new System.Drawing.Point(10, 495);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(778, 214);
+            this.panel1.TabIndex = 166;
+            // 
+            // lblReleaseLicense
+            // 
+            this.lblReleaseLicense.AutoSize = true;
+            this.lblReleaseLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReleaseLicense.ForeColor = System.Drawing.Color.Firebrick;
+            this.lblReleaseLicense.Location = new System.Drawing.Point(290, 29);
+            this.lblReleaseLicense.Name = "lblReleaseLicense";
+            this.lblReleaseLicense.Size = new System.Drawing.Size(230, 31);
+            this.lblReleaseLicense.TabIndex = 171;
+            this.lblReleaseLicense.Text = "Release License";
+            // 
+            // lblSave
+            // 
+            this.lblSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblSave.Enabled = false;
+            this.lblSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSave.Image = global::Presentation_Layer.Properties.Resources.Save32;
+            this.lblSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblSave.Location = new System.Drawing.Point(594, 715);
+            this.lblSave.Name = "lblSave";
+            this.lblSave.Size = new System.Drawing.Size(196, 40);
+            this.lblSave.TabIndex = 169;
+            this.lblSave.Text = "Release License";
+            this.lblSave.UseVisualStyleBackColor = true;
+            this.lblSave.Click += new System.EventHandler(this.lblSave_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Image = global::Presentation_Layer.Properties.Resources.Close32;
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.Location = new System.Drawing.Point(454, 715);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(134, 40);
+            this.btnClose.TabIndex = 168;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // frmReleaseLicense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -509,11 +509,11 @@
             this.Controls.Add(this.lblReleaseLicense);
             this.Name = "frmReleaseLicense";
             this.Text = "Release License";
+            this.Load += new System.EventHandler(this.frmReleaseLicense_Load);
             this.gbFilter.ResumeLayout(false);
             this.gbFilter.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
@@ -522,6 +522,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUserNo)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

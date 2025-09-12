@@ -134,5 +134,11 @@ namespace Presentation_Layer
             frmLDLApplications frm = new frmLDLApplications();
             frm.ShowDialog();
         }
+
+        private void tsmimanageDetainedLicenses_Click(object sender, EventArgs e)
+        {
+            frmDetainedLicenses frm = new frmDetainedLicenses();
+            frm.ShowDialog();
+        }
     }
 }
