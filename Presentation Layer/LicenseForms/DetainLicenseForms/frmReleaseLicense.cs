@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -71,14 +72,16 @@ namespace Presentation_Layer.LicenseForms.DetainLicenseForms
 
                 clsDetainedLicenses DL = clsDetainedLicenses.FindByLicenseID(LicenseID);
 
+                decimal ApplicationFees, FineFees;
+
                 lblDetainID.Text = DL.DetainID.ToString();
                 lblDetainDate.Text = DL.DetainDate.Value.ToString("d");
-                lblCreatedBy.Text = DL.CreatedByUserID.ToString();
+                lblCreatedBy.Text = DL.CreatedByUsername.ToString();
                 lblLicenseID.Text = DL.LicenseID.ToString();
 
                 lblTotalFees.Text = (
                     Convert.ToDecimal(
-                        lblApplicationFee.Text = clsApplicationTypes.Find(5).ToString()
+                        lblApplicationFee.Text = clsApplicationTypes.Find(5).Fees.ToString()
                         ) + 
                         Convert.ToDecimal(
                             lblFineFees.Text = DL.FineFees.ToString()
@@ -105,30 +108,51 @@ namespace Presentation_Layer.LicenseForms.DetainLicenseForms
             {
 
 
-                clsDetainedLicenses DL = new clsDetainedLicenses();
-
-                DL.LicenseID = LocalLicenseID;
-                DL.DetainDate = DateTime.Now;
-                DL.FineFees = Convert.ToDecimal(txtFineFees.Text == "" ? "0" : txtFineFees.Text);
-                DL.CreatedByUserID = clsGlobal.CurrentUser.UserID;
-                DL.IsReleased = false;
-
-                if (DL.Save())
+                clsApplications app = new clsApplications();
+                clsLicenses lic = clsLicenses.Find(LocalLicenseID);
+                app.PersonID = lic.PersonID;
+                app.ApplicationDate = DateTime.Now;
+                app.ApplicationTypeID = 5;
+                app.ApplicationStatus = "Completed";
+                app.LastStatusDate = DateTime.Now;
+                app.PaidFees = Convert.ToDecimal(lblTotalFees.Text);
+                app.CreatedByUserID = clsGlobal.CurrentUser.UserID;
+                
+                if (app.Save())
                 {
-                    MessageBox.Show(
-                        " Licesne Detained Successfully with ID = " + DL.DetainID.ToString(),
-                        "License Detain",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information
-                        );
+                    MessageBox.Show("Application Saved Successfully. ");
+
+                    clsDetainedLicenses DL = clsDetainedLicenses.FindByLicenseID(lic.LicenseID);
+
+                    DL.IsReleased = true;
+                    DL.ReleaseDate = DateTime.Now;
+                    DL.ReleaseApplicationID = app.ApplicationID;
+                    DL.ReleasedByUserID = clsGlobal.CurrentUser.UserID;
+
+                    if (DL.Save() )
+                    {
+                        MessageBox.Show(
+                            " Licesne Released Successfully with Detain ID = " + DL.DetainID.ToString(),
+                            "License Release",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information
+                            );
+
+                        lblApplicationID.Text = app.ApplicationID.ToString();
+
+                        lblShowLicenseInfo.Enabled = true;
+                        lblSave.Enabled = false;
 
 
-                    lblDetainID.Text = DL.DetainID.ToString();
-                    txtFineFees.Enabled = false;
-
-                    lblShowLicenseInfo.Enabled = true;
-                    lblSave.Enabled = false;
-
+                    }
+                    else
+                    {
+                        MessageBox.Show("DetainLicense Couldnt be updated.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Application Couldn't be saved. ");
                 }
 
 

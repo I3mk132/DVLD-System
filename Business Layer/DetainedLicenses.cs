@@ -19,6 +19,8 @@ namespace Business_Layer
         public DateTime? ReleaseDate { get; set; }
         public int ReleasedByUserID { get; set; }
         public int ReleaseApplicationID {  get; set; }
+        public string CreatedByUsername => clsUsers.Find(CreatedByUserID).Username;
+
         private enMode _Mode { get; set; }
         private enum enMode { eAdd, eUpdate }
 

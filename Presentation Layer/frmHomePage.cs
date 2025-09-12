@@ -119,7 +119,20 @@ namespace Presentation_Layer
 
         private void tsmiReleaseDetainedLicenses_Click(object sender, EventArgs e)
         {
+            frmReleaseLicense frm = new frmReleaseLicense();
+            frm.ShowDialog();
+        }
 
+        private void tsmiReleaseDetainedLicense_Click(object sender, EventArgs e)
+        {
+            frmReleaseLicense frm = new frmReleaseLicense();
+            frm.ShowDialog();
+        }
+
+        private void tsmiRetake_Click(object sender, EventArgs e)
+        {
+            frmLDLApplications frm = new frmLDLApplications();
+            frm.ShowDialog();
         }
     }
 }

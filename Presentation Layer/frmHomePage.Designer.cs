@@ -168,6 +168,7 @@
             this.tsmiReleaseDetainedLicense.Name = "tsmiReleaseDetainedLicense";
             this.tsmiReleaseDetainedLicense.Size = new System.Drawing.Size(469, 30);
             this.tsmiReleaseDetainedLicense.Text = "Release Detained License";
+            this.tsmiReleaseDetainedLicense.Click += new System.EventHandler(this.tsmiReleaseDetainedLicense_Click);
             // 
             // tsmiRetake
             // 
@@ -176,6 +177,7 @@
             this.tsmiRetake.Name = "tsmiRetake";
             this.tsmiRetake.Size = new System.Drawing.Size(469, 30);
             this.tsmiRetake.Text = "Retake Test";
+            this.tsmiRetake.Click += new System.EventHandler(this.tsmiRetake_Click);
             // 
             // msiManageApplications
             // 

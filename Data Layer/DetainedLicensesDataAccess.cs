@@ -122,7 +122,7 @@ namespace Data_Layer
                 IsReleased = @IsReleased,
                 ReleaseDate = @ReleaseDate,
                 ReleasedByUserID = @ReleasedByUserID,
-                ReleaseApplicationID = @ReleaseAppliactionID
+                ReleaseApplicationID = @ReleaseApplicationID
                 WHERE DetainID = @DetainID
 
             ";

@@ -31,6 +31,7 @@ namespace Presentation_Layer.LicenseForms
         {
             frmIssueInterLicense frm = new frmIssueInterLicense();
             frm.ShowDialog();
+            ucIDLApplications1.RefreshDGV();
         }
     }
 }
