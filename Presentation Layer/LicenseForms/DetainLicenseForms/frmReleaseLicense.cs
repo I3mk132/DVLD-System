@@ -15,9 +15,11 @@ namespace Presentation_Layer.LicenseForms.DetainLicenseForms
 {
     public partial class frmReleaseLicense : Form
     {
-        public frmReleaseLicense()
+        public frmReleaseLicense(int LicenseID = -1)
         {
             InitializeComponent();
+            if (LicenseID != -1)
+                setRelease(LicenseID);
         }
         int LocalLicenseID = -1;
 
@@ -48,7 +50,8 @@ namespace Presentation_Layer.LicenseForms.DetainLicenseForms
             frm.ShowDialog();
         }
 
-        private void btnFind_Click(object sender, EventArgs e)
+
+        private void ButtonFind()
         {
             if (txtFilter.Text == "")
                 return;
@@ -72,8 +75,6 @@ namespace Presentation_Layer.LicenseForms.DetainLicenseForms
 
                 clsDetainedLicenses DL = clsDetainedLicenses.FindByLicenseID(LicenseID);
 
-                decimal ApplicationFees, FineFees;
-
                 lblDetainID.Text = DL.DetainID.ToString();
                 lblDetainDate.Text = DL.DetainDate.Value.ToString("d");
                 lblCreatedBy.Text = DL.CreatedByUsername.ToString();
@@ -82,7 +83,7 @@ namespace Presentation_Layer.LicenseForms.DetainLicenseForms
                 lblTotalFees.Text = (
                     Convert.ToDecimal(
                         lblApplicationFee.Text = clsApplicationTypes.Find(5).Fees.ToString()
-                        ) + 
+                        ) +
                         Convert.ToDecimal(
                             lblFineFees.Text = DL.FineFees.ToString()
                             )).ToString();
@@ -97,6 +98,11 @@ namespace Presentation_Layer.LicenseForms.DetainLicenseForms
             {
                 MessageBox.Show("License not found. ");
             }
+
+        }
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            ButtonFind();
         }
 
         private void lblSave_Click(object sender, EventArgs e)
@@ -173,7 +179,7 @@ namespace Presentation_Layer.LicenseForms.DetainLicenseForms
         public void setRelease(int LicenseID)
         {
             txtFilter.Text = LicenseID.ToString();
-            btnFind.PerformClick();
+            ButtonFind();
         }
     }
 }

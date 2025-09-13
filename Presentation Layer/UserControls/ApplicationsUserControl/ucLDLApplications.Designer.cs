@@ -43,18 +43,18 @@
             this.lblRecordCount = new System.Windows.Forms.Label();
             this.dgvApplicationsList = new System.Windows.Forms.DataGridView();
             this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cmsiShowApplicationDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.cmss2 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmss1 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmss3 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmsiShowApplicationDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsiEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsiDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmss1 = new System.Windows.Forms.ToolStripSeparator();
             this.cmsiCancelApplication = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsiSechduleTests = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiVision = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiWritten = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiStreet = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsiIssueDrivingLicense = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmss3 = new System.Windows.Forms.ToolStripSeparator();
             this.cmsiShowLicense = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsiShowPersonLicenseHistory = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
@@ -98,6 +98,7 @@
             this.gbFilter.TabIndex = 18;
             this.gbFilter.TabStop = false;
             this.gbFilter.Text = "Filter";
+            this.gbFilter.Enter += new System.EventHandler(this.gbFilter_Enter);
             // 
             // rbNone
             // 
@@ -191,6 +192,7 @@
             this.lblFilter.Size = new System.Drawing.Size(115, 26);
             this.lblFilter.TabIndex = 14;
             this.lblFilter.Text = "Filter By: ";
+            this.lblFilter.Click += new System.EventHandler(this.lblFilter_Click);
             // 
             // txtFilter
             // 
@@ -212,6 +214,7 @@
             this.lblRecordCount.Size = new System.Drawing.Size(155, 26);
             this.lblRecordCount.TabIndex = 16;
             this.lblRecordCount.Text = "# Records: -1";
+            this.lblRecordCount.Click += new System.EventHandler(this.lblRecordCount_Click);
             // 
             // dgvApplicationsList
             // 
@@ -245,6 +248,7 @@
             this.dgvApplicationsList.ReadOnly = true;
             this.dgvApplicationsList.Size = new System.Drawing.Size(781, 299);
             this.dgvApplicationsList.TabIndex = 15;
+            this.dgvApplicationsList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvApplicationsList_CellContentClick);
             // 
             // cms
             // 
@@ -261,8 +265,26 @@
             this.cmsiShowLicense,
             this.cmsiShowPersonLicenseHistory});
             this.cms.Name = "cms";
-            this.cms.Size = new System.Drawing.Size(266, 348);
+            this.cms.Size = new System.Drawing.Size(266, 326);
             this.cms.Opening += new System.ComponentModel.CancelEventHandler(this.cms_Opening);
+            // 
+            // cmss2
+            // 
+            this.cmss2.Name = "cmss2";
+            this.cmss2.Size = new System.Drawing.Size(262, 6);
+            this.cmss2.Click += new System.EventHandler(this.cmss2_Click);
+            // 
+            // cmss1
+            // 
+            this.cmss1.Name = "cmss1";
+            this.cmss1.Size = new System.Drawing.Size(262, 6);
+            this.cmss1.Click += new System.EventHandler(this.cmss1_Click);
+            // 
+            // cmss3
+            // 
+            this.cmss3.Name = "cmss3";
+            this.cmss3.Size = new System.Drawing.Size(262, 6);
+            this.cmss3.Click += new System.EventHandler(this.cmss3_Click);
             // 
             // cmsiShowApplicationDetails
             // 
@@ -272,11 +294,6 @@
             this.cmsiShowApplicationDetails.Size = new System.Drawing.Size(265, 38);
             this.cmsiShowApplicationDetails.Text = "Show Application Details";
             this.cmsiShowApplicationDetails.Click += new System.EventHandler(this.cmsiShowApplicationDetails_Click);
-            // 
-            // cmss2
-            // 
-            this.cmss2.Name = "cmss2";
-            this.cmss2.Size = new System.Drawing.Size(262, 6);
             // 
             // cmsiEdit
             // 
@@ -295,11 +312,6 @@
             this.cmsiDelete.Size = new System.Drawing.Size(265, 38);
             this.cmsiDelete.Text = "Delete";
             this.cmsiDelete.Click += new System.EventHandler(this.cmsiDelete_Click);
-            // 
-            // cmss1
-            // 
-            this.cmss1.Name = "cmss1";
-            this.cmss1.Size = new System.Drawing.Size(262, 6);
             // 
             // cmsiCancelApplication
             // 
@@ -365,11 +377,6 @@
             this.cmsiIssueDrivingLicense.Size = new System.Drawing.Size(265, 38);
             this.cmsiIssueDrivingLicense.Text = "Issue Driving License ( First time )";
             this.cmsiIssueDrivingLicense.Click += new System.EventHandler(this.cmsiIssueDrivingLicense_Click);
-            // 
-            // cmss3
-            // 
-            this.cmss3.Name = "cmss3";
-            this.cmss3.Size = new System.Drawing.Size(262, 6);
             // 
             // cmsiShowLicense
             // 

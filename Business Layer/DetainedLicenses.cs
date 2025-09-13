@@ -66,6 +66,11 @@ namespace Business_Layer
         {
             return clsDetainedLicensesDataAccess.GetAll();
         }
+        public static DataTable GetAllFiltered(
+            int DetainID = -1, bool? IsReleased = null, string NationalNo = "", string Fullname = "", int ReleaseApplicationID = -1)
+        {
+            return clsDetainedLicensesDataAccess.GetAllFiltered(DetainID, IsReleased, NationalNo, Fullname, ReleaseApplicationID);
+        }
         public static clsDetainedLicenses Find(
             int DetainID
         )

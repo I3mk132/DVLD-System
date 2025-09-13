@@ -153,6 +153,16 @@ namespace Presentation_Layer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BlockCard {
+            get {
+                object obj = ResourceManager.GetObject("BlockCard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Calendar {
             get {
                 object obj = ResourceManager.GetObject("Calendar", resourceCulture);
@@ -686,6 +696,26 @@ namespace Presentation_Layer.Properties {
         internal static System.Drawing.Bitmap Title32 {
             get {
                 object obj = ResourceManager.GetObject("Title32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UnlockCard {
+            get {
+                object obj = ResourceManager.GetObject("UnlockCard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UnlockCard32 {
+            get {
+                object obj = ResourceManager.GetObject("UnlockCard32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

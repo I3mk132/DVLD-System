@@ -15,7 +15,24 @@ namespace Data_Layer
         {
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
-            string query = @"SELECT * FROM DetainedLicenses";
+            string query = @"
+                SELECT 
+                    DL.DetainID AS [Detain ID],  
+                    DL.LicenseID AS [License ID],
+					DL.DetainDate AS [Detain Date],
+					DL.IsReleased AS [Is Released],
+					DL.FineFees AS [Fine Fees],
+					DL.ReleaseDate AS [Release Date],
+					P.NationalNo AS [National No.],
+					P.Firstname + ' ' + P.Secondname + ' ' + P.Thirdname + ' ' + P.Lastname AS [Full Name],
+					DL.ReleaseApplicationID AS [Release App. ID]
+
+                FROM DetainedLicenses DL 
+                    JOIN Licenses L ON L.LicenseID = DL.LicenseID
+                    JOIN Drivers D ON D.DriverID = L.DriverID
+                    JOIN Person P ON P.PersonID = D.PersonID
+                    
+            ";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -41,6 +58,96 @@ namespace Data_Layer
 
             return dt;
         }
+        public static DataTable GetAllFiltered(
+            int DetainID = -1, bool? IsReleased = null, string NationalNo = "", string Fullname = "", int ReleaseApplicationID = -1)
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"
+                SELECT 
+                    DL.DetainID AS [Detain ID],  
+                    DL.LicenseID AS [License ID],
+					DL.DetainDate AS [Detain Date],
+					DL.IsReleased AS [Is Released],
+					DL.FineFees AS [Fine Fees],
+					DL.ReleaseDate AS [Release Date],
+					P.NationalNo AS [National No.],
+					P.Firstname + ' ' + P.Secondname + ' ' + P.Thirdname + ' ' + P.Lastname AS [Full Name],
+					DL.ReleaseApplicationID AS [Release App. ID]
+
+                FROM DetainedLicenses DL 
+                    JOIN Licenses L ON L.LicenseID = DL.LicenseID
+                    JOIN Drivers D ON D.DriverID = L.DriverID
+                    JOIN Person P ON P.PersonID = D.PersonID
+                WHERE 
+                    (@DetainID IS NULL OR 
+                    DL.DetainID = @DetainID) AND
+
+                    (@IsReleased IS NULL OR 
+                    DL.IsReleased = @IsReleased) AND
+
+					(@NationalNo IS NULL OR
+					P.NationalNo LIKE '%' + @NationalNo + '%') AND
+
+                    (@Fullname IS NULL OR 
+                        P.Firstname + ' ' + P.Secondname + ' ' + P.Thirdname + ' ' + P.Lastname LIKE '%' + @Fullname + '%') AND
+
+					(@ReleaseApplicationID IS NULL OR
+					DL.ReleaseApplicationID = @ReleaseApplicationID)
+
+            ";
+
+            
+            SqlCommand command = new SqlCommand(query, connection);
+
+            if (DetainID != -1)
+                command.Parameters.AddWithValue("@DetainID", DetainID);
+            else
+                command.Parameters.AddWithValue("@DetainID", DBNull.Value);
+
+            if (IsReleased != null)
+                command.Parameters.AddWithValue("@IsReleased", IsReleased);
+            else
+                command.Parameters.AddWithValue("@IsReleased", DBNull.Value);
+
+            if (!string.IsNullOrEmpty(NationalNo))
+                command.Parameters.AddWithValue("@NationalNo", NationalNo);
+            else
+                command.Parameters.AddWithValue("@NationalNo", DBNull.Value);
+
+            if (!string.IsNullOrEmpty(Fullname))
+                command.Parameters.AddWithValue("@Fullname", Fullname);
+            else
+                command.Parameters.AddWithValue("@Fullname", DBNull.Value);
+
+            if (ReleaseApplicationID != -1)
+                command.Parameters.AddWithValue("@ReleaseApplicationID", ReleaseApplicationID);
+            else
+                command.Parameters.AddWithValue("@ReleaseApplicationID", DBNull.Value);
+
+                DataTable dt = new DataTable();
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                clsErrorLog.AddErrorLog(ex);
+            }
+            finally { connection.Close(); }
+
+            return dt;
+        }
+
 
         public static int Add(
             int LicenseID, DateTime? DetainDate, decimal FineFees, int CreatedByUserID, bool IsReleased,

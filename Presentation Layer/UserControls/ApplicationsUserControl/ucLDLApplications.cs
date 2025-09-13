@@ -375,5 +375,40 @@ namespace Presentation_Layer.UserControls.ApplicationsUserControl
                 RefreshDGV();
             }
         }
+
+        private void gbFilter_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFilter_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblRecordCount_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvApplicationsList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void cmss2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmss1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmss3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

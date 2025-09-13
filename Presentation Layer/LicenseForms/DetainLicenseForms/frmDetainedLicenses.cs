@@ -16,5 +16,24 @@ namespace Presentation_Layer.LicenseForms.DetainLicenseForms
         {
             InitializeComponent();
         }
+
+        private void pbAdd_Click(object sender, EventArgs e)
+        {
+            frmDetainLicense frm = new frmDetainLicense();
+            frm.ShowDialog();
+            ucDetainedLicenses1.RefreshDGV();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            frmReleaseLicense frm = new frmReleaseLicense();
+            frm.ShowDialog();
+            ucDetainedLicenses1.RefreshDGV();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
