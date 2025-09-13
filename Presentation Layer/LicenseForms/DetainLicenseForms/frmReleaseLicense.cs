@@ -180,6 +180,7 @@ namespace Presentation_Layer.LicenseForms.DetainLicenseForms
         {
             txtFilter.Text = LicenseID.ToString();
             ButtonFind();
+
         }
     }
 }
